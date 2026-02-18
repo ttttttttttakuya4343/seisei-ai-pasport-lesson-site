@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4: テキスト生成AIを用いたビジネス応用 | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html">ホーム</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="レッスンメニューを開く" aria-expanded="false">
+                        レッスン
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="lesson1.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 1</span>
+                            LMとLLM
+                        </a>
+                        <a href="lesson2.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 2</span>
+                            プロンプティングの基礎
+                        </a>
+                        <a href="lesson3.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 3</span>
+                            LLMプロンプティングの実践
+                        </a>
+                        <a href="lesson4.html" class="active" role="menuitem">
+                            <span class="lesson-badge">Lesson 4</span>
+                            ビジネス応用
+                        </a>
+                        <a href="lesson5.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 5</span>
+                            不得意なこと
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- サイドバー目次 -->
+        <aside class="table-of-contents">
+            <h3>📋 目次</h3>
+            <!-- JavaScriptで自動生成 -->
+        </aside>
+
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="hero-badge">Lesson 4</div>
+                <h1>テキスト生成AIを用いたビジネス応用</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約60分</span>
+                    <span>📚 学習目標: 生成AIのビジネス応用について学習する</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📖 学習内容</h2>
+                <p>このレッスンでは、実務で使える16のビジネス応用を学習します:</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                    <ul>
+                        <li>メールの作成</li>
+                        <li>アンケート項目の作成</li>
+                        <li>アンケートの分析</li>
+                        <li>キャッチコピーの作成</li>
+                        <li>ビジネス書類のテンプレート作成</li>
+                        <li>アジェンダの作成</li>
+                        <li>業務の手順を分解</li>
+                        <li>タスクの抽出</li>
+                    </ul>
+                    <ul>
+                        <li>外国語の翻訳</li>
+                        <li>英単語から英文の作成</li>
+                        <li>海外企業宛のメール文章の作成</li>
+                        <li>ディベートを行う</li>
+                        <li>姓と名の分離</li>
+                        <li>ふりがなの記載</li>
+                        <li>ブレインストーミング</li>
+                        <li>質問させながら一緒に進める</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣ メールの作成</h2>
+
+                <h3>ビジネスメールの基本</h3>
+                <div class="highlight">
+                    <p><strong>効果的なメール作成のポイント</strong></p>
+                    <ul>
+                        <li>目的を明確にする</li>
+                        <li>相手に合わせたトーンを設定</li>
+                        <li>簡潔で読みやすい文章</li>
+                    </ul>
+                </div>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の内容でビジネスメールを作成してください:
+
+宛先: 取引先(株式会社ABC 田中様)
+目的: 会議の日程調整
+内容: 来週の水曜日または木曜日の午後に、新プロジェクトの打ち合わせをしたい
+トーン: 丁寧、フォーマル</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ アンケート項目の作成</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下のテーマでアンケートを作成してください:
+
+テーマ: 社内の生成AI活用状況調査
+対象: 全社員
+質問数: 10問
+形式: 選択式5問、自由記述5問</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3️⃣ アンケートの分析</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下のアンケート結果を分析してください:
+
+質問: 生成AIを業務で使っていますか?
+- はい: 45人(60%)
+- いいえ: 30人(40%)
+
+質問: どのような用途で使っていますか?(複数回答可)
+- 文章作成: 35人
+- メール作成: 28人
+- アイデア出し: 20人
+- コード生成: 15人
+
+分析のポイント:
+1. 主な傾向
+2. 注目すべき点
+3. 改善提案</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4️⃣ キャッチコピーの作成</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の商品のキャッチコピーを5つ考えてください:
+
+商品: AI搭載スマートウォッチ
+ターゲット: 30代ビジネスパーソン
+特徴:
+- 健康管理機能
+- ビジネス通知
+- バッテリー7日間持続
+
+各20文字以内で、インパクトのあるコピーをお願いします。</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5️⃣ ビジネス書類のテンプレート作成</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の内容で企画書のテンプレートを作成してください:
+
+プロジェクト名: 社内生成AI活用推進プロジェクト
+目的: 業務効率化とDX推進
+予算: 500万円
+期間: 6ヶ月
+担当部署: IT部門
+
+必要なセクション:
+1. 背景と目的
+2. 実施内容
+3. スケジュール
+4. 予算内訳
+5. 期待効果
+6. リスクと対策</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6️⃣ アジェンダの作成</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の会議のアジェンダを作成してください:
+
+会議名: 第1回 生成AI活用推進会議
+日時: 2026年2月10日(月) 14:00-16:00
+参加者: 経営陣、各部門長
+目的: 生成AI活用方針の決定
+
+議題:
+1. 現状の課題共有
+2. 活用方針の検討
+3. 予算の承認
+4. 次回までのアクション決定</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>7️⃣ 業務の手順を分解</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の業務を、具体的な手順に分解してください:
+
+業務: 新入社員のオンボーディング
+
+ステップごとに、担当者、所要時間、必要なツールも記載してください。</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>8️⃣ タスクの抽出</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の会議議事録からタスクを抽出してください:
+
+議事録:
+「次回までに、田中さんは市場調査を完了し、佐藤さんは競合分析をまとめる。鈴木さんは予算案を作成し、2月15日までに提出する。」
+
+抽出形式:
+- タスク内容
+- 担当者
+- 期限</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>9️⃣ 外国語の翻訳</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下のビジネス文書を英語に翻訳してください:
+
+「弊社は、生成AI技術を活用したソリューションを提供しております。貴社のビジネス課題解決に貢献できれば幸いです。」
+
+ビジネス文書として適切な表現で、丁寧な言葉遣いでお願いします。</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔟 ブレインストーミング</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下のテーマでブレインストーミングを行ってください:
+
+テーマ: 社内の生成AI活用を促進するアイデア
+
+条件:
+- 実現可能性は問わない
+- 10個以上のアイデアを出す
+- 斬新なアイデアも歓迎
+- 各アイデアに簡単な説明を付ける</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣1️⃣ 質問させながら一緒に進める</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>あなたはビジネスコンサルタントです。
+私が新規事業を立ち上げるために、必要な情報を質問しながら一緒に計画を作成してください。
+
+まず最初の質問から始めてください。</pre>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💡 総合演習: ビジネスシナリオ</h3>
+                <p>以下のシナリオで、複数の技法を組み合わせて使ってみましょう。</p>
+
+                <div class="exercise-prompt">
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>シナリオ:
+あなたは新商品「AI学習アプリ」のマーケティング担当者です。
+
+タスク:
+1. 商品のキャッチコピーを3つ作成
+2. 顧客アンケートの質問項目を5つ作成
+3. プレスリリースのテンプレートを作成
+4. SNS投稿文(Twitter用、200文字以内)を3パターン作成
+
+ターゲット: 20代〜30代の社会人
+商品特徴: AI個別最適化、スキマ時間学習、月額980円</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> ビジネスメール作成で重要な要素はどれですか?</p>
+                    <ul class="quiz-options" id="quiz1">
+                        <li onclick="selectAnswer(this, false)">A. 長い文章</li>
+                        <li onclick="selectAnswer(this, true)">B. 目的の明確化</li>
+                        <li onclick="selectAnswer(this, false)">C. 専門用語の多用</li>
+                        <li onclick="selectAnswer(this, false)">D. 装飾的な表現</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback1" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> ブレインストーミングで重要なことはどれですか?</p>
+                    <ul class="quiz-options" id="quiz2">
+                        <li onclick="selectAnswer(this, false)">A. 実現可能性を重視</li>
+                        <li onclick="selectAnswer(this, false)">B. アイデアを厳選</li>
+                        <li onclick="selectAnswer(this, true)">C. 量を重視</li>
+                        <li onclick="selectAnswer(this, false)">D. 批判的に評価</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback2" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 効果的なキャッチコピーを生成するプロンプトのポイントは何ですか?</p>
+                    <ul class="quiz-options" id="quiz3">
+                        <li onclick="selectAnswer(this, false)">A. 商品の価格のみを伝える</li>
+                        <li onclick="selectAnswer(this, true)">B. ターゲット層と商品の特徴を明確にする</li>
+                        <li onclick="selectAnswer(this, false)">C. 長い文章で説明する</li>
+                        <li onclick="selectAnswer(this, false)">D. 専門用語を多用する</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback3" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> アンケート分析でLLMを活用する際の利点は何ですか?</p>
+                    <ul class="quiz-options" id="quiz4">
+                        <li onclick="selectAnswer(this, false)">A. アンケートを自動で作成できる</li>
+                        <li onclick="selectAnswer(this, true)">B. 大量の自由記述回答を効率的に分析できる</li>
+                        <li onclick="selectAnswer(this, false)">C. アンケートを削除できる</li>
+                        <li onclick="selectAnswer(this, false)">D. アンケートを暗号化できる</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback4" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> LLMをビジネスで活用する際の注意点はどれですか?</p>
+                    <ul class="quiz-options" id="quiz5">
+                        <li onclick="selectAnswer(this, false)">A. 全ての業務を自動化する</li>
+                        <li onclick="selectAnswer(this, true)">B. 出力内容を確認し、必要に応じて修正する</li>
+                        <li onclick="selectAnswer(this, false)">C. AIの出力をそのまま使う</li>
+                        <li onclick="selectAnswer(this, false)">D. 人間の判断を完全に排除する</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback5" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <p><strong>このレッスンで学んだビジネス応用</strong></p>
+                    <p>生成AIは、メール作成、アンケート、キャッチコピー、企画書、アジェンダ、タスク管理、翻訳、ブレストなど、様々なビジネスシーンで活用できます。</p>
+                    <p><strong>重要なポイント</strong>: 目的を明確にし、適切なプロンプトを設計することで、業務効率を大幅に向上できます。</p>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="lesson3.html" class="nav-button secondary">← Lesson 3</a>
+                <a href="lesson5.html" class="nav-button">次へ: Lesson 5 →</a>
+            </div>
+
+            <!-- レッスン完了ボタン -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="complete-lesson-btn" onclick="completeLesson(4)"
+                    style="background: linear-gradient(90deg, var(--ra-red), var(--flame-orange)); color: white; border: none; padding: 1rem 3rem; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3); transition: transform 0.3s; margin-bottom: 2rem;">
+                    ✅ このレッスンを完了する
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 生成AIパスポート講座 | Plus Ultra! 💪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyPrompt(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'コピー完了!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'コピー';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function selectAnswer(element, isCorrect) {
+            const options = element.parentElement.children;
+            const feedbackId = element.parentElement.id.replace('quiz', 'feedback');
+            const feedback = document.getElementById(feedbackId);
+
+            for (let option of options) {
+                option.classList.remove('correct', 'incorrect');
+            }
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'quiz-feedback correct';
+                feedback.textContent = '✅ 正解です! よくできました!';
+            } else {
+                element.classList.add('incorrect');
+                feedback.className = 'quiz-feedback incorrect';
+                feedback.textContent = '❌ 不正解です。もう一度考えてみましょう。';
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // レッスン完了機能
+        function completeLesson(lessonNumber) {
+            if (typeof markLessonComplete === 'function') {
+                markLessonComplete(lessonNumber);
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+
+                if (typeof showSaboMessage === 'function') {
+                    showSaboMessage('lessonComplete', 4000);
+                }
+            }
+        }
+
+        // ページ読み込み時に完了状態をチェック
+        window.addEventListener('load', () => {
+            if (typeof checkLessonComplete === 'function' && checkLessonComplete(4)) {
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+    <script src="character-system.js"></script>
+</body>
+
+</html>

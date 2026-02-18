@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: LLMプロンプティングの実践 | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html">ホーム</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="レッスンメニューを開く" aria-expanded="false">
+                        レッスン
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="lesson1.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 1</span>
+                            LMとLLM
+                        </a>
+                        <a href="lesson2.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 2</span>
+                            プロンプティングの基礎
+                        </a>
+                        <a href="lesson3.html" class="active" role="menuitem">
+                            <span class="lesson-badge">Lesson 3</span>
+                            LLMプロンプティングの実践
+                        </a>
+                        <a href="lesson4.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 4</span>
+                            ビジネス応用
+                        </a>
+                        <a href="lesson5.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 5</span>
+                            不得意なこと
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- サイドバー目次 -->
+        <aside class="table-of-contents">
+            <h3>📋 目次</h3>
+            <!-- JavaScriptで自動生成 -->
+        </aside>
+
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="hero-badge">Lesson 3</div>
+                <h1>LLMプロンプティングの実践</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約60分</span>
+                    <span>📚 学習目標: テキスト生成AIにおける基礎的なプロンプティング技法について学習する</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📖 学習内容</h2>
+                <p>このレッスンでは、以下の9つの基礎的なプロンプティング技法を学習します:</p>
+                <ul>
+                    <li>文章の校正、校正箇所の確認</li>
+                    <li>文章の整理</li>
+                    <li>文章の要約</li>
+                    <li>箇条書きを文章に変換、文章を箇条書きに変換</li>
+                    <li>文章の対象を変更する</li>
+                    <li>話者の設定を変更する</li>
+                    <li>文章を会話のやり取りへ変換</li>
+                    <li>例え話で理解を深める</li>
+                    <li>数字の変換</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣ 文章の校正、校正箇所の確認</h2>
+
+                <h3>文章校正の基本</h3>
+                <div class="highlight">
+                    <p><strong>文章校正とは</strong></p>
+                    <ul>
+                        <li>誤字脱字の修正</li>
+                        <li>文法の修正</li>
+                        <li>より自然な表現への変更</li>
+                        <li>表記の統一</li>
+                    </ul>
+                </div>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を校正してください。
+修正箇所は【修正前】→【修正後】の形式で示してください。
+
+文章:
+「生成AIは、テキストや画像を生成する技術です。2022年にChatGPTが登場して、一般の人々にも普及しました。ビジネスでは、様々な用途で活用されてます。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ 文章の整理</h2>
+
+                <h3>文章整理の目的</h3>
+                <p>読みやすく、理解しやすい文章に整える</p>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を読みやすく整理してください:
+
+「生成AIは便利ですが注意点もあります、例えばハルシネーションという問題があって、これは誤った情報を生成することで、また著作権の問題もあり、AI生成物の権利の所在が不明確な場合があります、さらにセキュリティの懸念もあって機密情報を入力すると漏洩のリスクがあります。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3️⃣ 文章の要約</h2>
+
+                <h3>要約の種類</h3>
+                <ul>
+                    <li><strong>抽出型要約</strong>: 重要な文を抜き出す</li>
+                    <li><strong>生成型要約</strong>: 新しい文章で要約</li>
+                </ul>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を3行で要約してください:
+
+「大規模言語モデル(LLM)は、膨大なテキストデータから学習した人工知能モデルです。数千億から数兆のパラメータを持ち、人間のような自然な文章を生成できます。ChatGPT、Gemini、Claudeなどが代表的なLLMです。LLMは、文章生成、翻訳、要約、質問応答など、様々なタスクに活用できます。しかし、ハルシネーション(誤った情報の生成)や、学習データのバイアスなどの課題もあります。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4️⃣ 箇条書きと文章の変換</h2>
+
+                <h3>箇条書き→文章</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の箇条書きを、自然な文章に変換してください:
+
+- 生成AIは2022年に普及
+- ChatGPTが火付け役
+- ビジネスで広く活用
+- 注意点も存在</pre>
+                </div>
+
+                <h3>文章→箇条書き</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を箇条書き5項目にまとめてください:
+
+「プロンプトエンジニアリングは、LLMから最適な出力を得るための技術です。効果的なプロンプトには、役割設定、コンテキスト、タスク、制約、出力形式の5つの要素が重要です。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5️⃣ 文章の対象を変更する</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を、小学生にもわかるように書き直してください:
+
+「大規模言語モデルは、膨大なパラメータを持つニューラルネットワークであり、自己回帰的に次のトークンを予測することで文章を生成します。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6️⃣ 話者の設定を変更する</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を、フレンドリーなトーンに変更してください:
+
+「本サービスのご利用にあたりましては、利用規約をご確認の上、同意いただく必要がございます。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>7️⃣ 文章を会話のやり取りへ変換</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の説明文を、先生と生徒の会話形式に変換してください:
+
+「生成AIは、テキスト、画像、音声などの新しいコンテンツを生成する人工知能技術です。ChatGPTやMidjourneyなどが代表的なサービスです。」</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>8️⃣ 例え話で理解を深める</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>「プロンプトエンジニアリング」を、料理に例えてわかりやすく説明してください。</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>9️⃣ 数字の変換</h2>
+
+                <h3>プロンプト例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章に含まれる数字を、すべて漢数字に変換してください:
+
+「2024年に、GPT-4が登場しました。パラメータ数は1兆を超えると言われています。」</pre>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💡 総合演習</h3>
+                <p>以下の文章を使って、様々な技法を試してみましょう。</p>
+
+                <div class="exercise-prompt">
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>元の文章:
+「生成AIパスポート試験は、生成AIに関する基礎知識を問う試験です。試験時間は60分で、60問の四肢択一問題が出題されます。合格ラインは70%以上です。」
+
+課題:
+1. この文章を箇条書きに変換
+2. 小学生向けに書き直し
+3. 3行で要約
+4. 数字を漢数字に変換</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 文章校正で確認すべき項目として適切でないものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz1">
+                        <li onclick="selectAnswer(this, false)">A. 誤字脱字</li>
+                        <li onclick="selectAnswer(this, false)">B. 文法</li>
+                        <li onclick="selectAnswer(this, true)">C. 文章の長さ</li>
+                        <li onclick="selectAnswer(this, false)">D. 表記の統一</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback1" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> 要約の種類として正しいものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz2">
+                        <li onclick="selectAnswer(this, false)">A. 抽出型と削除型</li>
+                        <li onclick="selectAnswer(this, true)">B. 抽出型と生成型</li>
+                        <li onclick="selectAnswer(this, false)">C. 生成型と変換型</li>
+                        <li onclick="selectAnswer(this, false)">D. 削除型と変換型</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback2" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 箇条書きを文章に変換する際のプロンプトのポイントは何ですか?</p>
+                    <ul class="quiz-options" id="quiz3">
+                        <li onclick="selectAnswer(this, false)">A. 箇条書きの数を増やす</li>
+                        <li onclick="selectAnswer(this, true)">B. 変換後の文章のトーンや形式を指定する</li>
+                        <li onclick="selectAnswer(this, false)">C. 箇条書きを削除する</li>
+                        <li onclick="selectAnswer(this, false)">D. 箇条書きの順序を変える</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback3" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> 「小学生向けに説明して」というプロンプトの目的は何ですか?</p>
+                    <ul class="quiz-options" id="quiz4">
+                        <li onclick="selectAnswer(this, false)">A. 文章を短くする</li>
+                        <li onclick="selectAnswer(this, true)">B. 対象読者に合わせて表現を変える</li>
+                        <li onclick="selectAnswer(this, false)">C. 専門用語を増やす</li>
+                        <li onclick="selectAnswer(this, false)">D. 文章を長くする</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback4" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> 話者の設定を変更することで何が変わりますか?</p>
+                    <ul class="quiz-options" id="quiz5">
+                        <li onclick="selectAnswer(this, false)">A. 文章の長さ</li>
+                        <li onclick="selectAnswer(this, true)">B. 文章のトーンや表現スタイル</li>
+                        <li onclick="selectAnswer(this, false)">C. 文章の文字数</li>
+                        <li onclick="selectAnswer(this, false)">D. 文章の言語</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback5" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <p><strong>このレッスンで学んだ9つの技法</strong></p>
+                    <ol>
+                        <li>文章の校正、校正箇所の確認</li>
+                        <li>文章の整理</li>
+                        <li>文章の要約</li>
+                        <li>箇条書きと文章の変換</li>
+                        <li>文章の対象を変更</li>
+                        <li>話者の設定を変更</li>
+                        <li>文章を会話のやり取りへ変換</li>
+                        <li>例え話で理解を深める</li>
+                        <li>数字の変換</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="lesson2.html" class="nav-button secondary">← Lesson 2</a>
+                <a href="lesson4.html" class="nav-button">次へ: Lesson 4 →</a>
+            </div>
+
+            <!-- レッスン完了ボタン -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="complete-lesson-btn" onclick="completeLesson(3)"
+                    style="background: linear-gradient(90deg, var(--ra-red), var(--flame-orange)); color: white; border: none; padding: 1rem 3rem; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3); transition: transform 0.3s; margin-bottom: 2rem;">
+                    ✅ このレッスンを完了する
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 生成AIパスポート講座 | Plus Ultra! 💪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyPrompt(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'コピー完了!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'コピー';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function selectAnswer(element, isCorrect) {
+            const options = element.parentElement.children;
+            const feedbackId = element.parentElement.id.replace('quiz', 'feedback');
+            const feedback = document.getElementById(feedbackId);
+
+            for (let option of options) {
+                option.classList.remove('correct', 'incorrect');
+            }
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'quiz-feedback correct';
+                feedback.textContent = '✅ 正解です! よくできました!';
+            } else {
+                element.classList.add('incorrect');
+                feedback.className = 'quiz-feedback incorrect';
+                feedback.textContent = '❌ 不正解です。もう一度考えてみましょう。';
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // レッスン完了機能
+        function completeLesson(lessonNumber) {
+            if (typeof markLessonComplete === 'function') {
+                markLessonComplete(lessonNumber);
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+
+                if (typeof showSaboMessage === 'function') {
+                    showSaboMessage('lessonComplete', 4000);
+                }
+            }
+        }
+
+        // ページ読み込み時に完了状態をチェック
+        window.addEventListener('load', () => {
+            if (typeof checkLessonComplete === 'function' && checkLessonComplete(3)) {
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+    <script src="character-system.js"></script>
+</body>
+
+</html>

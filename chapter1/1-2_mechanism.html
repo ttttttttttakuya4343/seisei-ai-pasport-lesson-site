@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-2: AIに知能をもたらす仕組み | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第1章</a> &gt;
+                    1-2
+                </div>
+                <div class="hero-badge">第1章 セクション 1-2</div>
+                <h1>AIに知能をもたらす仕組み</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約20分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🧩 知能をもたらす2つの仕組み</h2>
+                <p>AIに知能をもたらす方法は、大きく分けて2つあります。</p>
+
+                <h3>1. ルールベース</h3>
+                <div class="highlight">
+                    <p><strong>定義:</strong> 人間が明示的にルール（規則）を書いてAIを動かす方法</p>
+                    <ul>
+                        <li>「もし〇〇なら△△する」というIF-THENルールを記述</li>
+                        <li>専門家の知識をルール化（エキスパートシステム）</li>
+                        <li>論理的な推論で答えを導く</li>
+                    </ul>
+                </div>
+                <p><strong>例:</strong> 「気温が30度以上ならエアコンをつける」</p>
+                <p><strong>長所:</strong> 動作が明確で説明しやすい</p>
+                <p><strong>短所:</strong> 複雑な問題では膨大なルールが必要、柔軟性が低い</p>
+
+                <h3>2. 機械学習（Machine Learning）</h3>
+                <div class="highlight">
+                    <p><strong>定義:</strong> データから自動的にパターンやルールを学習する方法</p>
+                    <ul>
+                        <li>人間が明示的にルールを書かない</li>
+                        <li>大量のデータから学習</li>
+                        <li>経験を通じて性能が向上</li>
+                    </ul>
+                </div>
+                <p><strong>例:</strong> 大量のメールデータからスパムの特徴を自動で学習</p>
+                <p><strong>長所:</strong> 複雑なパターンを発見、柔軟性が高い</p>
+                <p><strong>短所:</strong> 大量のデータが必要、動作の説明が難しい場合がある</p>
+
+                <h4>学習済みモデル</h4>
+                <p>機械学習で作成されたAIのことを「<strong>学習済みモデル</strong>」と呼びます。ChatGPTやGeminiなども学習済みモデルです。</p>
+            </div>
+
+            <div class="section">
+                <h2>📚 機械学習の手法</h2>
+                <h3>1. 教師あり学習（Supervised Learning）</h3>
+                <div class="highlight">
+                    <p><strong>特徴:</strong> 「入力」と「正解ラベル」のペアで学習</p>
+                    <ul>
+                        <li>最も一般的な機械学習手法</li>
+                        <li>予測・分類タスクに使用</li>
+                        <li>正解データが必要</li>
+                    </ul>
+                </div>
+                <p><strong>例:</strong></p>
+                <ul>
+                    <li>画像分類: 「猫」「犬」などのラベル付き画像で学習</li>
+                    <li>スパム判定: 「スパム」「正常」のラベル付きメールで学習</li>
+                    <li>株価予測: 過去のデータから未来の価格を予測</li>
+                </ul>
+
+                <h3>2. 教師なし学習（Unsupervised Learning）</h3>
+                <div class="highlight">
+                    <p><strong>特徴:</strong> ラベルなしデータからパターンを発見</p>
+                    <ul>
+                        <li>データの構造や特徴を自動発見</li>
+                        <li>正解データが不要</li>
+                        <li>人間が気づかないパターンを発見</li>
+                    </ul>
+                </div>
+                <p><strong>主な手法:</strong></p>
+                <ul>
+                    <li><strong>クラスタリング:</strong> 似たデータをグループ化
+                        <ul>
+                            <li>例: 顧客の購買パターンでグループ分け</li>
+                        </ul>
+                    </li>
+                    <li><strong>次元削減:</strong> データの特徴を圧縮・要約
+                        <ul>
+                            <li>例: 100個の特徴を10個に圧縮</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3. 強化学習（Reinforcement Learning）</h3>
+                <div class="highlight">
+                    <p><strong>特徴:</strong> 試行錯誤を通じて最適な行動を学習</p>
+                    <ul>
+                        <li>行動に対する「報酬」を最大化</li>
+                        <li>環境との相互作用で学習</li>
+                        <li>ゲームAI、ロボット制御に活用</li>
+                    </ul>
+                </div>
+                <p><strong>例:</strong></p>
+                <ul>
+                    <li>囲碁AI: 勝つ行動に高い報酬</li>
+                    <li>ロボット歩行: 転ばない行動に報酬</li>
+                    <li>自動運転: 安全な運転に報酬</li>
+                </ul>
+
+                <h3>4. 半教師あり学習（Semi-supervised Learning）</h3>
+                <div class="highlight">
+                    <p><strong>特徴:</strong> 少量のラベル付きデータ + 大量のラベルなしデータで学習</p>
+                    <ul>
+                        <li>教師あり学習と教師なし学習のハイブリッド</li>
+                        <li>ラベル付けコストを削減</li>
+                        <li>実用的な手法</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🤔 ノーフリーランチ定理</h2>
+                <div class="highlight">
+                    <p><strong>No Free Lunch Theorem（NFL定理）</strong></p>
+                    <p>「あらゆる問題に対して最適なアルゴリズムは存在しない」</p>
+                </div>
+                <p><strong>意味:</strong></p>
+                <ul>
+                    <li>問題Aで優秀なアルゴリズムが、問題Bでも優秀とは限らない</li>
+                    <li>問題に応じて適切なアルゴリズムを選ぶ必要がある</li>
+                    <li>「万能のAI」は存在しない</li>
+                </ul>
+                <p><strong>実践的な意味:</strong> データとタスクに応じて、最適な機械学習手法を選択することが重要</p>
+            </div>
+
+            <div class="section">
+                <h2>🧠 人間の脳とニューラルネットワーク</h2>
+                <h3>生物学的なニューロン</h3>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>ニューロン（神経細胞）:</strong> 脳の基本単位、約860億個</li>
+                        <li><strong>シナプス:</strong> ニューロン間の接続部分</li>
+                        <li><strong>信号伝達:</strong> 電気信号で情報を伝える</li>
+                    </ul>
+                </div>
+
+                <h3>人工ニューロン（ノード）</h3>
+                <p>人間の脳の仕組みを模倣して作られた計算単位</p>
+                <div class="code-block">
+                    <pre>人工ニューロンの動作:
+1. 複数の入力を受け取る
+2. それぞれの入力に「重み」をかける
+3. 重み付けされた入力を合計
+4. 活性化関数で出力を決定</pre>
+                </div>
+
+                <h3>ニューラルネットワーク（Neural Network）</h3>
+                <div class="highlight">
+                    <p><strong>定義:</strong> 人工ニューロンを層状に配置したネットワーク構造</p>
+                    <ul>
+                        <li><strong>入力層:</strong> データを受け取る層</li>
+                        <li><strong>隠れ層:</strong> 中間の計算を行う層</li>
+                        <li><strong>出力層:</strong> 最終結果を出力する層</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔥 ディープラーニング（深層学習）</h2>
+                <div class="highlight">
+                    <p><strong>定義:</strong> 多層（深い）のニューラルネットワークを使う機械学習</p>
+                    <ul>
+                        <li>隠れ層が複数ある（2層以上）</li>
+                        <li>画像認識、音声認識、自然言語処理で高性能</li>
+                        <li>現在の生成AIの基盤技術</li>
+                    </ul>
+                </div>
+
+                <h3>重みと情報の重みづけ</h3>
+                <div class="highlight">
+                    <p><strong>重み（Weight）:</strong> ニューロン間の接続の強さを表すパラメータ</p>
+                    <ul>
+                        <li>学習とは「重みを調整すること」</li>
+                        <li>重要な情報には大きな重み</li>
+                        <li>不要な情報には小さな重み</li>
+                    </ul>
+                </div>
+
+                <h3>AIが画像を認識する仕組み</h3>
+                <ol>
+                    <li><strong>低レベル特徴:</strong> エッジ、線、色などを検出</li>
+                    <li><strong>中レベル特徴:</strong> 形状、パターンを認識</li>
+                    <li><strong>高レベル特徴:</strong> 物体全体を認識（「猫」「犬」など）</li>
+                </ol>
+                <p>層が深くなるほど、より抽象的な特徴を学習します。</p>
+
+                <h3>AIが自ら学習して改善される仕組み</h3>
+                <div class="code-block">
+                    <pre>学習のサイクル:
+1. 予測: AIが答えを予測
+2. 誤差計算: 正解との差を計算
+3. 逆伝播: 誤差を各層に伝える
+4. 重み更新: 誤差を小さくするよう重みを調整
+5. 繰り返し: 1〜4を何度も繰り返す</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>⚠️ 過学習（オーバーフィッティング）</h2>
+                <div class="highlight">
+                    <p><strong>過学習:</strong> 訓練データに過度に適応しすぎて、新しいデータに対応できなくなる現象</p>
+                </div>
+                <p><strong>例:</strong></p>
+                <ul>
+                    <li>訓練データ: 正解率99%</li>
+                    <li>新しいデータ: 正解率60% ← 過学習している</li>
+                </ul>
+                <p><strong>原因:</strong></p>
+                <ul>
+                    <li>モデルが複雑すぎる</li>
+                    <li>訓練データが少なすぎる</li>
+                    <li>訓練を長時間やりすぎる</li>
+                </ul>
+
+                <h3>過学習を避ける手法</h3>
+                <h4>1. 正則化（Regularization）</h4>
+                <div class="highlight">
+                    <p>モデルの複雑さにペナルティを与える手法</p>
+                    <ul>
+                        <li>重みが大きくなりすぎるのを防ぐ</li>
+                        <li>シンプルなモデルを作る</li>
+                    </ul>
+                </div>
+
+                <h4>2. ドロップアウト（Dropout）</h4>
+                <div class="highlight">
+                    <p>学習中にランダムにニューロンを無効化する手法</p>
+                    <ul>
+                        <li>特定のニューロンへの依存を防ぐ</li>
+                        <li>汎化性能を向上させる</li>
+                    </ul>
+                </div>
+
+                <h4>3. その他の手法</h4>
+                <ul>
+                    <li><strong>早期終了:</strong> 検証データの性能が悪化したら学習を停止</li>
+                    <li><strong>データ拡張:</strong> 訓練データを増やす</li>
+                    <li><strong>クロスバリデーション:</strong> データを分割して評価</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔄 転移学習（Transfer Learning）</h2>
+                <div class="highlight">
+                    <p><strong>定義:</strong> あるタスクで学習したモデルを、別のタスクに再利用する手法</p>
+                </div>
+                <p><strong>メリット:</strong></p>
+                <ul>
+                    <li>学習時間の大幅短縮</li>
+                    <li>少ないデータで高性能</li>
+                    <li>コスト削減</li>
+                </ul>
+                <p><strong>例:</strong></p>
+                <ul>
+                    <li>ImageNetで学習したモデルを医療画像診断に応用</li>
+                    <li>GPT-3を特定分野にファインチューニング</li>
+                </ul>
+                <p><strong>現在の生成AI:</strong> ChatGPT、Geminiなども転移学習の技術を活用しています</p>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> ルールベースAIの特徴として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ルールベースAIは、人間が事前に定義したルール（「もしXならYを実行する」という明確な指示）に基づいて動作するAIです。ルールが明確なので動作の説明がしやすい（ホワイトボックス）特徴があります。')">
+                            A. 人間が明示的にルールを書いてAIを動かす</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            B. データから自動的にパターンを学習する</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. 大量のデータが必要</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. 動作の説明が難しい</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> 教師あり学習の説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">
+                            A. ラベルなしデータから学習する</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            B. 入力と正解ラベルのペアで学習する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：教師あり学習は、「問題」と「正解」のセット（教師データ）を与えて、「この入力ならこの出力」という関係を学習させる手法です。例えば、画像と「猫」ラベルのペアで学習することで、新しい画像を見たときに「猫」かどうかを判定できるようになります。')">
+                            C. 試行錯誤で最適な行動を学習する</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. 報酬を最大化する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> ディープラーニングの特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">
+                            A. 単層のニューラルネットワーク</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            B. 多層のニューラルネットワーク</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. ルールベースAI</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープラーニング（深層学習）は、人間の脳神経回路を模したニューラルネットワークを多層（深く）に重ねることで、複雑なパターンや特徴を自動で学習できる技術です。画像認識や音声認識で劇的な性能向上を実現しました。')">
+                            D. 多層のニューラルネットワーク</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> 過学習（オーバーフィッティング）とは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">
+                            A. 学習データの性能が低い状態</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：過学習は、練習問題（訓練データ）を覚えすぎてしまい、本番の試験（未知のデータ）で応用が効かず点数が取れなくなってしまうような状態のことです。モデルが訓練データの細かいノイズまで学習してしまい、一般化能力が低下します。')">
+                            B. 訓練データに過度に適応し、新しいデータに対応できない状態</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. モデルが単純すぎる状態</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. データが多すぎる状態</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> 転移学習の利点は？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：転移学習は、ある領域で学習済みのモデルを別の領域に再利用することで、ゼロから学習するよりも効率的に高い性能を出せる手法です。例えば、ImageNetで学習したモデルを医療画像診断に転用することで、少ないデータでも高精度な診断が可能になります。')">
+                            A. 学習時間の短縮と少ないデータで高性能</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            B. ルールを書く必要がない</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. 過学習を完全に防げる</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. データが不要になる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> ルールベースAIの主な特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, true, '✅ 解説：ルールベースAIは、人間が「もし〜なら...」というルールを明示的に記述して動作させるAIです。')">
+                            A. 人間がルールを明示的に記述する</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            B. データから自動で学習する</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. 中身がブラックボックスである</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. 未知の状況に強く柔軟である</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> 機械学習によって作成された「学習済みモデル」とは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. まだ何も学習していないプログラム</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：学習済みモデルは、大量のデータからパターンやルールを学習し終えた後のAIのことです（例：ChatGPTなど）。')">
+                            B. データからパターンを学習した後のAI</li>
+                        <li onclick="selectAnswer(this, false, '')">C. AIを動かすための高性能コンピュータ</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 学習に使ったデータそのもの</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> 半教師あり学習の特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">
+                            A. 全てのデータに正解ラベルがついている</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：半教師あり学習は、少量のラベル付きデータと大量のラベルなしデータを組み合わせて学翕する、コスト効率の良い手法です。')">
+                            B. 少量のラベル付きデータと大量のラベルなしデータを使う</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. 正解ラベルを全く使わない</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. 報酬を最大化するように学習する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> 「ノーフリーランチ定理」が示唆することは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">
+                            A. どんな問題でも解ける最強のアルゴリズムが存在する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ノーフリーランチ定理は、「あらゆる問題に対して常に優れた性能を発揮する万能のアルゴリズムは存在しない」という法則です。')">
+                            B. あらゆる問題に最適な万能アルゴリズムは存在しない</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. AIのелькові開発には必ずコストがかかる</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            D. AIに食事を与える必要はない</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> 過学習（Overfitting）の説明として適切なものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 未知のデータに対しても高い精度が出る</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：過学習は、訓練データ（練習問題）には適合しすぎているが、未知のデータ（本番試験）には対応できない状態を指します。モデルが訓練データの細かいノイズまで学習してしまい、一般化能力が低下した状態です。')">
+                            B. 訓練データに適合しすぎて汎化性能が低い</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 訓練データでも良い精度が出ない</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 学習データが少なすぎる状態</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>2つの仕組み:</strong> ルールベース vs 機械学習</li>
+                        <li><strong>機械学習手法:</strong> 教師あり、教師なし、強化、半教師あり</li>
+                        <li><strong>ニューラルネットワーク:</strong> 人間の脳を模倣した構造</li>
+                        <li><strong>ディープラーニング:</strong> 多層ニューラルネットワーク、生成AIの基盤</li>
+                        <li><strong>重要概念:</strong> 過学習、正則化、ドロップアウト、転移学習</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="1-1_definition.html" class="nav-button secondary">← 1-1: AI（人工知能）の定義</a>
+                <a href="1-3_types.html" class="nav-button">次: 1-3 AIの種類 →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('1-2')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, isCorrect, explanation) {
+            const options = e.parentElement.children;
+            const feedback = e.parentElement.nextElementSibling;
+
+            // 選択状態のリセット
+            for (let opt of options) {
+                opt.classList.remove("correct", "incorrect");
+            }
+
+            // 正誤判定と表示
+            if (isCorrect) {
+                e.classList.add("correct");
+                feedback.className = "quiz-feedback correct";
+                feedback.innerHTML = "✅ 正解です!";
+            } else {
+                e.classList.add("incorrect");
+                feedback.className = "quiz-feedback incorrect";
+                feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+            }
+
+            // 解説がある場合は追加表示
+            if (explanation) {
+                feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+            }
+
+            feedback.style.display = "block";
+
+            // キャラクターインタラクション
+            if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) {
+                selectRandomCharacter();
+            }
+            if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") {
+                playCharacterEffect(currentCharacter, e);
+            }
+
+            // サボメッセージ
+            if (typeof showSaboMessage === "function") {
+                setTimeout(() => {
+                    const msgType = isCorrect ? "correct" : "incorrect";
+                    showSaboMessage(msgType, 5000);
+                }, 500);
+            }
+        }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter1";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "1-2";
+            const chapter = "chapter1";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

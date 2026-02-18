@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-1: 生成AIの誕生まで | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第2章</a> &gt;
+                    2-1
+                </div>
+                <div class="hero-badge">第2章 セクション 2-1</div>
+                <h1>生成AIの誕生まで</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約20分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎨 生成AI（ジェネレーティブAI）とは</h2>
+                <div class="highlight">
+                    <p><strong>生成AI（Generative AI）</strong></p>
+                    <p>テキスト、画像、音声、動画などの新しいコンテンツを生成できるAI</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 人間のように「創作活動」ができるAIのことです</p>
+                </div>
+
+                <h3>生成AIと識別AIの違い</h3>
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: var(--primary-color); color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;"></th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">識別AI</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">生成AI</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>役割</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">分類・判定</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">創作・生成</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>例</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">「この画像は猫です」と判定</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">「猫の画像」を作成</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>具体例</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">スパムフィルター、顔認証</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">ChatGPT、画像生成AI</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🔬 生成モデルの誕生</h2>
+                <h3>ボルツマンマシン（1985年）</h3>
+                <div class="highlight">
+                    <p><strong>ボルツマンマシン</strong></p>
+                    <p>初期の生成モデル。確率的にデータを生成する仕組み</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> サイコロを振るように「確率」を使ってデータを作り出すAIの原型です</p>
+                </div>
+                <ul>
+                    <li>統計力学（物理学の分野）の理論を応用</li>
+                    <li>ニューロン同士が相互に影響し合う構造</li>
+                    <li><strong>限界：</strong> 計算量が膨大で実用化困難</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🎯 VAE（変分オートエンコーダー）</h2>
+                <div class="highlight">
+                    <p><strong>VAE（Variational Autoencoder / 変分オートエンコーダー）</strong></p>
+                    <p>データを圧縮して学習し、新しいデータを生成できるモデル</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 写真の「特徴」を覚えて、似た新しい写真を作り出せるAIです</p>
+                </div>
+
+                <h3>VAEの仕組み</h3>
+                <div class="code-block">
+                    <pre>1. エンコーダー（Encoder）
+   → 入力データを圧縮して「潜在変数」に変換
+   
+2. 潜在変数（Latent Variable）
+   → データの本質的な特徴を表す圧縮された情報
+   
+3. デコーダー（Decoder）
+   → 潜在変数から元のデータを復元・生成</pre>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>エンコーダー：</strong> データを圧縮する部分（例：写真を「犬、茶色、座っている」という特徴に変換）</li>
+                        <li><strong>デコーダー：</strong> 圧縮したデータを元に戻す部分（例：特徴から写真を再現）</li>
+                        <li><strong>潜在変数：</strong> データの背後にある、直接は見えない重要な特徴（例：写真の「雰囲気」や「スタイル」）</li>
+                    </ul>
+                </div>
+
+                <h3>VAEの特徴</h3>
+                <ul>
+                    <li><strong>連続的な生成：</strong> なめらかに変化する画像を生成可能</li>
+                    <li><strong>潜在空間の活用：</strong> 特徴を操作して新しいデータを作成</li>
+                    <li><strong>応用例：</strong> 画像生成、顔の特徴変更、データ圧縮</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⚔️ GAN（敵対的生成ネットワーク）</h2>
+                <div class="highlight">
+                    <p><strong>GAN（Generative Adversarial Network / 敵対的生成ネットワーク）</strong></p>
+                    <p>2014年、Ian Goodfellowが提案。2つのネットワークが競い合って学習</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「偽札作り」と「警察」が競い合って、本物そっくりの画像を作り出すAIです</p>
+                </div>
+
+                <h3>GANの仕組み</h3>
+                <div class="code-block">
+                    <pre>Generator（生成器）：偽物のデータを作る
+   ↓ 偽物を提示
+Discriminator（識別器）：本物か偽物かを判定
+   ↓ フィードバック
+Generator：もっと本物らしく作る
+   ↓
+繰り返すことで、本物と見分けがつかない偽物を生成</pre>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>Generator（生成器）：</strong> 偽物を作る役割（例：偽札作り）</li>
+                        <li><strong>Discriminator（識別器）：</strong> 本物と偽物を見分ける役割（例：警察）</li>
+                        <li><strong>敵対的：</strong> 2つのネットワークが「対立」しながら学習すること</li>
+                    </ul>
+                </div>
+
+                <h3>GANの応用例</h3>
+                <ul>
+                    <li><strong>画像生成：</strong> 実在しない人物の顔写真を生成</li>
+                    <li><strong>画像変換：</strong> 白黒写真をカラー化、昼の風景を夜に変換</li>
+                    <li><strong>超解像：</strong> 低解像度の画像を高解像度に変換</li>
+                    <li><strong>ディープフェイク：</strong> 人物の顔を別の顔に入れ替え（悪用の懸念あり）</li>
+                </ul>
+
+                <h3>GANの課題</h3>
+                <ul>
+                    <li><strong>学習の不安定性：</strong> 2つのネットワークのバランスが重要</li>
+                    <li><strong>モード崩壊：</strong> 似たような画像ばかり生成してしまう</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔄 RNN・LSTM（リカレントニューラルネットワーク）</h2>
+                <h3>RNN（Recurrent Neural Network）</h3>
+                <div class="highlight">
+                    <p><strong>RNN（リカレントニューラルネットワーク）</strong></p>
+                    <p>時系列データ（順序がある データ）を処理できるニューラルネットワーク</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「過去を覚えている」AIで、文章や音楽など順番が大事なデータを扱えます</p>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>時系列データ：</strong> 時間の流れに沿って並んだデータ（例：文章、音楽、株価）</li>
+                        <li><strong>リカレント（再帰的）：</strong> 前の情報を次の処理に使う仕組み</li>
+                    </ul>
+                </div>
+
+                <h3>RNNの特徴</h3>
+                <ul>
+                    <li>前の時点の情報を「記憶」して次の処理に活用</li>
+                    <li>文章生成、翻訳、音声認識に活用</li>
+                    <li><strong>問題点：</strong> 長い文章だと、最初の方の情報を忘れてしまう（勾配消失問題）</li>
+                </ul>
+
+                <h3>LSTM（Long Short-Term Memory）</h3>
+                <div class="highlight">
+                    <p><strong>LSTM（長短期記憶）</strong></p>
+                    <p>RNNの改良版。長期的な記憶を保持できる</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> RNNの「忘れっぽい」問題を解決した、もっと長く覚えていられるAIです</p>
+                </div>
+
+                <h3>LSTMの仕組み</h3>
+                <ul>
+                    <li><strong>忘却ゲート：</strong> どの情報を忘れるか決める</li>
+                    <li><strong>入力ゲート：</strong> どの新しい情報を記憶するか決める</li>
+                    <li><strong>出力ゲート：</strong> どの情報を出力するか決める</li>
+                </ul>
+
+                <p><strong>応用例：</strong> 機械翻訳、文章生成、音声認識、株価予測</p>
+            </div>
+
+            <div class="section">
+                <h2>🚀 Transformer（トランスフォーマー）</h2>
+                <div class="highlight">
+                    <p><strong>Transformer</strong></p>
+                    <p>2017年、Google が発表。「Attention is All You Need」論文で提案</p>
+                    <p>現在の生成AI（ChatGPT、GPT-4など）の基盤技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 文章全体を一度に見て、どこが重要かを判断できる革命的なAI技術です</p>
+                </div>
+
+                <h3>Transformerの革新性</h3>
+                <h4>1. Attention（アテンション）機構</h4>
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>Attention（注意機構）</strong></p>
+                    <p>文章の中で、どの単語とどの単語が関連しているかを自動的に判断する仕組み</p>
+                    <p class="note">💡 <strong>例：</strong> 「彼は銀行に行った」という文で、「彼」が何をしたか理解するために「行った」と「銀行」に注目します</p>
+                </div>
+
+                <h4>2. 並列処理が可能</h4>
+                <ul>
+                    <li>RNN/LSTMは順番に処理（遅い）</li>
+                    <li>Transformerは全体を同時に処理（速い）</li>
+                    <li>学習時間が大幅に短縮</li>
+                </ul>
+
+                <h4>3. 長距離依存関係の処理</h4>
+                <ul>
+                    <li>文章の最初と最後の関係も理解できる</li>
+                    <li>長い文章でも文脈を保持</li>
+                </ul>
+
+                <h3>Transformerの構造</h3>
+                <div class="code-block">
+                    <pre>Encoder（エンコーダー）
+→ 入力を理解し、特徴を抽出
+
+Decoder（デコーダー）
+→ 抽出した特徴から出力を生成
+
+Self-Attention（自己注意機構）
+→ 文章内の単語同士の関係を学習</pre>
+                </div>
+
+                <h3>Transformerの影響</h3>
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: var(--primary-color); color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;">モデル</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">説明</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>BERT（2018年）</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Encoder部分を使用、文章理解に特化</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>GPT（2018年〜）</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Decoder部分を使用、文章生成に特化</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>T5（2019年）</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Encoder-Decoderを両方使用</td>
+                    </tr>
+                </table>
+
+                <p><strong>Transformerの登場により、ChatGPTなどの大規模言語モデルが実現可能になりました。</strong></p>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 生成AIの説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. データを分類・判定するAI</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：生成AI（Generative AI）は、テキスト、画像、音声、動画などの新しいコンテンツを生成できるAIです。識別AIが「分類・判定」するのに対し、生成AIは「創作・生成」を行います。')">
+                            B. 新しいコンテンツを生成できるAI</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 顔認証を行うAI</li>
+                        <li onclick="selectAnswer(this, false, '')">D. スパムフィルター</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> GANの2つのネットワークは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Encoder と Decoder</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：GAN（敵対的生成ネットワーク）は、Generator（生成器）が偽物を作り、Discriminator（識別器）が本物と偽物を見分ける、2つのネットワークが競い合って学習する仕組みです。')">
+                            B. Generator と Discriminator</li>
+                        <li onclick="selectAnswer(this, false, '')">C. RNN と LSTM</li>
+                        <li onclick="selectAnswer(this, false, '')">D. CNN と DNN</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> LSTMが解決したRNNの問題は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 計算速度が遅い</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：LSTM（長短期記憶）は、RNNの「長い文章だと最初の方の情報を忘れてしまう（勾配消失問題）」という問題を解決するために開発されました。忘却ゲート、入力ゲート、出力ゲートを使って長期的な記憶を保持できます。')">
+                            B. 長期的な記憶を保持できない</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 画像を処理できない</li>
+                        <li onclick="selectAnswer(this, false, '')">D. データが必要すぎる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> Transformerが提案された年は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 2014年</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 2015年</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Transformerは2017年にGoogleが「Attention is All You Need」論文で発表しました。このモデルは現在の生成AI（ChatGPT、GPT-4など）の基盤技術となっています。')">
+                            C. 2017年</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 2020年</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> Transformerの重要な仕組みは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Attention（注意機構）は、文章の中でどの単語とどの単語が関連しているかを自動的に判断する仕組みです。これにより、文章全体を一度に見て重要な部分に注目できるようになり、RNN/LSTMより高速で正確な処理が可能になりました。')">
+                            A. Attention（注意機構）</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 畳み込み層</li>
+                        <li onclick="selectAnswer(this, false, '')">C. プーリング層</li>
+                        <li onclick="selectAnswer(this, false, '')">D. ドロップアウト</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> BERTの学習手法「MLM（Masked Language Model）」とは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 次の単語を予測する手法は、GPTモデルなどの自己回帰モデルで使われる手法です。')">A.
+                            文章の次の単語を予測する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：MLM（Masked Language Model）は、文章中の一部の単語をマスク（隠し）して、周囲の文脈からその単語を予測する学習手法です。これにより、BERTは双方向の文脈理解が可能になりました。')">
+                            B. 文章中のマスクされた単語を予測する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 文章を別の言語に変換するのは、翻訳モデルの役割です。')">C. 文章を別の言語に変換する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 文章の感情を判定するのは、センチメント分析と呼ばれるタスクです。')">D. 文章の感情を判定する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> VAE（変分自己符号化器）の構成要素として正しい組み合わせは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 生成器と識別器の組み合わせは、GAN（敵対的生成ネットワーク）の構成要素です。')">A. 生成器と識別器
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 入力層と出力層は、一般的なニューラルネットワークの基本構成であり、VAE特有の構成ではありません。')">
+                            B. 入力層と出力層</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：VAE（変分自己符号化器）は、エンコーダがデータを潜在ベクトル（低次元の表現）に圧縮し、デコーダがその潜在ベクトルからデータを復元・生成する構造です。')">
+                            C. エンコーダとデコーダ</li>
+                        <li onclick="selectAnswer(this, false, '❌ 畳み込み層とプーリング層は、CNN（畳み込みニューラルネットワーク）の主要な構成要素です。')">D.
+                            畳み込み層とプーリング層</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> Self-Attention（自己注意力）の役割として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 画像の特徴を抽出するのは、CNN（畳み込みニューラルネットワーク）の畳み込み演算の役割です。')">A.
+                            画像の特徴を抽出する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 時系列データを順番に処理するのは、RNN（回帰型ニューラルネットワーク）の特徴です。')">B.
+                            時系列データを順番に処理する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Self-Attention（自己注意力）は、入力文の中で各単語が他のすべての単語とどれだけ関連しているかを計算する仕組みです。これにより、文章全体を一度に処理でき、長距離の依存関係も捉えられます。')">
+                            C. 入力文の各単語間の関連度を計算する</li>
+                        <li onclick="selectAnswer(this, false, '❌ ノイズを除去するのは、オートエンコーダのデノイジング機能に関連する処理です。')">D.
+                            ノイズを除去してデータを整える</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> CNN（畳み込みニューラルネットワーク）が特に得意とする分野は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 音声の時系列処理は、RNNやLSTMが得意とする分野です。')">A. 音声の時系列処理</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：CNN（畳み込みニューラルネットワーク）は、畳み込み演算によって画像の局所的な特徴（エッジ、模様、形状など）を階層的に抽出でき、画像認識・画像生成の分野で特に高い性能を発揮します。')">
+                            B. 画像認識・画像生成</li>
+                        <li onclick="selectAnswer(this, false, '❌ 自然言語の文脈理解は、TransformerやBERTが得意とする分野です。')">C. 自然言語の文脈理解
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 強化学習によるゲームプレイは、DQNなどの強化学習アルゴリズムが得意とする分野です。')">D.
+                            強化学習によるゲームプレイ</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> RoBERTaはBERTの改良版ですが、主にどのような改良が行われましたか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ モデルサイズの大幅な縮小は、ALBERTの特徴です。')">A. モデルサイズを大幅に縮小した</li>
+                        <li onclick="selectAnswer(this, false, '❌ 画像処理機能の追加は、ViT（Vision Transformer）などの派生モデルの特徴です。')">B.
+                            画像処理機能を追加した</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RoBERTaは、BERTの学習方法を改良したモデルです。より多くのデータ、より長い学習時間、NSP（Next Sentence Prediction）タスクの除去などの最適化により、BERTを上回る性能を実現しました。')">
+                            C. 学習データ量と学習方法を最適化した</li>
+                        <li onclick="selectAnswer(this, false, '❌ 多言語対応の強化は、mBERT（Multilingual BERT）などの多言語モデルの特徴です。')">
+                            D. 多言語対応を強化した</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題11:</strong> 生成モデルの歴史において、ボルツマンマシンの役割として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ボルツマンマシンは1980年代に登場した確率的生成モデルの基礎となった技術です。データの確率分布を学習し、新しいデータを生成する基盤を築きました。制約付きボルツマンマシンは、その改良版として効率的な学習を可能にしました。')">
+                            A. 確率的な生成モデルの基礎を築いた</li>
+                        <li onclick="selectAnswer(this, false, '❌ 画像の畳み込み処理を発明したのは、CNNに関連する研究です。')">B. 画像の畳み込み処理を発明した
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 注意機構を初めて導入したのは、Transformerモデルです。')">C. 注意機構を初めて導入した
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 強化学習の基礎を築いたのは、別の研究分野での成果です。')">D. 強化学習の基礎を築いた</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題12:</strong> Transformerにおける「位置エンコーディング」の目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 入力データのノイズ除去は、Denoising Autoencoderなどの手法の目的です。')">A.
+                            入力データのノイズを除去する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 単語の意味を数値化するのは、Word2Vecなどの埋め込み（Embedding）技術の役割です。')">B.
+                            単語の意味を数値化する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Transformerは文章を並列処理するため、単語の順序情報が失われます。位置エンコーディングは、各単語の位置情報（何番目の単語か）を付与することで、語順を考慮した処理を可能にします。')">
+                            C. 単語の位置情報を付与する</li>
+                        <li onclick="selectAnswer(this, false, '❌ モデルの学習速度を向上させるのは、学習率の最適化やバッチ正規化などの手法です。')">D.
+                            モデルの学習速度を向上させる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題13:</strong> 自己回帰モデル（Autoregressive Model）の特徴として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ データ全体を一度に処理するのは、BERTなどの双方向モデルの特徴です。')">A.
+                            データ全体を一度に処理する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：自己回帰モデルは、過去のデータ（前の単語やトークン）から次のデータ（次の単語）を順番に予測する手法です。GPTシリーズは自己回帰モデルの代表例であり、テキストを左から右へ順に生成します。')">
+                            B. 過去のデータから次のデータを順に予測する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 2つのネットワークを競わせて学習するのは、GANの特徴です。')">C.
+                            2つのネットワークを競わせて学習する</li>
+                        <li onclick="selectAnswer(this, false, '❌ データを圧縮して潜在空間に変換するのは、VAEの特徴です。')">D. データを圧縮して潜在空間に変換する
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題14:</strong> 以下のうち、生成モデルの説明として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。GANは生成器と識別器が互いに競い合いながら学習を進めます。')">A.
+                            GANは生成器と識別器が競い合って学習する</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。VAEのエンコーダはデータを潜在ベクトルに変換します。')">B.
+                            VAEはエンコーダでデータを潜在ベクトルに変換する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RNNは「回帰型（Recurrent）ニューラルネットワーク」の略であり、「回帰型」は時系列データを再帰的に処理する構造を指します。「ランダム」ではありません。')">
+                            C. RNNの「R」はRandom（ランダム）を意味する</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。LSTMはRNNの長期記憶保持の問題を解決するために開発されました。')">D.
+                            LSTMはRNNの長期記憶の問題を改善した</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題15:</strong> ALBERT（A Lite BERT）の主な特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 学習データ量の大幅な増加は、RoBERTaの主な改良点です。')">A. 学習データ量を大幅に増やした
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 多言語への対応強化は、mBERT（Multilingual BERT）の特徴です。')">B.
+                            多言語への対応を強化した</li>
+                        <li onclick="selectAnswer(this, false, '❌ 画像と文章の同時処理は、マルチモーダルモデルの特徴です。')">C. 画像と文章を同時に処理可能にした
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ALBERT（A Lite BERT）は、パラメータ共有やファクタライズド・エンベディングなどの技術により、BERTの性能を維持しつつモデルサイズ（パラメータ数）を大幅に削減した軽量版です。「A Lite」の名前が示す通り、軽量化がポイントです。')">
+                            D. パラメータ数を削減してモデルを軽量化した</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>生成AI：</strong> 新しいコンテンツを生成できるAI</li>
+                        <li><strong>VAE：</strong> データを圧縮して新しいデータを生成</li>
+                        <li><strong>GAN：</strong> 2つのネットワークが競い合って学習</li>
+                        <li><strong>RNN・LSTM：</strong> 時系列データを処理、LSTMは長期記憶が可能</li>
+                        <li><strong>Transformer：</strong> Attention機構で革命、ChatGPTの基盤技術</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="index.html" class="nav-button secondary">← 第2章トップ</a>
+                <a href="2-2_chatgpt.html" class="nav-button">次: 2-2 ChatGPT →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('2-1')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter2";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "2-1";
+            const chapter = "chapter2";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-3: RAG | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第3章</a> &gt;
+                    3-3
+                </div>
+                <div class="hero-badge">第3章 セクション 3-3</div>
+                <h1>RAG（検索拡張生成）</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約15分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 RAGとは</h2>
+                <div class="highlight">
+                    <p><strong>RAG（Retrieval-Augmented Generation）</strong></p>
+                    <p>検索拡張生成：外部データベースから関連情報を検索して、その情報を使って回答を生成する技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> AIが「図書館で本を調べてから答える」ようなイメージです</p>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>Retrieval（検索）：</strong> データベースから関連情報を探す</li>
+                        <li><strong>Augmented（拡張）：</strong> AIの知識を外部情報で補強する</li>
+                        <li><strong>Generation（生成）：</strong> 検索した情報を使って回答を作る</li>
+                    </ul>
+                </div>
+
+                <h3>RAGが必要な理由</h3>
+                <h4>従来の言語モデルの問題点</h4>
+                <ul>
+                    <li><strong>学習データの限界：</strong> 学習時点までの情報しか知らない</li>
+                    <li><strong>ハルシネーション：</strong> 事実と異なる内容を自信ありげに生成</li>
+                    <li><strong>専門知識の不足：</strong> 企業独自のデータにアクセスできない</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：ハルシネーション</strong></p>
+                    <p>AIが事実ではない情報を、あたかも事実であるかのように生成してしまう現象</p>
+                    <p class="note">💡 例：「存在しない論文」を引用したり、「架空の歴史」を語ったりすること</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>⚙️ RAGの仕組み</h2>
+                <h3>RAGの処理フロー</h3>
+                <div class="code-block">
+                    <pre>1. ユーザーの質問
+   ↓
+2. 質問をEmbedding（ベクトル化）
+   ↓
+3. ベクトルデータベースから類似情報を検索
+   ↓
+4. 検索結果と質問をLLMに入力
+   ↓
+5. LLMが検索結果を参考に回答を生成
+   ↓
+6. ユーザーに回答を返す</pre>
+                </div>
+
+                <h3>Embedding（エンベディング）</h3>
+                <div class="highlight">
+                    <p><strong>Embedding（埋め込み）</strong></p>
+                    <p>テキストを数値のベクトル（数の並び）に変換する技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 文章を「座標」に変換して、似た意味の文章が近くに配置されるようにする技術です</p>
+                </div>
+
+                <h4>Embeddingの例</h4>
+                <div class="code-block">
+                    <pre>「犬」 → [0.2, 0.8, 0.1, 0.5, ...]
+「猫」 → [0.3, 0.7, 0.2, 0.4, ...]  ← 犬と近い
+「車」 → [0.9, 0.1, 0.8, 0.2, ...]  ← 犬から遠い</pre>
+                </div>
+
+                <h3>ベクトルデータベース</h3>
+                <div class="highlight">
+                    <p><strong>ベクトルデータベース（Vector Database）</strong></p>
+                    <p>Embeddingされたデータを効率的に保存・検索できるデータベース</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「似た意味の文章」を高速で探せる、特殊な図書館のようなものです</p>
+                </div>
+
+                <p><strong>特徴：</strong> 高速な類似検索、大規模データ対応、クラウド/オンプレミス対応など</p>
+            </div>
+
+            <div class="section">
+                <h2>🎯 RAGの活用例</h2>
+                <h3>企業での活用</h3>
+
+                <h4>1. 社内文書の検索・質問応答</h4>
+                <ul>
+                    <li>社内規定、マニュアル、議事録から情報を検索</li>
+                    <li>新入社員の質問に自動で回答</li>
+                </ul>
+
+                <h4>2. カスタマーサポート</h4>
+                <ul>
+                    <li>製品マニュアル、FAQ、過去の問い合わせから回答生成</li>
+                    <li>24時間対応の自動応答システム</li>
+                </ul>
+
+                <h4>3. 法務・コンプライアンス</h4>
+                <ul>
+                    <li>法律文書、判例、社内規定から関連情報を検索</li>
+                    <li>契約書のレビュー支援</li>
+                </ul>
+
+                <h4>4. 研究開発</h4>
+                <ul>
+                    <li>論文データベースから関連研究を検索</li>
+                    <li>特許情報の調査</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔧 RAGの実装</h2>
+                <h3>基本的な実装手順</h3>
+
+                <h4>1. データの準備</h4>
+                <div class="code-block">
+                    <pre>1. ドキュメントの収集
+2. チャンク分割（適切なサイズに分割）
+3. Embeddingモデルでベクトル化
+4. ベクトルデータベースに保存</pre>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：チャンク</strong></p>
+                    <p>長い文書を小さな塊（チャンク）に分割すること</p>
+                    <p class="note">💡 例：1000文字の文書を、200文字ずつ5つのチャンクに分割</p>
+                </div>
+
+                <h4>2. 検索の実行</h4>
+                <div class="code-block">
+                    <pre>1. ユーザーの質問をEmbedding
+2. ベクトルデータベースで類似検索
+3. 上位K件の関連文書を取得
+4. LLMに質問+検索結果を入力</pre>
+                </div>
+
+                <p><strong>実装ツール：</strong> RAGを簡単に実装できる開発フレームワークが多数存在し、企業での導入が進んでいます。</p>
+            </div>
+
+            <div class="section">
+                <h2>⚖️ RAGの長所と短所</h2>
+                <h3>長所</h3>
+                <ul>
+                    <li>✅ <strong>最新情報の活用：</strong> データベースを更新すれば最新情報に対応</li>
+                    <li>✅ <strong>ハルシネーション削減：</strong> 実際のデータに基づいた回答</li>
+                    <li>✅ <strong>透明性：</strong> 情報源を明示できる</li>
+                    <li>✅ <strong>専門知識：</strong> 企業独自のデータを活用</li>
+                    <li>✅ <strong>コスト効率：</strong> モデル再学習不要</li>
+                </ul>
+
+                <h3>短所</h3>
+                <ul>
+                    <li>❌ <strong>検索精度依存：</strong> 関連情報を見つけられないと回答できない</li>
+                    <li>❌ <strong>レイテンシ：</strong> 検索処理で応答が遅くなる</li>
+                    <li>❌ <strong>複雑性：</strong> システム構築が複雑</li>
+                    <li>❌ <strong>コスト：</strong> ベクトルデータベースの運用コスト</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：レイテンシ</strong></p>
+                    <p>処理の遅延時間。ユーザーが質問してから回答が返ってくるまでの時間</p>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> RAGの「R」は何の略？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Recursive（再帰的）</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RAGの「R」はRetrieval（検索）を意味します。RAGはRetrieval-Augmented Generation（検索拡張生成）の略で、外部データベースから関連情報を検索して回答を生成する技術です。')">
+                            B. Retrieval（検索）</li>
+                        <li onclick="selectAnswer(this, false, '')">C. Random（ランダム）</li>
+                        <li onclick="selectAnswer(this, false, '')">D. Rapid（高速）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> Embeddingとは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 画像を生成する技術</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Embedding（埋め込み）はテキストを数値のベクトル（数の並び）に変換する技術です。文章を座標に変換して、似た意味の文章が近くに配置されるようにします。')">
+                            B. テキストをベクトルに変換する技術</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 音声を認識する技術</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 動画を編集する技術</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> ハルシネーションとは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. AIが高速に動作すること</li>
+                        <li onclick="selectAnswer(this, false, '')">B. データを圧縮すること</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ハルシネーションはAIが事実ではない情報を、あたかも事実であるかのように生成してしまう現象です。例えば、存在しない論文を引用したり、架空の歴史を語ったりすることです。')">
+                            C. 事実でない情報を生成すること</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 画像を生成すること</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> ベクトルデータベースの例でないものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Pinecone</li>
+                        <li onclick="selectAnswer(this, false, '')">B. Weaviate</li>
+                        <li onclick="selectAnswer(this, false, '')">C. Chroma</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：PostgreSQLは伝統的なリレーショナルデータベースで、ベクトルデータベースではありません。Pinecone、Weaviate、Chromaはすべてベクトルデータベースの例です。')">
+                            D. PostgreSQL</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> RAGの長所は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. モデルサイズが小さい</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RAGの最大の長所は、データベースを更新すれば最新情報に対応できることです。その他にも、ハルシネーションの削減、情報源の明示、企業独自データの活用などのメリットがあります。')">
+                            B. 最新情報を活用できる</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 学習が不要</li>
+                        <li onclick="selectAnswer(this, false, '')">D. インターネット接続が不要</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> Embedding（埋め込み）の主な目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ テキストの暗号化は情報セキュリティの分野であり、Embeddingの目的ではありません。')">A.
+                            テキストを暗号化する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Embedding（埋め込み）は、テキストや画像などのデータを、意味的な関係性を保持したベクトル（数値の並び）に変換する技術です。これにより、類似した内容のデータ同士が近い距離に配置され、意味的な検索が可能になります。')">
+                            B. テキストを意味を保持したベクトル（数値）に変換する</li>
+                        <li onclick="selectAnswer(this, false, '❌ テキストの翻訳は機械翻訳モデルの役割であり、Embeddingとは異なります。')">C.
+                            テキストを別の言語に翻訳する</li>
+                        <li onclick="selectAnswer(this, false, '❌ テキストの文字数を圧縮するのは要約技術であり、Embeddingの目的ではありません。')">D.
+                            テキストの文字数を圧縮する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> ベクトルデータベースの特徴として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ SQLクエリで完全一致検索を行うのは、従来のリレーショナルデータベース（RDB）の特徴です。')">A.
+                            SQLクエリで完全一致検索を行う</li>
+                        <li onclick="selectAnswer(this, false, '❌ テーブル形式でデータを格納するのは、リレーショナルデータベースの特徴です。')">B.
+                            テーブル形式でデータを格納する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ベクトルデータベースは、Embeddingで変換されたベクトルデータを格納し、ベクトル間の距離や類似度を高速に計算して、意味的に近い情報を検索する仕組みです。PineconeやChroma、Weaviateなどが代表例です。')">
+                            C. ベクトル間の類似度を計算して近い情報を高速検索する</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 画像のみを格納するデータベースは、特殊な用途のデータベースであり、ベクトルデータベースの定義ではありません。')">
+                            D. 画像のみを格納する専用データベース</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> RAGにおけるチャンキング（Chunking）とは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ データの暗号化はセキュリティの処理であり、チャンキングとは異なります。')">A. データを暗号化すること
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 不要なデータの削除はデータクリーニングであり、チャンキングとは異なります。')">B.
+                            不要なデータを削除すること</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：チャンキングとは、長い文書を適切なサイズの小さな単位（チャンク）に分割する処理です。RAGでは、分割したチャンクをそれぞれEmbeddingしてベクトルデータベースに格納し、検索の精度と効率を向上させます。')">
+                            C. 長い文書を適切なサイズに分割すること</li>
+                        <li onclick="selectAnswer(this, false, '❌ データベースのバックアップはシステム管理の処理であり、チャンキングとは異なります。')">D.
+                            データベースのバックアップを取ること</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> RAGとファインチューニングの違いとして正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ この説明は逆です。RAGは外部データを参照する手法であり、モデル自体を更新するのはファインチューニングです。')">
+                            A. RAGはモデル自体を更新し、ファインチューニングは外部データを参照する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RAGはモデル自体を変更せず、外部のデータベースから関連情報を検索して回答に活用します。一方、ファインチューニングはモデル自体に追加の学習データで訓練を行い、モデルのパラメータを更新する手法です。')">
+                            B. RAGは外部データを検索して活用し、ファインチューニングはモデル自体を追加学習する</li>
+                        <li onclick="selectAnswer(this, false, '❌ RAGとファインチューニングはどちらもテキスト生成だけでなく、様々なタスクで使用されます。')">C.
+                            RAGはテキスト専用で、ファインチューニングは画像専用</li>
+                        <li onclick="selectAnswer(this, false, '❌ 高い計算コストが必要なのはファインチューニングの方です。RAGは比較的低コストで導入できます。')">D.
+                            RAGの方がファインチューニングより高い計算コストがかかる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> RAGの限界として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい限界です。検索結果の質が低いと、RAGの回答品質も低下します。')">A.
+                            検索結果の質が低いと回答品質も低下する</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい限界です。ベクトルデータベースの構築・運用にはインフラのコストがかかります。')">B.
+                            ベクトルデータベースの構築・運用コストがかかる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RAGはデータベースを更新するだけで最新情報に対応できるため、リアルタイムでの情報更新に対応しやすい特性があります。対応できないという説明は誤りです。')">
+                            C. データベースの更新ができずリアルタイムの情報に対応できない</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい限界です。チャンクの分割が不適切だと、文脈を正しく把握できず回答の質に影響します。')">D.
+                            チャンキングの方法が回答品質に影響する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>RAG:</strong> 外部データを検索して回答を生成する技術</li>
+                        <li><strong>Embedding:</strong> テキストをベクトル（数値）に変換</li>
+                        <li><strong>ベクトルDB:</strong> 類似情報を高速検索できるデータベース</li>
+                        <li><strong>メリット:</strong> 最新情報活用、ハルシネーション削減、透明性</li>
+                        <li><strong>活用例:</strong> 社内検索、カスタマーサポート、法務、研究</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="3-2_deepfake.html" class="nav-button secondary">← 3-2: ディープフェイク</a>
+                <a href="3-4_agent.html" class="nav-button">次: 3-4 AIエージェント →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('3-3')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "3-3";
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

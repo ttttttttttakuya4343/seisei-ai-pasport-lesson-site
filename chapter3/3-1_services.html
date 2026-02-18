@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-1: 生成AIのサービス | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第3章</a> &gt;
+                    3-1
+                </div>
+                <div class="hero-badge">第3章 セクション 3-1</div>
+                <h1>生成AIのサービス</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約15分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎨 画像生成AI</h2>
+                <h3>主要な画像生成サービス</h3>
+
+                <h4>Midjourney（ミッドジャーニー）</h4>
+                <div class="highlight">
+                    <p>Discord上で動作する画像生成AIサービス</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> チャットアプリDiscordで文章を入力すると、芸術的な画像を作ってくれるサービスです</p>
+                </div>
+                <ul>
+                    <li><strong>特徴：</strong> 芸術的で美しい画像生成</li>
+                    <li><strong>料金：</strong> 月額制（無料プランは終了）</li>
+                    <li><strong>用途：</strong> イラスト、デザイン、コンセプトアート</li>
+                </ul>
+
+                <h4>Stable Diffusion（ステーブルディフュージョン）</h4>
+                <div class="highlight">
+                    <p>オープンソースの画像生成AI</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 誰でも無料で使える画像生成AI。自分のパソコンでも動かせます</p>
+                </div>
+                <ul>
+                    <li><strong>開発：</strong> Stability AI</li>
+                    <li><strong>特徴：</strong> オープンソース、カスタマイズ可能</li>
+                    <li><strong>技術：</strong> Diffusion Model（拡散モデル）</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：Diffusion Model（拡散モデル）</strong></p>
+                    <p>ノイズ（ランダムな点）から徐々に画像を作り出す技術</p>
+                    <p class="note">💡 例：砂嵐の画面から、少しずつきれいな絵が浮かび上がってくるイメージです</p>
+                </div>
+
+                <h4>DALL-E 3</h4>
+                <ul>
+                    <li><strong>開発：</strong> OpenAI</li>
+                    <li><strong>統合：</strong> ChatGPT Plus、Bing Image Creatorで利用可能</li>
+                    <li><strong>特徴：</strong> 詳細なプロンプトから正確な画像生成</li>
+                </ul>
+
+                <h4>Adobe Firefly</h4>
+                <ul>
+                    <li><strong>開発：</strong> Adobe</li>
+                    <li><strong>特徴：</strong> 商用利用を前提とした安全な学習データ</li>
+                    <li><strong>統合：</strong> Photoshop、Illustratorなどに統合</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🎤 音声生成AI</h2>
+                <h3>主要な音声生成サービス</h3>
+
+                <h4>ElevenLabs</h4>
+                <div class="highlight">
+                    <p>リアルな音声を生成できるAI</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 人間そっくりの声で、テキストを読み上げてくれるサービスです</p>
+                </div>
+                <ul>
+                    <li><strong>特徴：</strong> 29言語対応、感情表現も可能</li>
+                    <li><strong>用途：</strong> オーディオブック、ナレーション、ゲーム</li>
+                    <li><strong>音声クローニング：</strong> 自分の声を学習させることも可能</li>
+                </ul>
+
+                <h4>VOICEVOX</h4>
+                <ul>
+                    <li><strong>開発：</strong> 日本のオープンソースプロジェクト</li>
+                    <li><strong>特徴：</strong> 無料で商用利用可能</li>
+                    <li><strong>用途：</strong> 動画のナレーション、読み上げソフト</li>
+                </ul>
+
+                <h4>Google Cloud Text-to-Speech</h4>
+                <ul>
+                    <li><strong>提供：</strong> Google</li>
+                    <li><strong>特徴：</strong> 220以上の音声、40以上の言語</li>
+                    <li><strong>技術：</strong> WaveNet（ウェーブネット）</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：WaveNet</strong></p>
+                    <p>Googleが開発した、人間に近い自然な音声を生成する技術</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎬 動画生成AI</h2>
+                <h3>主要な動画生成サービス</h3>
+
+                <h4>Runway（ランウェイ）</h4>
+                <div class="highlight">
+                    <p>動画編集・生成のオールインワンツール</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> テキストや画像から動画を作ったり、動画を編集したりできるツールです</p>
+                </div>
+                <ul>
+                    <li><strong>Gen-2：</strong> テキストから動画生成</li>
+                    <li><strong>機能：</strong> 背景削除、物体追跡、スタイル変換</li>
+                </ul>
+
+                <h4>Pika Labs</h4>
+                <ul>
+                    <li><strong>特徴：</strong> テキストから3秒の動画を生成</li>
+                    <li><strong>Discord：</strong> Discordベースで動作</li>
+                </ul>
+
+                <h4>HeyGen</h4>
+                <ul>
+                    <li><strong>特徴：</strong> AIアバターによる動画生成</li>
+                    <li><strong>用途：</strong> プレゼンテーション動画、教育コンテンツ</li>
+                    <li><strong>機能：</strong> 多言語音声、リップシンク</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：リップシンク</strong></p>
+                    <p>口の動きと音声を同期させる技術（例：アニメのアフレコのように、口の動きと声を合わせる）</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 画像認識AI</h2>
+                <h3>主要な画像認識サービス</h3>
+
+                <h4>Google Cloud Vision AI</h4>
+                <div class="highlight">
+                    <p>画像の内容を分析・認識するAI</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 写真を見て「これは猫です」「この人は笑っています」と教えてくれるAIです</p>
+                </div>
+                <ul>
+                    <li><strong>機能：</strong> 物体検出、顔認識、テキスト抽出（OCR）</li>
+                    <li><strong>用途：</strong> 画像分類、コンテンツモデレーション</li>
+                </ul>
+
+                <h4>Amazon Rekognition</h4>
+                <ul>
+                    <li><strong>提供：</strong> Amazon Web Services (AWS)</li>
+                    <li><strong>機能：</strong> 顔分析、有名人認識、不適切コンテンツ検出</li>
+                </ul>
+
+                <h4>Microsoft Computer Vision</h4>
+                <ul>
+                    <li><strong>提供：</strong> Microsoft Azure</li>
+                    <li><strong>機能：</strong> 画像説明文の自動生成、画像内のテキスト読み取り</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：OCR（Optical Character Recognition）</strong></p>
+                    <p>画像内の文字を認識してテキストデータに変換する技術</p>
+                    <p class="note">💡 例：写真に写った看板の文字を読み取って、コピペできる文字にする技術です</p>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> オープンソースの画像生成AIは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Midjourney</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Stable DiffusionはStability AIが開発したオープンソースの画像生成AIです。詰でも無料で使え、自分のパソコンでも動かせるため、カスタマイズや独自の改良が可能です。')">
+                            B. Stable Diffusion</li>
+                        <li onclick="selectAnswer(this, false, '')">C. DALL-E 3</li>
+                        <li onclick="selectAnswer(this, false, '')">D. Adobe Firefly</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> Midjourneyが動作するプラットフォームは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Slack</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：MidjourneyはDiscord上で動作する画像生成AIサービスです。Discordというチャットアプリでテキストを入力すると、芸術的で美しい画像を生成してくれます。')">
+                            B. Discord</li>
+                        <li onclick="selectAnswer(this, false, '')">C. LINE</li>
+                        <li onclick="selectAnswer(this, false, '')">D. Telegram</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> Diffusion Modelの説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Diffusion Model（拡散モデル）は、ノイズ（ランダムな点）から少しずつきれいな画像を作り出す技術です。砂嵐の画面から徐々に絵が浮かび上がってくるようなイメージです。')">
+                            A. ノイズから徐々に画像を作り出す</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 画像を分類する</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 音声を生成する</li>
+                        <li onclick="selectAnswer(this, false, '')">D. テキストを要約する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> OCRの説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 音声認識技術</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：OCR(Optical Character Recognition)は画像内の文字を認識してテキストデータに変換する技術です。例えば、写真に写った看板の文字を読み取ってコピペできる文字にする技術です。')">
+                            B. 画像内の文字をテキストに変換</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 動画生成技術</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 自然言語処理</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> リップシンクとは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：リップシンクは口の動きと音声を同期させる技術です。HeyGenなどの動画AIで使われ、AIアバターが話す時に口の動きと声を自然に合わせています。')">
+                            A. 口の動きと音声を同期させる技術</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 画像を高解像度化する技術</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 音楽を生成する技術</li>
+                        <li onclick="selectAnswer(this, false, '')">D. テキストを音声に変換する技術</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> データの水増し（Data Augmentation）の目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ データの削除・圧縮はデータクリーニングやデータ圧縮に関連する処理です。')">A. 不要なデータを削除する
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：データの水増し（Data Augmentation）は、既存のデータに回転、反転、拡大縮小、色調変更などの変換を加えることで、学習データの量と多様性を人工的に増やす手法です。学習データが少ない場合のモデル精度向上に有効です。')">
+                            B. 学習データの量と多様性を人工的に増やす</li>
+                        <li onclick="selectAnswer(this, false, '❌ データのフォーマット変換は、データ前処理の一部ですが、水増しとは異なります。')">C.
+                            データのフォーマットを変換する</li>
+                        <li onclick="selectAnswer(this, false, '❌ データの暗号化は情報セキュリティの分野に関連します。')">D. データを暗号化して安全にする</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> Veo3はどの企業が開発した動画生成AIか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ OpenAIが開発した動画生成AIはSoraです。')">A. OpenAI</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Veo3はGoogleが開発した動画生成AIモデルです。テキストから高品質な動画を生成することができ、Soraと並ぶ主要な動画生成AIとして注目されています。')">
+                            B. Google</li>
+                        <li onclick="selectAnswer(this, false, '❌ Microsoftは動画生成AIの分野ではVeo3を開発していません。')">C. Microsoft
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ Metaは動画生成AIの分野で別のモデルを開発しています。')">D. Meta</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> 画像生成AIの前処理における「正規化」の目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 画像の解像度を上げることはアップスケーリングに関連します。')">A. 画像の解像度を上げる</li>
+                        <li onclick="selectAnswer(this, false, '❌ 画像のファイルサイズを小さくするのは画像圧縮です。')">B. 画像のファイルサイズを小さくする</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：正規化は、画像のピクセル値を一定の範囲（例：0〜1）にスケーリングする処理です。これにより、モデルの学習が安定し、収束が速くなります。画像のリサイズ（サイズ統一）と合わせて、重要な前処理ステップです。')">
+                            C. ピクセル値を一定の範囲にスケーリングする</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不要な部分をトリミングするのは画像のクロッピングです。')">D. 画像の不要な部分をトリミングする
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> 音楽生成AIと音声生成AIの違いとして正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ どちらもAI技術を使用しているという点では同じです。')">A. 音楽生成AIはAIを使わない</li>
+                        <li onclick="selectAnswer(this, false, '❌ 音声生成AIもテキストからの音声合成（TTS）など、テキスト入力からの生成が可能です。')">B.
+                            音声生成AIはテキスト入力を受け付けない</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：音楽生成AIは楽曲やメロディ、BGMなどの音楽コンテンツを生成するのに対し、音声生成AIは人間の声を合成・模倣する技術です。前者はSunoやUdioなど、後者はElevenLabsやVOICEVOXなどが代表的なサービスです。')">
+                            C. 音楽生成AIは楽曲を、音声生成AIは人間の声を生成する</li>
+                        <li onclick="selectAnswer(this, false, '❌ どちらもクラウドベースやローカル環境の両方で利用可能なサービスがあります。')">D.
+                            音楽生成AIはクラウド専用で、音声生成AIはローカル専用</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> 以下のうち、生成AIのサービスの説明として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。テキスト生成AIは文章の作成、翻訳、要約など多様な文章生成が可能です。')">A.
+                            テキスト生成AIは文章の作成・翻訳・要約ができる</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。画像生成AIはテキストの説明からオリジナルの画像を作成できます。')">B.
+                            画像生成AIはテキストから画像を作成できる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：動画生成AIは進歩していますが、現時点では長時間の映画全体を一度に自動生成することは困難です。SoraやVeo3でもまだ数十秒〜数分程度の短い動画生成が主流です。')">
+                            C. 動画生成AIは長時間の映画を自動で完成させられる</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。音声生成AIを使って特定の人物の声を模倣した音声を作成することが可能です。')">D.
+                            音声生成AIは特定の人物の声を模倣できる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>画像生成：</strong> Midjourney、Stable Diffusion、DALL-E 3</li>
+                        <li><strong>音声生成：</strong> ElevenLabs、VOICEVOX、Google Text-to-Speech</li>
+                        <li><strong>動画生成：</strong> Runway、Pika Labs、HeyGen</li>
+                        <li><strong>画像認識：</strong> Google Cloud Vision、Amazon Rekognition</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="index.html" class="nav-button secondary">← 第3章トップ</a>
+                <a href="3-2_deepfake.html" class="nav-button">次: 3-2 ディープフェイク →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('3-1')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "3-1";
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

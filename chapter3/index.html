@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3章: 生成AIのサービスとツール | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container" id="main-content">
+        <div class="lesson-page">
+            <div class="lesson-header">
+                <div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; 第3章</div>
+                <div class="hero-badge">第3章</div>
+                <h1>生成AIのサービスとツール</h1>
+                <p class="chapter-description">
+                    画像生成、音声生成、動画生成など、様々な生成AIサービスを学びます。<br>
+                    ディープフェイク、RAG、AIエージェントなど最新技術も理解できます。
+                </p>
+                <div class="lesson-meta">
+                    <span>⏱️ 合計学習時間: 約55分</span>
+                    <span>📝 全4セクション</span>
+                    <span>✅ クイズ20問</span>
+                </div>
+            </div>
+            <div class="progress-section">
+                <h2>📊 学習の進捗</h2>
+                <div class="progress-container">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="chapter-progress" style="width: 0%">
+                                <span class="progress-percentage" id="progress-percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="progress-text"><span id="completed-sections">0</span> / 4 セクション完了</p>
+                </div>
+            </div>
+            <section class="section">
+                <h2>📖 学習内容</h2>
+                <div class="lesson-list">
+                    <a href="3-1_services.html" class="lesson-card" id="section-3-1">
+                        <div class="lesson-number">3-1</div>
+                        <div class="lesson-content">
+                            <h3>生成AIのサービス</h3>
+                            <p class="lesson-description">画像生成、音声生成、動画生成、画像認識AIなど、様々な生成AIサービスを学びます。</p>
+                            <div class="lesson-topics">
+                                <span class="topic">画像生成AI</span>
+                                <span class="topic">音声生成AI</span>
+                                <span class="topic">動画生成AI</span>
+                                <span class="topic">画像認識AI</span>
+                            </div>
+                            <div class="lesson-footer">
+                                <span>⏱️ 約15分</span>
+                                <span>📝 クイズ5問</span>
+                                <span class="completion-badge" style="display: none;">✅ 完了</span>
+                                <span class="lesson-arrow">→</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="3-2_deepfake.html" class="lesson-card" id="section-3-2">
+                        <div class="lesson-number">3-2</div>
+                        <div class="lesson-content">
+                            <h3>ディープフェイク</h3>
+                            <p class="lesson-description">ディープフェイクの仕組み、悪用事例、対策技術について学びます。</p>
+                            <div class="lesson-topics">
+                                <span class="topic">ディープフェイクとは</span>
+                                <span class="topic">技術の仕組み</span>
+                                <span class="topic">悪用事例</span>
+                                <span class="topic">対策技術</span>
+                            </div>
+                            <div class="lesson-footer">
+                                <span>⏱️ 約15分</span>
+                                <span>📝 クイズ5問</span>
+                                <span class="completion-badge" style="display: none;">✅ 完了</span>
+                                <span class="lesson-arrow">→</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="3-3_rag.html" class="lesson-card" id="section-3-3">
+                        <div class="lesson-number">3-3</div>
+                        <div class="lesson-content">
+                            <h3>RAG（検索拡張生成）</h3>
+                            <p class="lesson-description">RAGの仕組み、ベクトルデータベース、Embeddingなど最新技術を理解します。</p>
+                            <div class="lesson-topics">
+                                <span class="topic">RAGとは</span>
+                                <span class="topic">ベクトルDB</span>
+                                <span class="topic">Embedding</span>
+                                <span class="topic">実装方法</span>
+                            </div>
+                            <div class="lesson-footer">
+                                <span>⏱️ 約15分</span>
+                                <span>📝 クイズ5問</span>
+                                <span class="completion-badge" style="display: none;">✅ 完了</span>
+                                <span class="lesson-arrow">→</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="3-4_agent.html" class="lesson-card" id="section-3-4">
+                        <div class="lesson-number">3-4</div>
+                        <div class="lesson-content">
+                            <h3>AIエージェント</h3>
+                            <p class="lesson-description">AIエージェントの概念、ReAct、LangChain、AutoGPTなど自律型AIを学びます。</p>
+                            <div class="lesson-topics">
+                                <span class="topic">AIエージェントとは</span>
+                                <span class="topic">ReAct</span>
+                                <span class="topic">LangChain</span>
+                                <span class="topic">AutoGPT</span>
+                            </div>
+                            <div class="lesson-footer">
+                                <span>⏱️ 約10分</span>
+                                <span>📝 クイズ5問</span>
+                                <span class="completion-badge" style="display: none;">✅ 完了</span>
+                                <span class="lesson-arrow">→</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="section highlight">
+                <h2>💡 学習のヒント</h2>
+                <ul>
+                    <li><strong>実例で理解</strong>: 実際のサービス名（Midjourney、Stable Diffusionなど）で学習</li>
+                    <li><strong>技術の仕組み</strong>: RAG、AIエージェントなど最新技術の仕組みを理解</li>
+                    <li><strong>倫理的な課題</strong>: ディープフェイクなど、悪用のリスクも学習</li>
+                    <li><strong>試験重要度</strong>: この章は試験で約6問出題されます</li>
+                </ul>
+            </section>
+            <div class="lesson-navigation">
+                <a href="../index.html" class="nav-button secondary">← ホームに戻る</a>
+                <a href="3-1_services.html" class="nav-button">学習を開始する →</a>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function updateProgress(){let c=0;const s=['3-1','3-2','3-3','3-4'];s.forEach(x=>{if(localStorage.getItem(`chapter3_section${x}_completed`)==='true'){c++;const d=document.getElementById(`section-${x}`);if(d){d.classList.add('completed');const b=d.querySelector('.completion-badge');if(b)b.style.display='inline';}}});const p=(c/4*100);document.getElementById('completed-sections').textContent=c;document.getElementById('chapter-progress').style.width=p+'%';document.getElementById('progress-percentage').textContent=Math.round(p)+'%';}
+        window.addEventListener('load',updateProgress);
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-1a: 個人情報保護とプライバシー | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第4章</a> &gt;
+                    4-1a
+                </div>
+                <div class="hero-badge">第4章 セクション 4-1a</div>
+                <h1>個人情報保護とプライバシー</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約20分</span>
+                    <span>📝 クイズ10問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔒 個人情報保護</h2>
+                <div class="highlight">
+                    <p><strong>個人情報保護法</strong></p>
+                    <p>個人情報の適正な取扱いを定めた法律</p>
+                    <ul>
+                        <li><strong>個人情報とは：</strong> 特定の個人を識別できる情報</li>
+                        <li>氏名、住所、電話番号、メールアドレス</li>
+                        <li>顔写真、マイナンバー</li>
+                        <li>指紋、DNA情報</li>
+                    </ul>
+                </div>
+
+                <h3>AI利用における注意点</h3>
+                <h4>❌ やってはいけないこと</h4>
+                <ul>
+                    <li><strong>個人情報をプロンプトに入力</strong>
+                        <ul>
+                            <li>例：「田中太郎(電話番号090-1234-5678)にメールを書いて」</li>
+                            <li>リスク：情報がAIの学習データに含まれる可能性</li>
+                        </ul>
+                    </li>
+                    <li><strong>機密データの入力</strong>
+                        <ul>
+                            <li>例：社員名簿、顧客リストのアップロード</li>
+                            <li>リスク：情報漏洩、法令違反</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>✅ 適切な対応</h4>
+                <ul>
+                    <li><strong>匿名化：</strong> 個人を特定できないように加工
+                        <ul>
+                            <li>例：「田中太郎」→「A氏」、電話番号削除</li>
+                        </ul>
+                    </li>
+                    <li><strong>仮名化：</strong> 他の情報と組み合わせなければ個人を特定できないように加工</li>
+                    <li><strong>社内ルール：</strong> AI利用のガイドラインを策定・遵守</li>
+                </ul>
+
+                <h3>プライバシー権</h3>
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説：プライバシー権</strong></p>
+                    <p>自己に関する情報をコントロールする権利</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「他人のプライベートな情報を公開してはいけない」という権利です</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📸 肖像権とパブリシティ権</h2>
+
+                <h3>肖像権</h3>
+                <div class="highlight">
+                    <p><strong>肖像権とは</strong></p>
+                    <p>自分の顔や姿を勝手に撮影・公表されない権利</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「自分の写真を勝手に使われない権利」です</p>
+                </div>
+
+                <h4>AI利用における注意点</h4>
+                <ul>
+                    <li><strong>画像生成：</strong>
+                        <ul>
+                            <li>実在の人物の顔を生成する場合は要注意</li>
+                            <li>「◯◯さんの顔で画像生成」は肖像権侵害のリスク</li>
+                        </ul>
+                    </li>
+                    <li><strong>ディープフェイク：</strong>
+                        <ul>
+                            <li>他人の顔を別の人物の体に合成するのは違法</li>
+                            <li>特に悪意ある利用（フェイクニュースなど）は重大な違法行為</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>パブリシティ権</h3>
+                <div class="highlight">
+                    <p><strong>パブリシティ権とは</strong></p>
+                    <p>有名人の氏名・肖像が持つ経済的価値を保護する権利</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「有名人の名前や顔を商売に使うには許可が必要」という権利です</p>
+                </div>
+
+                <h4>注意点</h4>
+                <ul>
+                    <li>有名人の顔写真を使った広告生成は無許可NG</li>
+                    <li>「◯◯さん風のキャラクター」も、本人と誤認される場合は侵害の可能性</li>
+                    <li>報道目的など、正当な理由がある場合は例外的に認められることも</li>
+                </ul>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 個人情報をAIのプロンプトに入力する際の適切な対応は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 個人情報をそのまま入力すると情報漏洩のリスクがあり、法令違反となる可能性があります。')">A.
+                            そのまま入力して問題ない</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：個人情報をAIに入力する際は、特定の個人を識別できないように「匿名化」や「仮名化」を行う必要があります。そのまま入力すると情報漏洩のリスクがあります。')">
+                            B. 匿名化・仮名化して入力</li>
+                        <li onclick="selectAnswer(this, false, '❌ 暗号化はデータ通信の安全性を確保する手法ですが、AIへの入力では匿名化・仮名化が適切な対応です。')">C.
+                            暗号化して入力</li>
+                        <li onclick="selectAnswer(this, false, '❌ 個人情報は量に関係なく、適切に保護する必要があります。「少しなら」という基準はありません。')">D.
+                            個人情報は少しなら入力OK</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> 肖像権に関する説明で正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 肖像権は有名人に限らず、すべての人に認められる権利です。')">A. 有名人にのみ認められる権利</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：肖像権は、有名人に限らず、すべての人に認められる権利です。自分の顔や姿を無断で撮影されたり公表されたりしない権利を指します。')">
+                            B. すべての人に認められる権利</li>
+                        <li onclick="selectAnswer(this, false, '❌ 肖像権は商業利用に限らず、個人的な利用でも問題になる可能性があります。')">C.
+                            商業利用の場合のみ問題になる</li>
+                        <li onclick="selectAnswer(this, false, '❌ 肖像権は法律上の概念であり、特別な登録は不要です。')">D. 登録が必要な権利</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> パブリシティ権が主に保護する対象は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 一般市民の顔写真の保護は「肖像権」の範囲であり、パブリシティ権とは異なります。')">A. 一般市民の顔写真
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：パブリシティ権は、有名人の氏名や肖像が持つ「顧客吸引力（経済的価値）」を保護する権利です。勝手に広告などに利用することはできません。')">
+                            B. 有名人の氏名・肖像の経済的価値</li>
+                        <li onclick="selectAnswer(this, false, '❌ 企業のロゴは「商標権」で保護される対象です。')">C. 企業のロゴ</li>
+                        <li onclick="selectAnswer(this, false, '❌ 製品のデザインは「意匠権」で保護される対象です。')">D. 製品のデザイン</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> 個人情報保護法における「個人情報」に該当しないものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 氏名は個人を直接識別できる情報であり、個人情報に該当します。')">A. 氏名</li>
+                        <li onclick="selectAnswer(this, false, '❌ マイナンバーは個人を一意に特定する番号であり、個人情報に該当します。')">B. マイナンバー</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：企業の決算情報は法人に関する情報であり、特定の個人を識別する情報ではないため、個人情報保護法における「個人情報」には該当しません。')">
+                            C. 企業の決算情報</li>
+                        <li onclick="selectAnswer(this, false, '❌ 指紋は生体情報として個人を特定できるため、個人情報に該当します。')">D. 指紋</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> 「匿名化」と「仮名化」の違いとして正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ どちらも個人情報の保護を目的としていますが、その程度が異なります。')">A. どちらも同じ意味である
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：匿名化は完全に個人を特定できないように加工することで、仮名化は他の情報と組み合わせなければ個人を特定できない程度に加工することです。匿名化の方がより強い保護です。')">
+                            B. 匿名化は完全に特定不可、仮名化は他情報との組合せで特定可能</li>
+                        <li onclick="selectAnswer(this, false, '❌ 逆です。匿名化の方がより強い保護であり、仮名化は他情報との組合せで特定可能です。')">C.
+                            仮名化の方がより強い保護である</li>
+                        <li onclick="selectAnswer(this, false, '❌ どちらもデータの暗号化とは異なる概念です。匿名化・仮名化は個人を特定できないようにする加工です。')">D.
+                            暗号化と同じ技術である</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> ディープフェイクに関する説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクは他人の顔を別の人物に合成する技術であり、AI技術自体を指す言葉ではありません。')">A.
+                            AI技術全般を指す用語</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイクは、AIを使って他人の顔を別の人物の体に合成する技術です。悪意ある利用（フェイクニュース、なりすましなど）は肖像権侵害や名誉毀損などの重大な違法行為となります。')">
+                            B. 他人の顔を別の人物に合成する技術で、悪意ある利用は違法</li>
+                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクは法律で完全に禁止されているわけではありませんが、悪意ある利用は違法です。')">C.
+                            全ての利用が合法である</li>
+                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクはAIの画像生成技術を利用したものであり、手作業ではありません。')">D.
+                            AIを使わない手作業の合成技術</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> プライバシー権の本質として最も適切なものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ プライバシー権は「情報を発信する権利」ではなく、「自己に関する情報をコントロールする権利」です。')">A.
+                            情報を自由に発信する権利</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ プライバシー権は「他人の情報を収集する権利」ではなく、逆に自分の情報が他人に知られないようにする権利です。')">
+                            B. 他人の情報を収集する権利</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：プライバシー権は、自己に関する情報をコントロールする権利です。つまり、自分の個人的な情報が他人に無断で公開されたり利用されたりしないように管理する権利です。')">
+                            C. 自己に関する情報をコントロールする権利</li>
+                        <li onclick="selectAnswer(this, false, '❌ プライバシー権は「公開された情報を削除する権利」に限定されるものではなく、より広い概念です。')">D.
+                            公開された情報を削除する権利</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> AIに社員名簿や顧客リストを入力することのリスクとして最も重要なものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ AIの処理速度低下はリスクとして重要ではありません。個人情報保護の観点が最重要です。')">A.
+                            AIの処理速度が低下する</li>
+                        <li onclick="selectAnswer(this, false, '❌ AIの回答精度低下よりも、情報漏洩のリスクの方がはるかに重要です。')">B. AIの回答精度が下がる
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：社員名簿や顧客リストには個人情報が含まれており、AIに入力すると情報がAIの学習データに含まれる可能性があり、情報漏洩や個人情報保護法違反のリスクがあります。')">
+                            C. 情報漏洩のリスクと個人情報保護法違反の可能性</li>
+                        <li onclick="selectAnswer(this, false, '❌ 利用料金の増加は主要なリスクではありません。情報漏洩のリスクが最重要です。')">D. 利用料金が増加する
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> 肖像権と パブリシティ権の違いとして正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：肖像権はすべての人に認められる人格的権利であり、パブリシティ権は主に有名人の氏名・肖像が持つ経済的価値（顧客吸引力）を保護する財産的権利です。')">
+                            A. 肖像権は全員に認められ、パブリシティ権は主に有名人の経済的価値を保護</li>
+                        <li onclick="selectAnswer(this, false, '❌ 逆です。肖像権はすべての人に、パブリシティ権は主に有名人に関連します。')">B.
+                            パブリシティ権は全員に認められ、肖像権は有名人のみ</li>
+                        <li onclick="selectAnswer(this, false, '❌ 両方とも法律上の概念であり、登録の有無は関係しません。')">C.
+                            肖像権は登録制で、パブリシティ権は自動的に発生</li>
+                        <li onclick="selectAnswer(this, false, '❌ 両者は異なる概念であり、保護する対象が異なります。')">D. 両者に違いはない</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> 個人情報保護に関する記述として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。匿名化は個人を特定できないように加工する適切な対応です。')">A.
+                            個人情報をAIに入力する際は匿名化が推奨される</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。顔写真は個人を識別できる情報であり、個人情報に該当します。')">B.
+                            顔写真は個人情報に該当する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：たとえAIサービスが安全性を主張していても、個人情報保護法の遵守は利用者側の責任です。AIサービスの利用規約で安全が保証されていても、個人情報をそのまま入力することは適切ではありません。')">
+                            C. AIサービスが安全と言っていれば個人情報をそのまま入力してよい</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。社内ルールの策定はAI利用における個人情報保護の重要な対策です。')">D.
+                            AI利用に関する社内ガイドラインの策定が重要</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>個人情報：</strong> 匿名化・仮名化して利用。プライバシー権も尊重</li>
+                        <li><strong>肖像権：</strong> すべての人の顔・姿を保護する権利</li>
+                        <li><strong>パブリシティ権：</strong> 有名人の経済的価値を保護する権利</li>
+                        <li><strong>ディープフェイク：</strong> 悪意ある利用は重大な違法行為</li>
+                        <li><strong>AI利用時：</strong> 個人情報の入力は匿名化・仮名化が必須</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="index.html" class="nav-button secondary">← 第4章トップ</a>
+                <a href="4-1b_ip_rights.html" class="nav-button">次: 4-1b 知的財産権と法的保護 →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('4-1a')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter4";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        window.addEventListener("load", () => {
+            const sectionId = "4-1a";
+            const chapter = "chapter4";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="生成AIパスポート試験対策の学習アプリケーション。24人のキャラクターと共に楽しく学習。">
+    <title>生成AIパスポート講座 | AI Passport Course</title>
+    <link rel="stylesheet" href="shared/css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        // Service Worker登録（PWA対応）
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html" class="active">ホーム</a>
+                <div class="nav-dropdown" id="chapter-nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="章を選択">📚 章を選択</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="chapter1/index.html"><span class="lesson-badge">第1章</span> AI(人工知能)</a>
+                        <a href="chapter2/index.html"><span class="lesson-badge">第2章</span> 生成AIの種類と特徴</a>
+                        <a href="chapter3/index.html"><span class="lesson-badge">第3章</span> プロンプトエンジニアリング</a>
+                        <a href="chapter4/index.html"><span class="lesson-badge">第4章</span> AI活用の法的側面</a>
+                        <a href="chapter5/index.html"><span class="lesson-badge">第5章</span> AI活用の実践</a>
+                    </div>
+                </div>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- ヒーローセクション -->
+        <section class="hero">
+            <div class="hero-badge">2026年4月試験対応</div>
+            <h1 class="hero-title">生成AIパスポート試験<br>合格への道</h1>
+            <p class="hero-subtitle">24人の個性豊かなキャラクターと共に、AI時代のエキスパートへ 🎓✨</p>
+            <p class="hero-description">
+                このコースでは、生成AIパスポート試験の全5章を体系的に学習できます。<br>
+                24人の個性豊かなキャラクターがあなたの学習をサポートします！
+            </p>
+            
+            <!-- 主要CTAボタン -->
+            <div class="hero-cta">
+                <a href="#curriculum" class="cta-button cta-primary cta-large">
+                    📚 学習を始める
+                </a>
+            </div>
+        </section>
+
+        <!-- 学習進捗セクション -->
+        <section class="progress-section" id="progress-section">
+            <h2>📊 あなたの学習進捗</h2>
+            <div class="progress-container">
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="completed-chapters">0</div>
+                        <div class="stat-label">完了した章</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-time">0分</div>
+                        <div class="stat-label">学習時間</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="completion-rate">0%</div>
+                        <div class="stat-label">達成率</div>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="overall-progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-message" id="progress-message">まだ学習を始めていません。第1章から始めましょう！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 講座概要 -->
+        <section class="course-overview">
+            <h2>📚 講座の特徴</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">🎯</div>
+                    <h3>試験対策</h3>
+                    <p>公式シラバスに完全対応した内容で、効率的に学習できます</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">🎭</div>
+                    <h3>24人のキャラクター</h3>
+                    <p>個性豊かなキャラクターが学習を楽しくサポートします</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">📝</div>
+                    <h3>理解度チェック</h3>
+                    <p>各章に理解度チェッククイズを用意しています</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">🚀</div>
+                    <h3>実践的</h3>
+                    <p>ビジネスで即活用できる実践的な知識を習得できます</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 推奨学習パス -->
+        <section class="learning-path">
+            <h2>🗺️ 推奨学習パス</h2>
+            <div class="path-container">
+                <div class="path-step">
+                    <div class="step-number">STEP 1</div>
+                    <div class="step-content">
+                        <h3>基礎を固める</h3>
+                        <p>第1章でAIの基礎知識を学習</p>
+                    </div>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <div class="step-number">STEP 2</div>
+                    <div class="step-content">
+                        <h3>応用を学ぶ</h3>
+                        <p>第2-3章で生成AIとプロンプトを習得</p>
+                    </div>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <div class="step-number">STEP 3</div>
+                    <div class="step-content">
+                        <h3>実践力をつける</h3>
+                        <p>第4-5章で法律と実践を学ぶ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 章一覧 -->
+        <section class="lessons" id="curriculum">
+            <h2>📖 全5章のカリキュラム</h2>
+            <p class="section-description">各章約40-60分で完結。自分のペースで学習を進められます</p>
+            <div class="lesson-list">
+                <!-- 第1章 -->
+                <a href="chapter1/index.html" class="lesson-card" data-chapter="1">
+                    <div class="lesson-status">
+                        <span class="status-badge status-not-started">未開始</span>
+                    </div>
+                    <div class="lesson-number">第1章</div>
+                    <div class="lesson-content">
+                        <h3>AI(人工知能)</h3>
+                        <p class="lesson-description">AIの定義、仕組み、歴史、そしてシンギュラリティまで、AIの基礎を学びます</p>
+                        <div class="lesson-topics">
+                            <span class="topic">AIの定義</span>
+                            <span class="topic">機械学習</span>
+                            <span class="topic">ディープラーニング</span>
+                            <span class="topic">AIの歴史</span>
+                            <span class="topic">シンギュラリティ</span>
+                        </div>
+                        <div class="lesson-footer">
+                            <span>⏱️ 約45分</span>
+                            <span class="lesson-progress-mini"></span>
+                            <span class="lesson-arrow">学習を始める →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 第2章 -->
+                <a href="chapter2/index.html" class="lesson-card" data-chapter="2">
+                    <div class="lesson-status">
+                        <span class="status-badge status-not-started">未開始</span>
+                    </div>
+                    <div class="lesson-number">第2章</div>
+                    <div class="lesson-content">
+                        <h3>生成AIの種類と特徴</h3>
+                        <p class="lesson-description">主要な生成AIツールの種類と特徴を理解し、使い分けられるようになります</p>
+                        <div class="lesson-topics">
+                            <span class="topic">ChatGPT・Gemini・Claude</span>
+                            <span class="topic">Midjourney・DALL-E</span>
+                            <span class="topic">画像生成AI</span>
+                            <span class="topic">音声・動画生成</span>
+                            <span class="topic">ツール比較</span>
+                        </div>
+                        <div class="lesson-footer">
+                            <span>⏱️ 約60分</span>
+                            <span class="lesson-progress-mini"></span>
+                            <span class="lesson-arrow">学習を始める →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 第3章 -->
+                <a href="chapter3/index.html" class="lesson-card" data-chapter="3">
+                    <div class="lesson-status">
+                        <span class="status-badge status-not-started">未開始</span>
+                    </div>
+                    <div class="lesson-number">第3章</div>
+                    <div class="lesson-content">
+                        <h3>プロンプトエンジニアリング</h3>
+                        <p class="lesson-description">プロンプト技術を習得し、実務で活用できるようになります</p>
+                        <div class="lesson-topics">
+                            <span class="topic">Few-shot学習</span>
+                            <span class="topic">Chain-of-Thought</span>
+                            <span class="topic">ロールプレイ</span>
+                            <span class="topic">テンプレート</span>
+                            <span class="topic">実践技術</span>
+                        </div>
+                        <div class="lesson-footer">
+                            <span>⏱️ 約50分</span>
+                            <span class="lesson-progress-mini"></span>
+                            <span class="lesson-arrow">学習を始める →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 第4章 -->
+                <a href="chapter4/index.html" class="lesson-card" data-chapter="4">
+                    <div class="lesson-status">
+                        <span class="status-badge status-not-started">未開始</span>
+                    </div>
+                    <div class="lesson-number">第4章</div>
+                    <div class="lesson-content">
+                        <h3>AI活用の法的側面</h3>
+                        <p class="lesson-description">AI活用における法的リスクを理解し、適切に対応できるようになります</p>
+                        <div class="lesson-topics">
+                            <span class="topic">著作権</span>
+                            <span class="topic">知的財産権</span>
+                            <span class="topic">AIガイドライン</span>
+                            <span class="topic">リスク管理</span>
+                            <span class="topic">実務対応</span>
+                        </div>
+                        <div class="lesson-footer">
+                            <span>⏱️ 約40分</span>
+                            <span class="lesson-progress-mini"></span>
+                            <span class="lesson-arrow">学習を始める →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 第5章 -->
+                <a href="chapter5/index.html" class="lesson-card" data-chapter="5">
+                    <div class="lesson-status">
+                        <span class="status-badge status-not-started">未開始</span>
+                    </div>
+                    <div class="lesson-number">第5章</div>
+                    <div class="lesson-content">
+                        <h3>AI活用の実践</h3>
+                        <p class="lesson-description">デザイン業務でAIを実践的に活用できるようになります</p>
+                        <div class="lesson-topics">
+                            <span class="topic">ワークフロー統合</span>
+                            <span class="topic">ツール組み合わせ</span>
+                            <span class="topic">品質管理</span>
+                            <span class="topic">実践事例</span>
+                            <span class="topic">時間短縮</span>
+                        </div>
+                        <div class="lesson-footer">
+                            <span>⏱️ 約50分</span>
+                            <span class="lesson-progress-mini"></span>
+                            <span class="lesson-arrow">学習を始める →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+
+    <script src="shared/js/config/characters.js"></script>
+    <script src="shared/js/core/visual-effects.js"></script>
+    <script src="shared/js/page-navigation.js"></script>
+    <script src="shared/js/keyboard-shortcuts.js"></script>
+    <script src="shared/js/learning-tracker.js"></script>
+    <script src="shared/js/character-system.js"></script>
+    <script src="shared/js/home-page.js"></script>
+</body>
+
+</html>

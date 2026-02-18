@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: LMとLLM | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html">ホーム</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="レッスンメニューを開く" aria-expanded="false">
+                        レッスン
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="lesson1.html" class="active" role="menuitem">
+                            <span class="lesson-badge">Lesson 1</span>
+                            LMとLLM
+                        </a>
+                        <a href="lesson2.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 2</span>
+                            プロンプティングの基礎
+                        </a>
+                        <a href="lesson3.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 3</span>
+                            LLMプロンプティングの実践
+                        </a>
+                        <a href="lesson4.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 4</span>
+                            ビジネス応用
+                        </a>
+                        <a href="lesson5.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 5</span>
+                            不得意なこと
+                        </a>
+                    </div>
+                </div>
+                <button class="character-selector-link" aria-label="キャラクター選択" id="character-selector-toggle">
+                    キャラクター選択
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- サイドバー目次 -->
+        <aside class="table-of-contents">
+            <h3>📋 目次</h3>
+            <!-- JavaScriptで自動生成 -->
+        </aside>
+
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="hero-badge">Lesson 1</div>
+                <h1>LMとLLM</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約30分</span>
+                    <span>📚 学習目標: 大規模言語モデルについて理解する</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📖 学習内容</h2>
+                <p>このレッスンでは、以下の2つのトピックを学習します:</p>
+                <ul>
+                    <li><strong>LM(Language Model:言語モデル)</strong></li>
+                    <li><strong>LLM(Large Language Model:大規模言語モデル)</strong></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣ LM(言語モデル)とは</h2>
+
+                <h3>言語モデルの定義</h3>
+                <div class="highlight">
+                    <p><strong>言語モデル(Language Model, LM)とは</strong></p>
+                    <ul>
+                        <li>文章や単語の並びの確率を計算するモデル</li>
+                        <li>「次にどの単語が来るか」を予測する仕組み</li>
+                        <li>自然言語処理(NLP)の基礎技術</li>
+                    </ul>
+                </div>
+
+                <h3>言語モデルの仕組み</h3>
+                <p>言語モデルは、大量のテキストデータから学習し、単語の並び方のパターンを理解します。</p>
+
+                <div class="code-block">
+                    <pre>例: 「今日は良い___です」
+
+言語モデルの予測:
+- 天気 (確率: 40%)
+- 日 (確率: 30%)
+- 気分 (確率: 20%)
+- その他 (確率: 10%)</pre>
+                </div>
+
+                <h3>言語モデルの用途</h3>
+                <ul>
+                    <li><strong>文章生成</strong>: 自然な文章を作成</li>
+                    <li><strong>機械翻訳</strong>: 言語間の翻訳</li>
+                    <li><strong>音声認識</strong>: 音声をテキストに変換</li>
+                    <li><strong>文章校正</strong>: 誤字脱字の検出</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ LLM(大規模言語モデル)とは</h2>
+
+                <h3>LLMの定義</h3>
+                <div class="highlight">
+                    <p><strong>大規模言語モデル(Large Language Model, LLM)とは</strong></p>
+                    <ul>
+                        <li>膨大な<strong>パラメータ</strong>数を持つ言語モデル</li>
+                        <li>数千億〜数兆のパラメータで構成</li>
+                        <li>大量のテキストデータで学習</li>
+                        <li>人間のような自然な文章を生成</li>
+                    </ul>
+                    <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                        <p><strong>💡 用語解説: パラメータ</strong></p>
+                        <p>パラメータとは、AIモデルが学習によって獲得する「知識の重み」のようなものです。<br>
+                            例えば、「猫」という単語の後には「かわいい」が来やすい、といった言葉の関係性を数値で記憶しています。<br>
+                            パラメータの数が多いほど、より複雑なパターンを学習でき、高度な文章生成が可能になります。</p>
+                    </div>
+                </div>
+
+                <h3>LLMと従来のLMの違い</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">項目</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">従来のLM</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">LLM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>パラメータ数</strong>
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">数百万〜数億</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">数千億〜数兆</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>学習データ</strong>
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">限定的</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">インターネット全体</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>性能</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">特定タスクに特化</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">汎用的・高性能</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>例</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">BERT, Word2Vec</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">GPT-4, Gemini, Claude</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>主要なLLM</h3>
+                <ul>
+                    <li><strong>GPT-4(OpenAI)</strong>: 最も有名なLLM、高い性能</li>
+                    <li><strong>Gemini(Google)</strong>: Google検索との連携、長文対応</li>
+                    <li><strong>Claude(Anthropic)</strong>: 安全性重視、長文読解が得意</li>
+                    <li><strong>Llama(Meta)</strong>: オープンソース、研究用途</li>
+                </ul>
+
+                <h3>LLMの学習プロセス</h3>
+                <p>LLMは、主に2つの段階を経て学習されます。</p>
+
+                <h4>1. プレトレーニング(Pre-training)</h4>
+                <div class="highlight">
+                    <p><strong>プレトレーニングとは</strong></p>
+                    <ul>
+                        <li>LLMを作る最初の学習段階</li>
+                        <li>大量の文章を読ませて「次に来やすい言葉」を予測させる練習を繰り返す</li>
+                        <li>言葉の使い方や一般的な知識のパターンを広く身につける</li>
+                        <li>インターネット上の文章、書籍、論文などを使用</li>
+                        <li>数週間〜数ヶ月かけて大規模に実施</li>
+                    </ul>
+                </div>
+
+                <p><strong>プレトレーニングで獲得する能力</strong></p>
+                <ul>
+                    <li>言語の基礎力(文章の流れ・言い回し・一般知識の傾向)</li>
+                    <li>文法・語彙の理解</li>
+                    <li>文脈の理解</li>
+                    <li>論理的な推論の基礎</li>
+                </ul>
+
+                <p><strong>学習のイメージ</strong></p>
+                <p>正解ラベルを人が細かく付けるというより、文章の続きを当てる形で学ぶ(自己教師あり／教師なしに近い学習)</p>
+
+                <h4>2. ファインチューニング(Fine-tuning)</h4>
+                <div class="highlight">
+                    <p><strong>ファインチューニングとは</strong></p>
+                    <ul>
+                        <li>プレトレーニング済みのLLMを特定の用途に合わせて追加学習させる段階</li>
+                        <li>少量の高品質なデータで追加学習</li>
+                        <li>人間のフィードバックを活用(<strong>RLHF</strong>: Reinforcement Learning from Human Feedback)</li>
+                        <li>数日〜数週間で実施</li>
+                    </ul>
+                    <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                        <p><strong>💡 用語解説: RLHF(人間のフィードバックからの強化学習)</strong></p>
+                        <p>RLHFとは、人間が「この回答は良い」「この回答は悪い」と評価することで、AIをより望ましい方向に学習させる手法です。<br>
+                            例えば、ChatGPTは人間の評価を基に「丁寧で有益な回答」をするように調整されています。<br>
+                            これにより、AIは単に正確なだけでなく、人間にとって役立つ回答をするようになります。</p>
+                    </div>
+                </div>
+
+                <p><strong>ファインチューニングの例</strong></p>
+                <ul>
+                    <li>問い合わせ対応を丁寧な文体に寄せたい</li>
+                    <li>社内の文章ルール(用語、トーン、書式)に合わせたい</li>
+                    <li>特定タスク(分類、要約など)で精度を上げたい</li>
+                </ul>
+
+                <p><strong>ファインチューニングで獲得する能力</strong></p>
+                <ul>
+                    <li>指示に従う能力</li>
+                    <li>会話形式での応答</li>
+                    <li>有害な出力の抑制</li>
+                    <li>特定分野の専門知識</li>
+                </ul>
+
+                <p><strong>効果</strong>: 同じ入力でも、望ましい形式や方針で回答しやすくなる</p>
+
+                <h4>プレトレーニングとファインチューニングの違い</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">項目</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">プレトレーニング</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">ファインチューニング</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>目的</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">基礎的な言語能力の獲得</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">特定用途への最適化</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>データ量</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">膨大(数TB)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">少量(数GB)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>期間</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">数週間〜数ヶ月</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">数日〜数週間</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>コスト</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">非常に高い(数億円〜)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">比較的低い</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>例</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">GPT-3 → GPT-3.5-base</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">GPT-3.5-base → ChatGPT
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>4️⃣ Temperature と Top-p(生成時の設定)</h2>
+
+                <div class="highlight">
+                    <p><strong>重要な違い</strong></p>
+                    <p>Temperature と Top-p は、プレトレーニングやファインチューニングのような「学習」ではなく、<br>
+                        <strong>回答を生成するときの「出力の出し方」の設定</strong>です。
+                    </p>
+                </div>
+
+                <h3>Temperature(自由度の調整)</h3>
+                <p>Temperatureは、出力の「自由度(ばらつき)」を調整する設定です。</p>
+
+                <h4>低い Temperature(例: 0〜0.3)</h4>
+                <ul>
+                    <li><strong>特徴</strong>: 安定して定型的</li>
+                    <li><strong>向いているタスク</strong>:
+                        <ul>
+                            <li>事実確認</li>
+                            <li>手順説明</li>
+                            <li>要約</li>
+                            <li>正確性が求められるタスク</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>高い Temperature(例: 0.7〜1.0)</h4>
+                <ul>
+                    <li><strong>特徴</strong>: 多様で発想が広がりやすい</li>
+                    <li><strong>向いているタスク</strong>:
+                        <ul>
+                            <li>アイデア出し</li>
+                            <li>言い換え</li>
+                            <li>創作寄りの文章</li>
+                            <li>多様性が求められるタスク</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>例: Temperature の違い
+
+【質問】「AIとは何ですか?」
+
+Temperature = 0.1 (低い):
+「AIは人工知能のことで、コンピュータが人間のように考え、学習する技術です。」
+
+Temperature = 0.9 (高い):
+「AIって、まるで魔法みたいな技術ですよね!コンピュータが自分で考えて、どんどん賢くなっていくんです。」</pre>
+                </div>
+
+                <h3>Top-p(選択肢の広さの調整)</h3>
+                <p>Top-pは、次の言葉を選ぶときに「どれくらい広い候補から選ぶか」を調整する設定です。</p>
+
+                <h4>仕組みのイメージ</h4>
+                <div class="highlight">
+                    <ol>
+                        <li>「次に来そうな言葉」を確率順に並べる</li>
+                        <li>上位から合計確率がTop-pに達するまでを候補として残す</li>
+                        <li>その候補の中から言葉を選んで文章を続ける</li>
+                    </ol>
+                </div>
+
+                <h4>Top-pが高い(例: 0.9〜1.0)</h4>
+                <ul>
+                    <li><strong>候補が広い</strong> → 表現が多様になりやすい</li>
+                    <li>創造的なタスクに向いている</li>
+                </ul>
+
+                <h4>Top-pが低い(例: 0.3〜0.7)</h4>
+                <ul>
+                    <li><strong>候補が狭い</strong> → 安定しやすいが単調になりやすい</li>
+                    <li>正確性が求められるタスクに向いている</li>
+                </ul>
+
+                <h3>Temperature と Top-p の使い分け</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">タスク</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">Temperature</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">Top-p</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>事実確認・要約</strong>
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">低い(0〜0.3)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">低い(0.3〜0.7)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>アイデア出し・創作</strong>
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">高い(0.7〜1.0)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">高い(0.9〜1.0)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);"><strong>バランス型</strong>
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">中程度(0.5〜0.7)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">中程度(0.7〜0.9)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 言語モデル(LM)の主な役割は何ですか?</p>
+                    <ul class="quiz-options" id="quiz1">
+                        <li onclick="selectAnswer(this, false)">A. 画像を生成する</li>
+                        <li onclick="selectAnswer(this, true)">B. 次の単語を予測する</li>
+                        <li onclick="selectAnswer(this, false)">C. 音声を認識する</li>
+                        <li onclick="selectAnswer(this, false)">D. 動画を編集する</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback1" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> LLM(大規模言語モデル)のパラメータ数の特徴として正しいものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz2">
+                        <li onclick="selectAnswer(this, false)">A. 数千程度</li>
+                        <li onclick="selectAnswer(this, false)">B. 数万程度</li>
+                        <li onclick="selectAnswer(this, false)">C. 数百万程度</li>
+                        <li onclick="selectAnswer(this, true)">D. 数千億〜数兆</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback2" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 事前学習(Pre-training)の目的として最も適切なものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz3">
+                        <li onclick="selectAnswer(this, false)">A. 特定のタスクに特化する</li>
+                        <li onclick="selectAnswer(this, true)">B. 基礎的な言語理解を学習する</li>
+                        <li onclick="selectAnswer(this, false)">C. モデルのサイズを小さくする</li>
+                        <li onclick="selectAnswer(this, false)">D. 学習速度を上げる</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback3" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> ファインチューニング(Fine-tuning)について正しい説明はどれですか?</p>
+                    <ul class="quiz-options" id="quiz4">
+                        <li onclick="selectAnswer(this, false)">A. モデルを最初から学習する</li>
+                        <li onclick="selectAnswer(this, true)">B. 特定のタスクに特化した追加学習</li>
+                        <li onclick="selectAnswer(this, false)">C. モデルのパラメータを削除する</li>
+                        <li onclick="selectAnswer(this, false)">D. 学習データを削除する</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback4" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> LMとLLMの主な違いは何ですか?</p>
+                    <ul class="quiz-options" id="quiz5">
+                        <li onclick="selectAnswer(this, false)">A. 使用する言語の種類</li>
+                        <li onclick="selectAnswer(this, true)">B. パラメータ数と性能</li>
+                        <li onclick="selectAnswer(this, false)">C. 学習に使うハードウェア</li>
+                        <li onclick="selectAnswer(this, false)">D. 開発した企業</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback5" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>LM(言語モデル)</strong>: 単語の並びの確率を計算するモデル</li>
+                        <li><strong>LLM(大規模言語モデル)</strong>: 数千億〜数兆のパラメータを持つ言語モデル</li>
+                        <li><strong>事前学習</strong>: 大量のテキストデータで基礎的な言語理解を学習</li>
+                        <li><strong>ファインチューニング</strong>: 特定のタスクに特化した追加学習</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="index.html" class="nav-button secondary">← ホームに戻る</a>
+                <a href="lesson2.html" class="nav-button">次へ: Lesson 2 →</a>
+            </div>
+
+            <!-- レッスン完了ボタン -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="complete-lesson-btn" onclick="completeLesson(1)"
+                    style="background: linear-gradient(90deg, var(--ra-red), var(--flame-orange)); color: white; border: none; padding: 1rem 3rem; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3); transition: transform 0.3s; margin-bottom: 2rem;">
+                    ✅ このレッスンを完了する
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 生成AIパスポート講座 | Plus Ultra! 💪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // プロンプトコピー機能
+        function copyPrompt(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'コピー完了!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'コピー';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // クイズ回答選択
+        function selectAnswer(element, isCorrect) {
+            const options = element.parentElement.children;
+            const feedbackId = element.parentElement.id.replace('quiz', 'feedback');
+            const feedback = document.getElementById(feedbackId);
+
+            // すべての選択肢をリセット
+            for (let option of options) {
+                option.classList.remove('correct', 'incorrect');
+            }
+
+            // 選択した選択肢にクラスを追加
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'quiz-feedback correct';
+                feedback.textContent = '✅ 正解です! よくできました!';
+            } else {
+                element.classList.add('incorrect');
+                feedback.className = 'quiz-feedback incorrect';
+                feedback.textContent = '❌ 不正解です。もう一度考えてみましょう。';
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // レッスン完了機能
+        function completeLesson(lessonNumber) {
+            if (typeof markLessonComplete === 'function') {
+                markLessonComplete(lessonNumber);
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+
+                if (typeof showSaboMessage === 'function') {
+                    showSaboMessage('lessonComplete', 4000);
+                }
+            }
+        }
+
+        // ページ読み込み時に完了状態をチェック
+        window.addEventListener('load', () => {
+            if (typeof checkLessonComplete === 'function' && checkLessonComplete(1)) {
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+    <script src="js/config/characters.js"></script>
+    <script src="js/core/visual-effects.js"></script>
+    <script src="page-navigation.js"></script>
+    <script src="character-system.js"></script>
+</body>
+
+</html>

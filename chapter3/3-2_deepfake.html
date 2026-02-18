@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-2: ディープフェイク | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第3章</a> &gt;
+                    3-2
+                </div>
+                <div class="hero-badge">第3章 セクション 3-2</div>
+                <h1>ディープフェイク</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約15分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎭 ディープフェイクとは</h2>
+                <div class="highlight">
+                    <p><strong>ディープフェイク（Deepfake）</strong></p>
+                    <p>AIを使って、人物の顔や音声を別人のものに入れ替えた偽の動画・音声</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> AIで作った「超リアルな偽物」動画です。本物と見分けがつかないほど精巧です</p>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <p><strong>Deep:</strong> ディープラーニング（深層学習）</p>
+                    <p><strong>Fake:</strong> 偽物</p>
+                    <p>→ ディープラーニングで作られた偽物コンテンツ</p>
+                </div>
+
+                <h3>ディープフェイクの種類</h3>
+                <ul>
+                    <li><strong>顔交換（Face Swap）:</strong> 動画内の人物の顔を別人に入れ替え</li>
+                    <li><strong>表情操作（Face Reenactment）:</strong> 他人の表情を別の人物に適用</li>
+                    <li><strong>音声合成（Voice Cloning）:</strong> 特定の人物の声を再現</li>
+                    <li><strong>リップシンク:</strong> 音声に合わせて口の動きを生成</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⚙️ ディープフェイクの技術</h2>
+                <h3>主な技術</h3>
+
+                <h4>1. GAN（敵対的生成ネットワーク）</h4>
+                <div class="highlight">
+                    <p>2つのネットワークが競い合って本物そっくりの画像を生成</p>
+                    <p class="note">💡 復習：「偽札作り」と「警察」が競い合う仕組みでした</p>
+                </div>
+
+                <h4>2. オートエンコーダー</h4>
+                <div class="highlight">
+                    <p>顔の特徴を学習し、別の顔に適用する技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 人の顔の「パーツ」を分解して、別の人の顔に組み立て直す技術です</p>
+                </div>
+
+                <h3>学習プロセス</h3>
+                <div class="code-block">
+                    <pre>1. データ収集
+   → 対象人物の大量の画像・動画を収集
+
+2. 特徴学習
+   → AIが顔の特徴（表情、角度、照明など）を学習
+
+3. 生成
+   → 学習した特徴を使って新しい動画を生成
+
+4. 精度向上
+   → 繰り返し学習で本物に近づける</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>⚠️ ディープフェイクの悪用事例</h2>
+                <h3>社会的な問題</h3>
+
+                <h4>1. フェイクニュース・偽情報拡散</h4>
+                <ul>
+                    <li>政治家の偽発言動画</li>
+                    <li>有名人の偽スキャンダル</li>
+                    <li>選挙への影響</li>
+                </ul>
+
+                <h4>2. 詐欺・なりすまし</h4>
+                <ul>
+                    <li><strong>CEO詐欺:</strong> 経営者の声を偽造して送金指示</li>
+                    <li><strong>本人確認の突破:</strong> 顔認証システムの回避</li>
+                    <li><strong>実際の被害:</strong> 2019年、イギリスの企業が約3,000万円の被害</li>
+                </ul>
+
+                <h4>3. プライバシー侵害</h4>
+                <ul>
+                    <li>同意なく他人の顔を使用</li>
+                    <li>リベンジポルノ</li>
+                    <li>名誉毀損</li>
+                </ul>
+
+                <h4>4. 信頼性の低下</h4>
+                <div class="highlight" style="background: #fff3cd;">
+                    <p><strong>⚠️ 「リアリティ・クライシス」</strong></p>
+                    <p>本物の映像まで「偽物では？」と疑われる問題</p>
+                    <p class="note">💡 例：証拠動画が「ディープフェイクだ」と主張されて信用されない</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🛡️ ディープフェイクの検出技術</h2>
+                <h3>主な検出方法</h3>
+
+                <h4>1. 不自然な動きの検出</h4>
+                <ul>
+                    <li><strong>まばたきの頻度:</strong> ディープフェイクはまばたきが少ない</li>
+                    <li><strong>頭の動き:</strong> 不自然な首の動き</li>
+                    <li><strong>顔の境界:</strong> 顔と背景の不自然な境界線</li>
+                </ul>
+
+                <h4>2. AI検出ツール</h4>
+                <ul>
+                    <li><strong>Microsoft Video Authenticator:</strong> Microsoftが開発した検出ツール</li>
+                    <li><strong>Intel FakeCatcher:</strong> リアルタイムで96%の精度で検出</li>
+                    <li><strong>Deepware Scanner:</strong> オンラインで無料で検証可能</li>
+                </ul>
+
+                <h4>3. デジタル電子透かし</h4>
+                <div class="highlight">
+                    <p>本物の動画に見えない「証明マーク」を埋め込む技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> お札の透かしのように、本物であることを証明する目に見えないマークです</p>
+                </div>
+
+                <h4>4. C2PA（Coalition for Content Provenance and Authenticity）</h4>
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>C2PA</strong></p>
+                    <p>コンテンツの出所と真正性を証明する業界標準規格</p>
+                    <p>Adobe、Microsoft、Google、OpenAIなどが参加</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✅ ディープフェイクの適正利用</h2>
+                <h3>ポジティブな活用例</h3>
+
+                <h4>1. エンターテインメント</h4>
+                <ul>
+                    <li>映画の若返り・老化表現</li>
+                    <li>故人の映像再現（遺族の同意あり）</li>
+                    <li>吹き替えのリップシンク</li>
+                </ul>
+
+                <h4>2. 教育・研究</h4>
+                <ul>
+                    <li>歴史上の人物の再現</li>
+                    <li>多言語教育コンテンツ</li>
+                    <li>医療シミュレーション</li>
+                </ul>
+
+                <h4>3. ビジネス</h4>
+                <ul>
+                    <li>AIアバターによる動画作成</li>
+                    <li>多言語プレゼンテーション</li>
+                    <li>バーチャルアシスタント</li>
+                </ul>
+
+                <h3>適正利用のガイドライン</h3>
+                <ul>
+                    <li>✅ 本人の同意を得る</li>
+                    <li>✅ 明確に「AI生成」と表示</li>
+                    <li>✅ 悪意ある用途を避ける</li>
+                    <li>✅ プライバシーを尊重</li>
+                </ul>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> ディープフェイクの「Deep」は何の略？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイクの「Deep」はディープラーニング（深層学習）の略です。「Fake」（偽物）と組み合わせて、ディープラーニングで作られた偽物コンテンツを意味します。')">
+                            A. ディープラーニング（深層学習）</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 深い（Depth）</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 詳細な（Detailed）</li>
+                        <li onclick="selectAnswer(this, false, '')">D. デジタル（Digital）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> ディープフェイクの検出で注目される特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 髪の色</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイクはまばたきの頻度が少ないという特徴があります。その他、首の不自然な動きや、顔と背景の境界線の不自然さなども検出の手がかりになります。')">
+                            B. まばたきの頻度</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 服装</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 背景</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> C2PAの目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. AIの開発速度を上げる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：C2PA（Coalition for Content Provenance and Authenticity）はコンテンツの出所と真正性を証明する業界標準規格です。Adobe、Microsoft、Google、OpenAIなどが参加しています。')">
+                            B. コンテンツの真正性を証明</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 個人情報を保護</li>
+                        <li onclick="selectAnswer(this, false, '')">D. ネットワーク速度を向上</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> 2019年のCEO詐欺事件の被害額は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 約300万円</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：2019年のイギリスの企業で発生したCEO詐欺事件では、経営者の声を偽造して送金指示が出され、約3,000万円の被害が出ました。ディープフェイクの悪用例として重要な事例です。')">
+                            B. 約3,000万円</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 約3億円</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 約30億円</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> ディープフェイクの適正利用で重要なことは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. できるだけ多く作成する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイクを適正に利用するためには、本人の同意を得ることが最も重要です。また、明確にAI生成と表示し、悪意ある用途を避け、プライバシーを尊重することも必要です。')">
+                            B. 本人の同意を得る</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 秘密にする</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 無料で提供する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> C2PA（Coalition for Content Provenance and Authenticity）の目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ コンテンツの暗号化は情報セキュリティの分野であり、C2PAの主な目的ではありません。')">A.
+                            コンテンツを暗号化する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：C2PA（Coalition for Content Provenance and Authenticity）は、デジタルコンテンツの作成者、作成日時、編集履歴などの来歴情報を記録・検証する標準規格です。これにより、コンテンツが本物かAI生成かを判別しやすくなります。')">
+                            B. コンテンツの出所と真正性を証明する</li>
+                        <li onclick="selectAnswer(this, false, '❌ コンテンツの著作権料を自動計算するのは、権利管理システムの機能です。')">C.
+                            コンテンツの著作権料を自動計算する</li>
+                        <li onclick="selectAnswer(this, false, '❌ コンテンツの自動翻訳は翻訳AIの機能であり、C2PAの目的ではありません。')">D.
+                            コンテンツを自動翻訳する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> デジタル電子透かし（Digital Watermark）の特徴は？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 目に見える大きなロゴの重ね合わせは、可視透かし（Visible Watermark）であり、デジタル電子透かしとは異なります。')">
+                            A. 画像に大きなロゴを目に見える形で重ねる</li>
+                        <li onclick="selectAnswer(this, false, '❌ ファイルのパスワード保護はアクセス制御の手段であり、電子透かしとは機能が異なります。')">B.
+                            ファイルにパスワードをかける</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：デジタル電子透かしは、人間の目や耳では知覚できないように、画像や音声、動画のデータ内に識別情報を埋め込む技術です。コンテンツの見た目を変えずに、著作権情報やAI生成であることを示す情報を記録できます。')">
+                            C. 人間には知覚できない形で識別情報を埋め込む</li>
+                        <li onclick="selectAnswer(this, false, '❌ ファイル名による管理は単なるファイル管理であり、電子透かし技術ではありません。')">D.
+                            ファイル名に識別番号を付与する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> ディープフェイク検出技術で使われる手法として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 文章の文法チェックは自然言語処理の分野であり、ディープフェイク検出とは異なります。')">A.
+                            文章の文法をチェックする</li>
+                        <li onclick="selectAnswer(this, false, '❌ 音声の音量レベルを測定するだけでは、ディープフェイクの検出は困難です。')">B.
+                            音声の音量レベルを測定する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイク検出では、AI（ディープラーニング）を使って映像の不自然さを分析します。瞬きの頻度、肌の質感、光の反射、顔の動きのパターンなど、人間では見落としやすい微細な不自然さをAIが検出します。')">
+                            C. AIで映像の不自然さ（瞬き、肌の質感等）を分析する</li>
+                        <li onclick="selectAnswer(this, false, '❌ ファイルサイズの比較だけではディープフェイクかどうかの判別は不可能です。')">D.
+                            ファイルサイズを比較する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> 音声ディープフェイクのリスクとして最も深刻なものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 音質の低下は技術的な問題ですが、最も深刻なリスクとは言えません。')">A. 音質が低下する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 再生速度が変わることは音声編集の問題であり、ディープフェイク特有のリスクではありません。')">B.
+                            再生速度が変わる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：音声ディープフェイクの最も深刻なリスクは、特定の人物の声を模倣した電話詐欺や金銭的被害です。実際に、CEOの声を模倣した詐欺で大金が振り込まれた事例が報告されています。')">
+                            C. 特定人物の声で電話詐欺や金銭被害を引き起こす</li>
+                        <li onclick="selectAnswer(this, false, '❌ ストレージの消費はデータ管理の問題であり、深刻なセキュリティリスクとは言えません。')">D.
+                            ストレージを大量に消費する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> ディープフェイクに関する法的規制について、正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい事実です。ディープフェイクによる名誉毀損は、既存の刑法で罰せられる可能性があります。')">A.
+                            他人を騙す目的のディープフェイクは詐欺罪に問われる可能性がある</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい事実です。本人の同意なく顔を差し替える行為は、肖像権やプライバシーの侵害になり得ます。')">
+                            B. 同意なく他人の顔を使うことは肖像権侵害になり得る</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイク技術自体は映画制作や教育、エンターテインメントなどの正当な用途もあるため、技術の使用自体が全面禁止されているわけではありません。問題となるのは悪意ある使用方法です。')">
+                            C. ディープフェイク技術の使用は全世界で全面禁止されている</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ これは正しい事実です。選挙などで政治家のディープフェイクを作成・拡散することは、多くの国で規制の対象となっています。')">
+                            D. 政治的なディープフェイクは選挙に影響を与えるため規制対象となり得る</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>ディープフェイク:</strong> AIで作られた超リアルな偽物動画・音声</li>
+                        <li><strong>技術:</strong> GAN、オートエンコーダーを使用</li>
+                        <li><strong>リスク:</strong> 詐欺、フェイクニュース、プライバシー侵害</li>
+                        <li><strong>対策:</strong> AI検出ツール、C2PA、デジタル電子透かし</li>
+                        <li><strong>適正利用:</strong> 本人同意、明確な表示、倫理的配慮が必要</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="3-1_services.html" class="nav-button secondary">← 3-1: 生成AIのサービス</a>
+                <a href="3-3_rag.html" class="nav-button">次: 3-3 RAG →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('3-2')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "3-2";
+            const chapter = "chapter3";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

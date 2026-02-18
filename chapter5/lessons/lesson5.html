@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: テキスト生成AIの不得意なこと | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html">ホーム</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="レッスンメニューを開く" aria-expanded="false">
+                        レッスン
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="lesson1.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 1</span>
+                            LMとLLM
+                        </a>
+                        <a href="lesson2.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 2</span>
+                            プロンプティングの基礎
+                        </a>
+                        <a href="lesson3.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 3</span>
+                            LLMプロンプティングの実践
+                        </a>
+                        <a href="lesson4.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 4</span>
+                            ビジネス応用
+                        </a>
+                        <a href="lesson5.html" class="active" role="menuitem">
+                            <span class="lesson-badge">Lesson 5</span>
+                            不得意なこと
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- サイドバー目次 -->
+        <aside class="table-of-contents">
+            <h3>📋 目次</h3>
+            <!-- JavaScriptで自動生成 -->
+        </aside>
+
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="hero-badge">Lesson 5</div>
+                <h1>テキスト生成AIの不得意なこと</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約30分</span>
+                    <span>📚 学習目標: テキスト生成AIの不得意なことについて学習する</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📖 学習内容</h2>
+                <p>このレッスンでは、テキスト生成AIの4つの不得意分野を学習します:</p>
+                <ul>
+                    <li><strong>正確な文字数の指定</strong></li>
+                    <li><strong>計算</strong></li>
+                    <li><strong>最新の情報</strong></li>
+                    <li><strong>芸術の批評</strong></li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>重要</strong>: AIの限界を理解することで、適切な使い方ができるようになります。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣ 正確な文字数の指定</h2>
+
+                <h3>なぜ不得意なのか?</h3>
+                <div class="highlight">
+                    <p><strong>理由</strong></p>
+                    <ul>
+                        <li>LLMは「トークン」単位で処理する</li>
+                        <li>文字数を正確にカウントしながら生成できない</li>
+                        <li>日本語は1文字=1〜2トークンと不定</li>
+                    </ul>
+                </div>
+
+                <h3>実験してみよう</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>「生成AI」について、正確に50文字で説明してください。</pre>
+                </div>
+
+                <p><strong>結果</strong>: ほとんどの場合、48文字や52文字など、微妙にずれた文字数になります。</p>
+
+                <h3>対策</h3>
+                <ul>
+                    <li>✅ 「約50文字」「50文字程度」と指定する</li>
+                    <li>✅ 生成後に人間が調整する</li>
+                    <li>✅ 複数回生成して最も近いものを選ぶ</li>
+                    <li>❌ 「正確に50文字」と指定しても期待通りにならない</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ 計算</h2>
+
+                <h3>なぜ不得意なのか?</h3>
+                <div class="highlight">
+                    <p><strong>理由</strong></p>
+                    <ul>
+                        <li>LLMは「パターン認識」で動作する</li>
+                        <li>数学的な計算ロジックを持たない</li>
+                        <li>学習データから「それらしい答え」を生成</li>
+                    </ul>
+                </div>
+
+                <h3>実験してみよう</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>1234 × 5678 = ?
+
+計算過程も含めて答えてください。</pre>
+                </div>
+
+                <p><strong>結果</strong>: 簡単な計算(2桁×2桁)は正解することが多いですが、複雑な計算は間違えることがあります。</p>
+
+                <h3>対策</h3>
+                <ul>
+                    <li>✅ 計算機能を持つツール(Code Interpreter、Wolfram Alpha)を使う</li>
+                    <li>✅ Pythonコードを生成させて実行する</li>
+                    <li>✅ 人間が電卓で確認する</li>
+                    <li>❌ LLMの計算結果を鵜呑みにしない</li>
+                </ul>
+
+                <h3>最新のLLMの進化</h3>
+                <p><strong>GPT-4o、Claude 3.5</strong>などの最新モデルは、ツール連携により計算精度が向上しています。</p>
+            </div>
+
+            <div class="section">
+                <h2>3️⃣ 最新の情報</h2>
+
+                <h3>なぜ不得意なのか?</h3>
+                <div class="highlight">
+                    <p><strong>理由</strong></p>
+                    <ul>
+                        <li>LLMは学習時点までのデータしか知らない</li>
+                        <li>「<strong>知識のカットオフ</strong>」が存在する</li>
+                        <li>リアルタイムの情報にアクセスできない</li>
+                    </ul>
+                    <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                        <p><strong>💡 用語解説: 知識のカットオフ</strong></p>
+                        <p>知識のカットオフとは、AIが学習したデータの「最終日」のことです。<br>
+                            例えば、カットオフが2023年4月のAIは、2023年5月以降の出来事を知りません。<br>
+                            そのため、最新のニュースや今日の天気など、リアルタイムの情報は提供できません。</p>
+                    </div>
+                </div>
+
+                <h3>知識のカットオフ例</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">モデル</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">知識のカットオフ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">GPT-4(2023年版)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">2023年4月</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">GPT-4o(2024年版)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">2023年10月</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">Claude 3.5</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">2024年4月</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>実験してみよう</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>今日の東京の天気は?
+
+今日のニュースのトップ3は?</pre>
+                </div>
+
+                <p><strong>結果</strong>: 「私は最新の情報にアクセスできません」と回答されます。</p>
+
+                <h3>対策</h3>
+                <ul>
+                    <li>✅ <strong>Web検索機能</strong>を持つLLM(Bing Chat、Gemini)を使う</li>
+                    <li>✅ <strong>RAG(検索拡張生成)</strong>を活用する</li>
+                    <li>✅ <strong>プラグイン・ツール連携</strong>を使う</li>
+                    <li>✅ 最新情報は人間が提供する</li>
+                    <li>❌ LLMに最新情報を期待しない</li>
+                </ul>
+                <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                    <p><strong>💡 用語解説: RAG(検索拡張生成)</strong></p>
+                    <p>RAG(Retrieval-Augmented Generation)とは、AIが回答する前に、まず関連情報を「検索」し、その情報を参考にして回答を生成する技術です。<br>
+                        例えば、社内ドキュメントや最新のニュース記事を検索してから回答することで、カットオフの制約を超えられます。<br>
+                        チャットボットや社内情報検索システムでよく使われる技術です。</p>
+                </div>
+
+                <h3>最新のLLMの進化</h3>
+                <p><strong>Gemini、Bing Chat、Perplexity</strong>などは、リアルタイムWeb検索と連携し、最新情報を提供できます。</p>
+            </div>
+
+            <div class="section">
+                <h2>4️⃣ 芸術の批評</h2>
+
+                <h3>なぜ不得意なのか?</h3>
+                <div class="highlight">
+                    <p><strong>理由</strong></p>
+                    <ul>
+                        <li>芸術は主観的で、正解がない</li>
+                        <li>感情や感性を理解できない</li>
+                        <li>文化的・歴史的背景の深い理解が必要</li>
+                        <li>視覚情報(絵画、彫刻)を直接見られない(テキストLLMの場合)</li>
+                    </ul>
+                </div>
+
+                <h3>実験してみよう</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>モナリザの絵画を批評してください。
+なぜこの作品が名画とされているのか、詳しく説明してください。</pre>
+                </div>
+
+                <p><strong>結果</strong>: 一般的な知識(構図、技法、歴史的背景)は説明できますが、深い感性的な批評は難しいです。</p>
+
+                <h3>対策</h3>
+                <ul>
+                    <li>✅ <strong>マルチモーダルLLM</strong>(GPT-4o、Gemini Pro Vision)を使う</li>
+                    <li>✅ 客観的な分析(構図、色彩、技法)に限定する</li>
+                    <li>✅ 参考意見として活用する</li>
+                    <li>❌ AIの批評を絶対視しない</li>
+                </ul>
+
+                <h3>最新のLLMの進化</h3>
+                <p><strong>GPT-4o、Gemini Pro Vision</strong>などのマルチモーダルLLMは、画像を直接見て分析できるため、より詳細な批評が可能です。</p>
+            </div>
+
+            <div class="exercise">
+                <h3>💡 演習: AIの限界を体験しよう</h3>
+                <p>以下のプロンプトを試して、AIの限界を実際に体験してみましょう。</p>
+
+                <div class="exercise-prompt">
+                    <h4>演習1: 文字数指定</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>「プロンプトエンジニアリング」について、正確に30文字で説明してください。</pre>
+                    </div>
+
+                    <h4>演習2: 計算</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>9876 × 5432 = ?
+
+ステップバイステップで計算してください。</pre>
+                    </div>
+
+                    <h4>演習3: 最新情報</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>2026年2月6日の日経平均株価は?</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> LLMが正確な文字数指定が不得意な理由はどれですか?</p>
+                    <ul class="quiz-options" id="quiz1">
+                        <li onclick="selectAnswer(this, true)">A. トークン単位で処理するため</li>
+                        <li onclick="selectAnswer(this, false)">B. 計算能力が低いため</li>
+                        <li onclick="selectAnswer(this, false)">C. 学習データが不足しているため</li>
+                        <li onclick="selectAnswer(this, false)">D. プロンプトが悪いため</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback1" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> LLMが最新情報を提供できない理由はどれですか?</p>
+                    <ul class="quiz-options" id="quiz2">
+                        <li onclick="selectAnswer(this, false)">A. 計算能力が低いため</li>
+                        <li onclick="selectAnswer(this, true)">B. 知識のカットオフが存在するため</li>
+                        <li onclick="selectAnswer(this, false)">C. プロンプトが悪いため</li>
+                        <li onclick="selectAnswer(this, false)">D. 文字数制限があるため</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback2" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 最新情報を得るための対策として適切なものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz3">
+                        <li onclick="selectAnswer(this, false)">A. プロンプトを工夫する</li>
+                        <li onclick="selectAnswer(this, false)">B. 文字数を増やす</li>
+                        <li onclick="selectAnswer(this, true)">C. Web検索機能を持つLLMを使う</li>
+                        <li onclick="selectAnswer(this, false)">D. 計算ツールを使う</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback3" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> LLMが複雑な計算を苦手とする理由は何ですか?</p>
+                    <ul class="quiz-options" id="quiz4">
+                        <li onclick="selectAnswer(this, true)">A. 言語理解に特化しており、数値計算には最適化されていない</li>
+                        <li onclick="selectAnswer(this, false)">B. 計算機能が搭載されていない</li>
+                        <li onclick="selectAnswer(this, false)">C. 電力消費が大きいため</li>
+                        <li onclick="selectAnswer(this, false)">D. データベースに接続できないため</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback4" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> LLMの限界を理解することの重要性は何ですか?</p>
+                    <ul class="quiz-options" id="quiz5">
+                        <li onclick="selectAnswer(this, false)">A. AIを使わないようにするため</li>
+                        <li onclick="selectAnswer(this, true)">B. 適切な使い方を判断し、人間の確認を入れるため</li>
+                        <li onclick="selectAnswer(this, false)">C. AIを完全に信頼するため</li>
+                        <li onclick="selectAnswer(this, false)">D. AIの開発を止めるため</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback5" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <p><strong>テキスト生成AIの4つの不得意分野</strong></p>
+                    <ol>
+                        <li><strong>正確な文字数指定</strong>: トークン単位で処理するため → 「約〜文字」と指定</li>
+                        <li><strong>計算</strong>: パターン認識で動作するため → ツール連携を活用</li>
+                        <li><strong>最新の情報</strong>: 知識のカットオフが存在するため → Web検索機能やRAGを活用</li>
+                        <li><strong>芸術の批評</strong>: 感性や主観を理解できないため → マルチモーダルLLMや参考意見として活用</li>
+                    </ol>
+                    <p><strong>重要</strong>: AIの限界を理解し、適切な使い方をすることが大切です!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎉 第5章 完了おめでとうございます!</h2>
+                <div class="highlight">
+                    <p><strong>学習した内容</strong></p>
+                    <ul>
+                        <li>Lesson 1: LMとLLM</li>
+                        <li>Lesson 2: プロンプティングの基礎</li>
+                        <li>Lesson 3: LLMプロンプティングの実践</li>
+                        <li>Lesson 4: テキスト生成AIを用いたビジネス応用</li>
+                        <li>Lesson 5: テキスト生成AIの不得意なこと</li>
+                    </ul>
+                    <p><strong>次のステップ</strong>: 実際にLLMを使って、学んだ技法を実践してみましょう!</p>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="lesson4.html" class="nav-button secondary">← Lesson 4</a>
+                <a href="index.html" class="nav-button">ホームに戻る</a>
+            </div>
+
+            <!-- レッスン完了ボタン -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="complete-lesson-btn" onclick="completeLesson(5)"
+                    style="background: linear-gradient(90deg, var(--ra-red), var(--flame-orange)); color: white; border: none; padding: 1rem 3rem; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3); transition: transform 0.3s; margin-bottom: 2rem;">
+                    ✅ このレッスンを完了する
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 生成AIパスポート講座 | Plus Ultra! 💪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyPrompt(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'コピー完了!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'コピー';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function selectAnswer(element, isCorrect) {
+            const options = element.parentElement.children;
+            const feedbackId = element.parentElement.id.replace('quiz', 'feedback');
+            const feedback = document.getElementById(feedbackId);
+
+            for (let option of options) {
+                option.classList.remove('correct', 'incorrect');
+            }
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'quiz-feedback correct';
+                feedback.textContent = '✅ 正解です! よくできました!';
+            } else {
+                element.classList.add('incorrect');
+                feedback.className = 'quiz-feedback incorrect';
+                feedback.textContent = '❌ 不正解です。もう一度考えてみましょう。';
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // レッスン完了機能
+        function completeLesson(lessonNumber) {
+            if (typeof markLessonComplete === 'function') {
+                markLessonComplete(lessonNumber);
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+
+                if (typeof showSaboMessage === 'function') {
+                    showSaboMessage('lessonComplete', 4000);
+                }
+            }
+        }
+
+        // ページ読み込み時に完了状態をチェック
+        window.addEventListener('load', () => {
+            if (typeof checkLessonComplete === 'function' && checkLessonComplete(5)) {
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+    <script src="character-system.js"></script>
+</body>
+
+</html>

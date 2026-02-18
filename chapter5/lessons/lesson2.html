@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: プロンプティングの基礎 | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="index.html">ホーム</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="レッスンメニューを開く" aria-expanded="false">
+                        レッスン
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="lesson1.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 1</span>
+                            LMとLLM
+                        </a>
+                        <a href="lesson2.html" class="active" role="menuitem">
+                            <span class="lesson-badge">Lesson 2</span>
+                            プロンプティングの基礎
+                        </a>
+                        <a href="lesson3.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 3</span>
+                            LLMプロンプティングの実践
+                        </a>
+                        <a href="lesson4.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 4</span>
+                            ビジネス応用
+                        </a>
+                        <a href="lesson5.html" role="menuitem">
+                            <span class="lesson-badge">Lesson 5</span>
+                            不得意なこと
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="main-content">
+        <!-- サイドバー目次 -->
+        <aside class="table-of-contents">
+            <h3>📋 目次</h3>
+            <!-- JavaScriptで自動生成 -->
+        </aside>
+
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="hero-badge">Lesson 2</div>
+                <h1>プロンプティングの基礎</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約40分</span>
+                    <span>📚 学習目標: プロンプトの基礎知識を学習する</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📖 学習内容</h2>
+                <p>このレッスンでは、以下の4つのトピックを学習します:</p>
+                <ul>
+                    <li><strong>プロンプトエンジニアリング</strong></li>
+                    <li><strong>Zero-Shotプロンプティング</strong></li>
+                    <li><strong>Few-Shotプロンプティング</strong></li>
+                    <li><strong>プロンプトの要素</strong></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>1️⃣ プロンプトエンジニアリングとは</h2>
+
+                <h3>プロンプトエンジニアリングの定義</h3>
+                <div class="highlight">
+                    <p><strong>プロンプトエンジニアリングとは</strong></p>
+                    <ul>
+                        <li>LLMから最適な出力を得るための技術</li>
+                        <li>効果的な指示文(<strong>プロンプト</strong>)を設計する技法</li>
+                        <li>生成AIを使いこなすための必須スキル</li>
+                    </ul>
+                    <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                        <p><strong>💡 用語解説: プロンプト</strong></p>
+                        <p>プロンプトとは、AIに対する「指示文」や「質問文」のことです。<br>
+                            ChatGPTなどに入力する文章がプロンプトです。<br>
+                            プロンプトの書き方次第で、AIの回答の質が大きく変わります。</p>
+                    </div>
+                </div>
+
+                <h3>プロンプトの重要性</h3>
+                <p>同じLLMでも、プロンプトの書き方次第で出力の質が大きく変わります。</p>
+
+                <div class="code-block">
+                    <pre>❌ 悪いプロンプト:
+「AIについて教えて」
+
+✅ 良いプロンプト:
+「あなたはAI専門家です。
+生成AIパスポート試験を受ける初心者向けに、
+AIの定義を3つのポイントで、
+各50文字以内で説明してください。」</pre>
+                </div>
+
+                <h3>プロンプトエンジニアリングの基本要素</h3>
+                <ul>
+                    <li><strong>役割設定</strong>: AIに特定の役割を与える</li>
+                    <li><strong>コンテキスト</strong>: 背景情報を提供</li>
+                    <li><strong>タスク</strong>: 具体的な指示</li>
+                    <li><strong>制約</strong>: 条件や制限を明示</li>
+                    <li><strong>出力形式</strong>: 期待する形式を指定</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ プロンプトの要素</h2>
+
+                <p>効果的なプロンプトは、以下の4つの要素で構成されます。</p>
+
+                <h3>Instruction(インストラクション: 命令)</h3>
+                <div class="highlight">
+                    <p><strong>AIに何をすべきかを具体的に指示する部分</strong></p>
+                    <ul>
+                        <li>AIがどのようなタスクを実行すべきかを明確に伝えるための命令文</li>
+                        <li>具体的で明確な指示が重要</li>
+                    </ul>
+                </div>
+                <p><strong>例</strong>: 「次の文章を英語に翻訳して」</p>
+
+                <h3>Context(コンテキスト: 文脈)</h3>
+                <div class="highlight">
+                    <p><strong>AIがタスクを適切に実行するための背景情報や参照情報</strong></p>
+                    <ul>
+                        <li>文脈を正確に提供することでより適切な応答を促すことが可能</li>
+                        <li>AIが回答する前提となる立場や状況を設定</li>
+                    </ul>
+                </div>
+                <p><strong>例1</strong>: ニュース記事の前段落や、前の会話の内容<br>
+                    <strong>例2</strong>: 「あなたはプロのマーケターです」といった、AIが回答する前提となる立場
+                </p>
+
+                <h3>Input Data(インプットデータ: 入力データ)</h3>
+                <div class="highlight">
+                    <p><strong>AIに処理を依頼する具体的な情報やデータ</strong></p>
+                    <ul>
+                        <li>このデータを基に、AIは分析や処理を行い、出力を生成</li>
+                        <li>処理対象となる実際のデータ</li>
+                    </ul>
+                </div>
+                <p><strong>例</strong>: 要約を求める場合の元となる長い文章</p>
+
+                <h3>Output Indicator(アウトプットインジケーター: 出力指示)</h3>
+                <div class="highlight">
+                    <p><strong>AIにどのような形式や構造で結果を返すべきかを示す指示</strong></p>
+                    <ul>
+                        <li>出力の形式や内容を特定の方法で制限したい場合に使用</li>
+                        <li>期待する出力の形式を明確に指定</li>
+                    </ul>
+                </div>
+                <p><strong>例</strong>: 「結果を5つのポイントでまとめて」「答えはYesかNoで答えて」</p>
+
+                <h3>プロンプトの要素の組み合わせ例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>【Context】あなたはプロのマーケターです。
+
+【Instruction】以下の商品説明を分析して、ターゲット層を特定してください。
+
+【Input Data】
+「オーガニックコーヒー豆。フェアトレード認証。環境に配慮した栽培方法。」
+
+【Output Indicator】
+結果を以下の形式で出力してください:
+- ターゲット層:
+- 理由:
+- おすすめの販売チャネル:</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3️⃣ Zero-Shot プロンプティング</h2>
+
+                <h3>Zero-Shotの定義</h3>
+                <div class="highlight">
+                    <p><strong>Zero-Shot プロンプティングとは</strong></p>
+                    <ul>
+                        <li>Shot(例示)が0個の文章構成で入力を行うプロンプティング</li>
+                        <li>例を示さずに指示する手法</li>
+                        <li>簡単な質問を入力するのに適している</li>
+                        <li>最も基本的なプロンプティング技法</li>
+                    </ul>
+                </div>
+
+                <h3>Zero-Shotの特徴</h3>
+                <p><strong>信頼性</strong>:</p>
+                <ul>
+                    <li>✅ 簡単なタスクであれば、信頼性の高い回答が得られる</li>
+                    <li>❌ タスクが複雑な場合、<strong>ハルシネーション</strong>(もっともらしい嘘)により信頼性が低くなる場合がある</li>
+                    <li>⚠️ 最終的に人間の判断を介入させて確認する必要がある</li>
+                </ul>
+                <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                    <p><strong>💡 用語解説: ハルシネーション</strong></p>
+                    <p>ハルシネーションとは、AIが「もっともらしい嘘」や「事実ではない情報」を自信を持って生成してしまう現象です。<br>
+                        例えば、存在しない論文やウェブサイトをあたかも存在するかのように紹介することがあります。<br>
+                        AIの回答は必ず人間が確認し、重要な情報は裏付けを取ることが大切です。</p>
+                </div>
+
+                <h3>Zero-Shotの例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の文章を日本語に翻訳してください:
+
+"Artificial Intelligence is transforming the world."</pre>
+                </div>
+
+                <p>このプロンプトでは、翻訳の例を示さずに直接タスクを指示しています。</p>
+
+                <h3>Zero-Shotが適しているタスク</h3>
+                <ul>
+                    <li><strong>翻訳</strong>: 言語間の翻訳</li>
+                    <li><strong>要約</strong>: 文章の要約</li>
+                    <li><strong>質問応答</strong>: 一般的な質問への回答</li>
+                    <li><strong>分類</strong>: テキストの分類</li>
+                </ul>
+
+                <h3>Zero-Shotの利点と欠点</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">利点</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">欠点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                                ✅ シンプルで使いやすい<br>
+                                ✅ 例を用意する必要がない<br>
+                                ✅ プロンプトが短い
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                                ❌ 複雑なタスクには不向き<br>
+                                ❌ 出力の形式が不安定<br>
+                                ❌ 期待通りの結果が得られないことがある
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>4️⃣ Few-Shot プロンプティング</h2>
+
+                <h3>Few-Shotの定義</h3>
+                <div class="highlight">
+                    <p><strong>Few-Shot プロンプティングとは</strong></p>
+                    <ul>
+                        <li>Shot(例示)を2〜3個入力して質問を行うプロンプティング</li>
+                        <li>例を示して指示する手法</li>
+                        <li>より望ましい回答を得るための技法</li>
+                        <li>複雑なタスクに有効</li>
+                        <li>AIに「こういう感じで」と教える</li>
+                    </ul>
+                </div>
+
+                <h3>Few-Shotの例</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                    <pre>以下の例を参考に、商品のキャッチコピーを作成してください。
+
+例1:
+商品: オーガニックシャンプー
+ターゲット: 30代女性
+コピー: 「自然の恵みで、髪に潤いを」
+
+例2:
+商品: スマートウォッチ
+ターゲット: 40代男性
+コピー: 「時を刻む、健康を守る」
+
+本番:
+商品: オーガニックコーヒー豆
+ターゲット: 30代男性、コーヒー好き
+コピー: ?</pre>
+                </div>
+
+                <h3>Few-Shotが適しているタスク</h3>
+                <ul>
+                    <li><strong>特定の形式での出力</strong>: JSON、CSV、特定のフォーマット</li>
+                    <li><strong>クリエイティブな生成</strong>: キャッチコピー、ネーミング</li>
+                    <li><strong>複雑な変換</strong>: データの整形、構造化</li>
+                    <li><strong>スタイルの模倣</strong>: 特定の文体、トーン</li>
+                </ul>
+
+                <h3>Few-Shotの利点と欠点</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: var(--bg-gray);">
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">利点</th>
+                            <th style="padding: 1rem; border: 1px solid var(--border-color);">欠点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                                ✅ 複雑なタスクに対応<br>
+                                ✅ 出力の形式が安定<br>
+                                ✅ 期待通りの結果が得やすい
+                            </td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                                ❌ 例を用意する手間がかかる<br>
+                                ❌ プロンプトが長くなる<br>
+                                ❌ <strong>トークン</strong>数が増える
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="highlight" style="background: #f0f8ff; margin-top: 1rem;">
+                    <p><strong>💡 用語解説: トークン</strong></p>
+                    <p>トークンとは、AIが文章を処理する際の「最小単位」のことです。<br>
+                        英語では1単語が約1トークン、日本語では1文字が1〜2トークン程度になります。<br>
+                        AIサービスの料金はトークン数で計算されることが多いため、プロンプトが長いとコストが高くなります。</p>
+                </div>
+
+                <h3>Few-Shotの例の数</h3>
+                <p>一般的に、<strong>2〜5個の例</strong>を示すのが効果的です。</p>
+                <ul>
+                    <li><strong>1個</strong>: One-Shot(ワンショット)</li>
+                    <li><strong>2〜5個</strong>: Few-Shot(フューショット)</li>
+                    <li><strong>多数</strong>: Many-Shot(メニーショット) - あまり使われない</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5️⃣ Zero-Shot vs Few-Shot の使い分け</h2>
+
+                <h3>使い分けの基準</h3>
+                <div class="highlight">
+                    <p><strong>Zero-Shotを使う場合</strong></p>
+                    <ul>
+                        <li>シンプルなタスク(翻訳、要約、質問応答)</li>
+                        <li>一般的な知識で対応できるタスク</li>
+                        <li>プロンプトを短くしたい場合</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Few-Shotを使う場合</strong></p>
+                    <ul>
+                        <li>複雑なタスク(特定形式での出力、クリエイティブな生成)</li>
+                        <li>特定のスタイルやトーンを模倣したい場合</li>
+                        <li>出力の形式を安定させたい場合</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💡 演習1: Zero-Shotプロンプティング</h3>
+                <p>以下のプロンプトを試してみましょう。</p>
+
+                <div class="exercise-prompt">
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>以下の文章を3行で要約してください:
+
+「生成AIは、テキスト、画像、音声、動画などの新しいコンテンツを生成する人工知能技術です。2022年のChatGPTの登場により、一般の人々にも広く普及しました。ビジネスの現場では、文章作成、画像生成、コード生成など、様々な用途で活用されています。しかし、ハルシネーション(誤った情報の生成)や著作権の問題など、注意すべき点もあります。」</pre>
+                    </div>
+                </div>
+
+                <h3>💡 演習2: Few-Shotプロンプティング</h3>
+                <p>以下のプロンプトを試してみましょう。</p>
+
+                <div class="exercise-prompt">
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyPrompt(this)">コピー</button>
+                        <pre>以下の例を参考に、商品レビューの感情を分類してください。
+
+例1:
+レビュー: 「この商品は最高です!期待以上でした。」
+感情: ポジティブ
+
+例2:
+レビュー: 「品質が悪く、すぐに壊れました。」
+感情: ネガティブ
+
+例3:
+レビュー: 「普通の商品です。特に良くも悪くもありません。」
+感情: ニュートラル
+
+本番:
+レビュー: 「デザインは良いですが、機能が少し物足りないです。」
+感情: ?</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> Zero-Shotプロンプティングの特徴として正しいものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz1">
+                        <li onclick="selectAnswer(this, true)">A. 例を示さずに指示する手法</li>
+                        <li onclick="selectAnswer(this, false)">B. 2〜5個の例を示す手法</li>
+                        <li onclick="selectAnswer(this, false)">C. 複雑なタスクに最適</li>
+                        <li onclick="selectAnswer(this, false)">D. プロンプトが長くなる</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback1" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> Few-Shotプロンプティングが適しているタスクはどれですか?</p>
+                    <ul class="quiz-options" id="quiz2">
+                        <li onclick="selectAnswer(this, false)">A. 一般的な質問応答</li>
+                        <li onclick="selectAnswer(this, false)">B. シンプルな翻訳</li>
+                        <li onclick="selectAnswer(this, true)">C. 特定の形式での出力</li>
+                        <li onclick="selectAnswer(this, false)">D. 基本的な要約</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback2" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> Few-Shotプロンプティングで一般的に示す例の数はどれですか?</p>
+                    <ul class="quiz-options" id="quiz3">
+                        <li onclick="selectAnswer(this, false)">A. 0個</li>
+                        <li onclick="selectAnswer(this, false)">B. 1個</li>
+                        <li onclick="selectAnswer(this, true)">C. 2〜5個</li>
+                        <li onclick="selectAnswer(this, false)">D. 10個以上</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback3" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> プロンプトエンジニアリングとは何ですか?</p>
+                    <ul class="quiz-options" id="quiz4">
+                        <li onclick="selectAnswer(this, false)">A. AIモデルを開発する技術</li>
+                        <li onclick="selectAnswer(this, true)">B. LLMから最適な出力を得るための技術</li>
+                        <li onclick="selectAnswer(this, false)">C. プログラミング言語を学ぶ技術</li>
+                        <li onclick="selectAnswer(this, false)">D. データベースを設計する技術</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback4" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> 効果的なプロンプトの基本要素に含まれないものはどれですか?</p>
+                    <ul class="quiz-options" id="quiz5">
+                        <li onclick="selectAnswer(this, false)">A. 役割設定</li>
+                        <li onclick="selectAnswer(this, false)">B. コンテキスト</li>
+                        <li onclick="selectAnswer(this, true)">C. プログラミングコード</li>
+                        <li onclick="selectAnswer(this, false)">D. タスク</li>
+                    </ul>
+                    <div class="quiz-feedback" id="feedback5" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <p><strong>このレッスンで学んだこと</strong></p>
+                    <ul>
+                        <li><strong>Zero-Shot</strong>: 例を示さずに指示する手法。シンプルなタスクに有効</li>
+                        <li><strong>Few-Shot</strong>: 例を示して指示する手法。複雑なタスクに有効</li>
+                        <li><strong>使い分け</strong>: タスクの複雑さと出力の安定性で判断</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="lesson1.html" class="nav-button secondary">← Lesson 1</a>
+                <a href="lesson3.html" class="nav-button">次へ: Lesson 3 →</a>
+            </div>
+
+            <!-- レッスン完了ボタン -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="complete-lesson-btn" onclick="completeLesson(2)"
+                    style="background: linear-gradient(90deg, var(--ra-red), var(--flame-orange)); color: white; border: none; padding: 1rem 3rem; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3); transition: transform 0.3s; margin-bottom: 2rem;">
+                    ✅ このレッスンを完了する
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 生成AIパスポート講座 | Plus Ultra! 💪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyPrompt(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'コピー完了!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'コピー';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function selectAnswer(element, isCorrect) {
+            const options = element.parentElement.children;
+            const feedbackId = element.parentElement.id.replace('quiz', 'feedback');
+            const feedback = document.getElementById(feedbackId);
+
+            for (let option of options) {
+                option.classList.remove('correct', 'incorrect');
+            }
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'quiz-feedback correct';
+                feedback.textContent = '✅ 正解です! よくできました!';
+            } else {
+                element.classList.add('incorrect');
+                feedback.className = 'quiz-feedback incorrect';
+                feedback.textContent = '❌ 不正解です。もう一度考えてみましょう。';
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // レッスン完了機能
+        function completeLesson(lessonNumber) {
+            if (typeof markLessonComplete === 'function') {
+                markLessonComplete(lessonNumber);
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+
+                if (typeof showSaboMessage === 'function') {
+                    showSaboMessage('lessonComplete', 4000);
+                }
+            }
+        }
+
+        // ページ読み込み時に完了状態をチェック
+        window.addEventListener('load', () => {
+            if (typeof checkLessonComplete === 'function' && checkLessonComplete(2)) {
+                const btn = document.getElementById('complete-lesson-btn');
+                btn.textContent = '✅ 完了済み!';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+    <script src="page-navigation.js"></script>
+    <script src="character-system.js"></script>
+</body>
+
+</html>

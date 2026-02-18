@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-2: プロンプト制作の実践 | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第5章</a> &gt;
+                    5-2
+                </div>
+                <div class="hero-badge">第5章 セクション 5-2</div>
+                <h1>プロンプト制作の実践</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約20分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✍️ 文章の校正</h2>
+                <div class="highlight">
+                    <p><strong>校正プロンプトの基本</strong></p>
+                    <p>誤字脱字、文法ミス、表現の改善を依頼する</p>
+                </div>
+
+                <h3>基本テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の文章を校正してください：
+- 誤字脱字の修正
+- 文法の修正
+- より自然な表現への変更
+
+ただし、元の意味は変えないでください。
+修正後の文章のみを出力してください。
+
+[文章]</pre>
+                </div>
+
+                <h3>応用テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の文章をビジネス文書として適切な表現に校正してください：
+- 敬語を正しく使用
+- 冗長な表現を簡潔に
+- 専門用語は適切に説明
+
+[文章]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📋 要約</h2>
+                <div class="highlight">
+                    <p><strong>要約の種類</strong></p>
+                    <ul>
+                        <li><strong>行数指定：</strong> 「3行で要約」</li>
+                        <li><strong>文字数指定：</strong> 「200文字で要約」</li>
+                        <li><strong>段落指定：</strong> 「3段落で要約」</li>
+                    </ul>
+                </div>
+
+                <h3>基本テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の文章を3行で要約してください：
+
+[文章]</pre>
+                </div>
+
+                <h3>応用テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の文章を要約してください：
+- 重要なポイントを3つに絞る
+- 各ポイント50文字以内
+- 箇条書きで出力
+
+[文章]</pre>
+                </div>
+
+                <h3>エグゼクティブサマリー</h3>
+                <div class="code-block">
+                    <pre>以下の報告書のエグゼクティブサマリーを作成してください：
+- 背景（1行）
+- 主要な発見（3点）
+- 結論と提言（1行）
+- 合計200文字以内
+
+[報告書]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 箇条書き</h2>
+                <div class="highlight">
+                    <p><strong>箇条書きの活用</strong></p>
+                    <p>長文を読みやすく構造化する</p>
+                </div>
+
+                <h3>基本テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の文章を箇条書き5項目にまとめてください：
+
+[文章]</pre>
+                </div>
+
+                <h3>階層構造</h3>
+                <div class="code-block">
+                    <pre>以下の文章を階層構造の箇条書きにしてください：
+- 大項目: 3つ
+- 各大項目に小項目: 2〜3つ
+
+[文章]</pre>
+                </div>
+
+                <h3>番号付きリスト</h3>
+                <div class="code-block">
+                    <pre>以下の手順を番号付きリストにしてください：
+各ステップには
+- 作業内容
+- 所要時間
+- 注意点
+を含めてください。
+
+[手順説明]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔄 話者・対象の変更</h2>
+                <div class="highlight">
+                    <p><strong>読者に合わせた表現</strong></p>
+                    <p>同じ内容を異なる読者向けに書き換える</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 専門家向けの文章を一般向けに、または逆に変換します</p>
+                </div>
+
+                <h3>子供向けに変換</h3>
+                <div class="code-block">
+                    <pre>以下の文章を小学生にもわかるように書き直してください：
+- 難しい言葉は使わない
+- 例えを使って説明
+- 短い文で書く
+
+[文章]</pre>
+                </div>
+
+                <h3>専門家向けに変換</h3>
+                <div class="code-block">
+                    <pre>以下の文章を専門家向けの技術文書に書き直してください：
+- 専門用語を適切に使用
+- 論理的で簡潔な表現
+- データや根拠を重視
+
+[文章]</pre>
+                </div>
+
+                <h3>高齢者向けに変換</h3>
+                <div class="code-block">
+                    <pre>以下の文章を高齢者にも理解しやすいように書き直してください：
+- ゆっくりとした説明
+- 馴染みのある言葉を使用
+- カタカナ語は日本語に置き換え
+
+[文章]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💬 会話変換</h2>
+                <div class="highlight">
+                    <p><strong>形式の変換</strong></p>
+                    <p>フォーマルな文章をカジュアルに、または逆に変換</p>
+                </div>
+
+                <h3>カジュアルな会話形式へ</h3>
+                <div class="code-block">
+                    <pre>以下の文章をカジュアルな会話形式に変換してください：
+- 「〜です」→「〜だよ」「〜ですね」
+- 堅苦しい表現を避ける
+- フレンドリーな口調
+
+[文章]</pre>
+                </div>
+
+                <h3>フォーマルな書き言葉へ</h3>
+                <div class="code-block">
+                    <pre>以下の会話をフォーマルなビジネス文書に変換してください：
+- 敬語を適切に使用
+- 口語表現を書き言葉に
+- 論理的な構成
+
+[会話文]</pre>
+                </div>
+
+                <h3>Q&A形式へ</h3>
+                <div class="code-block">
+                    <pre>以下の文章をQ&A形式（5問）に変換してください：
+各質問に対して明確な回答を付けてください。
+
+[文章]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔢 数字変換</h2>
+                <div class="highlight">
+                    <p><strong>数字の表記変換</strong></p>
+                    <p>アラビア数字と漢数字の相互変換</p>
+                </div>
+
+                <h3>漢数字への変換</h3>
+                <div class="code-block">
+                    <pre>以下の文章に含まれる数字を、すべて漢数字に変換してください：
+- アラビア数字 → 漢数字
+- 他の部分は変更しない
+
+[文章]</pre>
+                </div>
+
+                <h3>アラビア数字への変換</h3>
+                <div class="code-block">
+                    <pre>以下の文章に含まれる漢数字を、すべてアラビア数字に変換してください：
+
+[文章]</pre>
+                </div>
+
+                <h3>単位の統一</h3>
+                <div class="code-block">
+                    <pre>以下の文章の数字と単位を統一してください：
+- 距離: すべてkm表記
+- 重さ: すべてkg表記
+- 時間: すべて24時間表記
+
+[文章]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎓 例え話の作成</h2>
+                <div class="highlight">
+                    <p><strong>比喩を使った説明</strong></p>
+                    <p>難しい概念を身近なもので例える</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 複雑な内容を「〜は、まるで〜のようなもの」と説明します</p>
+                </div>
+
+                <h3>基本テンプレート</h3>
+                <div class="code-block">
+                    <pre>以下の専門用語を、小学生にもわかるように例え話を使って説明してください：
+
+用語: [専門用語]
+
+例え話には以下を含めてください：
+- 日常生活で馴染みのあるもの
+- 具体的なイメージ
+- 簡単な言葉</pre>
+                </div>
+
+                <h3>応用例</h3>
+                <div class="code-block">
+                    <pre>「生成AI」を以下の3つの視点で例え話を作ってください：
+
+1. 料理に例えると
+2. スポーツに例えると
+3. 学校に例えると
+
+各例え話は3行以内で。</pre>
+                </div>
+
+                <h3>複数の例え話</h3>
+                <div class="code-block">
+                    <pre>以下の技術的な概念を3つの異なる例え話で説明してください：
+
+概念: [技術的概念]
+
+対象:
+1. 小学生向け
+2. 主婦向け
+3. ビジネスパーソン向け</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎨 その他の実用テクニック</h2>
+
+                <h3>1. 長文を段落分け</h3>
+                <div class="code-block">
+                    <pre>以下の長文を読みやすいように段落分けしてください：
+- 各段落は1つのトピックに集中
+- 段落の冒頭に見出しを付ける
+
+[長文]</pre>
+                </div>
+
+                <h3>2. 箇条書きを文章化</h3>
+                <div class="code-block">
+                    <pre>以下の箇条書きを、自然な文章に変換してください：
+- 接続詞を適切に使用
+- 論理的な流れを作る
+
+[箇条書き]</pre>
+                </div>
+
+                <h3>3. 表をテキスト化</h3>
+                <div class="code-block">
+                    <pre>以下の表の内容を、わかりやすい文章で説明してください：
+- 重要なデータを強調
+- 傾向や特徴を説明
+
+[表データ]</pre>
+                </div>
+
+                <h3>4. キーワード抽出</h3>
+                <div class="code-block">
+                    <pre>以下の文章から重要なキーワードを10個抽出してください：
+- 重要度順に並べる
+- 各キーワードに簡単な説明を付ける
+
+[文章]</pre>
+                </div>
+
+                <h3>5. トーン調整</h3>
+                <div class="code-block">
+                    <pre>以下の文章のトーンを[明るく前向き/落ち着いた丁寧/情熱的]に調整してください：
+
+元の内容と意味は変えないでください。
+
+[文章]</pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💡 効果的なプロンプトのコツ</h2>
+                <div class="highlight">
+                    <h3>5つのポイント</h3>
+                    <ol>
+                        <li><strong>具体的に：</strong> 曖昧な指示ではなく、具体的な要求を
+                            <ul>
+                                <li>❌ 「簡単に書いて」</li>
+                                <li>✅ 「小学生にもわかるように、例えを使って3行で書いて」</li>
+                            </ul>
+                        </li>
+                        <li><strong>制約を明記：</strong> 文字数、行数、禁止事項を指定
+                            <ul>
+                                <li>✅ 「200文字以内」「専門用語は使わない」</li>
+                            </ul>
+                        </li>
+                        <li><strong>出力形式を指定：</strong> 箇条書き、段落、表など
+                            <ul>
+                                <li>✅ 「以下の形式で出力： 1. 〇〇 2. 〇〇」</li>
+                            </ul>
+                        </li>
+                        <li><strong>役割を与える：</strong> AIに「あなたは〜です」と役割を設定
+                            <ul>
+                                <li>✅ 「あなたはプロの編集者です」</li>
+                            </ul>
+                        </li>
+                        <li><strong>段階的に：</strong> 複雑なタスクは分割して指示
+                            <ul>
+                                <li>✅ 「まず要約し、次に箇条書きにしてください」</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 文章を校正する際、プロンプトに含めるべき指示は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 元の文章を全部書き換えて</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：校正プロンプトでは、「誤字脱字の修正」や「より自然な表現への変更」といった具体的な指示に加え、「元の意味は変えない」という制約を含めることが重要です。')">
+                            B. 誤字脱字を修正し、元の意味は変えないで</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 長さは気にせず書いて</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 難しい言葉をたくさん使って</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> 要約のプロンプトで指定すべきものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 色と形</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：要約を依頼する際は、「3行で」や「200文字以内で」のように、具体的な文字数や行数を指定することで、意図した長さに収めることができます。')">
+                            B. 文字数や行数</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 価格</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 音量</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 子供向けに文章を変換する際のポイントは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 専門用語を多用する</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 長い文章で書く</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：子供向けの文章にするには、専門用語や難しい漢字を避け、身近な例え話を使うなどして、分かりやすく噛み砕くことがポイントです。')">
+                            C. 難しい言葉を避け、例えを使う</li>
+                        <li onclick="selectAnswer(this, false, '')">D. カタカナを多用する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> 例え話を作る際に重要なことは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. できるだけ抽象的に</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：効果的な例え話を作るには、読者が日常生活でよく知っているもの（料理、スポーツ、学校など）に関連付けると、イメージしやすくなります。')">
+                            B. 日常生活で馴染みのあるもので例える</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 専門用語を使う</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 長く複雑に説明する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> 効果的なプロンプトに含めるべきでないものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 具体的な指示</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 文字数制限</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 出力形式</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：プロンプトに「簡単に」や「いい感じに」といった曖昧な表現を含めると、AIが意図を正しく解釈できず、望まない出力になる可能性があります。具体的かつ明確な指示を心がけましょう。')">
+                            D. 曖昧な表現</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> AIに表形式で出力させたい場合、最も効果的な指示は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 「きれいに書いて」は曖昧な指示であり、AIが表形式で出力するとは限りません。')">A. きれいに書いて
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：AIに特定の形式で出力させたい場合、「マークダウンの表形式で」「| 項目 | 内容 |のような表で」と具体的なフォーマットを指定すると、意図した構造化された出力が得られます。')">
+                            B. マークダウンの表形式で、列は「項目」「内容」「備考」の3列で出力して</li>
+                        <li onclick="selectAnswer(this, false, '❌ 「分かりやすくまとめて」では出力形式が指定されておらず、箇条書きや文章形式になる可能性があります。')">
+                            C. 分かりやすくまとめて</li>
+                        <li onclick="selectAnswer(this, false, '❌ 「何でもいいから出力して」は最も曖昧な指示であり、効果的ではありません。')">D. 何でもいいから出力して
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> AIの出力が期待通りでない場合、最も適切な対処法は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 全く別のAIに変更するのは、プロンプトの改善を試みる前の段階では適切ではありません。')">A.
+                            全く別のAIに変更する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 諦めるのではなく、プロンプトの改善を試みるべきです。')">B. あきらめる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力が期待通りでない場合は、プロンプトを修正・具体化して再度試す「反復的プロンプティング」が効果的です。制約条件の追加、具体例の提示、出力形式の指定などを行うことで、出力の質を段階的に改善できます。')">
+                            C. プロンプトをより具体的にして再度試す</li>
+                        <li onclick="selectAnswer(this, false, '❌ 同じプロンプトを何度も繰り返しても、根本的な改善は期待できません。')">D.
+                            同じプロンプトを何度も繰り返す</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> 翻訳をAIに依頼する際のベストプラクティスは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 全文を一度に翻訳するよりも、適切に分割して文脈を付加する方が品質が良くなる場合があります。')">A.
+                            全文を一度に入力する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：翻訳を依頼する際は、対象言語はもちろん、フォーマルかカジュアルかのトーン、専門分野（医療、法律など）、翻訳後の用途（ビジネスメール、論文など）を指定すると、より適切な翻訳が得られます。')">
+                            B. 対象言語、トーン、専門分野、用途を具体的に指定する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 「適当に翻訳して」は曖昧な指示であり、品質の高い翻訳は期待できません。')">C. 適当に翻訳してと指示する
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 翻訳の文脈情報を省くと、多義語や文化的表現の翻訳精度が低下します。')">D. 文脈情報は省略する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> AIにコード生成を依頼する際、含めるべき情報は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 「良いコードを書いて」は曖昧な指示であり、具体的な要件が含まれていません。')">A.
+                            良いコードを書いてほしい</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：AIにコード生成を依頼する際は、プログラミング言語、機能の詳細、入出力の仕様、エラーハンドリングの要件、コメントの有無など、具体的な要件を明示することで、意図通りのコードが生成されやすくなります。')">
+                            B. プログラミング言語、機能、入出力の仕様を明示する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 何でもいいから動くコードはプロンプトの指示としては曖昧すぎます。')">C. 何でもいいから動くコード
+                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 最短を求めるだけでは可読性や保守性が犠牲になる可能性があります。')">D. 最短のコードだけ</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> プロンプト設計の基本原則として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。具体的で明確な指示はAIの理解を助け、意図通りの出力につながります。')">A.
+                            具体的かつ明確な指示を出す</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。出力形式を指定することで、構造化された使いやすい回答が得られます。')">B.
+                            出力形式を指定する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力は必ず検証・確認すべきです。ハルシネーション（もっともらしい嘘）の可能性があるため、特に重要な情報は複数情報源で裏付けを取ることが基本原則です。')">
+                            C. AIの出力は検証不要でそのまま使用できる</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。制約条件を設けることで、出力の範囲と質をコントロールできます。')">D.
+                            制約条件を設定する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>校正：</strong> 誤字脱字、文法、表現を改善</li>
+                        <li><strong>要約：</strong> 文字数・行数を指定して簡潔に</li>
+                        <li><strong>箇条書き：</strong> 構造化して読みやすく</li>
+                        <li><strong>話者変更：</strong> 読者に合わせた表現に変換</li>
+                        <li><strong>会話変換：</strong> フォーマル⇔カジュアル</li>
+                        <li><strong>数字変換：</strong> 表記の統一</li>
+                        <li><strong>例え話：</strong> 身近なもので分かりやすく</li>
+                        <li><strong>コツ：</strong> 具体的・制約明記・形式指定・役割設定・段階的</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="5-1_techniques.html" class="nav-button secondary">← 5-1: プロンプトエンジニアリングの技術</a>
+                <a href="5-3_business_cases.html" class="nav-button">次: 5-3 ビジネス活用事例 →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('5-2')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter5";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "5-2";
+            const chapter = "chapter5";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>

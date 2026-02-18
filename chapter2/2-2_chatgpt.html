@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-2: ChatGPT | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第2章</a> &gt;
+                    2-2
+                </div>
+                <div class="hero-badge">第2章 セクション 2-2</div>
+                <h1>ChatGPT</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約20分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🤖 GPTシリーズの進化</h2>
+                <div class="highlight">
+                    <p><strong>GPT（Generative Pre-trained Transformer）</strong></p>
+                    <p>OpenAIが開発した大規模言語モデルのシリーズ</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 大量の文章を学習して、人間のように自然な文章を生成できるAIです</p>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>大規模言語モデル（LLM）：</strong> 膨大な量の文章データで学習したAI（例：何百億という単語を学習）</li>
+                        <li><strong>Pre-trained（事前学習済み）：</strong> 最初から大量のデータで訓練されている状態</li>
+                    </ul>
+                </div>
+
+                <h3>GPT-1（2018年6月）</h3>
+                <ul>
+                    <li><strong>パラメータ数：</strong> 1.17億個</li>
+                    <li><strong>特徴：</strong> Transformer のDecoder部分を使用</li>
+                    <li><strong>革新性：</strong> 事前学習 + ファインチューニングの手法を確立</li>
+                </ul>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>パラメータ：</strong> AIが学習する「設定値」の数。多いほど複雑な表現ができる（例：レシピの材料の数のようなもの）</li>
+                        <li><strong>ファインチューニング：</strong> 事前学習したモデルを特定のタスク向けに微調整すること</li>
+                    </ul>
+                </div>
+
+                <h3>GPT-2（2019年2月）</h3>
+                <ul>
+                    <li><strong>パラメータ数：</strong> 15億個（GPT-1の約13倍）</li>
+                    <li><strong>データ量：</strong> 40GBのテキストで学習</li>
+                    <li><strong>特徴：</strong> 驚くほど自然な文章生成が可能に</li>
+                    <li><strong>公開制限：</strong> 悪用を懸念し、当初は段階的に公開</li>
+                </ul>
+
+                <h3>GPT-3（2020年5月）</h3>
+                <div class="highlight">
+                    <p><strong>革命的な進化</strong></p>
+                    <ul>
+                        <li><strong>パラメータ数：</strong> 1,750億個（GPT-2の約100倍以上）</li>
+                        <li><strong>Few-shot Learning：</strong> 少ない例だけで新しいタスクを実行</li>
+                        <li><strong>Zero-shot Learning：</strong> 例なしでもタスクを実行可能</li>
+                    </ul>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>Few-shot Learning：</strong> 数個の例を見せるだけで新しいことができる（例：犬の写真を2-3枚見せただけで猫との違いを理解）</li>
+                        <li><strong>Zero-shot Learning：</strong> 例を見せなくてもタスクを実行できる能力</li>
+                    </ul>
+                </div>
+
+                <h3>InstructGPT（2022年初頭）</h3>
+                <ul>
+                    <li>GPT-3をベースに、人間の指示に従うように改良</li>
+                    <li><strong>RLHF（Reinforcement Learning from Human Feedback）</strong>を採用</li>
+                    <li>ChatGPTの直接的な前身</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>💬 ChatGPTの登場</h2>
+                <div class="highlight">
+                    <p><strong>ChatGPT</strong></p>
+                    <p>2022年11月30日、OpenAIがリリース。わずか5日で100万ユーザーを突破</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 人間と自然に会話できるAI。質問に答えたり、文章を書いたり、プログラムを作ったりできます</p>
+                </div>
+
+                <h3>ChatGPTの特徴</h3>
+                <ul>
+                    <li><strong>対話形式：</strong> 自然な会話でやり取りできる</li>
+                    <li><strong>文脈理解：</strong> 前の会話を覚えて応答</li>
+                    <li><strong>多様なタスク：</strong> 文章作成、要約、翻訳、プログラミングなど</li>
+                    <li><strong>安全性：</strong> 有害な内容を生成しないよう設計</li>
+                </ul>
+
+                <h3>RLHF（人間のフィードバックからの強化学習）</h3>
+                <div class="highlight">
+                    <p><strong>RLHF（Reinforcement Learning from Human Feedback）</strong></p>
+                    <p>人間が「良い回答」「悪い回答」を評価し、その評価を使ってAIを改善する手法</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 先生が生徒に「この答えは良い」「これはダメ」と教えて、AIが良い回答を学ぶ仕組みです</p>
+                </div>
+
+                <h4>RLHFの3ステップ</h4>
+                <div class="code-block">
+                    <pre>1. 教師あり学習（Supervised Fine-tuning）
+   → 人間が作った高品質な対話例で学習
+
+2. 報酬モデルの訓練（Reward Model Training）
+   → 人間が複数の回答を評価し、良い回答を学習
+
+3. 強化学習（Reinforcement Learning）
+   → 報酬モデルを使ってAIを最適化</pre>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>報酬モデル：</strong> どの回答が「良い」かを判断するAI（例：採点する先生のような役割）</li>
+                        <li><strong>強化学習：</strong> 報酬をもらえる行動を学習する仕組み（例：犬がご褒美で芸を覚えるようなもの）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🚀 GPT-4の進化</h2>
+                <h3>GPT-4（2023年3月）</h3>
+                <div class="highlight">
+                    <p><strong>マルチモーダル対応</strong></p>
+                    <ul>
+                        <li><strong>パラメータ数：</strong> 非公開（推定1兆個以上）</li>
+                        <li><strong>画像入力対応：</strong> 画像を理解して応答可能</li>
+                        <li><strong>性能向上：</strong> より正確で創造的な回答</li>
+                    </ul>
+                </div>
+
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>📖 用語解説</strong></p>
+                    <ul>
+                        <li><strong>マルチモーダル：</strong> 複数の種類のデータ（テキスト、画像、音声など）を扱えること</li>
+                    </ul>
+                </div>
+
+                <h3>GPT-4o（2024年5月）</h3>
+                <div class="highlight">
+                    <p><strong>GPT-4o（"o" は "omni" の略）</strong></p>
+                    <p>テキスト、画像、音声を統合的に処理できるマルチモーダルモデル</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 見て、聞いて、話せるAI。人間のように五感を使えるようになりました</p>
+                </div>
+
+                <h4>GPT-4oの特徴</h4>
+                <ul>
+                    <li><strong>リアルタイム音声対話：</strong> 人間と自然に会話</li>
+                    <li><strong>画像理解：</strong> 写真を見て説明</li>
+                    <li><strong>高速化：</strong> GPT-4の2倍の速度</li>
+                    <li><strong>多言語対応：</strong> 50以上の言語をサポート</li>
+                    <li><strong>コスト削減：</strong> API利用料金が半額</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🎬 Sora（動画生成AI）</h2>
+                <div class="highlight">
+                    <p><strong>Sora</strong></p>
+                    <p>2024年2月、OpenAIが発表した動画生成AI</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 文章を書くだけで、リアルな動画を作ってくれるAIです</p>
+                </div>
+
+                <h3>Soraの特徴</h3>
+                <ul>
+                    <li><strong>長時間動画：</strong> 最大60秒の動画を生成</li>
+                    <li><strong>高解像度：</strong> 1080pの高品質動画</li>
+                    <li><strong>物理法則の理解：</strong> リアルな動きを再現</li>
+                    <li><strong>複雑なシーン：</strong> 複数のキャラクター、背景、カメラワーク</li>
+                </ul>
+
+                <h3>Soraの仕組み</h3>
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>Diffusion Transformer</strong></p>
+                    <p>Transformerとディフュージョンモデルを組み合わせた技術</p>
+                    <p class="note">💡 <strong>分かりやすく言うと：</strong> ノイズ（砂嵐）から徐々にきれいな動画を作り出す技術です</p>
+                </div>
+
+                <h3>Soraの課題</h3>
+                <ul>
+                    <li>物理法則の違反（例：重力を無視）</li>
+                    <li>因果関係の誤り</li>
+                    <li>計算コストが高い</li>
+                    <li>倫理的な懸念（ディープフェイク）</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📊 ChatGPTの影響</h2>
+                <h3>社会への影響</h3>
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: var(--primary-color); color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;">分野</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">影響</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>教育</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">学習支援、課題作成の懸念</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>ビジネス</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">業務効率化、カスタマーサポート</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>クリエイティブ</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">コンテンツ制作支援</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>プログラミング</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">コード生成、デバッグ支援</td>
+                    </tr>
+                </table>
+
+                <h3>利用者数の推移</h3>
+                <ul>
+                    <li><strong>5日後：</strong> 100万ユーザー</li>
+                    <li><strong>2ヶ月後：</strong> 1億ユーザー（史上最速）</li>
+                    <li><strong>2024年：</strong> 週間アクティブユーザー2億人超</li>
+                </ul>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> ChatGPTがリリースされたのはいつ？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 2020年11月</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 2021年11月</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ChatGPTは2022年11月30日にOpenAIがリリースしました。わずか5日で100万ユーザー、2ヶ月で1億ユーザーを突破し、史上最速の普及を記録しました。')">
+                            C. 2022年11月</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 2023年11月</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> RLHFとは何の略？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RLHF（Reinforcement Learning from Human Feedback）は、人間が「良い回答」「悪い回答」を評価し、その評価を使ってAIを改善する手法です。ChatGPTの品質向上に不可欠な技術です。')">
+                            A. Reinforcement Learning from Human Feedback</li>
+                        <li onclick="selectAnswer(this, false, '')">B. Rapid Learning for High Function</li>
+                        <li onclick="selectAnswer(this, false, '')">C. Real Language Human Framework</li>
+                        <li onclick="selectAnswer(this, false, '')">D. Recursive Learning Hybrid Function</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> GPT-4oのo"は何を意味する？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. Open</li>
+                        <li onclick="selectAnswer(this, true, '✅ 解説：GPT-4oの
+                            oはomni（全能の）の略です。テキスト、画像、音声を統合的に処理できるマルチモーダルモデルで、見て聞いて話せるAIとして開発されました。')">B. Omni（全能の）
+                        </li>
+                        <li onclick="selectAnswer(this, false, '')">C. Optimal</li>
+                        <li onclick="selectAnswer(this, false, '')">D. Original</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> Soraが生成できる動画の最大長さは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 10秒</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 30秒</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Soraは2024年2月にOpenAIが発表した動画生成AIで、最大60秒、1080pの高品質動画を生成できます。テキストから物理法則を理解したリアルな動画を作り出すことができます。')">
+                            C. 60秒</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 120秒</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> GPT-3のパラメータ数は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '')">A. 15億個</li>
+                        <li onclick="selectAnswer(this, false, '')">B. 175億個</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：GPT-3（2020年5月）は1,750億個のパラメータを持ち、GPT-2の約100倍以上の規模です。Few-shot LearningやZero-shot Learningが可能になり、少ない例や例なしでも新しいタスクを実行できるようになりました。')">
+                            C. 1,750億個</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 1兆個</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> ハルシネーション（Hallucination）とは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ AIの応答速度が遅くなる現象は、レイテンシやスループットの問題に関連します。')">A.
+                            AIの応答速度が遅くなる現象</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ハルシネーション（Hallucination）とは、AIが事実に基づかない情報を、あたかも正しいかのように生成してしまう現象です。もっともらしいが実際には誤りのある回答を出力することがあり、生成AIの重要な課題の一つです。')">
+                            B. AIが事実でない情報をもっともらしく生成する現象</li>
+                        <li onclick="selectAnswer(this, false, '❌ AIが特定のデータに偏ることは、バイアス（偏見）の問題に関連します。')">C.
+                            AIが特定のデータに偏ること</li>
+                        <li onclick="selectAnswer(this, false, '❌ AIが学習データを暗記してしまう現象は、過学習（オーバーフィッティング）と呼ばれます。')">D.
+                            AIが学習データを暗記してしまうこと</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題7:</strong> アライメント（Alignment）の目的は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ モデルの計算速度を向上させるのは、ハードウェアの最適化やモデルの効率化に関する課題です。')">A.
+                            モデルの計算速度を向上させる</li>
+                        <li onclick="selectAnswer(this, false, '❌ 学習データの量を増やすことは、データ拡張やデータ収集の取り組みです。')">B. 学習データの量を増やす
+                        </li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：アライメント（Alignment）は、AIの出力を人間の意図や価値観に沿ったものにする技術・取り組みです。RLHFはアライメントを実現する代表的な手法で、AIが有害・不正確な応答をしないよう調整します。')">
+                            C. AIの出力を人間の意図や価値観に合わせる</li>
+                        <li onclick="selectAnswer(this, false, '❌ 複数のモデルを統合するのは、アンサンブル学習に関連する手法です。')">D. 複数のモデルを統合する
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題8:</strong> ファインチューニングの説明として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ ゼロからモデルを構築するのは、プレトレーニング（事前学習）の工程です。')">A.
+                            ゼロからモデルを構築すること</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ファインチューニングは、大量のデータで事前学習（プレトレーニング）済みのモデルに対して、特定のタスクや用途に合わせて追加学習を行うことです。少ないデータで効率的にモデルを特化させることができます。')">
+                            B. 事前学習済みモデルを特定タスクに合わせて追加学習すること</li>
+                        <li onclick="selectAnswer(this, false, '❌ モデルの出力フォーマットを変更するのは、プロンプトエンジニアリングやAPI設定で行う作業です。')">C.
+                            モデルの出力フォーマットを変更すること</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不要なパラメータを削除するのは、プルーニング（枝刈り）と呼ばれる手法です。')">D.
+                            不要なパラメータを削除すること</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題9:</strong> GPT-o1の最大の特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 動画生成機能はSoraの機能です。GPT-o1はテキストベースの推論に特化しています。')">A.
+                            動画を生成できる</li>
+                        <li onclick="selectAnswer(this, false, '❌ リアルタイム音声対話はGPT-4oの特徴的な機能です。')">B. リアルタイムで音声対話ができる</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：GPT-o1は「推論能力の大幅な向上」が最大の特徴です。回答する前に段階的に思考し、複雑な科学的問題や数学の問題に対して高い正確性を発揮します。o1の「o」はOpenAIの新しいモデル系統を示しています。')">
+                            C. 推論能力が大幅に向上している</li>
+                        <li onclick="selectAnswer(this, false, '❌ インターネットをリアルタイムで検索する機能は、Bing検索との統合で実現される別の機能です。')">D.
+                            インターネットをリアルタイムで検索できる</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題10:</strong> Code Interpreterの機能として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ Webページの自動生成は、一般的なテキスト生成機能で対応可能な範囲です。')">A.
+                            Webページを自動生成する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 音声を文字に変換する機能は、Whisperなどの音声認識モデルの役割です。')">B.
+                            音声をテキストに変換する</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Code Interpreterは、ChatGPT上でPythonコードを実行できる機能です。データ分析、グラフ作成、ファイルの変換など、従来はプログラミング知識が必要だった作業をAIと対話しながら実行できます。')">
+                            C. ChatGPT上でプログラムコードを実行できる</li>
+                        <li onclick="selectAnswer(this, false, '❌ 他のAIモデルとの連携は、API連携やプラグインの機能範囲です。')">D. 他のAIモデルと連携する
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題11:</strong> GPTs（カスタムGPT）の特徴は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ GPTsの設定はプログラミング不要で、自然言語で指示するだけで作成できます。')">A.
+                            プログラミング言語で設定をカスタマイズする</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：GPTsは、ユーザーが特定の目的に合わせてカスタマイズしたChatGPTを、プログラミング不要で作成・共有できる機能です。独自の指示、知識、機能を設定でき、GPT Storeで公開することも可能です。')">
+                            B. 特定の用途に合わせたカスタムChatGPTを作成・共有できる</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ GPTsはOpenAIのChatGPT上の機能であり、独立したオープンソースプロジェクトではありません。')">
+                            C. オープンソースのAIモデルを開発できる</li>
+                        <li onclick="selectAnswer(this, false, '❌ モデルの学習データへのアクセスは、GPTsの機能範囲外です。')">D. モデルの学習データにアクセスできる
+                        </li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題12:</strong> マルチモーダルの意味として正しいものは？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 複数の言語に対応する機能は、多言語（multilingual）対応と呼ばれます。')">A.
+                            複数の言語に対応していること</li>
+                        <li onclick="selectAnswer(this, false, '❌ 複数のユーザーが同時にアクセスするのは、マルチテナントやマルチユーザーの概念です。')">B.
+                            複数のユーザーが同時に使えること</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：マルチモーダルとは、テキスト、画像、音声、動画など複数の種類（モダリティ）のデータを統合的に処理できることです。GPT-4oはマルチモーダルモデルの代表例です。')">
+                            C. テキスト・画像・音声など複数の種類のデータを処理できること</li>
+                        <li onclick="selectAnswer(this, false, '❌ 複数のモデルを連携させるのは、アンサンブル学習やパイプライン処理に関連します。')">D.
+                            複数のモデルを連携させること</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題13:</strong> 以下のうち、GPTモデルの歴史として正しく<strong>ないもの</strong>はどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。GPT-1は2018年に自然言語処理の事前学習モデルとして登場しました。')">A.
+                            GPT-1は2018年に登場した</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：GPT-2のパラメータ数は15億個です。1,750億個のパラメータを持つのはGPT-3です。GPT-2は「あまりに高性能で危険」として当初は完全公開が見送られたことでも知られています。')">
+                            B. GPT-2のパラメータ数は1,750億個である</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ これは正しい説明です。GPT-3はFew-shot Learningの能力を持ち、少数の例から新しいタスクを学ぶことができます。')">
+                            C. GPT-3はFew-shot Learningが可能になった</li>
+                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。GPT-4ではマルチモーダル（テキストと画像）への対応が追加されました。')">D.
+                            GPT-4ではマルチモーダル対応が追加された</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題14:</strong> Operatorの主な機能は？</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Operatorは、OpenAIが開発したAIエージェントで、ユーザーの代わりにWebブラウザを操作してタスクを実行する機能です。ウェブサイトでの予約や購入などの作業を自律的に行うことができます。')">
+                            A. ユーザーの代わりにWebブラウザを操作してタスクを実行する</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ コードの実行はCode Interpreter（Advanced Data Analysis）の機能です。')">
+                            B. プログラムコードを自動実行する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 画像の生成はDALL-Eなどの画像生成モデルの機能です。')">C. 画像を生成する</li>
+                        <li onclick="selectAnswer(this, false, '❌ 動画の編集はSoraなどの動画関連AIの機能範囲です。')">D. 動画を編集する</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題15:</strong> Codex（OpenAI）の主な用途は？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 画像認識はCNNベースのモデルやViTなどが担当する分野です。')">A. 画像認識</li>
+                        <li onclick="selectAnswer(this, false, '❌ 音声合成はTTS（Text-to-Speech）モデルの役割です。')">B. 音声合成</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Codexは、OpenAIが開発したプログラミングコードの生成・補完に特化したAIモデルです。自然言語での指示からプログラムコードを生成でき、GitHub Copilotの基盤技術にもなっています。')">
+                            C. プログラミングコードの生成・補完</li>
+                        <li onclick="selectAnswer(this, false, '❌ データベース管理は専用のDBMSやツールが担当する領域です。')">D. データベース管理</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>GPTシリーズ:</strong> GPT-1 → GPT-2 → GPT-3 → GPT-4 → GPT-4o</li>
+                        <li><strong>ChatGPT:</strong> 2022年11月リリース、史上最速で1億ユーザー突破</li>
+                        <li><strong>RLHF:</strong> 人間のフィードバックで学習し、より良い回答を生成</li>
+                        <li><strong>GPT-4o:</strong> マルチモーダル対応、リアルタイム音声対話可能</li>
+                        <li><strong>Sora:</strong> テキストから最大60秒の動画を生成</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="2-1_birth.html" class="nav-button secondary">← 2-1: 生成AIの誕生まで</a>
+                <a href="2-3_others.html" class="nav-button">次: 2-3 その他の主要生成AI →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('2-2')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter2";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "2-2";
+            const chapter = "chapter2";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>
