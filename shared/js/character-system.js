@@ -1182,7 +1182,9 @@ function showSaboMessage(messageType, duration = null) {
 
     const character = characters[currentCharacter];
 
-    // 画像パスを現在のページに合わせて調整
+    // 画像パスを取得
+    let imagePath = character.image;
+
     // 画像が配列の場合、ランダムに選択
     if (Array.isArray(imagePath)) {
         imagePath = imagePath[Math.floor(Math.random() * imagePath.length)];
