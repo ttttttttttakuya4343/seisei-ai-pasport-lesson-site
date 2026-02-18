@@ -1527,7 +1527,7 @@ function detectPageType() {
     }
 
     // 優先順位3: ホームページ
-    if ((path.includes('/index.html') || path.endsWith('/ai_passport_course/')) && hasHero) {
+    if ((path.includes('/index.html') || path === '/' || path.endsWith('/ai_passport_course/')) && hasHero) {
         return 'home';
     }
 
