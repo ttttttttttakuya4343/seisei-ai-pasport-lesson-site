@@ -10,13 +10,12 @@ const MessageUtils = {
             ? imagePath[0].split('/').pop()
             : imagePath.split('/').pop();
 
-        if (currentPath.includes('/ai_passport_course/index.html') ||
-            currentPath.endsWith('/ai_passport_course/')) {
-            return 'shared/images/' + fileName;
-        } else if (currentPath.includes('/chapter')) {
+        // chapterディレクトリ内にいる場合は階層を上がる
+        if (currentPath.includes('/chapter')) {
             return '../shared/images/' + fileName;
         }
-        return imagePath;
+        // それ以外（ルートのindex.htmlなど）は直下のリソースを参照
+        return 'shared/images/' + fileName;
     },
 
     // エラーハンドリング付きLocalStorage読み込み
@@ -1354,13 +1353,9 @@ function createCharacterSelector() {
         const isSelected = key === currentCharacter ? 'selected' : '';
 
         // 画像パスを現在のページに合わせて調整
-        const currentPath = window.location.pathname;
+        // 画像パスを現在のページに合わせて調整
         let displayImage = Array.isArray(char.image) ? char.image[0] : char.image;
-
-        // ルートディレクトリにいる場合(index.html)
-        if (currentPath.includes('/ai_passport_course/index.html') || currentPath.endsWith('/ai_passport_course/')) {
-            displayImage = 'shared/images/' + displayImage.split('/').pop();
-        }
+        displayImage = MessageUtils.getAdjustedImagePath(displayImage);
 
         panelHTML += `
             <div class="character-option ${isSelected}" data-character="${key}">
@@ -1425,15 +1420,9 @@ function createCharacterSelector() {
             `;
 
             // 画像パスを現在のページに合わせて調整
-            const currentPath = window.location.pathname;
+            // 画像パスを現在のページに合わせて調整
             let feedbackImagePath = Array.isArray(char.image) ? char.image[0] : char.image;
-            const imageFileName = feedbackImagePath.split('/').pop();
-
-            if (currentPath.includes('/ai_passport_course/index.html') || currentPath.endsWith('/ai_passport_course/')) {
-                feedbackImagePath = 'shared/images/' + imageFileName;
-            } else if (currentPath.includes('/chapter')) {
-                feedbackImagePath = '../shared/images/' + imageFileName;
-            }
+            feedbackImagePath = MessageUtils.getAdjustedImagePath(feedbackImagePath);
 
             let feedbackHTML = `
                 <img src="${feedbackImagePath}" alt="${char.name}" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid ${borderColor};">
