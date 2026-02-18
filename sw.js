@@ -1,5 +1,5 @@
 // Service Worker for PWA and Offline Support
-const CACHE_NAME = 'ai-passport-v1';
+const CACHE_NAME = 'ai-passport-v2';
 const urlsToCache = [
   '/',
   '/index.html',

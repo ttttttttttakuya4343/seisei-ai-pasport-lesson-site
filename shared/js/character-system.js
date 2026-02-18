@@ -1183,22 +1183,13 @@ function showSaboMessage(messageType, duration = null) {
     const character = characters[currentCharacter];
 
     // 画像パスを現在のページに合わせて調整
-    const currentPath = window.location.pathname;
-    let imagePath = character.image;
-
     // 画像が配列の場合、ランダムに選択
     if (Array.isArray(imagePath)) {
         imagePath = imagePath[Math.floor(Math.random() * imagePath.length)];
     }
 
-    // ルートディレクトリにいる場合(index.html)
-    if (currentPath.includes('/ai_passport_course/index.html') || currentPath.endsWith('/ai_passport_course/')) {
-        imagePath = 'shared/images/' + character.image.split('/').pop();
-    }
-    // チャプターディレクトリにいる場合
-    else if (currentPath.includes('/chapter')) {
-        imagePath = '../shared/images/' + character.image.split('/').pop();
-    }
+    // 画像パスを現在のページに合わせて調整
+    imagePath = MessageUtils.getAdjustedImagePath(imagePath);
 
     // 既存のメッセージがあれば全て削除
     const existingMessages = document.querySelectorAll('.character-message');
@@ -1398,6 +1389,7 @@ function createCharacterSelector() {
 
             // ランダムモードONの場合は警告スタイル
             const isRandom = isRandomMode;
+
             const bgColor = isRandom ? 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)' : 'white';
             const borderColor = isRandom ? '#f59e0b' : 'var(--primary-blue)';
             const textColor = isRandom ? '#92400e' : 'var(--text-gray)';
