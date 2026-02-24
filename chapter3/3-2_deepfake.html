@@ -42,8 +42,7 @@
                 <h2>🎭 ディープフェイクとは</h2>
                 <div class="highlight">
                     <p><strong>ディープフェイク（Deepfake）</strong></p>
-                    <p>AIを使って、人物の顔や音声を別人のものに入れ替えた偽の動画・音声</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> AIで作った「超リアルな偽物」動画です。本物と見分けがつかないほど精巧です</p>
+                    <p>AI（特にディープラーニング）を用いて、人物の顔や音声を別人のものに入れ替えるなどして作成された精巧な偽動画・偽音声のこと。</p>
                 </div>
 
                 <div class="highlight" style="background: #e3f2fd;">
@@ -67,16 +66,14 @@
                 <h3>主な技術</h3>
 
                 <h4>1. GAN（敵対的生成ネットワーク）</h4>
-                <div class="highlight">
-                    <p>2つのネットワークが競い合って本物そっくりの画像を生成</p>
-                    <p class="note">💡 復習：「偽札作り」と「警察」が競い合う仕組みでした</p>
-                </div>
+                <ul>
+                    <li>生成者（Generator）と識別者（Discriminator）の2つのネットワークが競い合うことで、極めて精巧な画像を生成する技術。</li>
+                </ul>
 
                 <h4>2. オートエンコーダー</h4>
-                <div class="highlight">
-                    <p>顔の特徴を学習し、別の顔に適用する技術</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 人の顔の「パーツ」を分解して、別の人の顔に組み立て直す技術です</p>
-                </div>
+                <ul>
+                    <li>入力データを一度圧縮（エンコード）し、そこから元のデータを復元（デコード）する技術。顔の特徴を抽出して別の人物の顔に適用する際に使用されます。</li>
+                </ul>
 
                 <h3>学習プロセス</h3>
                 <div class="code-block">
@@ -119,11 +116,10 @@
                     <li>名誉毀損</li>
                 </ul>
 
-                <h4>4. 信頼性の低下</h4>
+                <h4>4. 信頼性の低下（リアリティ・クライシス）</h4>
                 <div class="highlight" style="background: #fff3cd;">
-                    <p><strong>⚠️ 「リアリティ・クライシス」</strong></p>
-                    <p>本物の映像まで「偽物では？」と疑われる問題</p>
-                    <p class="note">💡 例：証拠動画が「ディープフェイクだ」と主張されて信用されない</p>
+                    <p><strong>⚠️ リアリティ・クライシス（現実危機の到来）</strong></p>
+                    <p>ディープフェイクの蔓延により、本物の映像や音声情報さえも「ディープフェイク（偽物）ではないか？」と疑われ、デジタルコンテンツ全体の信頼性が低下する問題。</p>
                 </div>
             </div>
 
@@ -145,17 +141,17 @@
                     <li><strong>Deepware Scanner:</strong> オンラインで無料で検証可能</li>
                 </ul>
 
-                <h4>3. デジタル電子透かし</h4>
-                <div class="highlight">
-                    <p>本物の動画に見えない「証明マーク」を埋め込む技術</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> お札の透かしのように、本物であることを証明する目に見えないマークです</p>
-                </div>
+                <h4>3. デジタル電子透かし（Digital Watermark）</h4>
+                <ul>
+                    <li><strong>概要：</strong> 人間の目には見えない形で、画像や動画データの中に作成者や生成ツールなどの識別情報を埋め込む技術。</li>
+                    <li><strong>目的：</strong> コンテンツの著作権保護や、AIによって生成されたものであることの証明に利用されます。</li>
+                </ul>
 
                 <h4>4. C2PA（Coalition for Content Provenance and Authenticity）</h4>
                 <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>C2PA</strong></p>
-                    <p>コンテンツの出所と真正性を証明する業界標準規格</p>
-                    <p>Adobe、Microsoft、Google、OpenAIなどが参加</p>
+                    <p><strong>📖 C2PA</strong></p>
+                    <p>デジタルコンテンツの出所（来歴）と真正性を証明するための業界標準規格を策定する業界団体。</p>
+                    <p>Adobe、Microsoft、Intel、Twitter等の企業が主導し、AI生成コンテンツと人間の作成物を区別するための技術基準化を進めています。</p>
                 </div>
             </div>
 
@@ -361,7 +357,29 @@
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
     <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+                function selectAnswer(e, isCorrect, explanation) {
+                    const options = e.parentElement.children;
+                    const feedback = e.parentElement.nextElementSibling;
+                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
+                    if (isCorrect) {
+                        e.classList.add("correct");
+                        feedback.className = "quiz-feedback correct";
+                        feedback.innerHTML = "✅ 正解です!";
+                    } else {
+                        e.classList.add("incorrect");
+                        feedback.className = "quiz-feedback incorrect";
+                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+                    }
+                    if (explanation) {
+                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+                    }
+                    feedback.style.display = "block";
+                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
+                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
+                    if (typeof showSaboMessage === "function") {
+                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
+                    }
+                }
 
         function completeSection(sectionId) {
             const chapter = "chapter3";

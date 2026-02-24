@@ -41,9 +41,8 @@
             <div class="section">
                 <h2>🔍 RAGとは</h2>
                 <div class="highlight">
-                    <p><strong>RAG（Retrieval-Augmented Generation）</strong></p>
-                    <p>検索拡張生成：外部データベースから関連情報を検索して、その情報を使って回答を生成する技術</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> AIが「図書館で本を調べてから答える」ようなイメージです</p>
+                    <p><strong>RAG（Retrieval-Augmented Generation：検索拡張生成）</strong></p>
+                    <p>大規模言語モデル（LLM）が回答を生成する前に、外部のデータベースから関連する情報を検索し、その情報をプロンプトに組み込んでから回答を生成させる技術です。</p>
                 </div>
 
                 <div class="highlight" style="background: #e3f2fd;">
@@ -64,9 +63,8 @@
                 </ul>
 
                 <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説：ハルシネーション</strong></p>
-                    <p>AIが事実ではない情報を、あたかも事実であるかのように生成してしまう現象</p>
-                    <p class="note">💡 例：「存在しない論文」を引用したり、「架空の歴史」を語ったりすること</p>
+                    <p><strong>📖 用語解説：ハルシネーション（幻覚）</strong></p>
+                    <p>AIが事実ではない情報を、あたかも真実であるかのように、もっともらしく生成してしまう現象。</p>
                 </div>
             </div>
 
@@ -87,11 +85,10 @@
 6. ユーザーに回答を返す</pre>
                 </div>
 
-                <h3>Embedding（エンベディング）</h3>
+                <h3>Embedding（エンベディング：埋め込み）</h3>
                 <div class="highlight">
                     <p><strong>Embedding（埋め込み）</strong></p>
-                    <p>テキストを数値のベクトル（数の並び）に変換する技術</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 文章を「座標」に変換して、似た意味の文章が近くに配置されるようにする技術です</p>
+                    <p>テキストや画像などのデータを、AIが処理しやすい数値のベクトル（配列）に変換する技術。意味的に近い言葉はベクトルの距離も近くなるよう配置されます。</p>
                 </div>
 
                 <h4>Embeddingの例</h4>
@@ -104,8 +101,7 @@
                 <h3>ベクトルデータベース</h3>
                 <div class="highlight">
                     <p><strong>ベクトルデータベース（Vector Database）</strong></p>
-                    <p>Embeddingされたデータを効率的に保存・検索できるデータベース</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「似た意味の文章」を高速で探せる、特殊な図書館のようなものです</p>
+                    <p>Embeddingによってベクトル化されたデータを効率的に保存し、「意味の近さ（類似度）」に基づいて高速に検索できる特殊なデータベース。</p>
                 </div>
 
                 <p><strong>特徴：</strong> 高速な類似検索、大規模データ対応、クラウド/オンプレミス対応など</p>
@@ -153,9 +149,8 @@
                 </div>
 
                 <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説：チャンク</strong></p>
-                    <p>長い文書を小さな塊（チャンク）に分割すること</p>
-                    <p class="note">💡 例：1000文字の文書を、200文字ずつ5つのチャンクに分割</p>
+                    <p><strong>📖 用語解説：チャンク（Chunk）</strong></p>
+                    <p>長い文書をAIが処理しやすい適切なサイズの情報の塊（チャンク）に分割すること。</p>
                 </div>
 
                 <h4>2. 検索の実行</h4>
@@ -189,9 +184,47 @@
                 </ul>
 
                 <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説：レイテンシ</strong></p>
-                    <p>処理の遅延時間。ユーザーが質問してから回答が返ってくるまでの時間</p>
+                    <p><strong>📖 用語解説：レイテンシ（遅延）</strong></p>
+                    <p>処理の遅延時間。RAGでは検索ステップを挟むため、ユーザーが質問してから回答が返ってくるまでの時間が通常のAI利用時よりも長くなる傾向があります。</p>
+                    </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>🆚 RAGとファインチューニングの違い</h2>
+                        <div class="highlight">
+                            <p>AIに専門知識を持たせる代表的な2つのアプローチの違いを理解することは重要です。</p>
                 </div>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">比較項目</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">RAG（検索拡張生成）</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">ファインチューニング（追加学習）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">AIモデル自体</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">変化しない（そのまま利用）</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">変化する（パラメータが更新される）</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">情報の更新しやすさ</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">◎ 容易（DBを書き換えるだけ）</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">△ 困難（再学習が必要）</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">導入コスト</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">比較的低い（手軽）</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">高い（計算資源が必要）</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">主な用途</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">最新情報の検索、社内文書解析</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">特定の入力/出力スタイルの固定化、高度な専門タスク</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="quiz">
@@ -363,7 +396,29 @@
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
     <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+                function selectAnswer(e, isCorrect, explanation) {
+                    const options = e.parentElement.children;
+                    const feedback = e.parentElement.nextElementSibling;
+                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
+                    if (isCorrect) {
+                        e.classList.add("correct");
+                        feedback.className = "quiz-feedback correct";
+                        feedback.innerHTML = "✅ 正解です!";
+                    } else {
+                        e.classList.add("incorrect");
+                        feedback.className = "quiz-feedback incorrect";
+                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+                    }
+                    if (explanation) {
+                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+                    }
+                    feedback.style.display = "block";
+                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
+                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
+                    if (typeof showSaboMessage === "function") {
+                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
+                    }
+                }
 
         function completeSection(sectionId) {
             const chapter = "chapter3";

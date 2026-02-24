@@ -30,435 +30,279 @@
                     <a href="index.html">第2章</a> &gt;
                     2-3
                 </div>
-                <div class="hero-badge">第2章 セクション 2-3</div>
+                <div class="hero-badge">第2章 第3節</div>
                 <h1>その他の主要生成AI</h1>
                 <div class="lesson-meta">
-                    <span>⏱️ 約10分</span>
-                    <span>📝 クイズ5問</span>
+                    <span>⏱️ 約15分</span>
+                    <span>📝 確認問題6問</span>
                 </div>
             </div>
 
+            <!-- 全体比較表 -->
             <div class="section">
-                <h2>🌟 Gemini（Google）</h2>
-                <div class="highlight">
-                    <p><strong>Gemini（ジェミニ）</strong></p>
-                    <p>Googleが開発した大規模言語モデル。2023年12月発表</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> Googleが作った、ChatGPTのライバルとなるAIです</p>
-                </div>
-
-                <h3>Geminiの歴史</h3>
-                <ul>
-                    <li><strong>Bard（バード）:</strong> 2023年3月、Googleが最初にリリースした対話型AI</li>
-                    <li><strong>Gemini:</strong> 2023年12月、Bardの後継として登場</li>
-                    <li><strong>改名:</strong> 2024年2月、BardがGeminiに改名</li>
-                </ul>
-
-                <h3>Geminiのバージョン</h3>
-                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                    <tr style="background: var(--primary-color); color: white;">
-                        <th style="padding: 1rem; border: 1px solid #ddd;">モデル</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">特徴</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">用途</th>
+                <h2>🗺️ 1. 主要生成AIの比較一覧</h2>
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem;">
+                    <tr style="background: #3b82f6; color: white;">
+                        <th style="padding: 0.8rem; border: 1px solid #ddd;">AI</th>
+                        <th style="padding: 0.8rem; border: 1px solid #ddd;">開発元</th>
+                        <th style="padding: 0.8rem; border: 1px solid #ddd;">特徴的な機能</th>
+                        <th style="padding: 0.8rem; border: 1px solid #ddd;">設計思想</th>
                     </tr>
                     <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Gemini Ultra</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">最高性能モデル</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">複雑なタスク、高度な推論</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>ChatGPT</strong></td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">OpenAI</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">マルチモーダル・Operator・Codex</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">汎用性と速度</td>
                     </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Gemini Pro</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">バランス型モデル</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">一般的なタスク</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Gemini Nano</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">軽量モデル</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">スマートフォンなどのデバイス</td>
-                    </tr>
-                </table>
-
-                <h3>Geminiの特徴</h3>
-                <ul>
-                    <li><strong>ネイティブマルチモーダル：</strong> 最初からテキスト、画像、音声、動画を統合して学習</li>
-                    <li><strong>Google検索との連携：</strong> 最新情報にアクセス可能</li>
-                    <li><strong>Googleサービス統合：</strong> Gmail、Google Drive、Google Mapsなどと連携</li>
-                    <li><strong>多言語対応：</strong> 40以上の言語をサポート</li>
-                </ul>
-
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説</strong></p>
-                    <ul>
-                        <li><strong>ネイティブマルチモーダル：</strong> 最初から複数の種類のデータで学習すること（後から追加するのではなく）</li>
-                    </ul>
-                </div>
-
-                <h3>GeminiとChatGPTの比較</h3>
-                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                    <tr style="background: var(--primary-color); color: white;">
-                        <th style="padding: 1rem; border: 1px solid #ddd;"></th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">Gemini</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">ChatGPT</th>
+                    <tr style="background: #f8fafc;">
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Claude</strong></td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">Anthropic</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">Constitutional AI・Artifacts・Claude 4</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">安全性・誠実さ</td>
                     </tr>
                     <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>開発元</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Google</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">OpenAI</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>検索連携</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Google検索と統合</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Bing検索（有料版）</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>無料版</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Gemini Pro</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">GPT-3.5</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>有料版</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Gemini Advanced（Ultra）</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">ChatGPT Plus（GPT-4）</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Gemini</strong></td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">Google</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">ネイティブマルチモーダル・Google連携</td>
+                        <td style="padding: 0.8rem; border: 1px solid #ddd;">大コンテキスト・統合</td>
+                        </tr>
+                        <tr style="background: #f8fafc;">
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Copilot</strong></td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">Microsoft</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">Recall・Office 365連携</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">業務効率化</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Midjourney / DALL-E 3</strong></td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">Midjourney / OpenAI</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">プロンプトからの高品質な画像生成</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">画像生成特化</td>
+                        </tr>
+                        <tr style="background: #f8fafc;">
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Sora</strong></td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">OpenAI</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">テキストから最長60秒のリアルな動画生成</td>
+                            <td style="padding: 0.8rem; border: 1px solid #ddd;">動画生成特化</td>
                     </tr>
                 </table>
             </div>
 
+            <!-- Claude -->
             <div class="section">
-                <h2>🤖 Claude（Anthropic）</h2>
+                <h2>🛡️ 2. Claude（Anthropic）</h2>
+
                 <div class="highlight">
-                    <p><strong>Claude（クロード）</strong></p>
-                    <p>Anthropicが開発した大規模言語モデル。2023年3月リリース</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「安全性」と「誠実さ」を重視して作られた、信頼できるAIです</p>
-                </div>
-
-                <h3>Anthropicとは</h3>
-                <ul>
-                    <li><strong>設立：</strong> 2021年、OpenAI出身者が創業</li>
-                    <li><strong>ミッション：</strong> 安全で有益なAIの開発</li>
-                    <li><strong>投資家：</strong> GoogleとAmazonが出資</li>
-                </ul>
-
-                <h3>Claudeのバージョン</h3>
-                <h4>Claude 1（2023年3月）</h4>
-                <ul>
-                    <li>初期バージョン</li>
-                    <li>安全性を重視した設計</li>
-                </ul>
-
-                <h4>Claude 2（2023年7月）</h4>
-                <ul>
-                    <li><strong>長文処理：</strong> 100,000トークン（約7.5万語）対応</li>
-                    <li>ChatGPT（8,000トークン）より長い文章を処理可能</li>
-                    <li>コーディング能力の向上</li>
-                </ul>
-
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説</strong></p>
+                    <p><strong>Constitutional AI（憲法AI）</strong></p>
+                    <p>Anthropicが提唱するAIの安全設計思想。AIが守るべき「憲法（ルールセット）」をあらかじめ定め、その原則に基づいて回答する。理念は：</p>
                     <ul>
-                        <li><strong>トークン：</strong> AIが文章を処理する単位。単語の一部や1単語が1トークン（例：「こんにちは」≒3トークン）</li>
+                        <li><strong>Helpful（役に立つ）</strong></li>
+                        <li><strong>Harmless（害を与えない）</strong></li>
+                        <li><strong>Honest（正直である）</strong></li>
                     </ul>
                 </div>
 
-                <h4>Claude 3シリーズ（2024年3月）</h4>
-                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                    <tr style="background: var(--primary-color); color: white;">
-                        <th style="padding: 1rem; border: 1px solid #ddd;">モデル</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">特徴</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Claude 3 Opus</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">最高性能、複雑なタスク向け</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Claude 3 Sonnet</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">バランス型、日常業務向け</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Claude 3 Haiku</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">高速・低コスト</td>
-                    </tr>
-                </table>
+                <div class="highlight">
+                    <p><strong>Claudeのモデルラインナップ</strong></p>
+                    <table style="width:100%; border-collapse: collapse; margin-top: 0.5rem;">
+                        <tr style="background: #e0e7ff;">
+                            <th style="padding: 0.6rem; border: 1px solid #c7d2fe;">モデル名</th>
+                            <th style="padding: 0.6rem; border: 1px solid #c7d2fe;">特徴</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;"><strong>Haiku（ハイク）</strong></td>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;">高速・低コスト。即答が必要なシーンに</td>
+                            </tr>
+                        <tr style="background: #f8fafc;">
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;"><strong>Sonnet（ソネット）</strong></td>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;">速度と性能のバランス型。日常的な使用に最適</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;"><strong>Opus（オーパス）</strong></td>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;">最高性能・高度な推論。複雑なタスクに</td>
+                            </tr>
+                            </table>
+                            </div>
 
-                <h3>Claudeの特徴</h3>
-                <ul>
-                    <li><strong>Constitutional AI（CAI）：</strong> 安全性と倫理性を重視した学習手法</li>
-                    <li><strong>長文理解：</strong> 長い文章の処理が得意</li>
-                    <li><strong>誠実な応答：</strong> 知らないことは「知らない」と答える</li>
-                    <li><strong>ビジョン機能：</strong> Claude 3で画像理解が可能に</li>
-                </ul>
+                <div class="highlight">
+                    <p><strong>Artifacts（アーティファクト）</strong></p>
+                    <p>コード・文書・デザインなどを<strong>サイドウィンドウで表示・編集</strong>できる機能。チャット画面を汚さずに成果物をその場で確認・修正できる。</p>
+                    </div>
 
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説</strong></p>
-                    <ul>
-                        <li><strong>Constitutional AI：</strong> 「憲法」のようなルールに従ってAIを訓練する手法。安全で倫理的な回答を生成</li>
-                    </ul>
+                <div class="highlight">
+                    <p><strong>Claude 4</strong></p>
+                    <p>長期間にわたる複数ステップのタスクを<strong>自律的に実行</strong>できる能力を持つ。人間が一つ一つ指示しなくても、複雑なプロジェクトをまるごと任せられる。</p>
+                </div>
+                </div>
+
+            <!-- Gemini -->
+            <div class="section">
+                <h2>🌐 3. Gemini（Google）</h2>
+
+                <div class="highlight">
+                    <p><strong>ネイティブマルチモーダル</strong></p>
+                    <p>テキスト・画像・音声・動画・コードを最初から<strong>一体として処理</strong>できるGoogleのAI。特に大量のテキスト（長大コンテキスト）の処理が得意で、Google Workspaceとの連携が強力。
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Geminiのモデルラインナップ</strong></p>
+                    <table style="width:100%; border-collapse: collapse; margin-top: 0.5rem;">
+                        <tr style="background: #e0e7ff;">
+                            <th style="padding: 0.6rem; border: 1px solid #c7d2fe;">モデル名</th>
+                            <th style="padding: 0.6rem; border: 1px solid #c7d2fe;">特徴</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;"><strong>1.5 Pro</strong></td>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;">高性能・大コンテキスト（100万トークン以上）対応</td>
+                            </tr>
+                        <tr style="background: #f8fafc;">
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;"><strong>Flash</strong></td>
+                            <td style="padding: 0.6rem; border: 1px solid #e2e8f0;">高速・低コスト版。リアルタイム処理に最適</td>
+                        </tr>
+                        </table>
                 </div>
             </div>
 
+            <!-- Microsoft Copilot -->
             <div class="section">
-                <h2>💼 Microsoft Copilot</h2>
+                <h2>💼 4. Microsoft Copilot</h2>
+
                 <div class="highlight">
-                    <p><strong>Microsoft Copilot（コパイロット）</strong></p>
-                    <p>MicrosoftがOpenAIと共同開発したAIアシスタント</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> Windowsやオフィスソフトに組み込まれた、仕事を手伝ってくれるAI副操縦士です</p>
+                    <p><strong>GPT-4oをベースとしたMicrosoftのAI</strong></p>
+                    <p>OpenAIのGPT-4oを基盤に、Microsoft製品（Word・Excel・Teams・Outlook）に深く組み込まれた業務特化型AI。</p>
                 </div>
 
-                <h3>Copilotの歴史</h3>
-                <ul>
-                    <li><strong>2021年:</strong> GitHub Copilot（プログラミング支援）</li>
-                    <li><strong>2023年2月:</strong> Bing AI Chat（検索エンジンに統合）</li>
-                    <li><strong>2023年11月:</strong> Microsoft Copilotとして統一ブランド化</li>
-                </ul>
-
-                <h3>Copilotの種類</h3>
-                <h4>1. Microsoft Copilot（一般向け）</h4>
-                <ul>
-                    <li>Windows 11に統合</li>
-                    <li>Webブラウザで利用可能</li>
-                    <li>GPT-4ベース</li>
-                    <li>Bing検索と連携</li>
-                </ul>
-
-                <h4>2. Microsoft 365 Copilot（ビジネス向け）</h4>
                 <div class="highlight">
-                    <p><strong>Officeソフトに統合されたAI</strong></p>
+                    <p><strong>Recall（リコール）</strong></p>
+                    <p>PCでの作業内容（Webサイト閲覧・文書編集・メール等）を記録・保存し、AIが後から<strong>全文検索できる</strong>機能。オフラインで動作するのが特徴。</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Office連携の活用例</strong></p>
                     <ul>
-                        <li><strong>Word:</strong> 文章作成支援、要約、校正</li>
-                        <li><strong>Excel:</strong> データ分析、グラフ作成</li>
-                        <li><strong>PowerPoint:</strong> プレゼンテーション作成</li>
-                        <li><strong>Outlook:</strong> メール作成、スケジュール管理</li>
-                        <li><strong>Teams:</strong> 会議の要約、アクション項目の抽出</li>
-                    </ul>
-                </div>
-
-                <h4>3. GitHub Copilot（開発者向け）</h4>
-                <ul>
-                    <li>プログラミングコードの自動生成</li>
-                    <li>コードの説明・デバッグ支援</li>
-                    <li>複数のプログラミング言語に対応</li>
-                </ul>
-
-                <h3>Copilotの特徴</h3>
-                <ul>
-                    <li><strong>Microsoft製品との統合：</strong> WindowsやOfficeに深く統合</li>
-                    <li><strong>企業データの活用：</strong> 社内データを安全に利用</li>
-                    <li><strong>リアルタイム検索：</strong> Bing検索で最新情報を取得</li>
-                    <li><strong>音声対話：</strong> 音声での指示が可能</li>
-                </ul>
+                        <li><strong>Word</strong>：「この文章を要約して」「メールの下書きを作って」</li>
+                        <li><strong>Excel</strong>：「このデータからグラフを作って」「売上の傾向を分析して」</li>
+                        <li><strong>Teams</strong>：「会議の内容を自動で議事録にまとめて」</li>
+                        <li><strong>Outlook</strong>：「今週の会議をリストアップして返信メールを作成して」</li>
+                        </ul>
+                        </div>
             </div>
 
+            <!-- テキスト以外の生成AI -->
             <div class="section">
-                <h2>📊 3つのAIの比較</h2>
-                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                    <tr style="background: var(--primary-color); color: white;">
-                        <th style="padding: 1rem; border: 1px solid #ddd;"></th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">Gemini</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">Claude</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">Copilot</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>開発元</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Google</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Anthropic</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Microsoft + OpenAI</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>強み</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Google検索との連携</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">安全性、長文処理</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Office製品との統合</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>長文処理</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">中程度</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">優秀（100,000トークン）</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">中程度</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>マルチモーダル</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">ネイティブ対応</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">Claude 3で対応</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">GPT-4ベースで対応</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>価格</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">無料〜</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">無料〜</td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">無料〜</td>
-                    </tr>
-                </table>
+                <h2>🎨 5. テキスト以外の主要生成AI（画像・動画）</h2>
 
-                <h3>用途別のおすすめ</h3>
-                <ul>
-                    <li><strong>Gemini:</strong> Google製品を多用、最新情報の検索が重要</li>
-                    <li><strong>Claude:</strong> 長文の分析、安全性重視、学術研究</li>
-                    <li><strong>Copilot:</strong> Microsoftユーザー、ビジネス業務の効率化</li>
-                </ul>
+                <div class="highlight">
+                    <p><strong>画像生成AI</strong></p>
+                    <p>テキストでの指示（プロンプト）から高品質な画像を生成するAIです。主なツール：</p>
+                    <ul>
+                        <li><strong>Midjourney（ミッドジャーニー）</strong>：芸術的で高品質な画像生成に定評がある草分け的存在。</li>
+                        <li><strong>DALL-E 3（ダリスリー）</strong>：OpenAI開発。ChatGPTに組み込まれており、長文プロンプトの意図を正確に汲み取って描画するのが得意。</li>
+                        </ul>
+                        </div>
+
+                <div class="highlight">
+                    <p><strong>動画生成AI</strong></p>
+                    <p>テキストや画像からリアルな動画を生成するAIです。</p>
+                    <ul>
+                        <li><strong>Sora（ソラ）</strong>：OpenAIが発表した動画生成AI。最大60秒の高解像度で物理法則の破綻が少ないリアルな動画を生成でき、映像業界に衝撃を与えた。</li>
+                        </ul>
+                        </div>
             </div>
+<!-- 確認問題 -->
+<div class="quiz">
+    <h3>✅ 確認問題（○×形式）</h3>
 
-            <div class="quiz">
-                <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> Geminiを開発したのは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. OpenAI</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Geminiは2023年12月にGoogleが発表した大規模言語モデルです。元々BardとしてリリースされたAIが2024年2月にGeminiに改名されました。Google検索と統合し、ネイティブマルチモーダル対応が特徴です。')">
-                            B. Google</li>
-                        <li onclick="selectAnswer(this, false, '')">C. Microsoft</li>
-                        <li onclick="selectAnswer(this, false, '')">D. Anthropic</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題2:</strong> Claudeの特徴として正しいものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. Office製品と統合されている</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ClaudeはAnthropicが開発したAIで、Constitutional AI(CAI)という手法を使い、安全性と倫理性を重視しています。知らないことは正直に知らないと答え、誠実な応答が特徴です。')">
-                            B. 安全性と倫理性を重視</li>
-                        <li onclick="selectAnswer(this, false, '')">C. Google検索と連携</li>
-                        <li onclick="selectAnswer(this, false, '')">D. プログラミング専用</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題3:</strong> Claude 2が対応するトークン数は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 8,000トークン</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 32,000トークン</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Claude 2は100,000トークン(約7.5万語)の長文処理に対応しています。これはChatGPTの8,000トークンと比べて大幅に長く、長文の分析や学術研究に適しています。')">
-                            C. 100,000トークン</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 1,000,000トークン</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題4:</strong> Microsoft 365 Copilotで利用できないものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. Word</li>
-                        <li onclick="selectAnswer(this, false, '')">B. Excel</li>
-                        <li onclick="selectAnswer(this, false, '')">C. PowerPoint</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Microsoft 365 CopilotはWord、Excel、PowerPoint、Outlook、Teamsなどのオフィス製品と統合されています。PhotoshopはAdobe製品なのでCopilotには含まれません。')">
-                            D. Photoshop</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題5:</strong> Geminiの前身となったGoogleのAIは？</p>
+                    <p><strong>問題1:</strong> Claudeの設計思想「Constitutional AI（憲法AI）」は、Helpful（役に立つ）・Harmless（害を与えない）・Honest（正直）の3原則に基づいて回答する。
+                    </p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Bardは2023年3月にGoogleが最初にリリースした対話型AIです。その後2023年12月にGeminiが発表され、2024年2月にBardがGeminiに改名されて統合されました。')">
-                            A. Bard</li>
-                        <li onclick="selectAnswer(this, false, '')">B. BERT</li>
-                        <li onclick="selectAnswer(this, false, '')">C. LaMDA</li>
-                        <li onclick="selectAnswer(this, false, '')">D. PaLM</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題6:</strong> Geminiの特徴として正しいものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ Office製品との統合は、Microsoft Copilotの特徴です。')">A.
-                            Office製品と統合されている</li>
-                        <li onclick="selectAnswer(this, false, '❌ Constitutional AIはAnthropicのClaudeで採用されている安全性手法です。')">
-                            B. Constitutional AIで安全性を確保している</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Geminiは、Google検索やGoogleサービスとネイティブに統合されている点が大きな特徴です。テキスト、画像、動画、音声、コードなど多様なデータをネイティブに処理できるマルチモーダルモデルとして設計されています。')">
-                            C. Google検索と統合されたネイティブマルチモーダルモデルである</li>
-                        <li onclick="selectAnswer(this, false, '❌ プログラミングコード専用モデルはCodexなどです。Geminiは汎用的な生成AIです。')">D.
-                            プログラミングコード専用のAIである</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> Claudeを開発したAnthropicが重視しているAI安全性の手法は？</p>
-                    <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, false, '❌ RLHFはOpenAIのChatGPTで広く使われている手法です。AnthropicはRLHFとは異なるアプローチを採用しています。')">
-                            A. RLHF（人間のフィードバックによる強化学習）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Constitutional AI（CAI）は、AIが自ら定めた原則（Constitutional）に従って自己改善を行う手法です。人間の直接的な評価に頼るRLHFとは異なり、AI自身が出力を評価・修正することで安全性を高めます。')">
-                            B. Constitutional AI（憲法的AI）</li>
-                        <li
-                            onclick="selectAnswer(this, false, '❌ Transfer Learningは事前学習済みモデルを別のタスクに転用する一般的な手法であり、Anthropic独自のものではありません。')">
-                            C. Transfer Learning（転移学習）</li>
-                        <li onclick="selectAnswer(this, false, '❌ データオーグメンテーションはデータを人工的に増やす手法であり、AI安全性の手法ではありません。')">D.
-                            Data Augmentation（データ拡張）</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題8:</strong> Copilotの特徴として正しく<strong>ないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, false, '❌ これは正しい説明です。CopilotはMicrosoftが開発し、Word、Excel、PowerPointなどと統合されています。')">
-                            A. Microsoft 365のアプリケーションと統合されている</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい説明です。Copilotは特にビジネス業務の効率化を目的として設計されています。')">B.
-                            ビジネス向けの生産性向上ツールとして設計されている</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：CopilotはMicrosoftが開発・提供するAIサービスであり、オープンソースプロジェクトではありません。基盤にはOpenAIのGPTモデルが使用されていますが、Microsoft独自のサービスとして提供されています。')">
-                            C. 完全にオープンソースで公開されている</li>
-                        <li
-                            onclick="selectAnswer(this, false, '❌ これは正しい説明です。Copilotの基盤にはOpenAIが開発したGPTモデルの技術が活用されています。')">
-                            D. OpenAIのGPT技術を基盤に使用している</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題9:</strong> OpenAIのImage Generation機能の説明として正しいものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 動画生成はSoraの機能です。Image Generationは静止画の生成に特化しています。')">A.
-                            テキストから動画を生成する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 3Dモデリングは別の専門ツールやAIの機能範囲です。')">B. 3Dモデルを自動生成する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Image Generationは、テキストの説明から画像を生成する機能で、DALL-Eなどの技術を基盤としています。ChatGPT上でプロンプトを入力するだけで、指定した内容の画像を作成できます。')">
-                            C. テキストの指示から画像を生成する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 画像の圧縮は画像処理ソフトウェアの機能であり、AI画像生成とは異なります。')">D. 既存の画像を圧縮する
+                            onclick="selectAnswer(this, true, '✅ 解説：AnthropicのConstitutional AI（憲法AI）の設計原則は「Helpful（役に立つ）」「Harmless（害を与えない）」「Honest（正直）」の3Hです。この原則に基づいて回答を生成することで、安全で誠実なAIを実現しています。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：Constitutional AIの3原則はHelpful・Harmless・Honestの3Hです。この説明は正しいです。')">×（誤り）
                         </li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題10:</strong> 以下のテキスト生成AIと開発元の組み合わせで正しいものは？</p>
+                    <p><strong>問題2:</strong> ClaudeのArtifacts機能は、コード・文書などをサイドウィンドウで表示・編集できる機能で、チャット画面を保ちながら成果物を確認・修正できる。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ GeminiはMicrosoftではなくGoogleが開発したAIです。')">A. Gemini —
-                            Microsoft</li>
-                        <li onclick="selectAnswer(this, false, '❌ CopilotはGoogleではなくMicrosoftが開発したAIです。')">B. Copilot —
-                            Google</li>
-                        <li onclick="selectAnswer(this, false, '❌ ClaudeはOpenAIではなくAnthropicが開発したAIです。')">C. Claude —
-                            OpenAI</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：正しい組み合わせは、ChatGPT→OpenAI、Gemini→Google、Claude→Anthropic、Copilot→Microsoftです。各サービスは異なる企業が開発しており、それぞれ特徴や強みが異なります。')">
-                            D. ChatGPT — OpenAI</li>
+                            onclick="selectAnswer(this, true, '✅ 解説：Artifactsはコード・文書・デザインなどをサイドウィンドウで表示・編集できる機能です。チャット画面を汚さずに成果物をその場で確認・修正できます。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：ArtifactsはサイドウィンドウでコードやドキュメントをリアルタイムC確認・編集できる機能です。この説明は正しいです。')">×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> Claudeのモデルラインナップにおいて、Opus（オーパス）は最高性能・高度な推論機能を持つモデルで、Haiku（ハイク）は高速・低コストのモデルである。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：Claudeのモデルラインナップは Haiku（高速・低コスト）、Sonnet（バランス型）、Opus（最高性能・高度な推論）の3種類で構成されています。この説明は正しいです。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：OpusとHaikuの説明は正しいです。この設問の内容は正確です。')">×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> Geminiはテキスト生成に特化したモデルであり、画像・音声・動画の処理は別途のツールが必要である。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：Geminiはネイティブマルチモーダルモデルで、テキスト・画像・音声・動画・コードを最初から一体として処理できます。別途のツールは不要です。「テキスト生成に特化」とした説明が誤りです。')">
+                            ○（正しい）</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：間違い。GeminiはGoogleのネイティブマルチモーダルAIで、テキスト・画像・音声・動画・コードを一体処理できます。テキスト専用ではありません。')">
+                            ×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> Microsoft CopilotのRecall（リコール）機能は、PC上の作業内容を記録・保存し、AIが後から全文検索できる機能で、オフラインで動作する。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：RecallはPC上の作業内容（Webサイト・文書・メール等）を記録・保存し、AIが後から全文検索できる機能です。オフラインで動作するのが特徴で、プライバシーを重視した設計です。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：RecallはPC上の作業をオフラインで記録し、後から検索できる機能です。この説明は正しいです。')">×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> Soraはテキストや画像から最長60秒の高品質な動画を生成できるOpenAIの動画生成AIであり、MidjourneyやDALL-E 3は画像生成に特化したAIである。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：正解です。SoraはOpenAIの高性能な動画生成AIで、物理法則に則ったようなリアルで破綻の少ない動画を生成できます。MidjourneyやDALL-E 3はプロンプトから画像を生成する代表的なAIです。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：Soraは動画生成AI、Midjourney・DALL-E 3は画像生成AIです。この説明は正しいです。')">×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
             </div>
 
+            <!-- まとめ -->
             <div class="section">
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
-                        <li><strong>Gemini（Google）:</strong> Google検索と統合、ネイティブマルチモーダル</li>
-                        <li><strong>Claude（Anthropic）:</strong> 安全性重視、長文処理に優れる（100,000トークン）</li>
-                        <li><strong>Copilot（Microsoft）:</strong> Office製品と統合、ビジネス向け</li>
-                        <li><strong>共通点:</strong> 全てGPT-4レベルの高性能大規模言語モデル</li>
-                        <li><strong>選び方:</strong> 利用目的と普段使うツールに応じて選択</li>
+                        <li><strong>Claude（Anthropic）：</strong> Constitutional AI（Helpful・Harmless・Honest）の3H原則。Artifacts・Claude 4</li>
+                        <li><strong>Claudeモデル：</strong> Haiku（高速）・Sonnet（バランス）・Opus（最高性能）</li>
+                        <li><strong>Gemini（Google）：</strong> ネイティブマルチモーダル。Google Workspaceと強力連携</li>
+                        <li><strong>Copilot（Microsoft）：</strong> GPT-4oベース。Office 365全製品と深く統合</li>
+                        <li><strong>Recall：</strong> PC上の全作業内容をオフラインで記録・AI検索できる機能</li>
+                        <li><strong>画像生成AI：</strong> Midjourney（芸術的）、DALL-E 3（ChatGPT内蔵・指示に忠実）</li>
+                        <li><strong>動画生成AI：</strong> Sora（最長60秒の極めてリアルな動画）</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="highlight" style="margin: 2rem 0; text-align: center; padding: 2rem;">
-                <h2>🎉 第2章完了おめでとうございます！</h2>
-                <p style="font-size: 1.2rem; margin: 1rem 0;">生成AIの歴史と主要モデルを習得しました！</p>
-                <p>次は第3章「生成AIのサービスとツール」で、実際のAIサービスについて学びましょう。</p>
-            </div>
-
             <div class="lesson-navigation">
-                <a href="2-2_chatgpt.html" class="nav-button secondary">← 2-2: ChatGPT</a>
-                <a href="index.html" class="nav-button">第2章トップに戻る</a>
+                <a href="2-2_chatgpt.html" class="nav-button secondary">← 前のセクション</a>
+                <a href="2-4_exam.html" class="nav-button">確認問題 →</a>
             </div>
 
             <div style="text-align: center; margin: 2rem 0;">
@@ -471,46 +315,54 @@
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
     <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+                function selectAnswer(e, isCorrect, explanation) {
+                    const options = e.parentElement.children;
+                    const feedback = e.parentElement.nextElementSibling;
+                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
+                    if (isCorrect) {
+                        e.classList.add("correct");
+                        feedback.className = "quiz-feedback correct";
+                        feedback.innerHTML = "✅ 正解です!";
+                    } else {
+                        e.classList.add("incorrect");
+                        feedback.className = "quiz-feedback incorrect";
+                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+                    }
+                    if (explanation) {
+                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+                    }
+                    feedback.style.display = "block";
+                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
+                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
+                    if (typeof showSaboMessage === "function") {
+                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
+                    }
+                }
 
         function completeSection(sectionId) {
             const chapter = "chapter2";
             const storageKey = `${chapter}_section${sectionId}_completed`;
             const button = document.querySelector('button[onclick*="completeSection"]');
             const isCompleted = localStorage.getItem(storageKey) === "true";
-
             if (isCompleted) {
-                // 完了を取り消す
                 localStorage.removeItem(storageKey);
                 button.textContent = "✅ このセクションを完了する";
                 button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonReset", 3000);
-                }
+                if (typeof showSaboMessage === "function") { showSaboMessage("lessonReset", 3000); }
             } else {
-                // 完了にする
                 localStorage.setItem(storageKey, "true");
                 button.textContent = "🔄 完了を取り消す";
                 button.classList.add("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonComplete", 4000);
-                }
-                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                if (typeof showSaboMessage === "function") { showSaboMessage("lessonComplete", 4000); }
                 setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") {
-                        window.location.href = "index.html";
-                    }
+                    if (localStorage.getItem(storageKey) === "true") { window.location.href = "index.html"; }
                 }, 3000);
             }
         }
 
-        // ページ読み込み時の状態復元
         window.addEventListener("load", () => {
-            const sectionId = "2-3";
-            const chapter = "chapter2";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const storageKey = "chapter2_section2-3_completed";
             const button = document.querySelector('button[onclick*="completeSection"]');
-
             if (localStorage.getItem(storageKey) === "true") {
                 button.textContent = "🔄 完了を取り消す";
                 button.classList.add("completed");

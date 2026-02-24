@@ -42,8 +42,7 @@
                 <h2>🤖 AIエージェントとは</h2>
                 <div class="highlight">
                     <p><strong>AIエージェント（AI Agent）</strong></p>
-                    <p>目標を与えられると、自律的に計画を立て、ツールを使い、タスクを実行するAI</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「旅行の予約して」と頼むと、調査→比較→予約まで自動でやってくれる「AIアシスタント」です</p>
+                    <p>ユーザーから与えられた目標（ゴール）に対して、自律的に状況を把握、計画を立案し、必要な外部ツールを駆使しながらタスクを実行するAIシステムのこと。</p>
                 </div>
 
                 <h3>従来のAIとの違い</h3>
@@ -75,8 +74,7 @@
                 <h2>🧠 ReAct（推論と行動）</h2>
                 <div class="highlight">
                     <p><strong>ReAct（Reasoning and Acting）</strong></p>
-                    <p>推論（考える）と行動（実行する）を交互に繰り返すフレームワーク</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「考える→実行→考える→実行」を繰り返して、目標を達成する方法です</p>
+                    <p>言語モデルに「推論（考える）」と「行動（実行する）」を交互に行わせることで、複雑なタスクを解決に導くフレームワーク。</p>
                 </div>
 
                 <h3>ReActの動作例</h3>
@@ -135,9 +133,8 @@
             <div class="section">
                 <h2>🚀 自律型AIエージェント</h2>
                 <div class="highlight">
-                    <p><strong>自律型AIエージェント</strong></p>
-                    <p>目標を与えると、自律的にタスクを分解し、実行し続けるAI</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「レポートを作って」と頼むと、調査→分析→作成まで自動でやろうとするAIです</p>
+                    <p><strong>自律型AIエージェント（Autonomous AI Agent）</strong></p>
+                    <p>プロンプトによる都度の指示を待つのではなく、最終的な目標だけを与えられれば、AI自身がタスクを分解し、自己修正を行いながら最終ゴールまで自律的に行動し続ける高度なシステム。</p>
                 </div>
 
                 <h3>動作の流れ</h3>
@@ -181,8 +178,7 @@
                 <h2>🎯 マルチエージェントシステム</h2>
                 <div class="highlight" style="background: #e3f2fd;">
                     <p><strong>📖 用語解説：マルチエージェント</strong></p>
-                    <p>複数のAIエージェントが役割分担して協力するシステム</p>
-                    <p class="note">💡 例：「調査担当」「分析担当」「報告書作成担当」のAIが協力して仕事を進める</p>
+                    <p>複数のAIエージェントが、それぞれ異なる役割（例：リサーチャー、プログラマー、レビュアーなど）を担い、お互いに通信・協調しながら1つの複雑な全体目標を達成するシステム。</p>
                 </div>
 
                 <h3>特徴</h3>
@@ -368,7 +364,29 @@
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
     <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
+                function selectAnswer(e, isCorrect, explanation) {
+                    const options = e.parentElement.children;
+                    const feedback = e.parentElement.nextElementSibling;
+                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
+                    if (isCorrect) {
+                        e.classList.add("correct");
+                        feedback.className = "quiz-feedback correct";
+                        feedback.innerHTML = "✅ 正解です!";
+                    } else {
+                        e.classList.add("incorrect");
+                        feedback.className = "quiz-feedback incorrect";
+                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+                    }
+                    if (explanation) {
+                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+                    }
+                    feedback.style.display = "block";
+                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
+                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
+                    if (typeof showSaboMessage === "function") {
+                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
+                    }
+                }
 
         function completeSection(sectionId) {
             const chapter = "chapter3";

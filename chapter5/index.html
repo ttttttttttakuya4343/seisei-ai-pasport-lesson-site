@@ -28,7 +28,7 @@
                 <p class="chapter-description">プロンプトエンジニアリングの実践技術を習得します。<br>Zero-Shot、Few-Shot、Chain of Thoughtなどの技術から、ビジネスでの活用事例、リスクと留意事項まで、実務で即活用できるスキルを身につけます。</p>
                 <div class="lesson-meta">
                     <span>⏱️ 合計学習時間: 約70分</span>
-                    <span>📝 全4セクション</span>
+                    <span>📝 全5セクション</span>
                     <span>✅ クイズ25問</span>
                 </div>
             </div>
@@ -124,16 +124,27 @@
                             </div>
                         </div>
                     </a>
+                    <!-- 模擬試験 (Locked by default) -->
+                    <a href="5-exam.html" class="lesson-card locked-card" id="section-exam">
+                        <div class="locked-overlay" id="exam-lock">🔒</div>
+                        <div class="lesson-number" style="background-color: var(--secondary-color); color: white;">総合</div>
+                        <div class="lesson-content">
+                            <span class="exam-badge">全セクション完了で解放</span>
+                            <h3 style="color: var(--secondary-dark);">模擬試験（記憶力チェック）</h3>
+                            <p class="lesson-description">第5章全25問からランダムに15問出題し、あなたの記憶力と理解度をチェックします。スコア記録機能付き。</p>
+                            <div class="lesson-topics">
+                                <span class="topic">全範囲</span>
+                                <span class="topic">ランダム出題</span>
+                            </div>
+                            <div class="lesson-footer">
+                                <span>⏱️ 約15分</span>
+                                <span>📝 全15問</span>
+                                <span class="completion-badge" id="exam-completion-badge" style="display: none;">🏆 最高: <span id="exam-best-score"></span>/15</span>
+                                <span class="lesson-arrow" id="exam-arrow" style="display: none">→</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </section>
-            <section class="section highlight">
-                <h2>💡 学習のヒント</h2>
-                <ul>
-                    <li><strong>実践あるのみ</strong>: 学んだプロンプトは実際に試してみましょう</li>
-                    <li><strong>自分用にカスタマイズ</strong>: テンプレートを自分の業務に合わせて調整しましょう</li>
-                    <li><strong>反復改善</strong>: 一度で完璧なプロンプトは作れません。繰り返し改善しましょう</li>
-                    <li><strong>リスク意識</strong>: 便利な反面、リスクもあります。5-4をしっかり学びましょう</li>
-                </ul>
             </section>
             <div class="lesson-navigation">
                 <a href="../index.html" class="nav-button secondary">← ホームに戻る</a>
@@ -146,8 +157,55 @@
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
     <script>
-        function updateProgress(){let c=0;const s=['5-1','5-2','5-3','5-4'];s.forEach(x=>{if(localStorage.getItem(`chapter5_section${x}_completed`)==='true'){c++;const d=document.getElementById(`section-${x}`);if(d){d.classList.add('completed');const b=d.querySelector('.completion-badge');if(b)b.style.display='inline';}}});const p=(c/4*100);document.getElementById('completed-sections').textContent=c;document.getElementById('chapter-progress').style.width=p+'%';document.getElementById('progress-percentage').textContent=Math.round(p)+'%';}
-        window.addEventListener('load',updateProgress);
+        document.addEventListener('DOMContentLoaded', () => {
+            const chapter = 'chapter5';
+            const sections = ['5-1', '5-2', '5-3', '5-4'];
+            let completedCount = 0;
+
+            sections.forEach(sec => {
+                const sectionId = `${chapter}_section${sec}_completed`;
+                if (localStorage.getItem(sectionId) === 'true') {
+                    completedCount++;
+                    const card = document.getElementById(`section-${sec}`);
+                    if (card) {
+                        card.classList.add('completed');
+                        const badge = card.querySelector('.completion-badge');
+                        if (badge) badge.style.display = 'inline-block';
+                    }
+                }
+            });
+
+            // プログレスバーの更新
+            const percentage = Math.round((completedCount / sections.length) * 100);
+            document.getElementById('completed-sections').textContent = completedCount;
+            document.getElementById('chapter-progress').style.width = `${percentage}%`;
+            document.getElementById('progress-percentage').textContent = `${percentage}%`;
+
+            // 模擬試験のアンロック判定
+            if (completedCount === sections.length) {
+                const examCard = document.getElementById('section-exam');
+                const lock = document.getElementById('exam-lock');
+                if (examCard && lock) {
+                    examCard.classList.remove('locked-card');
+                    examCard.style.pointerEvents = 'auto';
+                    lock.style.display = 'none';
+                    document.getElementById('exam-arrow').style.display = 'inline-block';
+
+                    const badge = examCard.querySelector('.exam-badge');
+                    if (badge) {
+                        badge.textContent = '🔓 解放中';
+                        badge.style.backgroundColor = '#4caf50';
+                    }
+                }
+            }
+
+            // 模擬試験スコア表示
+            const bestScore = localStorage.getItem('chapter5_exam_score');
+            if (bestScore) {
+                document.getElementById('exam-completion-badge').style.display = 'inline-block';
+                document.getElementById('exam-best-score').textContent = bestScore;
+            }
+        });
     </script>
     <script src="../shared/js/config/characters.js"></script>
     <script src="../shared/js/core/visual-effects.js"></script>
