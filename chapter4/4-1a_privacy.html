@@ -30,264 +30,205 @@
                     <a href="index.html">第4章</a> &gt;
                     4-1a
                 </div>
-                <div class="hero-badge">第4章 セクション 4-1a</div>
+                <div class="hero-badge">第4章 第2節</div>
                 <h1>個人情報保護とプライバシー</h1>
                 <div class="lesson-meta">
-                    <span>⏱️ 約20分</span>
-                    <span>📝 クイズ10問</span>
+                    <span>⏱️ 約15分</span>
+                    <span>📝 確認問題9問</span>
                 </div>
             </div>
 
             <div class="section">
                 <h2>🔒 個人情報保護</h2>
                 <div class="highlight">
-                    <p><strong>個人情報保護法</strong></p>
-                    <p>個人情報の適正な取扱いを定めた法律</p>
+                    <p><strong>個人情報保護法（改正個人情報保護法）</strong></p>
+                    <p>個人情報の適正な取扱いを定めた法律です。2022年に改正され、個人の権利保護が強化されました。生成AIの利用においても、入力するデータに個人情報が含まれていないか十分な注意が必要です。</p>
+                </div>
+
+                <h3>個人情報保護法の基本体系</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>用語</th>
+                            <th>説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>個人情報保護委員会</strong></td>
+                            <td>個人情報保護法を所管し、企業や組織による個人情報の取扱いを監督・指導する独立した行政機関。違反企業への勧告や命令を行う権限を持つ。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>個人情報取扱事業者</strong></td>
+                            <td>個人情報を事業活動で利用する企業や組織のこと。法律で定められた義務（利用目的の特定、安全管理措置など）を負う。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>個人情報の定義と種類</h3>
+                <p><strong>個人情報とは：</strong> 生存する個人に関する情報で、特定の個人を識別できる情報</p>
+                <ul>
+                    <li>氏名、住所、生年月日、電話番号、メールアドレス</li>
+                    <li>防犯カメラなどの顔写真、マイナンバー</li>
+                    <li><strong>個人識別符号</strong>：指紋、DNA、顔認証データなど、身体的特徴をデジタル化したもの</li>
+                </ul>
+
+                <h3>特に慎重な取り扱いが必要な情報</h3>
+                <div class="highlight" style="background: #fff3cd;">
+                    <p><strong>要配慮個人情報・機微（センシティブ）情報</strong></p>
+                    <p>不当な差別や偏見につながる恐れがある、特に配慮が必要な個人情報のことです。取得時には本人の明示的な同意が必要です。</p>
                     <ul>
-                        <li><strong>個人情報とは：</strong> 特定の個人を識別できる情報</li>
-                        <li>氏名、住所、電話番号、メールアドレス</li>
-                        <li>顔写真、マイナンバー</li>
-                        <li>指紋、DNA情報</li>
+                        <li>人種、信条、社会的身分</li>
+                        <li>病歴、障害の有無</li>
+                        <li>犯罪の経歴、犯罪被害の事実</li>
                     </ul>
+                    <p><strong>⚠️ 重要：</strong> 生成AIにこれらの情報を入力することは、法律違反や重大な人権侵害につながる可能性があります。</p>
                 </div>
 
-                <h3>AI利用における注意点</h3>
-                <h4>❌ やってはいけないこと</h4>
-                <ul>
-                    <li><strong>個人情報をプロンプトに入力</strong>
-                        <ul>
-                            <li>例：「田中太郎(電話番号090-1234-5678)にメールを書いて」</li>
-                            <li>リスク：情報がAIの学習データに含まれる可能性</li>
+                <h3>AIへの入力において「やってはいけない」具体例</h3>
+                <div class="danger-box"
+                    style="background:#fee2e2; border:2px solid #ef4444; border-radius:8px; padding:1.5rem; margin-bottom:1.5rem;">
+                    <h4 style="color:#b91c1c; margin-top:0;">❌ 絶対に入力してはいけないデータの例</h4>
+                    <ul>
+                        <li><strong>顧客情報のベタ打ち：</strong> 「営業先の田中太郎さん（090-XXXX-XXXX）への御礼メールを書いて」</li>
+                        <li><strong>会議の生データ：</strong> 取引先名や役職、社外秘のプロジェクト名が含まれた議事録のまるごと要約依頼</li>
+                        <li><strong>従業員の評価データ：</strong> 「Aさんの売上実績とMBOシートの内容から、今期の査定コメント案を作成して」</li>
+                        <li><strong>リスク理由：</strong> 入力したデータが、AI開発会社のサーバーに保存され、将来的に他のユーザーへの回答（学習データ）として意図せず出力されてしまうリスク（情報漏洩）があるためです。</li>
                         </ul>
-                    </li>
-                    <li><strong>機密データの入力</strong>
-                        <ul>
-                            <li>例：社員名簿、顧客リストのアップロード</li>
-                            <li>リスク：情報漏洩、法令違反</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h4>✅ 適切な対応</h4>
-                <ul>
-                    <li><strong>匿名化：</strong> 個人を特定できないように加工
-                        <ul>
-                            <li>例：「田中太郎」→「A氏」、電話番号削除</li>
-                        </ul>
-                    </li>
-                    <li><strong>仮名化：</strong> 他の情報と組み合わせなければ個人を特定できないように加工</li>
-                    <li><strong>社内ルール：</strong> AI利用のガイドラインを策定・遵守</li>
-                </ul>
-
-                <h3>プライバシー権</h3>
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説：プライバシー権</strong></p>
-                    <p>自己に関する情報をコントロールする権利</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「他人のプライベートな情報を公開してはいけない」という権利です</p>
                 </div>
+
+                <h3>安全にAIを利用するための必須加工：匿名化と仮名化</h3>
+                <p>業務で生成AIを利用する際は、個人を特定できないよう事前にデータを加工することが不可欠です。主に3つの手法があります。</p>
+                <table class="comparison-table">
+                    <tr>
+                        <th>手法</th>
+                        <th>定義と特徴</th>
+                        <th>具体例</th>
+                    </tr>
+                    <tr>
+                        <td><strong>匿名化</strong><br>(とくめいか)</td>
+                        <td>特定の個人を<strong>完全に識別できないように</strong>加工すること。復元（元の誰かに戻すこと）はできません。<br>★AI利用において最も安全で推奨される手法です。</td>
+                        <td>・「田中太郎」→「A氏」や「顧客X」に置換<br>・「東京都渋谷区…」→「東京都」のみを残す<br>・電話番号やメールアドレスを完全に「削除」する</td>
+                    </tr>
+                    <tr>
+                        <td><strong>匿名加工情報</strong><br>(とくめいかこうじょうほう)</td>
+                        <td>個人情報保護法で定められた法律用語。特定の個人を識別できないように加工し、かつ元の個人情報を復元できないようにした情報。法律の規定に従って作成・管理する必要がある。</td>
+                        <td>・ビッグデータ分析のために、顧客データから個人を特定できる情報を全て削除・加工したデータセット</td>
+                    </tr>
+                    <tr>
+                        <td><strong>仮名化</strong><br>(かめいか)</td>
+                        <td>他の情報と照合しない限り、特定の個人を識別できないように加工すること。（対応表などを持っていれば復元可能）</td>
+                        <td>・社員名簿の氏名を「ランダムなID番号（E-1025など）」に置き換える（手元に対応表を残しておく状態）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>マスキング</strong></td>
+                        <td>データの一部を伏せ字（●や＊など）で隠す技術。視覚的に個人情報を保護するシンプルな手法。</td>
+                        <td>・クレジットカード番号の一部を隠す：「****-****-****-1234」<br>・電話番号：「090-****-5678」</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 1rem;"><strong>💡 ルールの徹底：</strong>
+                    企業においては「AI利用ガイドライン」を策定し、従業員が独断で個人情報や機密情報を入力しない仕組みと教育（リテラシー向上）が求められます。</p>
+
             </div>
 
             <div class="section">
-                <h2>📸 肖像権とパブリシティ権</h2>
-
-                <h3>肖像権</h3>
+                <h2>👤 プライバシー権</h2>
                 <div class="highlight">
-                    <p><strong>肖像権とは</strong></p>
-                    <p>自分の顔や姿を勝手に撮影・公表されない権利</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「自分の写真を勝手に使われない権利」です</p>
+                    <p><strong>プライバシー権とは</strong></p>
+                    <p>元々は「みだりに私生活上の事実を公開されない権利」として発展しましたが、現在では<strong>「自己に関する情報をコントロールする権利」</strong>として広く解釈されています。</p>
                 </div>
-
-                <h4>AI利用における注意点</h4>
+                
+                <h3>生成AIとプライバシー侵害のリスク</h3>
                 <ul>
-                    <li><strong>画像生成：</strong>
-                        <ul>
-                            <li>実在の人物の顔を生成する場合は要注意</li>
-                            <li>「◯◯さんの顔で画像生成」は肖像権侵害のリスク</li>
-                        </ul>
-                    </li>
-                    <li><strong>ディープフェイク：</strong>
-                        <ul>
-                            <li>他人の顔を別の人物の体に合成するのは違法</li>
-                            <li>特に悪意ある利用（フェイクニュースなど）は重大な違法行為</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h3>パブリシティ権</h3>
-                <div class="highlight">
-                    <p><strong>パブリシティ権とは</strong></p>
-                    <p>有名人の氏名・肖像が持つ経済的価値を保護する権利</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「有名人の名前や顔を商売に使うには許可が必要」という権利です</p>
-                </div>
-
-                <h4>注意点</h4>
-                <ul>
-                    <li>有名人の顔写真を使った広告生成は無許可NG</li>
-                    <li>「◯◯さん風のキャラクター」も、本人と誤認される場合は侵害の可能性</li>
-                    <li>報道目的など、正当な理由がある場合は例外的に認められることも</li>
+                    <li>特定の個人の私生活に関する情報をプロンプトに入力して文章を生成させ、それをブログ等で公開する行為は、プライバシー権の侵害にあたる可能性があります。</li>
+                    <li>学習データの中に、個人のプライバシーに関わる情報が無断で収集（スクレイピング等）されている懸念も世界的議論となっています。</li>
                 </ul>
             </div>
+
 
             <div class="quiz">
                 <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> 個人情報をAIのプロンプトに入力する際の適切な対応は？</p>
+                    <p><strong>問題13:</strong> プライバシー設定をせずにインターネットやアプリケーションを利用していると、知らぬ間にプライベートな情報が閲覧・収集される可能性がある。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 個人情報をそのまま入力すると情報漏洩のリスクがあり、法令違反となる可能性があります。')">A.
-                            そのまま入力して問題ない</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：個人情報をAIに入力する際は、特定の個人を識別できないように「匿名化」や「仮名化」を行う必要があります。そのまま入力すると情報漏洩のリスクがあります。')">
-                            B. 匿名化・仮名化して入力</li>
-                        <li onclick="selectAnswer(this, false, '❌ 暗号化はデータ通信の安全性を確保する手法ですが、AIへの入力では匿名化・仮名化が適切な対応です。')">C.
-                            暗号化して入力</li>
-                        <li onclick="selectAnswer(this, false, '❌ 個人情報は量に関係なく、適切に保護する必要があります。「少しなら」という基準はありません。')">D.
-                            個人情報は少しなら入力OK</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！プライバシー設定とは、他のユーザーや企業が自分の個人情報にどの程度アクセスできるのかを設定することです。プライバシー設定をせずにインターネットやアプリケーションを利用していると、知らぬ間にプライベートな情報が閲覧・収集される可能性があります。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。プライバシー設定をしないと、知らぬ間に情報が閲覧・収集される可能性があります。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> 肖像権に関する説明で正しいものは？</p>
+                    <p><strong>問題14:</strong> 個人情報保護法の目的として、個人の権利利益を保護することが挙げられているが、個人情報の有用性に配慮することについては挙げられていない。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 肖像権は有名人に限らず、すべての人に認められる権利です。')">A. 有名人にのみ認められる権利</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：肖像権は、有名人に限らず、すべての人に認められる権利です。自分の顔や姿を無断で撮影されたり公表されたりしない権利を指します。')">
-                            B. すべての人に認められる権利</li>
-                        <li onclick="selectAnswer(this, false, '❌ 肖像権は商業利用に限らず、個人的な利用でも問題になる可能性があります。')">C.
-                            商業利用の場合のみ問題になる</li>
-                        <li onclick="selectAnswer(this, false, '❌ 肖像権は法律上の概念であり、特別な登録は不要です。')">D. 登録が必要な権利</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。個人情報保護法は、個人情報の有用性に配慮しつつ、個人の権利利益を保護することを目的としています。')">〇</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！個人情報保護法は、正式名称を個人情報の保護に関する法律といい、個人情報の有用性に配慮しつつ、個人の権利利益を保護することを目的としています。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> パブリシティ権が主に保護する対象は？</p>
+                    <p><strong>問題15:</strong> 個人情報保護法において、「個人情報」とは、個人に関する一定の情報をいい、死者に関する情報も含まれる。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 一般市民の顔写真の保護は「肖像権」の範囲であり、パブリシティ権とは異なります。')">A. 一般市民の顔写真
-                        </li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：パブリシティ権は、有名人の氏名や肖像が持つ「顧客吸引力（経済的価値）」を保護する権利です。勝手に広告などに利用することはできません。')">
-                            B. 有名人の氏名・肖像の経済的価値</li>
-                        <li onclick="selectAnswer(this, false, '❌ 企業のロゴは「商標権」で保護される対象です。')">C. 企業のロゴ</li>
-                        <li onclick="selectAnswer(this, false, '❌ 製品のデザインは「意匠権」で保護される対象です。')">D. 製品のデザイン</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。個人情報は生存する個人に関する情報であり、死者は含まれません。')">〇</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！個人情報とは、生存する個人に関する情報であって、①当該情報に含まれる氏名、生年月日その他の記述等により特定の個人を識別することができるもの、または、②個人識別符号が含まれるものをいいます。死者に関する情報は、個人情報には含まれません。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題4:</strong> 個人情報保護法における「個人情報」に該当しないものは？</p>
+                    <p><strong>問題16:</strong> 取り扱う個人情報によって識別される特定の個人の数に関わらず、個人情報データベース等を事業の用に供している者は、個人情報取扱事業者に該当する。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 氏名は個人を直接識別できる情報であり、個人情報に該当します。')">A. 氏名</li>
-                        <li onclick="selectAnswer(this, false, '❌ マイナンバーは個人を一意に特定する番号であり、個人情報に該当します。')">B. マイナンバー</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：企業の決算情報は法人に関する情報であり、特定の個人を識別する情報ではないため、個人情報保護法における「個人情報」には該当しません。')">
-                            C. 企業の決算情報</li>
-                        <li onclick="selectAnswer(this, false, '❌ 指紋は生体情報として個人を特定できるため、個人情報に該当します。')">D. 指紋</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！個人情報取扱事業者とは、個人情報データベース等を事業の用に供している者をいいます。取り扱う個人情報によって識別される特定の個人の数に関わりません。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。個人の数に関わらず、個人情報データベース等を事業に供する者は個人情報取扱事業者に該当します。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題5:</strong> 「匿名化」と「仮名化」の違いとして正しいものは？</p>
+                    <p><strong>問題17:</strong> 個人のメールアドレスは個人情報に該当するが、企業の財務情報は個人情報に該当しない。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ どちらも個人情報の保護を目的としていますが、その程度が異なります。')">A. どちらも同じ意味である
-                        </li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：匿名化は完全に個人を特定できないように加工することで、仮名化は他の情報と組み合わせなければ個人を特定できない程度に加工することです。匿名化の方がより強い保護です。')">
-                            B. 匿名化は完全に特定不可、仮名化は他情報との組合せで特定可能</li>
-                        <li onclick="selectAnswer(this, false, '❌ 逆です。匿名化の方がより強い保護であり、仮名化は他情報との組合せで特定可能です。')">C.
-                            仮名化の方がより強い保護である</li>
-                        <li onclick="selectAnswer(this, false, '❌ どちらもデータの暗号化とは異なる概念です。匿名化・仮名化は個人を特定できないようにする加工です。')">D.
-                            暗号化と同じ技術である</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！個人のメールアドレスは、他の情報と容易に照合でき、それにより特定の個人を識別することができるものとして、個人情報に含まれます。他方、企業の財務情報等、法人等の団体そのものに関する情報（団体情報）は、個人情報には該当しません。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。個人のメールアドレスは個人情報ですが、企業の財務情報は団体情報で個人情報ではありません。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題6:</strong> ディープフェイクに関する説明として正しいものは？</p>
+                    <p><strong>問題18:</strong> 要配慮個人情報とは、本人に対する不当な差別、偏見その他の不利益が生じないように、その取扱いに特に配慮を要する一定の個人情報をいう。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクは他人の顔を別の人物に合成する技術であり、AI技術自体を指す言葉ではありません。')">A.
-                            AI技術全般を指す用語</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ディープフェイクは、AIを使って他人の顔を別の人物の体に合成する技術です。悪意ある利用（フェイクニュース、なりすましなど）は肖像権侵害や名誉毀損などの重大な違法行為となります。')">
-                            B. 他人の顔を別の人物に合成する技術で、悪意ある利用は違法</li>
-                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクは法律で完全に禁止されているわけではありませんが、悪意ある利用は違法です。')">C.
-                            全ての利用が合法である</li>
-                        <li onclick="selectAnswer(this, false, '❌ ディープフェイクはAIの画像生成技術を利用したものであり、手作業ではありません。')">D.
-                            AIを使わない手作業の合成技術</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！要配慮個人情報とは、本人に対する不当な差別、偏見その他の不利益が生じないように、その取扱いに特に配慮を要するものとして政令で定める記述等が含まれる個人情報をいいます。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。要配慮個人情報は、不当な差別や偏見を生じないよう特に配慮を要する個人情報です。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題7:</strong> プライバシー権の本質として最も適切なものは？</p>
+                    <p><strong>問題19:</strong> 本人の人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実は、いずれも要配慮個人情報に含まれる。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ プライバシー権は「情報を発信する権利」ではなく、「自己に関する情報をコントロールする権利」です。')">A.
-                            情報を自由に発信する権利</li>
-                        <li
-                            onclick="selectAnswer(this, false, '❌ プライバシー権は「他人の情報を収集する権利」ではなく、逆に自分の情報が他人に知られないようにする権利です。')">
-                            B. 他人の情報を収集する権利</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：プライバシー権は、自己に関する情報をコントロールする権利です。つまり、自分の個人的な情報が他人に無断で公開されたり利用されたりしないように管理する権利です。')">
-                            C. 自己に関する情報をコントロールする権利</li>
-                        <li onclick="selectAnswer(this, false, '❌ プライバシー権は「公開された情報を削除する権利」に限定されるものではなく、より広い概念です。')">D.
-                            公開された情報を削除する権利</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！要配慮個人情報とは、本人に対する不当な差別や偏見等の不利益が生じないように、その取扱いに特に配慮を要する一定の個人情報をいいます。これには、本人の人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実が含まれます。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。人種、信条、社会的身分、病歴、犯罪の経歴等はすべて要配慮個人情報に含まれます。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題8:</strong> AIに社員名簿や顧客リストを入力することのリスクとして最も重要なものは？</p>
+                    <p><strong>問題20:</strong> 機微情報とは、個人情報保護法で定められているもので、要配慮個人情報よりも狭い概念である。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ AIの処理速度低下はリスクとして重要ではありません。個人情報保護の観点が最重要です。')">A.
-                            AIの処理速度が低下する</li>
-                        <li onclick="selectAnswer(this, false, '❌ AIの回答精度低下よりも、情報漏洩のリスクの方がはるかに重要です。')">B. AIの回答精度が下がる
-                        </li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：社員名簿や顧客リストには個人情報が含まれており、AIに入力すると情報がAIの学習データに含まれる可能性があり、情報漏洩や個人情報保護法違反のリスクがあります。')">
-                            C. 情報漏洩のリスクと個人情報保護法違反の可能性</li>
-                        <li onclick="selectAnswer(this, false, '❌ 利用料金の増加は主要なリスクではありません。情報漏洩のリスクが最重要です。')">D. 利用料金が増加する
-                        </li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。機微（センシティブ）情報は、要配慮個人情報よりも広い概念です。')">〇</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！機微（センシティブ）情報とは、金融分野における個人情報保護に関するガイドラインで定められている概念であり、個人情報保護法で定められている要配慮個人情報よりも広い概念です。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
+
                 <div class="quiz-question">
-                    <p><strong>問題9:</strong> 肖像権と パブリシティ権の違いとして正しいものは？</p>
+                    <p><strong>問題21:</strong> 匿名加工情報とは、個人情報の区分に応じて、法に定められた措置を講じて、特定の個人を識別できないように個人情報を加工し、当該個人情報を復元できないようにした情報である。</p>
                     <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：肖像権はすべての人に認められる人格的権利であり、パブリシティ権は主に有名人の氏名・肖像が持つ経済的価値（顧客吸引力）を保護する財産的権利です。')">
-                            A. 肖像権は全員に認められ、パブリシティ権は主に有名人の経済的価値を保護</li>
-                        <li onclick="selectAnswer(this, false, '❌ 逆です。肖像権はすべての人に、パブリシティ権は主に有名人に関連します。')">B.
-                            パブリシティ権は全員に認められ、肖像権は有名人のみ</li>
-                        <li onclick="selectAnswer(this, false, '❌ 両方とも法律上の概念であり、登録の有無は関係しません。')">C.
-                            肖像権は登録制で、パブリシティ権は自動的に発生</li>
-                        <li onclick="selectAnswer(this, false, '❌ 両者は異なる概念であり、保護する対象が異なります。')">D. 両者に違いはない</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題10:</strong> 個人情報保護に関する記述として正しく<strong>ないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。匿名化は個人を特定できないように加工する適切な対応です。')">A.
-                            個人情報をAIに入力する際は匿名化が推奨される</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。顔写真は個人を識別できる情報であり、個人情報に該当します。')">B.
-                            顔写真は個人情報に該当する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：たとえAIサービスが安全性を主張していても、個人情報保護法の遵守は利用者側の責任です。AIサービスの利用規約で安全が保証されていても、個人情報をそのまま入力することは適切ではありません。')">
-                            C. AIサービスが安全と言っていれば個人情報をそのまま入力してよい</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい記述です。社内ルールの策定はAI利用における個人情報保護の重要な対策です。')">D.
-                            AI利用に関する社内ガイドラインの策定が重要</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！匿名加工情報とは、個人情報を「匿名」となるように「加工」したものです。具体的には、個人情報の区分に応じて、法に定められた措置を講じて、特定の個人を識別できないように個人情報を加工し、当該個人情報を復元できないようにしたものをいいます。')">〇</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解。匿名加工情報は、特定の個人を識別できず復元もできないように加工した情報です。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
             </div>
-
-            <div class="section">
-                <h2>📝 まとめ</h2>
-                <div class="highlight">
-                    <ul>
-                        <li><strong>個人情報：</strong> 匿名化・仮名化して利用。プライバシー権も尊重</li>
-                        <li><strong>肖像権：</strong> すべての人の顔・姿を保護する権利</li>
-                        <li><strong>パブリシティ権：</strong> 有名人の経済的価値を保護する権利</li>
-                        <li><strong>ディープフェイク：</strong> 悪意ある利用は重大な違法行為</li>
-                        <li><strong>AI利用時：</strong> 個人情報の入力は匿名化・仮名化が必須</li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="lesson-navigation">
                 <a href="index.html" class="nav-button secondary">← 第4章トップ</a>
                 <a href="4-1b_ip_rights.html" class="nav-button">次: 4-1b 知的財産権と法的保護 →</a>

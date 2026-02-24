@@ -30,7 +30,7 @@
                     <a href="index.html">第5章</a> &gt;
                     5-2
                 </div>
-                <div class="hero-badge">第5章 セクション 5-2</div>
+                <div class="hero-badge">第5章 第2節</div>
                 <h1>プロンプト制作の実践</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約20分</span>
@@ -39,343 +39,403 @@
             </div>
 
             <div class="section">
-                <h2>✍️ 文章の校正</h2>
+                <h2>文章の校正と推敲</h2>
                 <div class="highlight">
                     <p><strong>校正プロンプトの基本</strong></p>
-                    <p>誤字脱字、文法ミス、表現の改善を依頼する</p>
+                    <p>誤字脱字の修正、文法ミスの訂正、および表現の改善を依頼する実践例です。目的や対象に合わせて制約条件を付与することで、出力の精度を高めます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の文章を校正してください：
+                <h3>📝 例1：メールの校正</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下のメール文を校正してください：
 - 誤字脱字の修正
-- 文法の修正
 - より自然な表現への変更
+- 元の意味は変えない
+- 修正後の文章のみ出力
 
-ただし、元の意味は変えないでください。
-修正後の文章のみを出力してください。
-
-[文章]</pre>
+---
+お世話なっております。先日お送りしたメールの件なんですけど、資料の添付忘れてました。すいません。改めて送りますので、確認お願いできますか。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">お世話になっております。先日お送りしたメールの件ですが、資料の添付を失念しておりました。申し訳ございません。改めて送付いたしますので、ご確認をお願いいたします。</p>
+                    </div>
                 </div>
 
-                <h3>応用テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の文章をビジネス文書として適切な表現に校正してください：
+                <h3>📝 例2：ビジネス文書化</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章をビジネス文書として適切な表現に校正してください：
 - 敬語を正しく使用
 - 冗長な表現を簡潔に
-- 専門用語は適切に説明
 
-[文章]</pre>
+---
+このプロジェクトなんですけど、予算がちょっと足りなくなってきちゃってるので、追加で予算もらえないかなと思ってます。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">本プロジェクトにつきまして、予算が不足する見込みとなっております。つきましては、追加予算のご承認をお願い申し上げます。</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>📋 要約</h2>
+                <h2>文章の要約</h2>
                 <div class="highlight">
-                    <p><strong>要約の種類</strong></p>
+                    <p><strong>要約における制約条件の指定</strong></p>
                     <ul>
-                        <li><strong>行数指定：</strong> 「3行で要約」</li>
-                        <li><strong>文字数指定：</strong> 「200文字で要約」</li>
-                        <li><strong>段落指定：</strong> 「3段落で要約」</li>
+                        <li><strong>行数指定：</strong> 出力される行数を制限する（例：「3行で要約」）</li>
+                        <li><strong>文字数指定：</strong> 全体の文字数を制限する（例：「200文字以下で要約」）</li>
+                        <li><strong>構成指定：</strong> ポイントの数や段落数を指定する（例：「3つのポイントに絞る」）</li>
                     </ul>
                 </div>
 
-                <h3>基本テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の文章を3行で要約してください：
+                <h3>📝 例1：長文記事の要約</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下のニュース記事を3行で要約してください：
 
-[文章]</pre>
+---
+生成AIは、大量のデータから学習し、新しいコンテンツを生成する技術です。テキスト、画像、音楽など多様な分野で活用されており、ChatGPTやMidjourneyなどが代表的なサービスとして知られています。ビジネスでは業務効率化やクリエイティブ作業の支援に利用されていますが、著作権や倫理的な課題も議論されています。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">・生成AIは大量のデータから学習し新しいコンテンツを生成する技術です。
+・ChatGPTやMidjourneyなどがテキストや画像生成で利用されています。
+・業務効率化に役立つ一方、著作権や倫理面での課題も存在します。</p>
+                    </div>
                 </div>
 
-                <h3>応用テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の文章を要約してください：
+                <h3>📝 例2：会議メモの要点整理</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の会議内容を要約してください：
 - 重要なポイントを3つに絞る
 - 各ポイント50文字以内
 - 箇条書きで出力
 
-[文章]</pre>
+---
+本日の会議では、新製品のローンチ時期について検討しました。開発チームからは6月中旬に準備が整う見込みとの報告がありました。マーケティングチームは競合製品の動向を分析し、7月初旬の発売が最適と提案しています。予算については、広告費を当初予定の1.5倍に増額する必要があるとの意見が出ました。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">・開発は6月中旬完了予定、発売は7月初旬が最適
+・競合動向を踏まえたマーケティング戦略が必要
+・広告予算を当初の1.5倍に増額する方針</p>
+                    </div>
                 </div>
 
-                <h3>エグゼクティブサマリー</h3>
-                <div class="code-block">
-                    <pre>以下の報告書のエグゼクティブサマリーを作成してください：
+                <h3>📝 例3：エグゼクティブサマリー作成</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の報告書から経営層向けのエグゼクティブサマリーを作成してください：
 - 背景（1行）
 - 主要な発見（3点）
 - 結論と提言（1行）
 - 合計200文字以内
 
-[報告書]</pre>
+---
+当社の顧客満足度調査を実施した結果、全体の満足度は75%と前年比5ポイント増加しました。特にカスタマーサポートの対応品質が高く評価されました。一方、製品の価格設定については30%の顧客が「やや高い」と回答し、若年層の離脱率が15%増加しています。競合他社との比較では、当社の製品品質は上位ですが、価格競争力に課題があります。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">【背景】顧客満足度調査を実施し全体傾向を分析
+【主要な発見】
+・満足度75%で前年比5ポイント向上
+・サポート品質が高評価、価格は30%が「高い」
+・若年層離脱率15%増、価格競争力に課題
+【結論】品質維持しつつ価格戦略の見直しが必要</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>📝 箇条書き</h2>
+                <h2>情報の構造化（箇条書き・リスト）</h2>
                 <div class="highlight">
-                    <p><strong>箇条書きの活用</strong></p>
-                    <p>長文を読みやすく構造化する</p>
+                    <p><strong>箇条書きの活用による可読性向上</strong></p>
+                    <p>長文や複雑な手順を読みやすく構造化するためのプロンプト例です。階層化や番号付けの指示により、視認性を高めます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の文章を箇条書き5項目にまとめてください：
+                <h3>📝 例1：説明文の箇条書き化</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章を箇条書き5項目にまとめてください：
 
-[文章]</pre>
+---
+プロジェクト管理では、まず目標を明確にすることが重要です。次に、タスクを細分化してスケジュールを立てます。チームメンバーの役割分担も欠かせません。進捗状況を定期的に確認し、問題があれば早期に対処します。最後に、プロジェクト完了後は振り返りを行い、次回に活かします。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">• 目標を明確に設定する
+• タスクを細分化してスケジュールを立てる
+• チームメンバーの役割を分担する
+• 進捗状況を定期的に確認し早期対処する
+• プロジェクト完了後は振り返りを実施する</p>
+                    </div>
                 </div>
 
-                <h3>階層構造</h3>
-                <div class="code-block">
-                    <pre>以下の文章を階層構造の箇条書きにしてください：
-- 大項目: 3つ
+                <h3>📝 例2：階層構造での整理</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の内容を階層構造の箇条書きに整理してください：
+- 大項目: 3つ以内
 - 各大項目に小項目: 2〜3つ
 
-[文章]</pre>
+---
+健康的な生活には、適度な運動、バランスの取れた食事、十分な睡眠が必要です。運動は週3回以上、1回30分程度のウォーキングやジョギングが推奨されます。筋力トレーニングも週2回取り入れると効果的です。食事では野菜を多く摂り、糖質や脂質は控えめにします。睡眠は毎日7〜8時間を目安に、就寝時間を一定に保つことが大切です。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">【運動】
+  • 有酸素運動：週3回以上、1回30分程度
+  • 筋力トレーニング：週2回実施
+
+【食事】
+  • 野菜を多く摂取する
+  • 糖質・脂質は控えめにする
+
+【睡眠】
+  • 毎日7〜8時間確保する
+  • 就寝時間を一定に保つ</p>
+                    </div>
                 </div>
 
-                <h3>番号付きリスト</h3>
-                <div class="code-block">
-                    <pre>以下の手順を番号付きリストにしてください：
-各ステップには
+                <h3>📝 例3：手順のリスト化</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の作業を番号付きリストに整理してください。
+各ステップに含める情報：
 - 作業内容
 - 所要時間
 - 注意点
-を含めてください。
 
-[手順説明]</pre>
+---
+まず資料を集めて内容を確認します。だいたい30分くらいかかります。資料が不足していないか注意。次にパワーポイントで資料を作ります。1時間程度。画像やグラフを入れると分かりやすいです。最後に上司に確認してもらいます。15分くらい。修正指示があれば対応します。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">1. 資料の収集と確認
+   所要時間：30分
+   注意点：資料の不足がないか事前にチェックする
+
+2. プレゼン資料の作成
+   所要時間：1時間
+   注意点：画像やグラフを活用して視覚的に分かりやすくする
+
+3. 上司への確認
+   所要時間：15分
+   注意点：修正指示があればすぐに対応できるよう準備する</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>🔄 話者・対象の変更</h2>
+                <h2>対象読者（ペルソナ）の変更</h2>
                 <div class="highlight">
-                    <p><strong>読者に合わせた表現</strong></p>
-                    <p>同じ内容を異なる読者向けに書き換える</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 専門家向けの文章を一般向けに、または逆に変換します</p>
+                    <p><strong>読者層に合わせた表現の最適化</strong></p>
+                    <p>同一の情報であっても、専門家、一般層、子供など、対象読者の知識レベルや前提に応じて表現を最適化させる手法です。</p>
                 </div>
 
-                <h3>子供向けに変換</h3>
-                <div class="code-block">
-                    <pre>以下の文章を小学生にもわかるように書き直してください：
-- 難しい言葉は使わない
-- 例えを使って説明
-- 短い文で書く
+                <h3>📝 例1：専門用語を初学者向けに</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章を中学生にも理解できるように書き換えてください：
+- 専門用語は使わない
+- 身近な例え話を使う
+- 一文を短く簡潔に
 
-[文章]</pre>
+---
+クラウドコンピューティングは、インターネット経由でサーバーやストレージなどのITリソースをオンデマンドで利用できるサービスです。スケーラビリティが高く、初期投資を抑えられるため、多くの企業が導入しています。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">クラウドは、インターネットで使えるコンピューターのレンタルサービスです。例えば、写真を自分のスマホに保存する代わりに、インターネット上の倉庫に預けるイメージです。必要な時だけ借りられるので、最初にお金をたくさん払う必要がありません。だから多くの会社が使っています。</p>
+                    </div>
                 </div>
 
-                <h3>専門家向けに変換</h3>
-                <div class="code-block">
-                    <pre>以下の文章を専門家向けの技術文書に書き直してください：
-- 専門用語を適切に使用
-- 論理的で簡潔な表現
-- データや根拠を重視
+                <h3>📝 例2：一般向けを専門家向けに</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章を専門家向けの技術文書として書き直してください：
+- 業界の専門用語を使用
+- 論理的で客観的な表現
+- データを強調
 
-[文章]</pre>
+---
+AIはたくさんのデータを学習して、人間のように考えたり答えたりできるようになります。いろいろな会社で使われていて、とても便利です。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">人工知能（AI）は、大規模データセットを用いた機械学習により、推論および応答生成能力を獲得します。現在、多様な業界において業務効率化ソリューションとして導入が進んでおり、市場規模は年平均成長率30%超で拡大しています。</p>
+                    </div>
                 </div>
 
-                <h3>高齢者向けに変換</h3>
-                <div class="code-block">
-                    <pre>以下の文章を高齢者にも理解しやすいように書き直してください：
-- ゆっくりとした説明
-- 馴染みのある言葉を使用
-- カタカナ語は日本語に置き換え
+                <h3>📝 例3：高齢者向けに優しく</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章を一般の高齢者にも誤解なく伝わるように書き直してください：
+- 外来語（カタカナ語）はできる限り日本語に置き換える
+- 手順や注意点を丁寧かつゆっくりとしたトーンで説明する
 
-[文章]</pre>
+---
+スマートフォンのアプリをダウンロードして、アカウント登録を完了させてください。その後、ホーム画面のメニューからサービスにアクセスできます。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">携帯電話の画面から、必要な機能を取り入れていただきます。そして、ご自身の情報を登録する手続きを済ませてください。その後、最初の画面に表示されている一覧から、ご利用になりたいサービスをお選びいただけるようになります。</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>💬 会話変換</h2>
+                <h2>トーン＆マナーの変更・形式変換</h2>
                 <div class="highlight">
-                    <p><strong>形式の変換</strong></p>
-                    <p>フォーマルな文章をカジュアルに、または逆に変換</p>
+                    <p><strong>文体の調整とフォーマット変換</strong></p>
+                    <p>情報のトーン（硬軟）や、出力フォーマット（Q&A形式、会話形式など）を特定のニーズに合わせて変換する手法です。</p>
                 </div>
 
-                <h3>カジュアルな会話形式へ</h3>
-                <div class="code-block">
-                    <pre>以下の文章をカジュアルな会話形式に変換してください：
-- 「〜です」→「〜だよ」「〜ですね」
-- 堅苦しい表現を避ける
-- フレンドリーな口調
+                <h3>📝 例1：カジュアルな会話形式へ</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の説明文を、想定読者とのカジュアルな会話形式（対話形式）に変換してください：
+- 堅苦しい専門用語は極力避ける
+- 読み手が親しみやすいフレンドリーな口調とする
 
-[文章]</pre>
+---
+生成AIは、入力されたテキストデータを解析し、学習済みのパターンに基づいて新たなテキストを生成する技術である。自然言語処理技術の発展により、高度な文章生成が可能となった。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">生成AIって何かって言うと、みんなが入力した文章を読み取って、それまで学んだパターンを使って新しい文章を作ってくれる技術なんだよね。最近は言葉を理解する技術がすごく進化してて、かなりレベルの高い文章が作れるようになったんだ。</p>
+                    </div>
                 </div>
 
-                <h3>フォーマルな書き言葉へ</h3>
-                <div class="code-block">
-                    <pre>以下の会話をフォーマルなビジネス文書に変換してください：
-- 敬語を適切に使用
-- 口語表現を書き言葉に
-- 論理的な構成
+                <h3>📝 例2：フォーマルなビジネス文書へ</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の口語的な文章をフォーマルなビジネス用途の書き言葉に変換してください：
+- 適切な敬語（謙譲語、尊敬語、丁寧語）を使用する
+- 論理的な段落構成とする
 
-[会話文]</pre>
+---
+昨日の会議で話した件なんだけど、来月までにシステム改修やっとかないとマズイと思うんだよね。予算は何とかするから、早めに進めてくれると助かるわ。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">昨日の会議にてご協議いただきました件につきまして、来月末までにシステム改修を完了させる必要がございます。予算につきましては調整いたしますので、早期着手をお願い申し上げます。</p>
+                    </div>
                 </div>
 
-                <h3>Q&A形式へ</h3>
-                <div class="code-block">
-                    <pre>以下の文章をQ&A形式（5問）に変換してください：
-各質問に対して明確な回答を付けてください。
+                <h3>📝 例3：Q&A形式への変換</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章から想定される質問を抽出し、Q&A形式（3問）で出力してください：
+各質問に対して、文章に基づいた明確で簡潔な回答を作成してください。
 
-[文章]</pre>
+---
+当社のカスタマーサポートは平日9時から18時まで対応しています。お問い合わせは電話またはメールで受け付けており、緊急時は24時間対応のチャットボットもご利用いただけます。通常、メールでのお問い合わせには1営業日以内に返信いたします。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">Q1: サポートの受付時間はいつですか？
+A1: 平日9時から18時までです。
+
+Q2: どのような方法で問い合わせできますか？
+A2: 電話、メール、または24時間対応のチャットボットをご利用いただけます。
+
+Q3: メールの返信にはどれくらいかかりますか？
+A3: 通常1営業日以内に返信いたします。</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>🔢 数字変換</h2>
+                <h2>表記の統一（数字・単位等）</h2>
                 <div class="highlight">
-                    <p><strong>数字の表記変換</strong></p>
-                    <p>アラビア数字と漢数字の相互変換</p>
+                    <p><strong>フォーマットの標準化</strong></p>
+                    <p>資料内の数字表記（アラビア・漢数字）や単位を統一し、文書全体の整合性を図る作業を自動化します。</p>
                 </div>
 
-                <h3>漢数字への変換</h3>
-                <div class="code-block">
-                    <pre>以下の文章に含まれる数字を、すべて漢数字に変換してください：
-- アラビア数字 → 漢数字
-- 他の部分は変更しない
+                <h3>📝 例1：漢数字への統一</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章に含まれる数字を、すべて漢数字に変換してください：
+- 例外なくアラビア数字を漢数字に変更する
+- 数字以外の箇所は一切変更しない
 
-[文章]</pre>
+---
+今回のイベントには3つの会場で合計150人が参加しました。第1会場には50人、第2会場には60人、第3会場には40人でした。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">今回のイベントには三つの会場で合計百五十人が参加しました。第一会場には五十人、第二会場には六十人、第三会場には四十人でした。</p>
+                    </div>
                 </div>
 
-                <h3>アラビア数字への変換</h3>
-                <div class="code-block">
-                    <pre>以下の文章に含まれる漢数字を、すべてアラビア数字に変換してください：
+                <h3>📝 例2：単位・書式の統一</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border-left: 4px solid #2196f3; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: bold; color: #1976d2; margin-bottom: 0.5rem;">💬 プロンプト</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下の文章内のデータ表記（数字と単位）をルールに従って統一してください：
+- 距離: 全て「km」に統一
+- 重さ: 全て「kg」に統一
+- 時間: 全て「24時間表記（例：14:00）」に統一
 
-[文章]</pre>
-                </div>
-
-                <h3>単位の統一</h3>
-                <div class="code-block">
-                    <pre>以下の文章の数字と単位を統一してください：
-- 距離: すべてkm表記
-- 重さ: すべてkg表記
-- 時間: すべて24時間表記
-
-[文章]</pre>
+---
+配達ルートは、A地点から5000m先のB地点まで進み、さらに3.5km移動します。荷物の重さは2500gと1.2kgです。出発時刻は午前9時、到着予定は午後2時30分です。</p>
+                    </div>
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50;">
+                        <p style="margin: 0; font-weight: bold; color: #2e7d32; margin-bottom: 0.5rem;">🤖 AIの出力例</p>
+                        <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">配達ルートは、A地点から5km先のB地点まで進み、さらに3.5km移動します。荷物の重さは2.5kgと1.2kgです。出発時刻は09:00、到着予定は14:30です。</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>🎓 例え話の作成</h2>
+                <h2>効果的なプロンプト設計の基本原則</h2>
                 <div class="highlight">
-                    <p><strong>比喩を使った説明</strong></p>
-                    <p>難しい概念を身近なもので例える</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 複雑な内容を「〜は、まるで〜のようなもの」と説明します</p>
-                </div>
-
-                <h3>基本テンプレート</h3>
-                <div class="code-block">
-                    <pre>以下の専門用語を、小学生にもわかるように例え話を使って説明してください：
-
-用語: [専門用語]
-
-例え話には以下を含めてください：
-- 日常生活で馴染みのあるもの
-- 具体的なイメージ
-- 簡単な言葉</pre>
-                </div>
-
-                <h3>応用例</h3>
-                <div class="code-block">
-                    <pre>「生成AI」を以下の3つの視点で例え話を作ってください：
-
-1. 料理に例えると
-2. スポーツに例えると
-3. 学校に例えると
-
-各例え話は3行以内で。</pre>
-                </div>
-
-                <h3>複数の例え話</h3>
-                <div class="code-block">
-                    <pre>以下の技術的な概念を3つの異なる例え話で説明してください：
-
-概念: [技術的概念]
-
-対象:
-1. 小学生向け
-2. 主婦向け
-3. ビジネスパーソン向け</pre>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🎨 その他の実用テクニック</h2>
-
-                <h3>1. 長文を段落分け</h3>
-                <div class="code-block">
-                    <pre>以下の長文を読みやすいように段落分けしてください：
-- 各段落は1つのトピックに集中
-- 段落の冒頭に見出しを付ける
-
-[長文]</pre>
-                </div>
-
-                <h3>2. 箇条書きを文章化</h3>
-                <div class="code-block">
-                    <pre>以下の箇条書きを、自然な文章に変換してください：
-- 接続詞を適切に使用
-- 論理的な流れを作る
-
-[箇条書き]</pre>
-                </div>
-
-                <h3>3. 表をテキスト化</h3>
-                <div class="code-block">
-                    <pre>以下の表の内容を、わかりやすい文章で説明してください：
-- 重要なデータを強調
-- 傾向や特徴を説明
-
-[表データ]</pre>
-                </div>
-
-                <h3>4. キーワード抽出</h3>
-                <div class="code-block">
-                    <pre>以下の文章から重要なキーワードを10個抽出してください：
-- 重要度順に並べる
-- 各キーワードに簡単な説明を付ける
-
-[文章]</pre>
-                </div>
-
-                <h3>5. トーン調整</h3>
-                <div class="code-block">
-                    <pre>以下の文章のトーンを[明るく前向き/落ち着いた丁寧/情熱的]に調整してください：
-
-元の内容と意味は変えないでください。
-
-[文章]</pre>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>💡 効果的なプロンプトのコツ</h2>
-                <div class="highlight">
-                    <h3>5つのポイント</h3>
+                    <h3>5つの重要ポイント</h3>
                     <ol>
-                        <li><strong>具体的に：</strong> 曖昧な指示ではなく、具体的な要求を
+                        <li><strong>指示の具体性：</strong> 曖昧な表現を排除し、要求を明確にする
                             <ul>
-                                <li>❌ 「簡単に書いて」</li>
-                                <li>✅ 「小学生にもわかるように、例えを使って3行で書いて」</li>
+                                <li>❌ 「簡単に説明して」</li>
+                                <li>✅ 「専門用語を使わず、中学生が理解できるレベルで3行で説明して」</li>
                             </ul>
                         </li>
-                        <li><strong>制約を明記：</strong> 文字数、行数、禁止事項を指定
+                        <li><strong>制約条件の明記：</strong> 文字数、行数、使用してはいけない言葉（禁止事項）を明確に指定する
                             <ul>
-                                <li>✅ 「200文字以内」「専門用語は使わない」</li>
+                                <li>✅ 「200文字以内」「挨拶文は不要」</li>
                             </ul>
                         </li>
-                        <li><strong>出力形式を指定：</strong> 箇条書き、段落、表など
+                        <li><strong>出力形式の指定：</strong> 箇条書き、表形式（表の項目も指定）、段落構成など、求める形式をプロンプト内であらかじめ指定する
                             <ul>
-                                <li>✅ 「以下の形式で出力： 1. 〇〇 2. 〇〇」</li>
+                                <li>✅ 「結果は以下のマークダウン形式の表で出力してください。| 項目 | 詳細 |」</li>
                             </ul>
                         </li>
-                        <li><strong>役割を与える：</strong> AIに「あなたは〜です」と役割を設定
+                        <li><strong>役割（ペルソナ）の付与：</strong> AIに対して特定の役割を設定することで、回答の方向性やトーンを揃える
                             <ul>
-                                <li>✅ 「あなたはプロの編集者です」</li>
+                                <li>✅ 「あなたは経験豊富な財務コンサルタントです。」</li>
                             </ul>
                         </li>
-                        <li><strong>段階的に：</strong> 複雑なタスクは分割して指示
+                        <li><strong>段階的な指示（Chain of Thought的アプローチ）：</strong> 複雑なタスクは一度に処理させず、手順を追って処理させる
                             <ul>
-                                <li>✅ 「まず要約し、次に箇条書きにしてください」</li>
+                                <li>✅ 「手順1で要点を抽出し、手順2でそれを箇条書きに整理してください」</li>
                             </ul>
                         </li>
                     </ol>
@@ -385,134 +445,64 @@
             <div class="quiz">
                 <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> 文章を校正する際、プロンプトに含めるべき指示は？</p>
+                    <p><strong>問題1:</strong> 文章を校正する際、プロンプトに含めるべき重要な指示はどれか？</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 元の文章を全部書き換えて</li>
+                        <li onclick="selectAnswer(this, false, '')">A. 元の文章を全部書き換えるよう指示する</li>
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：校正プロンプトでは、「誤字脱字の修正」や「より自然な表現への変更」といった具体的な指示に加え、「元の意味は変えない」という制約を含めることが重要です。')">
-                            B. 誤字脱字を修正し、元の意味は変えないで</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 長さは気にせず書いて</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 難しい言葉をたくさん使って</li>
+                            B. 誤字脱字を修正し、「元の意味は変えない」という制約を付与する</li>
+                            <li onclick="selectAnswer(this, false, '')">C. 長さは気にせず出力するよう指示する</li>
+                            <li onclick="selectAnswer(this, false, '')">D. 専門用語や難しい言葉を多用して書き直すよう指示する</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> 要約のプロンプトで指定すべきものは？</p>
+                    <p><strong>問題2:</strong> 要約のプロンプトで、期待する長さに収めるために指定すべき制約はどれか？</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 色と形</li>
+                        <li onclick="selectAnswer(this, false, '')">A. 出力するタイトル</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：要約を依頼する際は、「3行で」や「200文字以内で」のように、具体的な文字数や行数を指定することで、意図した長さに収めることができます。')">
-                            B. 文字数や行数</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 価格</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 音量</li>
+                            onclick="selectAnswer(this, true, '✅ 解説：要約を依頼する際は、「3行で」や「200文字以内で」のように、具体的な文字数や行数（あるいは段落数）を指定することで、意図した長さに収めることができます。')">
+                            B. 具体的な文字数や行数</li>
+                        <li onclick="selectAnswer(this, false, '')">C. 画面に表示するフォントサイズ</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 保存するファイル形式</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> 子供向けに文章を変換する際のポイントは？</p>
+                    <p><strong>問題3:</strong> 実行結果として「構造化された表」を得たい場合、最も適切な指示はどれか？</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 専門用語を多用する</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 長い文章で書く</li>
+                        <li onclick="selectAnswer(this, false, '')">A. 「きれいに書いてください」</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：子供向けの文章にするには、専門用語や難しい漢字を避け、身近な例え話を使うなどして、分かりやすく噛み砕くことがポイントです。')">
-                            C. 難しい言葉を避け、例えを使う</li>
-                        <li onclick="selectAnswer(this, false, '')">D. カタカナを多用する</li>
+                            onclick="selectAnswer(this, true, '✅ 解説：AIに特定の形式で出力させたい場合、「マークダウンの表形式で」「| 項目 | 内容 |のような表で」と具体的なフォーマット（出力形式）を指定すると、意図した構造化された出力が得られます。')">
+                            B. 「マークダウンの表形式で出力し、列は『項目』『内容』『備考』としてください」</li>
+                        <li onclick="selectAnswer(this, false, '')">
+                            C. 「分かりやすくまとめてください」</li>
+                            <li onclick="selectAnswer(this, false, '')">D. 「何でもいいから出力してください」</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題4:</strong> 例え話を作る際に重要なことは？</p>
+                    <p><strong>問題4:</strong> AIの回答の方向性やトーンを定めるために設定する推奨される項目はどれか？</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. できるだけ抽象的に</li>
+                        <li onclick="selectAnswer(this, false, '')">A. 文字数無制限の許可</li>
+                        <li onclick="selectAnswer(this, false, '')">B. AIが内部で使うプログラミング言語</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：効果的な例え話を作るには、読者が日常生活でよく知っているもの（料理、スポーツ、学校など）に関連付けると、イメージしやすくなります。')">
-                            B. 日常生活で馴染みのあるもので例える</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 専門用語を使う</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 長く複雑に説明する</li>
+                            onclick="selectAnswer(this, true, '✅ 解説：「あなたは経験豊富なコンサルタントです」のように役割（ペルソナ）を付与することで、回答の方向性や語り口（トーン）を意図したターゲット層向けに揃えることができます。')">
+                            C. 役割（ペルソナ）の付与</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 回答速度の優先指示</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題5:</strong> 効果的なプロンプトに含めるべきでないものは？</p>
+                    <p><strong>問題5:</strong> プロンプト設計の基本原則を踏まえたうえで、生成AIを利用する際に注意すべきこととして正しいものはどれか？</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 具体的な指示</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 文字数制限</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 出力形式</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：プロンプトに「簡単に」や「いい感じに」といった曖昧な表現を含めると、AIが意図を正しく解釈できず、望まない出力になる可能性があります。具体的かつ明確な指示を心がけましょう。')">
-                            D. 曖昧な表現</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題6:</strong> AIに表形式で出力させたい場合、最も効果的な指示は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 「きれいに書いて」は曖昧な指示であり、AIが表形式で出力するとは限りません。')">A. きれいに書いて
+                        <li onclick="selectAnswer(this, false, '')">A. AIの出力は常に100%正確なので検証不要でそのまま使用できる
                         </li>
+                        <li onclick="selectAnswer(this, false, '')">B. AIに解釈の余地を与えるため、できるだけ曖昧な指示を出すべきである</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIに特定の形式で出力させたい場合、「マークダウンの表形式で」「| 項目 | 内容 |のような表で」と具体的なフォーマットを指定すると、意図した構造化された出力が得られます。')">
-                            B. マークダウンの表形式で、列は「項目」「内容」「備考」の3列で出力して</li>
-                        <li onclick="selectAnswer(this, false, '❌ 「分かりやすくまとめて」では出力形式が指定されておらず、箇条書きや文章形式になる可能性があります。')">
-                            C. 分かりやすくまとめて</li>
-                        <li onclick="selectAnswer(this, false, '❌ 「何でもいいから出力して」は最も曖昧な指示であり、効果的ではありません。')">D. 何でもいいから出力して
-                        </li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> AIの出力が期待通りでない場合、最も適切な対処法は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 全く別のAIに変更するのは、プロンプトの改善を試みる前の段階では適切ではありません。')">A.
-                            全く別のAIに変更する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 諦めるのではなく、プロンプトの改善を試みるべきです。')">B. あきらめる</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力が期待通りでない場合は、プロンプトを修正・具体化して再度試す「反復的プロンプティング」が効果的です。制約条件の追加、具体例の提示、出力形式の指定などを行うことで、出力の質を段階的に改善できます。')">
-                            C. プロンプトをより具体的にして再度試す</li>
-                        <li onclick="selectAnswer(this, false, '❌ 同じプロンプトを何度も繰り返しても、根本的な改善は期待できません。')">D.
-                            同じプロンプトを何度も繰り返す</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題8:</strong> 翻訳をAIに依頼する際のベストプラクティスは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 全文を一度に翻訳するよりも、適切に分割して文脈を付加する方が品質が良くなる場合があります。')">A.
-                            全文を一度に入力する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：翻訳を依頼する際は、対象言語はもちろん、フォーマルかカジュアルかのトーン、専門分野（医療、法律など）、翻訳後の用途（ビジネスメール、論文など）を指定すると、より適切な翻訳が得られます。')">
-                            B. 対象言語、トーン、専門分野、用途を具体的に指定する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 「適当に翻訳して」は曖昧な指示であり、品質の高い翻訳は期待できません。')">C. 適当に翻訳してと指示する
-                        </li>
-                        <li onclick="selectAnswer(this, false, '❌ 翻訳の文脈情報を省くと、多義語や文化的表現の翻訳精度が低下します。')">D. 文脈情報は省略する</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題9:</strong> AIにコード生成を依頼する際、含めるべき情報は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 「良いコードを書いて」は曖昧な指示であり、具体的な要件が含まれていません。')">A.
-                            良いコードを書いてほしい</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIにコード生成を依頼する際は、プログラミング言語、機能の詳細、入出力の仕様、エラーハンドリングの要件、コメントの有無など、具体的な要件を明示することで、意図通りのコードが生成されやすくなります。')">
-                            B. プログラミング言語、機能、入出力の仕様を明示する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 何でもいいから動くコードはプロンプトの指示としては曖昧すぎます。')">C. 何でもいいから動くコード
-                        </li>
-                        <li onclick="selectAnswer(this, false, '❌ 最短を求めるだけでは可読性や保守性が犠牲になる可能性があります。')">D. 最短のコードだけ</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題10:</strong> プロンプト設計の基本原則として正しく<strong>ないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。具体的で明確な指示はAIの理解を助け、意図通りの出力につながります。')">A.
-                            具体的かつ明確な指示を出す</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。出力形式を指定することで、構造化された使いやすい回答が得られます。')">B.
-                            出力形式を指定する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力は必ず検証・確認すべきです。ハルシネーション（もっともらしい嘘）の可能性があるため、特に重要な情報は複数情報源で裏付けを取ることが基本原則です。')">
-                            C. AIの出力は検証不要でそのまま使用できる</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい原則です。制約条件を設けることで、出力の範囲と質をコントロールできます。')">D.
-                            制約条件を設定する</li>
+                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力には事実に基づかない情報（ハルシネーション）が含まれる可能性があるため、特に重要な情報は複数情報源で裏付けを取るなど、必ず人間が内容を検証・確認することが基本原則です。')">
+                            C. AIの出力にはハルシネーションの可能性があるため、必ず人間が内容を検証・確認して裏付けをとる</li>
+                        <li onclick="selectAnswer(this, false, '')">D. 出力の形式や表現はAIの自由に任せ、プロンプトでの指定は控えるべきである</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
