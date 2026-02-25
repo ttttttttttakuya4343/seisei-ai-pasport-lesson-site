@@ -169,9 +169,8 @@
                             </div>
                         </div>
                     </a>
-                    <!-- 模擬試験 (Locked by default) -->
-                    <a href="4-exam.html" class="lesson-card locked-card" id="section-exam">
-                        <div class="locked-overlay" id="exam-lock">🔒</div>
+                    <!-- 模擬試験 -->
+                    <a href="4-exam.html" class="lesson-card" id="section-exam">
                         <div class="lesson-number" style="background-color: var(--secondary-color); color: white;">総合</div>
                         <div class="lesson-content">
                             <h3 style="color: var(--secondary-dark);">模擬試験（記憶力チェック）</h3>
@@ -183,10 +182,9 @@
                             <div class="lesson-footer">
                                 <span>⏱️ 約15分</span>
                                 <span>📝 全15問</span>
-                                <span class="exam-badge" style="display: block; margin-bottom: 0.5rem;">全セクション完了で解放</span>
                                 <span class="completion-badge" id="exam-completion-badge" style="display: none;">🏆 最高: <span
                                         id="exam-best-score"></span>/15</span>
-                                <span class="lesson-arrow" id="exam-arrow" style="display: none">→</span>
+                                <span class="lesson-arrow">→</span>
                             </div>
                         </div>
                     </a>
@@ -227,23 +225,7 @@
                         document.getElementById('chapter-progress').style.width = `${percentage}%`;
                         document.getElementById('progress-percentage').textContent = `${percentage}%`;
 
-                        // 模擬試験のアンロック判定
-                        if (completedCount === sections.length) {
-                            const examCard = document.getElementById('section-exam');
-                            const lock = document.getElementById('exam-lock');
-                            if (examCard && lock) {
-                                examCard.classList.remove('locked-card');
-                                examCard.style.pointerEvents = 'auto';
-                                lock.style.display = 'none';
-                                document.getElementById('exam-arrow').style.display = 'inline-block';
 
-                                const badge = examCard.querySelector('.exam-badge');
-                                if (badge) {
-                                    badge.textContent = '🔓 解放中';
-                                    badge.style.backgroundColor = '#4caf50';
-                                }
-                            }
-                        }
 
                         // 模擬試験スコア表示
                         const bestScore = localStorage.getItem('chapter4_exam_score');
