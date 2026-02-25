@@ -1278,7 +1278,7 @@ function showSaboMessage(messageType, duration = null) {
 }
 
 // ランダムモードの状態
-let isRandomMode = false;
+let isRandomMode = true;
 
 // localStorageから選択されたキャラクターを読み込む
 function loadSelectedCharacter() {
