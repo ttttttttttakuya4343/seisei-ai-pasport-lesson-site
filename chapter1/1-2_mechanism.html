@@ -68,15 +68,15 @@
                     <p>人間が事前に作成した<strong>ルールや知識</strong>をコンピュータプログラムに組み込み、AIはそれに従って予測や判断を行う仕組みです。</p>
                 </div>
 
-                <p>ルールベースAIの代表的な形が<strong>エキスパートシステム</strong>です。これは、特定の分野の専門家（エキスパート）の知識を「<strong>もし〇〇なら△△する</strong>」という<strong>IF-THENルール</strong>で表現し、コンピュータに判断させるシステムです。
+                <p>ルールベースAIの代表的な形が<strong>エキスパートシステム</strong>です。これは、特定の分野の専門家（エキスパート）の知識を「<strong>もし〇〇なら△△する</strong>」というルールで表現し、コンピュータに判断させるシステムです。
                 </p>
 
                 <div class="highlight">
-                    <p><strong>IF-THENルールの例（医療診断）</strong></p>
+                    <p><strong>エキスパートシステムの例（医療診断）</strong></p>
                     <ul>
-                        <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 咳がある <strong>THEN</strong> → 「風邪の疑い」と診断
+                        <li>体温が38度以上 <strong>かつ</strong> 咳がある → 「風邪の疑い」と診断
                         </li>
-                        <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 発疹がある <strong>THEN</strong> → 「はしかの疑い」と診断
+                        <li>体温が38度以上 <strong>かつ</strong> 発疹がある → 「はしかの疑い」と診断
                         </li>
                     </ul>
                 </div>
@@ -354,13 +354,13 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> エキスパートシステムは、ルールベースAIの代表的な形であり、専門家の知識をIF-THENルールで表現して判断を行うシステムである。</p>
+                    <p><strong>問題2:</strong> エキスパートシステムは、ルールベースAIの代表的な形であり、専門家の知識を「もし〇〇なら△△する」というルールで表現して判断を行うシステムである。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：エキスパートシステムはルールベースAIの代表例で、「もし体温が38度以上なら風邪の疑い」のように専門家の知識をIF-THENルールとして組み込んだシステムです。')">
+                            onclick="selectAnswer(this, true, '✅ 解説：エキスパートシステムはルールベースAIの代表例で、「もし体温が38度以上なら風邪の疑い」のように専門家の知識をルールとして組み込んだシステムです。')">
                             ○（正しい）</li>
                         <li
-                            onclick="selectAnswer(this, false, '❌ 解説：エキスパートシステムは確かにルールベースAIの代表的な形です。専門家の知識をIF-THENルールで表現します。')">
+                            onclick="selectAnswer(this, false, '❌ 解説：エキスパートシステムは確かにルールベースAIの代表的な形です。専門家の知識を「もし〇〇なら△△する」というルールで表現します。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -455,7 +455,7 @@
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
-                        <li><strong>ルールベース：</strong> 人間が作成したルール（IF-THEN）に従って判断。エキスパートシステムが代表例</li>
+                        <li><strong>ルールベース：</strong> 人間が作成したルールに従って判断。エキスパートシステムが代表例</li>
                         <li><strong>教師あり学習：</strong> 正解データのペアから学習。分類・回帰に応用</li>
                         <li><strong>教師なし学習：</strong> 正解なしでパターンを自己発見。クラスタリング等</li>
                         <li><strong>強化学習：</strong> 報酬最大化のための試行錯誤。自動運転等に活用</li>
