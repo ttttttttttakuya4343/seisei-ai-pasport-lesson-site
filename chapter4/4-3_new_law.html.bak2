@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-3: AI新法 | 生成AIパスポート講座</title>
+    <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-content">コンテンツにスキップ</a>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 生成AIパスポート講座</h1>
+            <div class="nav-links">
+                <a href="../index.html">ホーム</a>
+                <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
+                    🎭 学習パートナー選択
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container lesson-layout" id="main-content">
+        <div class="table-of-contents"></div>
+        <div class="lesson-page with-toc">
+            <div class="lesson-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">ホーム</a> &gt;
+                    <a href="index.html">第4章</a> &gt;
+                    4-3
+                </div>
+                <div class="hero-badge">第4章 セクション 4-3</div>
+                <h1>AI新法</h1>
+                <div class="lesson-meta">
+                    <span>⏱️ 約15分</span>
+                    <span>📝 クイズ5問</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📜 AI新法の概要（人工知能関連技術に関する法律）</h2>
+                <div class="highlight" style="background: #fff3cd;">
+                    <p><strong>⚠️ 重要：試験頻出トピック</strong></p>
+                    <p><strong>人工知能関連技術の研究開発及び活用の推進に関する法律（AI新法）</strong></p>
+                    <ul>
+                        <li><strong>成立：</strong> 2025年6月</li>
+                        <li><strong>施行：</strong> 2026年4月（予定）</li>
+                        <li><strong>通稱：</strong> AI新法、AI推進法</li>
+                    </ul>
+                </div>
+
+                <h3>法律制定の背景</h3>
+                <p>ChatGPTなどの生成AIが急速に普及し、ビジネスや医療など私たちの社会に不可欠な存在となる一方で、情報漏洩や著作権の侵害、偽情報の拡散といった「AIならではのリスク」も深刻化しています。日本が国際的な競争に遅れないようにAIの活用を強力に後押ししつつ、同時に誰もが安心して利用できる社会のルールを作るために、この法律が制定されました。
+                </p>
+
+                <h3>法律の目的（3つの柱）</h3>
+                <div class="highlight">
+                    <ol>
+                        <li><strong>AI技術の研究開発の促進</strong>
+                            <p>海外の巨大IT企業に依存しすぎないよう、日本でも独自のAIモデル（基盤モデル等）を研究開発できるよう、政府が支援を行います。</p>
+                        </li>
+                        <li><strong>AIの適切な活用の推進</strong>
+                            <p>中小企業などが安全にAIを導入できるよう、ガイドラインの整備や専門家によるサポートなど、利活用の後押しを行います。</p>
+                        </li>
+                        <li><strong>AI社会の健全な発展</strong>
+                            <p>AIが引き起こすリスクを管理し、基本理念（人間の尊厳、多様性、持続可能性）を守りながら、国際的な枠組みと協調してルール作りを進めます。</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏢 AI事業者ガイドライン</h2>
+                <p>AI新法に基づき、AIに関わる企業が守るべき指針（ルールブック）として<strong>「AI事業者ガイドライン」</strong>が定められています。</p>
+
+                <h3>対象となる3つのAI事業者</h3>
+                <p>ガイドラインでは、AIに関わる事業者をその役割によって「開発者」「提供者」「利用者」の3つに分類し、それぞれに異なる責務を求めています。</p>
+                
+                <div class="highlight" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 1rem; border-radius: 8px;">
+                        <h4 style="margin-top: 0; color: #667eea;">🛠️ 1. AI開発者</h4>
+                        <p style="font-size: 0.9em;">AIモデル（基盤モデルなど）やAIシステムそのものを一から設計し、開発する主体。</p>
+                        <p style="font-size: 0.8em; color: #666;">例：OpenAI、Anthropic、日本の独自のLLM開発企業など</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 1rem; border-radius: 8px;">
+                        <h4 style="margin-top: 0; color: #667eea;">📦 2. AI提供者</h4>
+                        <p style="font-size: 0.9em;">他者が開発したAIモデルなどを自社のサービスに組み込み、システムとして外部に提供する主体。</p>
+                        <p style="font-size: 0.8em; color: #666;">例：ChatGPTのAPIを使った顧客対応チャットボットを販売するITベンダー</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 1rem; border-radius: 8px;">
+                        <h4 style="margin-top: 0; color: #667eea;">👥 3. AI利用者</h4>
+                        <p style="font-size: 0.9em;">提供されたAIサービスを、自らの業務（社内業務や一般向けサービス）の中で利用する主体。</p>
+                        <p style="font-size: 0.8em; color: #666;">例：業務効率化のために「Copilot」を全社導入する一般企業</p>
+                    </div>
+                </div>
+
+                <h3>ガイドラインが求める主な共通事項</h3>
+                <p>3つの事業者に共通して求められる、前セクションで学んだ「6つのAI社会原則」を具体化した取り組みです。</p>
+
+                <h4>1. リスク評価と安全性確保</h4>
+                <ul>
+                    <li>開発・導入前に、人命や権利への重大な影響がないか（医療、自動運転、採用など）リスクを評価する。</li>
+                    <li>サイバー攻撃（プロンプトインジェクション等）へのセキュリティ対策と、緊急時の停止手順を定める。</li>
+                </ul>
+
+                <h4>2. 透明性と説明責任（アカウンタビリティ）</h4>
+                <ul>
+                    <li>利用者に対して「AIを使用していること」を明示し、判断の根拠（XAI）や限界（ハルシネーションの可能性）を説明する。</li>
+                    <li>問題が起きた際の責任部署（窓口）を明確にする。</li>
+                </ul>
+
+                <h4>3. 公平性とプライバシー保護</h4>
+                <ul>
+                    <li>学習データや出力に偏り（バイアス）がないか監査し、差別を防ぐ。</li>
+                    <li>個人情報の利用目的を特定し、同意取得と適切な保護（匿名化等）を行う。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⚖️ AI事業者ごとの固有の責務</h2>
+                <p>共通事項に加えて、それぞれの立場に応じた重要な責任があります。</p>
+
+                <div class="highlight">
+                    <h3 style="margin-top: 0;"><span style="color: #e53e3e;">🛠️ AI開発者</span>の責務</h3>
+                    <ul>
+                        <li><strong>安全な基盤の構築：</strong> 設計段階からセキュリティとプライバシーを組み込む（Privacy by Design）。</li>
+                        <li><strong>学習データの適法性確保：</strong> 著作権法等を遵守し、偏りのない多様な学習データを収集・選定する。</li>
+                        <li><strong>技術仕様の提供：</strong> 生成AIの仕組みや性能、制限事項をまとめたドキュメント（モデルカードなど）を提供者に開示する。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h3 style="margin-top: 0;"><span style="color: #dd6b20;">📦 AI提供者</span>の責務</h3>
+                    <ul>
+                        <li><strong>利用規約の整備：</strong> 入力してはいけない情報（機密情報など）や、禁止行為（ディープフェイクの悪用など）を規約で明確に定める。</li>
+                        <li><strong>利用者への適切なインターフェース：</strong> 利用者がAIの限界を理解しやすい画面設計を行うこと。</li>
+                        <li><strong>サポート体制：</strong> 利用者からの問い合わせやトラブル（不適切出力など）に迅速に対応する体制を作る。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h3 style="margin-top: 0;"><span style="color: #3182ce;">👥 AI利用者</span>（利用事業者）の責務</h3>
+                    <p>一般の企業も「AI利用者」として責任を負います。「ツールを導入しただけ」では許されません。</p>
+                    <ul>
+                        <li><strong>社内ガイドラインの策定：</strong> 従業員向けに、入力してよい情報（機密情報の取り扱い）や利用手順のルールを作る。</li>
+                        <li><strong>従業員教育（リテラシー向上）：</strong> ハルシネーションのリスクを理解させ、「AIの出力を鵜呑みにしない」教育を徹底する。</li>
+                        <li><strong>人間による監視（ヒューマン・イン・ザ・ループ）：</strong> AIが出した結論をそのまま業務に使わず、最終的に人間が事実関係（ファクトチェック）と倫理的妥当性を確認する。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📋 【試験対策】実務で使えるチェックリスト</h2>
+                <div class="highlight" style="background: #e8f5e9;">
+                    <p><strong>💡 AIツールを社内導入する際（利用事業者）の基本的な確認事項</strong></p>
+
+                    <h4>導入前（Plan）</h4>
+                    <ul>
+                        <li>☐ 利用目的は明確か？（どんな業務を効率化したいか）</li>
+                        <li>☐ 導入予定のAIサービスは、入力データ（オプトアウト設定等）やセキュリティの観点で安全か？</li>
+                        <li>☐ 社内の「AI利用ガイドライン（ルール）」は策定されているか？</li>
+                    </ul>
+
+                    <h4>運用中（Do/Check）</h4>
+                    <ul>
+                        <li>☐ 従業員はAIの出力結果を必ず「ファクトチェック」しているか？</li>
+                        <li>☐ 機密情報や個人情報を誤って入力（プロンプトに含める）していないか？</li>
+                        <li>☐ AIの回答に、特定の性別や人種に対する差別的な偏り（バイアス）が見られないか？</li>
+                    </ul>
+
+                    <h4>問題発生時（Act）</h4>
+                    <ul>
+                        <li>☐ 万が一、著作権侵害や情報漏洩が起きた際の報告フロー（誰に連絡するか）は決まっているか？</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏛️ AIガバナンスの構築</h2>
+                <div class="highlight" style="background: #e3f2fd;">
+                    <p><strong>AIガバナンスとは</strong></p>
+                    <p>AIの開発・運用において、リスク管理、倫理的配慮、法令遵守、透明性確保などを組織として「体系的に管理・統治する仕組み」のこと。企業はただAIを使うだけでなく、このAIガバナンス体制を構築することが求められています。</p>
+                </div>
+
+                <h3>AIガバナンス構築の3つのステップ</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>ステップ</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. 環境・リスク分析</strong></td>
+                            <td>
+                                <p>自社がAIをどのように使用しているか、どのようなリスクが存在するかを洗い出します。</p>
+                                <ul>
+                                    <li>AIの利用目的と範囲の明確化</li>
+                                    <li>想定されるリスク（プライバシー侵害、バイアス、情報漏洩等）の特定</li>
+                                    <li>法令遵守状況の確認</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. AIガバナンス・ゴール</strong></td>
+                            <td>
+                                <p>組織としてAIガバナンスで達成したい目標を設定します。</p>
+                                <ul>
+                                    <li>安全性・信頼性の確保</li>
+                                    <li>倫理的なAI活用の実現</li>
+                                    <li>法令遵守の徹底</li>
+                                    <li>ステークホルダーへの説明責任の履行</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. AIマネジメントシステム</strong></td>
+                            <td>
+                                <p>AIガバナンスを実現するための具体的な管理体制・プロセスを構築します。</p>
+                                <ul>
+                                    <li>AI利用ガイドラインの策定</li>
+                                    <li>責任者・管理部門の設置</li>
+                                    <li>定期的な監査・評価の実施</li>
+                                    <li>従業員教育・研修プログラムの実施</li>
+                                    <li>インシデント発生時の対応手順の整備</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box" style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 15px; margin-top: 15px;">
+                    <p><strong>💡 重要ポイント</strong><br>
+                        AIガバナンスは一度構築して終わりではなく、技術の進化や法規制の変化に応じて継続的に見直し・改善していくことが重要です。PDCA（Plan-Do-Check-Act）サイクルを回し続けることが求められます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="quiz">
+                <h3>✅ 理解度チェッククイズ</h3>
+                <div class="quiz-question">
+                    <p><strong>問題1:</strong> 日本の「AI新法（人工知能関連技術の研究開発及び活用の推進に関する法律）」の目的に合致するものはどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ AIの利用を全面的に禁止するのではなく、安全な活用を推進します。')">A. 一定規模以上の企業におけるAIの利用を全面的に禁止すること。</li>
+                        <li onclick="selectAnswer(this, false, '❌ AI開発を政府が独占する法律ではありません。')">B. 民間企業によるAI開発を禁止し、政府の専門機関に一元化すること。</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：正解です。AI新法は、AIのリスクを管理して社会の健全な発展を図りつつ、日本国内でのAI技術の研究開発や適切な利活用を強力に推進（支援）することを目的としています。')">
+                            C. リスク管理を図りつつ、安全なAIの活用を推進し、日本国内でのAI技術の研究開発を支援すること。</li>
+                        <li onclick="selectAnswer(this, false, '❌ 海外のAI利用を法的に禁止することはできません。')">D. 海外で開発された生成AIの日本国内での利用を法的に罰すること。</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> AI事業者ガイドラインにおける「AI利用者（利用事業者）」の責務として、最も適切なものはどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 学習データの著作権対応は、主に「AI開発者」の責務です。')">A.
+                            AIモデルを設計する際、学習データに著作権侵害がないかを監査し、モデルカードを作成する。</li>
+                        <li onclick="selectAnswer(this, false, '❌ 利用規約の整備やAPIの提供保守は、主に「AI提供者」の責務です。')">B.
+                            社外のユーザー向けにAIサービスを提供し、利用規約を整備して安定したサーバー運用を行う。</li>
+                        <li onclick="selectAnswer(this, false, '❌ プロンプトインジェクション等のサイバー攻撃への根本的な防御機構の構築は、主に開発者・提供者の責務です（利用者は利用時のルール徹底を行います）。')">C.
+                            AIモデルそのものの脆弱性を修正し、プロンプトインジェクションに対する防御機構をプログラミングする。</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：正解です。企業などの「利用事業者」は、社内で従業員が安全にAIを使えるよう利用ガイドラインを策定し、入力時の情報漏洩防止や、出力結果を人間が確認するルール（ヒューマン・イン・ザ・ループ）を徹底させる責務があります。')">
+                            D. 従業員向けに社内ガイドラインを策定し、AIの出力を鵜呑みにせず人間がファクトチェックを行うよう指導する。</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 「AIガバナンス」の説明として最も適切なものはどれか？</p>
+                    <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 費用管理は財務的なものであり、AIガバナンスの中心概念ではありません。')">A.
+                            社内で利用しているすべてのAIサービスの月額料金を集計し、費用を削減するための経費管理ルールのこと。</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：正解です。AIガバナンスとは、リスク管理や倫理への配慮、法令遵守など、組織がAIを安全かつ責任を持って活用するための全体的な管理・統治体制のことを指します。')">
+                            B. 組織がAIを安全かつ責任を持って利用するために、リスク管理や倫理的配慮、法令遵守等を体系的に管理・統治する仕組みのこと。</li>
+                        <li onclick="selectAnswer(this, false, '❌ 政府の機関名ではなく、組織の管理体制のことです。')">C. 日本政府が新設した、AIの違法利用を監視するための専門の警察組織の名称。</li>
+                        <li onclick="selectAnswer(this, false, '❌ 利用時間の制限機能そのものを指す言葉ではありません。')">D. 従業員が生成AIを利用できる時間を1日1時間にシステム上で強制的に制限する機能のこと。</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>AI新法：</strong> 2025年6月成立。AI利用を禁止するのではなく「研究開発と安全な活用」を強力に推進・支援することが目的。</li>
+                        <li><strong>AI事業者ガイドラインの3主体：</strong>
+                            <ul>
+                                <li><strong>AI開発者：</strong> 基盤モデル等の設計・開発。安全性の組み込みや多様なデータの収集。</li>
+                                <li><strong>AI提供者：</strong> AIを利用したサービスの提供。利用規約の整備や適切なインターフェース提供。</li>
+                                <li><strong>AI利用者（企業等）：</strong> 業務での利用。社内ルールの策定、従業員教育、出力の最終確認（人間による監視）。</li>
+                            </ul>
+                        </li>
+                        <li><strong>国際動向のアプローチ：</strong>
+                            <ul>
+                                <li>EUは厳格な法律による規制（AI Act）、米国は自主規制重視、日本は規制とイノベーション促進を組み合わせたバランス型（ハイブリッド型）。</li>
+                            </ul>
+                        </li>
+                        <li><strong>AIガバナンス：</strong> 企業が組織全体でAIのリスクと倫理を管理・統治する体制のこと。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-navigation">
+                <a href="4-2_principles.html" class="nav-button secondary">← 4-2: 理念と原則</a>
+                <a href="../chapter5/index.html" class="nav-button">次: 第5章へ →</a>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="completeSection('4-3')" class="complete-button">✅ このセクションを完了する</button>
+            </div>
+
+            <div
+                style="text-align: center; margin: 2rem 0; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h3 style="color: white; margin-bottom: 1rem;">🎉 第4章完了おめでとうございます！</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">法規制と倫理について深く学びました。<br>Plus Ultra!
+                    次は第5章でプロンプト実践を学びましょう！</p>
+                <a href="../chapter5/index.html" class="nav-button" style="background: white; color: #667eea;">第5章へ進む
+                    →</a>
+            </div>
+        </div>
+    </main>
+    <button class="back-to-top" aria-label="トップに戻る">↑</button>
+    <footer>
+        <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
+    </footer>
+    <script>
+                        function selectAnswer(e, isCorrect, explanation) {
+                            const options = e.parentElement.children;
+                            const feedback = e.parentElement.nextElementSibling;
+                            for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
+                            if (isCorrect) {
+                                e.classList.add("correct");
+                                feedback.className = "quiz-feedback correct";
+                                feedback.innerHTML = "✅ 正解です!";
+                            } else {
+                                e.classList.add("incorrect");
+                                feedback.className = "quiz-feedback incorrect";
+                                feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
+                            }
+                            if (explanation) {
+                                feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
+                            }
+                            feedback.style.display = "block";
+                            if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
+                            if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
+                            if (typeof showSaboMessage === "function") {
+                                setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
+                            }
+                        }
+
+        function completeSection(sectionId) {
+            const chapter = "chapter4";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+            const isCompleted = localStorage.getItem(storageKey) === "true";
+
+            if (isCompleted) {
+                // 完了を取り消す
+                localStorage.removeItem(storageKey);
+                button.textContent = "✅ このセクションを完了する";
+                button.classList.remove("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonReset", 3000);
+                }
+            } else {
+                // 完了にする
+                localStorage.setItem(storageKey, "true");
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+                if (typeof showSaboMessage === "function") {
+                    showSaboMessage("lessonComplete", 4000);
+                }
+                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
+                setTimeout(() => {
+                    if (localStorage.getItem(storageKey) === "true") {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
+            }
+        }
+
+        // ページ読み込み時の状態復元
+        window.addEventListener("load", () => {
+            const sectionId = "4-3";
+            const chapter = "chapter4";
+            const storageKey = `${chapter}_section${sectionId}_completed`;
+            const button = document.querySelector('button[onclick*="completeSection"]');
+
+            if (localStorage.getItem(storageKey) === "true") {
+                button.textContent = "🔄 完了を取り消す";
+                button.classList.add("completed");
+            }
+        });
+    </script>
+    <script src="../shared/js/config/characters.js"></script>
+    <script src="../shared/js/core/visual-effects.js"></script>
+    <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>
