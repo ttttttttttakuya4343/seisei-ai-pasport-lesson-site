@@ -35,77 +35,79 @@
                 <div class="lesson-meta">
                     <span>⏱️ 約20分</span>
                     <span>📝 確認問題9問</span>
-                    </div>
-                    </div>
-                    
-                    <!-- 導入: AIに知能をもたらす2つの仕組み -->
-                    <div class="section">
-                        <h2>🎯 AIに知能をもたらす2つの仕組み</h2>
-                        <p>AIに知能をもたらすための仕組みは、大きく分けて<strong>2つ</strong>あります。</p>
-                    
-                        <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                            <tr style="background: #3b82f6; color: white;">
-                                <th style="padding: 1rem; border: 1px solid #ddd;">仕組み</th>
-                                <th style="padding: 1rem; border: 1px solid #ddd;">概要</th>
-                            </tr>
-                            <tr>
-                                <td style="padding: 1rem; border: 1px solid #ddd;"><strong>① ルールベース</strong></td>
-                                <td style="padding: 1rem; border: 1px solid #ddd;">人間が事前に作成したルールや知識に従って判断する</td>
-                            </tr>
-                            <tr style="background: #f9f9f9;">
-                                <td style="padding: 1rem; border: 1px solid #ddd;"><strong>② 機械学習</strong></td>
-                                <td style="padding: 1rem; border: 1px solid #ddd;">データから自動的にパターンやルールを学び取る</td>
-                            </tr>
-                        </table>
-                        <p>まずは「ルールベース」から見ていきましょう！</p>
-                    </div>
-                    
-                    <!-- セクション1: ルールベース -->
-                    <div class="section">
-                        <h2>📏 1. ルールベース</h2>
-                        <div class="highlight">
-                            <p><strong>ルールベース（Rule-Based AI）</strong></p>
-                            <p>人間が事前に作成した<strong>ルールや知識</strong>をコンピュータプログラムに組み込み、AIはそれに従って予測や判断を行う仕組みです。</p>
-                        </div>
-                    
-                        <p>ルールベースAIの代表的な形が<strong>エキスパートシステム</strong>です。これは、特定の分野の専門家（エキスパート）の知識を「<strong>もし〇〇なら△△する</strong>」という<strong>IF-THENルール</strong>で表現し、コンピュータに判断させるシステムです。
-                        </p>
-                    
-                        <div class="highlight">
-                            <p><strong>IF-THENルールの例（医療診断）</strong></p>
+                </div>
+            </div>
+
+            <!-- 導入: AIに知能をもたらす2つの仕組み -->
+            <div class="section">
+                <h2>🎯 AIに知能をもたらす2つの仕組み</h2>
+                <p>AIに知能をもたらすための仕組みは、大きく分けて<strong>2つ</strong>あります。</p>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: #3b82f6; color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;">仕組み</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">概要</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>① ルールベース</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">人間が事前に作成したルールや知識に従って判断する</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>② 機械学習</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">データから自動的にパターンやルールを学び取る</td>
+                    </tr>
+                </table>
+                <p>まずは「ルールベース」から見ていきましょう！</p>
+            </div>
+
+            <!-- セクション1: ルールベース -->
+            <div class="section">
+                <h2>📏 1. ルールベース</h2>
+                <div class="highlight">
+                    <p><strong>ルールベース（Rule-Based AI）</strong></p>
+                    <p>人間が事前に作成した<strong>ルールや知識</strong>をコンピュータプログラムに組み込み、AIはそれに従って予測や判断を行う仕組みです。</p>
+                </div>
+
+                <p>ルールベースAIの代表的な形が<strong>エキスパートシステム</strong>です。これは、特定の分野の専門家（エキスパート）の知識を「<strong>もし〇〇なら△△する</strong>」という<strong>IF-THENルール</strong>で表現し、コンピュータに判断させるシステムです。
+                </p>
+
+                <div class="highlight">
+                    <p><strong>IF-THENルールの例（医療診断）</strong></p>
+                    <ul>
+                        <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 咳がある <strong>THEN</strong> → 「風邪の疑い」と診断
+                        </li>
+                        <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 発疹がある <strong>THEN</strong> → 「はしかの疑い」と診断
+                        </li>
+                    </ul>
+                </div>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: #3b82f6; color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;">メリット</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">デメリット</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">
                             <ul>
-                                <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 咳がある <strong>THEN</strong> → 「風邪の疑い」と診断</li>
-                                <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 発疹がある <strong>THEN</strong> → 「はしかの疑い」と診断</li>
+                                <li>判断の根拠が明確（なぜその結論に至ったか説明できる）</li>
+                                <li>専門家の知識を体系的に活用できる</li>
                             </ul>
-                        </div>
-                    
-                        <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
-                            <tr style="background: #3b82f6; color: white;">
-                                <th style="padding: 1rem; border: 1px solid #ddd;">メリット</th>
-                                <th style="padding: 1rem; border: 1px solid #ddd;">デメリット</th>
-                            </tr>
-                            <tr>
-                                <td style="padding: 1rem; border: 1px solid #ddd;">
-                                    <ul>
-                                        <li>判断の根拠が明確（なぜその結論に至ったか説明できる）</li>
-                                        <li>専門家の知識を体系的に活用できる</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 1rem; border: 1px solid #ddd;">
-                                    <ul>
-                                        <li>ルールの作成・更新に人手がかかる</li>
-                                        <li>想定外のケースには対応できない</li>
-                                        <li>ルールが増えると管理が複雑になる</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </table>
-                    
-                        <div class="highlight">
-                            <p><strong>❗ 試験でのひっかけポイント</strong></p>
-                            <p>「ルールベースAIはデータから自動的にルールを学習する」→
-                                <strong>×</strong>。ルールベースは<strong>人間が事前にルールを作成</strong>します。データから自動で学ぶのは「機械学習」の特徴です。この違いを明確に区別しましょう！
-                            </p>
+                        </td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">
+                            <ul>
+                                <li>ルールの作成・更新に人手がかかる</li>
+                                <li>想定外のケースには対応できない</li>
+                                <li>ルールが増えると管理が複雑になる</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="highlight">
+                    <p><strong>❗ 試験でのひっかけポイント</strong></p>
+                    <p>「ルールベースAIはデータから自動的にルールを学習する」→
+                        <strong>×</strong>。ルールベースは<strong>人間が事前にルールを作成</strong>します。データから自動で学ぶのは「機械学習」の特徴です。この違いを明確に区別しましょう！
+                    </p>
                 </div>
             </div>
 
@@ -156,7 +158,8 @@
                 </p>
                 <ul>
                     <li><strong>分類（Classification）：</strong>
-                        データをあらかじめ決められた「カテゴリ（種類）」に分けるタスクです。例えば、「画像に写っているのは犬か猫か」「受信したメールはスパムか正常か」といった<strong>離散的な値・状態</strong>を予測します。</li>
+                        データをあらかじめ決められた「カテゴリ（種類）」に分けるタスクです。例えば、「画像に写っているのは犬か猫か」「受信したメールはスパムか正常か」といった<strong>離散的な値・状態</strong>を予測します。
+                    </li>
                     <li><strong>回帰（Regression）：</strong>
                         過去のデータなどから、連続する「数値」を予測するタスクです。例えば、「過去の気温推移から明日の気温を予測する」「過去の売上という<strong>時系列データ</strong>を分析して、来月の売上金額を予測する」といった<strong>連続的な値</strong>の予測に利用されます。
                     </li>
@@ -168,15 +171,60 @@
                         style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 </div>
 
-                <p>正解ラベルのないデータの中から、自動的にパターンや構造を発見する手法です。<strong>クラスタリング</strong>（似たデータのグループ化）などに使われます。</p>
-                <p>例えば、顧客の購買データを分析して「このグループは健康志向」「このグループは節約志向」といったパターンを自動で発見することができます。</p>
+                <p>正解ラベルのないデータの中から、自動的にパターンや構造を発見する手法です。代表的な手法として<strong>クラスタリング</strong>と<strong>次元削減</strong>があります。
+                </p>
+
+                <h4>📊 クラスタリング（Clustering）</h4>
+                <p>似たデータをグループ化する手法です。例えば、顧客の購買データを分析して「このグループは健康志向」「このグループは節約志向」といったパターンを自動で発見することができます。</p>
+
+                <h4>📉 次元削減（Dimensionality Reduction）</h4>
+                <p>データが持つ多くの特徴（次元）の中から、<strong>重要な情報を失わずにデータの次元数を減らす</strong>手法です。</p>
+                <div class="highlight">
+                    <p><strong>次元削減とは？</strong></p>
+                    <p>たとえば、ある顧客データに「年齢・身長・体重・年収・購入回数・来店頻度…」など100個の情報（＝100次元）があるとします。次元削減は、これらの中から<strong>本当に重要な数個の特徴</strong>にまとめることで、データを扱いやすくする技術です。
+                    </p>
+                </div>
+                <p><strong>代表的な手法：PCA（主成分分析）</strong></p>
+                <p>PCA（Principal Component Analysis）は、データの分散（ばらつき）が最大になる方向を見つけて、情報量を保ちながら次元を圧縮します。</p>
+                <p><strong>次元削減の主な活用場面：</strong></p>
+                <ul>
+                    <li><strong>データの可視化：</strong> 高次元データを2次元・3次元に降ろしてグラフで表現</li>
+                    <li><strong>前処理：</strong> 機械学習モデルに入力する前にデータを整理し、<strong>計算コストを削減</strong></li>
+                    <li><strong>ノイズの除去：</strong> 不要な情報を取り除き、モデルの精度を向上</li>
+                </ul>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: #3b82f6; color: white;">
+                        <th style="padding: 1rem; border: 1px solid #ddd;">手法</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">目的</th>
+                        <th style="padding: 1rem; border: 1px solid #ddd;">イメージ</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>クラスタリング</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">データを似たもの同士でグループ分け</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">バラバラの写真を「風景」「人物」「食べ物」に仕分け</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>次元削減</strong></td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">データの情報を保ちつつ特徴数を圧縮</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">100科目の成績を「文系力」「理系力」の2つに要約</td>
+                    </tr>
+                </table>
+
+                <div class="highlight">
+                    <p><strong>❗ 試験でのひっかけポイント</strong></p>
+                    <p>次元削減は<strong>教師なし学習</strong>の手法です。「正解ラベルを使って次元を削減する」という記述があれば<strong>誤り</strong>です。次元削減はラベル（正解）なしで、データの構造だけから重要な特徴を抽出します。
+                    </p>
+                </div>
                 <h3>強化学習</h3>
-                
-                <p>試行錯誤を繰り返し、<strong>報酬を最大化する行動</strong>を学ぶ手法です。「良い行動（報酬が得られる）」「悪い行動（罰を受ける）」というフィードバックを基に最適な行動パターンを学習します。</p>
+
+                <p>試行錯誤を繰り返し、<strong>報酬を最大化する行動</strong>を学ぶ手法です。「良い行動（報酬が得られる）」「悪い行動（罰を受ける）」というフィードバックを基に最適な行動パターンを学習します。
+                </p>
                 <p>ゲームAI（囲碁のAlphaGoなど）や<strong>自動運転技術</strong>などに活用されています。人間が教えるのではなく、AI自身が経験から学ぶという点が特徴的です。</p>
                 <h3>半教師あり学習</h3>
-                
-                <p><strong>少量の「ラベルありデータ」と大量の「ラベルなしデータ」</strong>を組み合わせて学習するハイブリッド手法です。ラベル付け作業はコストがかかるため、全データにラベルを付けるのが難しい場合に有効です。</p>
+
+                <p><strong>少量の「ラベルありデータ」と大量の「ラベルなしデータ」</strong>を組み合わせて学習するハイブリッド手法です。ラベル付け作業はコストがかかるため、全データにラベルを付けるのが難しい場合に有効です。
+                </p>
                 <div class="highlight">
                     <p><strong>❗ 試験でのひっかけポイント</strong></p>
                     <p>「大量のラベルありデータと少量のラベルなしデータ」と書かれていたら<strong>逆</strong>です！半教師あり学習は「<strong>少量</strong>のラベルあり＋<strong>大量</strong>のラベルなし」です。
@@ -194,16 +242,16 @@
                                 <ul>
                                     <li>ラベル付けコストの削減</li>
                                     <li>少量の正解データで学習可能</li>
-                                    </ul>
+                                </ul>
                             </td>
                             <td style="padding: 1rem; border: 1px solid #ddd;">
                                 <ul>
                                     <li>ラベルの偏りによる影響</li>
                                     <li>予測精度の不安定さ（教師ありに比べ精度は低い）</li>
-                                    </ul>
+                                </ul>
                             </td>
-                            </tr>
-                            </table>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -229,10 +277,11 @@
                     </tr>
                     <tr style="background: #f9f9f9;">
                         <td style="padding: 1rem; border: 1px solid #ddd;"><strong>ディープラーニング</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">大量のデータから<strong>AI自身が自動的に抽出・学習</strong>する</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">大量のデータから<strong>AI自身が自動的に抽出・学習</strong>する
+                        </td>
                     </tr>
                 </table>
-                
+
                 <h3>AIの画像認識プロセスと重み</h3>
                 <p>AIが画像を認識する際、「ピクセル分割」→「数値化」→「特徴抽出」→「認識」というステップを踏む。</p>
                 <div class="highlight">
@@ -287,7 +336,8 @@
                     <li><strong>学習時間の短縮：</strong> ゼロから学習するより圧倒的に早く学習が完了する</li>
                     <li><strong>高い精度：</strong> 事前学習済みのモデルが持つ豊富な特徴表現を活用できる</li>
                 </ul>
-                <p>たとえると、英語を知っている人がドイツ語を学ぶとき、英語の知識（文法構造や単語の類似性）がのおかげで学習が早くなるのと同じ仕組みです。<strong>「知識の流用」がポイント</strong>です。</p>
+                <p>たとえると、英語を知っている人がドイツ語を学ぶとき、英語の知識（文法構造や単語の類似性）がのおかげで学習が早くなるのと同じ仕組みです。<strong>「知識の流用」がポイント</strong>です。
+                </p>
             </div>
 
             <!-- 確認問題 -->
@@ -299,28 +349,32 @@
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：ルールベースAIは、人間が事前に「もし〇〇なら△△する」というルールを作成し、AIはそのルールに従って判断します。データから自動でルールを学ぶのは「機械学習」です。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：ルールベースAIは人間がルールを事前に作成する仕組みです。データから自動で学ぶのは機械学習であり、ルールベースとは異なります。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：ルールベースAIは人間がルールを事前に作成する仕組みです。データから自動で学ぶのは機械学習であり、ルールベースとは異なります。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
-                    </div>
-                    <div class="quiz-question">
-                        <p><strong>問題2:</strong> エキスパートシステムは、ルールベースAIの代表的な形であり、専門家の知識をIF-THENルールで表現して判断を行うシステムである。</p>
-                        <ul class="quiz-options">
-                            <li
-                                onclick="selectAnswer(this, true, '✅ 解説：エキスパートシステムはルールベースAIの代表例で、「もし体温が38度以上なら風邪の疑い」のように専門家の知識をIF-THENルールとして組み込んだシステムです。')">
-                                ○（正しい）</li>
-                            <li onclick="selectAnswer(this, false, '❌ 解説：エキスパートシステムは確かにルールベースAIの代表的な形です。専門家の知識をIF-THENルールで表現します。')">
-                                ×（誤り）</li>
-                        </ul>
-                        <div class="quiz-feedback" style="display: none;"></div>
-                    </div>
-                    <div class="quiz-question">
-                        <p><strong>問題3:</strong> 教師あり学習とは、正解データ（教師データ）のペアを与えて、データのパターンを学習する手法である。</p>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題2:</strong> エキスパートシステムは、ルールベースAIの代表的な形であり、専門家の知識をIF-THENルールで表現して判断を行うシステムである。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, true, '✅ 解説：教師あり学習は、入力データとそれに対応する正解（ラベル）のペアを使って学習する手法です。分類や回帰に応用されます。')">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：エキスパートシステムはルールベースAIの代表例で、「もし体温が38度以上なら風邪の疑い」のように専門家の知識をIF-THENルールとして組み込んだシステムです。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：教師あり学習は、正解データ（教師データ）と入力データのペアを与えて学習する手法です。「教師データ」がある点が特徴です。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：エキスパートシステムは確かにルールベースAIの代表的な形です。専門家の知識をIF-THENルールで表現します。')">
+                            ×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題3:</strong> 教師あり学習とは、正解データ（教師データ）のペアを与えて、データのパターンを学習する手法である。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：教師あり学習は、入力データとそれに対応する正解（ラベル）のペアを使って学習する手法です。分類や回帰に応用されます。')">
+                            ○（正しい）</li>
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：教師あり学習は、正解データ（教師データ）と入力データのペアを与えて学習する手法です。「教師データ」がある点が特徴です。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -328,9 +382,11 @@
                 <div class="quiz-question">
                     <p><strong>問題4:</strong> 教師なし学習は、正解データを与えずに、データ自体のパターンや構造を自己発見する手法である。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, true, '✅ 解説：教師なし学習は、ラベル（正解）のないデータから、パターンやグループ構造を自動的に発見する手法です。クラスタリングなどに使われます。')">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：教師なし学習は、ラベル（正解）のないデータから、パターンやグループ構造を自動的に発見する手法です。クラスタリングなどに使われます。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：教師なし学習はラベルなしデータからパターンを自己発見する手法です。正解を与えない点が教師あり学習との違いです。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：教師なし学習はラベルなしデータからパターンを自己発見する手法です。正解を与えない点が教師あり学習との違いです。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -338,9 +394,11 @@
                 <div class="quiz-question">
                     <p><strong>問題5:</strong> 強化学習では、「報酬」を設定し、試行錯誤を通じて最適な行動を学習する。自動運転技術にも活用されている。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, true, '✅ 解説：強化学習は行動に対する報酬（フィードバック）に基づいて最適な行動パターンを学習する手法です。ゲームや自動運転技術などに活用されています。')">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：強化学習は行動に対する報酬（フィードバック）に基づいて最適な行動パターンを学習する手法です。ゲームや自動運転技術などに活用されています。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：強化学習は報酬を最大化するように行動を学習する手法です。実際に自動運転技術にも活用されています。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：強化学習は報酬を最大化するように行動を学習する手法です。実際に自動運転技術にも活用されています。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -351,7 +409,8 @@
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：半教師あり学習は少量のラベルありデータと大量のラベルなしデータを使うため、コスト削減のメリットがある一方、教師あり学習に比べて精度が不安定になるデメリットがあります。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：半教師あり学習はラベルなしデータも活用するため、正確なラベルが少ない分、教師あり学習に比べて精度が不安定になることがあります。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：半教師あり学習はラベルなしデータも活用するため、正確なラベルが少ない分、教師あり学習に比べて精度が不安定になることがあります。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -359,9 +418,11 @@
                 <div class="quiz-question">
                     <p><strong>問題7:</strong> 「重み付け」とは、ニューラルネットワークにおいて重要な情報を優先的に処理するために接続の強さを調整するプロセスである。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, true, '✅ 解説：重み付けは人間の脳のシナプスの強弱に相当し、重要な情報ほど強い接続（大きな重み）を持つように調整するプロセスです。')">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：重み付けは人間の脳のシナプスの強弱に相当し、重要な情報ほど強い接続（大きな重み）を持つように調整するプロセスです。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：重み付けはニューラルネットワークにおいて、ノード間の接続の強さ（重み）を調整し、重要な情報を優先するプロセスです。')">
+                        <li
+                            onclick="selectAnswer(this, false, '❌ 解説：重み付けはニューラルネットワークにおいて、ノード間の接続の強さ（重み）を調整し、重要な情報を優先するプロセスです。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
@@ -379,7 +440,8 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題9:</strong> ディープラーニングは、従来の機械学習とは異なり、データが持つ特徴（特徴量）を人間が手動で設定する必要がなく、AI自身がデータから自動的に抽出する。</p>
+                    <p><strong>問題9:</strong> ディープラーニングは、従来の機械学習とは異なり、データが持つ特徴（特徴量）を人間が手動で設定する必要がなく、AI自身がデータから自動的に抽出する。
+                    </p>
                     <ul class="quiz-options">
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：大正解！従来の機械学習は人間が特徴量を設計していたが、ディープラーニング（深層学習）はAI自身が大量のデータから特徴を自動抽出できる点が最大の違いであり、革命的だったんだ！')">
