@@ -7,36 +7,6 @@
     <title>第1章: AI(人工知能) | 生成AIパスポート講座</title>
     <link rel="stylesheet" href="../shared/css/styles.css">
     <style>
-        .locked-card {
-            opacity: 0.6;
-            cursor: not-allowed;
-            pointer-events: none;
-            position: relative;
-        }
-    
-        .locked-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            z-index: 2;
-        }
-    
-        .exam-badge {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
     </style>
 </head>
 
@@ -166,12 +136,10 @@
                             </div>
                         </div>
                     </a>
-<!-- 模擬試験 (Locked by default) -->
-<a href="1-exam.html" class="lesson-card locked-card" id="section-exam">
-    <div class="locked-overlay" id="exam-lock">🔒</div>
+<!-- 模擬試験 -->
+<a href="1-exam.html" class="lesson-card" id="section-exam">
     <div class="lesson-number" style="background-color: var(--secondary-color); color: white;">総合</div>
                         <div class="lesson-content">
-                            <span class="exam-badge">全セクション完了で解放</span>
                             <h3 style="color: var(--secondary-dark);">模擬試験（記憶力チェック）</h3>
                             <p class="lesson-description">第1章全15問の○×問題をランダムに出題し、あなたの記憶力と理解度をチェックします。スコア記録機能付き。</p>
                             <div class="lesson-topics">
@@ -183,7 +151,7 @@
                                 <span>📝 全15問</span>
                                 <span class="completion-badge" id="exam-completion-badge" style="display: none;">🏆 最高: <span
                                         id="exam-best-score"></span>/15</span>
-                                <span class="lesson-arrow" id="exam-arrow" style="display: none">→</span>
+                                <span class="lesson-arrow">→</span>
                             </div>
                         </div>
                     </a>
@@ -221,23 +189,7 @@
                 document.getElementById('chapter-progress').style.width = `${percentage}%`;
                 document.getElementById('progress-percentage').textContent = `${percentage}%`;
 
-                // 模擬試験のアンロック判定
-                if (completedCount === totalSections) {
-                    const examCard = document.getElementById('section-exam');
-                    const lock = document.getElementById('exam-lock');
-                    if (examCard && lock) {
-                        examCard.classList.remove('locked-card');
-                        examCard.style.pointerEvents = 'auto';
-                        lock.style.display = 'none';
-                        document.getElementById('exam-arrow').style.display = 'inline-block';
 
-                        const badge = examCard.querySelector('.exam-badge');
-                        if (badge) {
-                            badge.textContent = '🔓 解放中';
-                            badge.style.backgroundColor = '#4caf50';
-                        }
-                    }
-                }
 
                 // 模擬試験スコア表示
                 const bestScore = localStorage.getItem('chapter1_exam_score');
