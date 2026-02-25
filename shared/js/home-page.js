@@ -315,3 +315,26 @@ window.addEventListener('load', () => {
 
 // 定期的に進捗を更新（他のタブで学習が進んだ場合に対応）
 setInterval(loadLearningProgress, 30000); // 30秒ごと
+
+// お宝の獲得状況をリセット
+function resetTreasureProgress() {
+    if (!confirm('お宝の獲得状況をリセットしますか？\n（各章の模擬試験をもう一度クリアする必要があります）')) {
+        return;
+    }
+
+    // 章の完了状態をリセット
+    for (let i = 1; i <= 5; i++) {
+        localStorage.removeItem(`chapter${i}_completed`);
+        localStorage.removeItem(`treasure_shown_${i}`);
+
+        // セクション完了状態もリセット
+        for (let s = 1; s <= 10; s++) {
+            localStorage.removeItem(`chapter${i}_section${s}_completed`);
+        }
+    }
+
+    // UIを即座に更新
+    loadLearningProgress();
+
+    alert('お宝の獲得状況をリセットしました！');
+}

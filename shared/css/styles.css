@@ -3629,6 +3629,23 @@ footer p {
     text-align: center;
 }
 
+.treasure-reset-btn {
+    background: none;
+    border: 1px solid #cbd5e1;
+    color: #94a3b8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.treasure-reset-btn:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #ef4444;
+}
 .pikmin-collection h2 {
     font-size: 2rem;
     font-weight: 700;
