@@ -311,6 +311,12 @@ window.addEventListener('load', () => {
     if (completedChapters === 0) {
         progressSection.style.opacity = '0.6';
     }
+
+    // お宝リセットボタン
+    const resetBtn = document.getElementById('treasure-reset-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetTreasureProgress);
+    }
 });
 
 // 定期的に進捗を更新（他のタブで学習が進んだ場合に対応）

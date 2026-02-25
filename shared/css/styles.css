@@ -3630,21 +3630,30 @@ footer p {
 }
 
 .treasure-reset-btn {
-    background: none;
-    border: 1px solid #cbd5e1;
-    color: #94a3b8;
-    padding: 0.3rem 0.8rem;
-    border-radius: 8px;
-    font-size: 0.75rem;
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        border: none;
+        color: #64748b;
+        padding: 0.4rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        letter-spacing: 0.03em;
 }
 
 .treasure-reset-btn:hover {
-    background: #fee2e2;
-    border-color: #fca5a5;
-    color: #ef4444;
+    background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+        color: #dc2626;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+        transform: translateY(-1px);
+    }
+    
+    .treasure-reset-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .pikmin-collection h2 {
     font-size: 2rem;
