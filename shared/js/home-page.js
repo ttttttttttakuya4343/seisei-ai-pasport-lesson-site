@@ -166,27 +166,12 @@ function loadLearningProgress() {
         }
     }
 
-    // 各章のステータスバッジを更新
+    // 各章の完了状態を更新
     Object.keys(progress).forEach((key, index) => {
         const chapterNum = index + 1;
         const card = document.querySelector(`.lesson-card[data-chapter="${chapterNum}"]`);
-        if (card) {
-            const statusBadge = card.querySelector('.status-badge');
-            if (progress[key]) {
-                statusBadge.textContent = '✅ 完了';
-                statusBadge.className = 'status-badge status-completed';
-                card.classList.add('completed');
-            } else {
-                // 前の章が完了していれば「学習可能」、そうでなければ「未開始」
-                const prevChapterCompleted = index === 0 || progress[`chapter${index}`];
-                if (prevChapterCompleted || index === 0) {
-                    statusBadge.textContent = '📖 学習可能';
-                    statusBadge.className = 'status-badge status-available';
-                } else {
-                    statusBadge.textContent = '🔒 未開始';
-                    statusBadge.className = 'status-badge status-not-started';
-                }
-            }
+        if (card && progress[key]) {
+            card.classList.add('completed');
         }
     });
 
