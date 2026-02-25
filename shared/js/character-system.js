@@ -1517,7 +1517,7 @@ function detectPageType() {
     const hasLessonPage = !!document.querySelector('.lesson-page');
 
     // 優先順位1: レッスンページ（最も具体的）
-    if (path.match(/\d+-\d+_\w+\.html/) && hasLessonPage) {
+    if (path.match(/\d+-\d+[a-z]?_\w+\.html/) && hasLessonPage) {
         return 'lesson';
     }
 
