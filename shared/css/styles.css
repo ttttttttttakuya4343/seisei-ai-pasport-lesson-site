@@ -536,16 +536,18 @@ body {
 
 .comparison-table th,
 .comparison-table td {
-    padding: 1.2rem;
-    border: 1px solid var(--primary-blue);
+    padding: 1rem 1.2rem;
+        border: 1px solid #cbd5e1;
     text-align: left;
-    line-height: 1.6;
+    line-height: 1.8;
+        font-size: 0.95rem;
 }
 
 .comparison-table th {
     background: linear-gradient(135deg, var(--bg-gray-light) 0%, var(--bg-gray) 100%);
     font-weight: 700;
     color: var(--text-dark);
+    font-size: 0.95rem;
 }
 
 .comparison-table tr:nth-child(even) {
@@ -555,7 +557,7 @@ body {
 .comparison-table td:first-child {
     font-weight: 600;
     color: var(--primary-blue-dark);
-    width: 30%;
+    white-space: nowrap;
 }
 
 /* ===== テーブルのレスポンシブ対応 ===== */
