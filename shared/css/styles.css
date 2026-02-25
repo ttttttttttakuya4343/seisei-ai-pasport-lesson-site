@@ -555,8 +555,8 @@ body {
 }
 
 .comparison-table td:first-child {
-    font-weight: 600;
-    color: var(--primary-blue-dark);
+    font-weight: normal;
+        color: var(--text-dark);
     min-width: 120px;
     }
     
@@ -586,8 +586,8 @@ body {
     }
     
     .lesson-page table td:first-child {
-        font-weight: 600;
-        color: var(--primary-blue-dark);
+        font-weight: normal;
+            color: var(--text-dark);
     }
     
     .lesson-page table tr:nth-child(even):not(:first-child) {
