@@ -1205,29 +1205,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ⑲ 推奨学習パスのコンパクト化 */
-.learning-path h2 {
-    font-size: 1.3rem;
-}
 
-.path-step {
-    padding: 1.25rem 1rem;
-    min-width: auto;
-    width: 100%;
-}
-
-.path-step h3 {
-    font-size: 1.05rem;
-}
-
-.path-step p {
-    font-size: 0.85rem;
-}
-
-.path-arrow {
-    margin: 0.75rem 0;
-    font-size: 1.2rem;
-}
 
 /* ⑳ カリキュラム一覧のコンパクト化 */
 .lessons h2 {
@@ -1268,7 +1246,6 @@ footer {
 
 /* ㉒ セクション間マージンの統一縮小 */
 .course-overview,
-.learning-path,
 .lessons {
     margin: 1rem 0;
     padding: 1.5rem 0;
@@ -3644,13 +3621,7 @@ footer p {
     text-align: center;
 }
 
-/* 学習パス */
-.learning-path {
-    padding: 3rem 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-radius: 20px;
-    margin: 2rem 0;
-}
+
 
 /* ===== ピクミンバッジコレクション ===== */
 .pikmin-collection {
@@ -4089,70 +4060,7 @@ footer p {
         opacity: 1;
     }
 }
-.learning-path h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 2.5rem;
-    text-align: center;
-}
 
-.path-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.path-step {
-    flex: 1;
-    min-width: 200px;
-    background: white;
-    padding: 2rem 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 2px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.path-step:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-blue);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
-}
-
-.step-number {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.step-content h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-}
-
-.step-content p {
-    font-size: 0.95rem;
-    color: var(--text-gray);
-    line-height: 1.6;
-}
-
-.path-arrow {
-    font-size: 2rem;
-    color: var(--primary-blue);
-    font-weight: 700;
-}
 
 
 
@@ -4226,14 +4134,7 @@ footer p {
         height: 60px;
     }
 
-    .path-container {
-        flex-direction: column;
-    }
 
-    .path-arrow {
-        transform: rotate(90deg);
-        margin: 0.75rem 0;
-    }
 
 
 
