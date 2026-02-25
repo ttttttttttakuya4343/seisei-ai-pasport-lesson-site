@@ -34,13 +34,84 @@
                 <h1>AIに知能をもたらす仕組み</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約20分</span>
-                    <span>📝 確認問題6問</span>
+                    <span>📝 確認問題9問</span>
+                    </div>
+                    </div>
+                    
+                    <!-- 導入: AIに知能をもたらす2つの仕組み -->
+                    <div class="section">
+                        <h2>🎯 AIに知能をもたらす2つの仕組み</h2>
+                        <p>AIに知能をもたらすための仕組みは、大きく分けて<strong>2つ</strong>あります。</p>
+                    
+                        <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                            <tr style="background: #3b82f6; color: white;">
+                                <th style="padding: 1rem; border: 1px solid #ddd;">仕組み</th>
+                                <th style="padding: 1rem; border: 1px solid #ddd;">概要</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; border: 1px solid #ddd;"><strong>① ルールベース</strong></td>
+                                <td style="padding: 1rem; border: 1px solid #ddd;">人間が事前に作成したルールや知識に従って判断する</td>
+                            </tr>
+                            <tr style="background: #f9f9f9;">
+                                <td style="padding: 1rem; border: 1px solid #ddd;"><strong>② 機械学習</strong></td>
+                                <td style="padding: 1rem; border: 1px solid #ddd;">データから自動的にパターンやルールを学び取る</td>
+                            </tr>
+                        </table>
+                        <p>まずは「ルールベース」から見ていきましょう！</p>
+                    </div>
+                    
+                    <!-- セクション1: ルールベース -->
+                    <div class="section">
+                        <h2>📏 1. ルールベース</h2>
+                        <div class="highlight">
+                            <p><strong>ルールベース（Rule-Based AI）</strong></p>
+                            <p>人間が事前に作成した<strong>ルールや知識</strong>をコンピュータプログラムに組み込み、AIはそれに従って予測や判断を行う仕組みです。</p>
+                        </div>
+                    
+                        <p>ルールベースAIの代表的な形が<strong>エキスパートシステム</strong>です。これは、特定の分野の専門家（エキスパート）の知識を「<strong>もし〇〇なら△△する</strong>」という<strong>IF-THENルール</strong>で表現し、コンピュータに判断させるシステムです。
+                        </p>
+                    
+                        <div class="highlight">
+                            <p><strong>IF-THENルールの例（医療診断）</strong></p>
+                            <ul>
+                                <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 咳がある <strong>THEN</strong> → 「風邪の疑い」と診断</li>
+                                <li><strong>IF</strong> 体温が38度以上 <strong>AND</strong> 発疹がある <strong>THEN</strong> → 「はしかの疑い」と診断</li>
+                            </ul>
+                        </div>
+                    
+                        <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                            <tr style="background: #3b82f6; color: white;">
+                                <th style="padding: 1rem; border: 1px solid #ddd;">メリット</th>
+                                <th style="padding: 1rem; border: 1px solid #ddd;">デメリット</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; border: 1px solid #ddd;">
+                                    <ul>
+                                        <li>判断の根拠が明確（なぜその結論に至ったか説明できる）</li>
+                                        <li>専門家の知識を体系的に活用できる</li>
+                                    </ul>
+                                </td>
+                                <td style="padding: 1rem; border: 1px solid #ddd;">
+                                    <ul>
+                                        <li>ルールの作成・更新に人手がかかる</li>
+                                        <li>想定外のケースには対応できない</li>
+                                        <li>ルールが増えると管理が複雑になる</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    
+                        <div class="highlight">
+                            <p><strong>❗ 試験でのひっかけポイント</strong></p>
+                            <p>「ルールベースAIはデータから自動的にルールを学習する」→
+                                <strong>×</strong>。ルールベースは<strong>人間が事前にルールを作成</strong>します。データから自動で学ぶのは「機械学習」の特徴です。この違いを明確に区別しましょう！
+                            </p>
                 </div>
             </div>
 
-            <!-- セクション1: 機械学習の手法 -->
+            <!-- セクション2: 機械学習の手法 -->
             <div class="section">
-                <h2>🧠 1. 機械学習の手法</h2>
+                <h2>🧠 2. 機械学習の手法</h2>
                 <div class="highlight">
                     <p><strong>機械学習（Machine Learning）</strong></p>
                     <p>コンピュータが明示的にプログラムされることなく、<strong>データから自動的にパターンやルールを学び取る技術</strong>。AIに知能をもたらす中核的な技術です。</p>
@@ -138,7 +209,7 @@
 
             <!-- セクション2: ディープラーニングとニューラルネットワーク -->
             <div class="section">
-                <h2>🔍 2. ディープラーニングとニューラルネットワーク</h2>
+                <h2>🔍 3. ディープラーニングとニューラルネットワーク</h2>
                 <div class="highlight">
                     <p><strong>ディープラーニング（深層学習）</strong></p>
                     <p>人間の脳の神経回路（ニューラルネットワーク）を模した仕組みで、<strong>「入力層」「中間層（隠れ層）」「出力層」</strong>の複数の層から成る。中間層を何層にも深く（ディープに）したことで、複雑なパターンの学習が可能になった！
@@ -174,7 +245,7 @@
 
             <!-- セクション3: 過学習の回避 -->
             <div class="section">
-                <h2>⚠️ 3. 過学習（オーバーフィッティング）の回避</h2>
+                <h2>⚠️ 4. 過学習（オーバーフィッティング）の回避</h2>
                 <div class="highlight">
                     <p><strong>過学習（Overfitting）</strong></p>
                     <p>モデルが訓練データに<strong>過度に適合</strong>してしまい、新しいデータに対する予測精度が低下する現象。</p>
@@ -204,7 +275,7 @@
 
             <!-- セクション4: 転移学習 -->
             <div class="section">
-                <h2>🔄 4. 転移学習（Transfer Learning）</h2>
+                <h2>🔄 5. 転移学習（Transfer Learning）</h2>
                 <div class="highlight">
                     <p><strong>転移学習（Transfer Learning）</strong></p>
                     <p>あるタスクで学習した知識を、<strong>異なるが関連するタスク</strong>に応用する手法。</p>
@@ -223,7 +294,29 @@
             <div class="quiz">
                 <h3>✅ 確認問題（○×形式）</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> 教師あり学習とは、正解データ（教師データ）のペアを与えて、データのパターンを学習する手法である。</p>
+                    <p><strong>問題1:</strong> ルールベースAIは、人間が事前に作成したルールや知識に従って判断を行う仕組みであり、データから自動的にルールを学習するわけではない。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 解説：ルールベースAIは、人間が事前に「もし〇〇なら△△する」というルールを作成し、AIはそのルールに従って判断します。データから自動でルールを学ぶのは「機械学習」です。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 解説：ルールベースAIは人間がルールを事前に作成する仕組みです。データから自動で学ぶのは機械学習であり、ルールベースとは異なります。')">
+                            ×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                    </div>
+                    <div class="quiz-question">
+                        <p><strong>問題2:</strong> エキスパートシステムは、ルールベースAIの代表的な形であり、専門家の知識をIF-THENルールで表現して判断を行うシステムである。</p>
+                        <ul class="quiz-options">
+                            <li
+                                onclick="selectAnswer(this, true, '✅ 解説：エキスパートシステムはルールベースAIの代表例で、「もし体温が38度以上なら風邪の疑い」のように専門家の知識をIF-THENルールとして組み込んだシステムです。')">
+                                ○（正しい）</li>
+                            <li onclick="selectAnswer(this, false, '❌ 解説：エキスパートシステムは確かにルールベースAIの代表的な形です。専門家の知識をIF-THENルールで表現します。')">
+                                ×（誤り）</li>
+                        </ul>
+                        <div class="quiz-feedback" style="display: none;"></div>
+                    </div>
+                    <div class="quiz-question">
+                        <p><strong>問題3:</strong> 教師あり学習とは、正解データ（教師データ）のペアを与えて、データのパターンを学習する手法である。</p>
                     <ul class="quiz-options">
                         <li onclick="selectAnswer(this, true, '✅ 解説：教師あり学習は、入力データとそれに対応する正解（ラベル）のペアを使って学習する手法です。分類や回帰に応用されます。')">
                             ○（正しい）</li>
@@ -233,7 +326,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> 教師なし学習は、正解データを与えずに、データ自体のパターンや構造を自己発見する手法である。</p>
+                    <p><strong>問題4:</strong> 教師なし学習は、正解データを与えずに、データ自体のパターンや構造を自己発見する手法である。</p>
                     <ul class="quiz-options">
                         <li onclick="selectAnswer(this, true, '✅ 解説：教師なし学習は、ラベル（正解）のないデータから、パターンやグループ構造を自動的に発見する手法です。クラスタリングなどに使われます。')">
                             ○（正しい）</li>
@@ -243,7 +336,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> 強化学習では、「報酬」を設定し、試行錯誤を通じて最適な行動を学習する。自動運転技術にも活用されている。</p>
+                    <p><strong>問題5:</strong> 強化学習では、「報酬」を設定し、試行錯誤を通じて最適な行動を学習する。自動運転技術にも活用されている。</p>
                     <ul class="quiz-options">
                         <li onclick="selectAnswer(this, true, '✅ 解説：強化学習は行動に対する報酬（フィードバック）に基づいて最適な行動パターンを学習する手法です。ゲームや自動運転技術などに活用されています。')">
                             ○（正しい）</li>
@@ -253,7 +346,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題4:</strong> 半教師あり学習のデメリットとして、教師あり学習に比べて予測精度が不安定になる可能性がある。</p>
+                    <p><strong>問題6:</strong> 半教師あり学習のデメリットとして、教師あり学習に比べて予測精度が不安定になる可能性がある。</p>
                     <ul class="quiz-options">
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：半教師あり学習は少量のラベルありデータと大量のラベルなしデータを使うため、コスト削減のメリットがある一方、教師あり学習に比べて精度が不安定になるデメリットがあります。')">
@@ -264,7 +357,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題5:</strong> 「重み付け」とは、ニューラルネットワークにおいて重要な情報を優先的に処理するために接続の強さを調整するプロセスである。</p>
+                    <p><strong>問題7:</strong> 「重み付け」とは、ニューラルネットワークにおいて重要な情報を優先的に処理するために接続の強さを調整するプロセスである。</p>
                     <ul class="quiz-options">
                         <li onclick="selectAnswer(this, true, '✅ 解説：重み付けは人間の脳のシナプスの強弱に相当し、重要な情報ほど強い接続（大きな重み）を持つように調整するプロセスです。')">
                             ○（正しい）</li>
@@ -274,7 +367,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題6:</strong> ドロップアウトとは、モデルの複雑さを制限するためにパラメータを調整する手法である。</p>
+                    <p><strong>問題8:</strong> ドロップアウトとは、モデルの複雑さを制限するためにパラメータを調整する手法である。</p>
                     <ul class="quiz-options">
                         <li
                             onclick="selectAnswer(this, false, '❌ 解説：パラメータを調整してモデルの複雑さを制限するのは「正則化（Regularization）」です。ドロップアウトは学習中にランダムにニューロンを無効化する手法です。')">
@@ -286,7 +379,7 @@
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題7:</strong> ディープラーニングは、従来の機械学習とは異なり、データが持つ特徴（特徴量）を人間が手動で設定する必要がなく、AI自身がデータから自動的に抽出する。</p>
+                    <p><strong>問題9:</strong> ディープラーニングは、従来の機械学習とは異なり、データが持つ特徴（特徴量）を人間が手動で設定する必要がなく、AI自身がデータから自動的に抽出する。</p>
                     <ul class="quiz-options">
                         <li
                             onclick="selectAnswer(this, true, '✅ 解説：大正解！従来の機械学習は人間が特徴量を設計していたが、ディープラーニング（深層学習）はAI自身が大量のデータから特徴を自動抽出できる点が最大の違いであり、革命的だったんだ！')">
@@ -302,6 +395,7 @@
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
+                        <li><strong>ルールベース：</strong> 人間が作成したルール（IF-THEN）に従って判断。エキスパートシステムが代表例</li>
                         <li><strong>教師あり学習：</strong> 正解データのペアから学習。分類・回帰に応用</li>
                         <li><strong>教師なし学習：</strong> 正解なしでパターンを自己発見。クラスタリング等</li>
                         <li><strong>強化学習：</strong> 報酬最大化のための試行錯誤。自動運転等に活用</li>
