@@ -309,56 +309,11 @@
     <footer>
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
-    <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
 
-        function completeSection(sectionId) {
-            const chapter = "chapter4";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            const isCompleted = localStorage.getItem(storageKey) === "true";
-
-            if (isCompleted) {
-                // 完了を取り消す
-                localStorage.removeItem(storageKey);
-                button.textContent = "✅ このセクションを完了する";
-                button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonReset", 3000);
-                }
-            } else {
-                // 完了にする
-                localStorage.setItem(storageKey, "true");
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonComplete", 4000);
-                }
-                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
-                setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") {
-                        window.location.href = "index.html";
-                    }
-                }, 3000);
-            }
-        }
-
-        // ページ読み込み時の状態復元
-        window.addEventListener("load", () => {
-            const sectionId = "4-2";
-            const chapter = "chapter4";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-
-            if (localStorage.getItem(storageKey) === "true") {
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-            }
-        });
-    </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
-    <script src="../shared/js/core/visual-effects.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 </body>
 

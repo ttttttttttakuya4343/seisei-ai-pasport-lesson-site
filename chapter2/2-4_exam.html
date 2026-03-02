@@ -162,22 +162,8 @@
             </div>
 
             <div id="start-screen" class="start-screen">
-                <div id="lock-message"
-                    style="display:none; text-align:center; padding:2rem; background:#fef9c3; border:2px solid #f59e0b; border-radius:12px; margin-bottom:1.5rem;">
-                    <p style="font-size:1.1rem; margin-bottom: 1rem;">🔒 まずは全セクションを学習してください</p>
-                    <p style="color:#666; margin-bottom:1rem;">2-1・2-2・2-3 をすべて完了すると確認問題が解放されます</p>
-                    <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-                        <a href="2-1_birth.html" id="lock-2-1" class="nav-button secondary"
-                            style="font-size:0.85rem;">2-1 生成AIの誕生まで</a>
-                        <a href="2-2_chatgpt.html" id="lock-2-2" class="nav-button secondary"
-                            style="font-size:0.85rem;">2-2 ChatGPTの進化</a>
-                        <a href="2-3_others.html" id="lock-2-3" class="nav-button secondary"
-                            style="font-size:0.85rem;">2-3 その他の主要AI</a>
-                    </div>
-                </div>
-
-                <div id="unlock-content" style="display:none;">
-                    <p>準備はいいですか？全問正解を目指して頑張りましょう！</p>
+                <div id="unlock-content">
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">準備はいいですか？全問正解を目指して頑張りましょう！</p>
                     <button id="start-btn" class="nav-button"
                         style="font-size: 1.2rem; padding: 1rem 2rem;">試験を開始する</button>
                 </div>
@@ -243,59 +229,18 @@
         </div>
     </div>
 
+    <script src="../shared/js/data/chapter2-exam-data.js"></script>
     <script>
-        // 全18問のデータ（テキスト準拠 ○×形式）から15問をランダムに出題
-        const allQuestions = [
-            // 2-1
-            { q: "オートリグレッシブ（自己回帰）モデルは、過去に生成したデータを使って「次に来る確率が高いデータ」を予測しながら、順番にデータを生成していく技術である。", a: true, exp: "正しい。オートリグレッシブ（自己回帰）モデルは、これまで出力した内容を踏まえて「次に来る確率が最も高い言葉」を予測しながら順番に文章を作る技術で、言語モデルの基礎となっています。" },
-            { q: "VAE（変分オートエンコーダ）において、データを圧縮して潜在ベクトルに変換する役割を担うのは「デコーダー」である。", a: false, exp: "間違い。データを圧縮して潜在ベクトルに変換するのは「エンコーダー」です。「デコーダー」は潜在ベクトルからデータを復元・生成する役割を担います。" },
-            { q: "GAN（敵対的生成ネットワーク）は、生成器（Generator）と識別器（Discriminator）が競い合うことで、より精度の高いデータを生成できるようになる。", a: true, exp: "正しい。GANは生成器（偽データを作る）と識別器（本物と偽物を見分ける）が対立・競争することで、互いを強化し合い、最終的に本物と見分けがつかないほど精度の高い生成データを作れるようになります。" },
-            { q: "RNN（再帰型ニューラルネットワーク）は、動画・音声などの時系列データの処理に適しており、長い文章でも過去の情報を完全に記憶し続けることができる。", a: false, exp: "間違い。RNNは時系列データの処理に適していますが、長い文章では過去の情報が消える「勾配消失問題」があります。この問題を改良したのがLSTMです。" },
-            { q: "LSTM（長短期記憶）は、RNNの勾配消失問題を解決するために開発され、並列処理が得意であるためTransformerよりも高速に学習できる。", a: false, exp: "間違い。LSTMは勾配消失問題を改善しましたが、並列処理が得意ではありません。Transformerと比べて学習が遅い点が弱点です。" },
-            { q: "Transformer（トランスフォーマー）は、Self-Attention（自己注意機構）を用いて文章の全単語を同時に処理することができ、処理順序に依存しない。", a: true, exp: "正しい。TransformerはSelf-Attention機構によって、文章の全単語を同時・並列に処理できます。RNN・LSTMのように順番に処理する必要がなく、処理順序に依存しないため高速な学習が可能です。" },
-            { q: "BERTはGoogle（2018年）が開発し、ALBERTはリソースが限られた環境でも動作できるBERTの軽量版モデルである。", a: true, exp: "正しい。BERTは2018年10月にGoogleが開発した双方向の文脈理解モデルです。ALBERTはGoogleが開発したBERTの軽量版で、パラメータ数を減らして効率化しており、スマートフォンなどリソースが制限された環境でも動作できます。" },
-
-            // 2-2
-            { q: "GPT-2は性能の大幅な向上に伴い、悪用リスクを懸念して当初は公開が制限されていた。", a: true, exp: "正しい。GPT-2（2019年）は文章生成能力が高く、フェイクニュースや偽情報への悪用が懸念されたため、OpenAIは当初モデルの完全公開を制限しました。段階的なリリース後、最終的に全公開されました。" },
-            { q: "ハルシネーション（Hallucination）とは、AIが正確な情報を提供できず、出力を拒否したり沈黙したりする現象のことを指す。", a: false, exp: "間違い。ハルシネーションとはAIが誤情報を自信満々に生成する現象です。「拒否・沈黙」ではなく「もっともらしい嘘をつく」のがハルシネーションの特徴です。" },
-            { q: "Code Interpreter（コードインタープリター）は、ChatGPT上でPythonコードを実行してデータ分析やファイル処理を行える機能である。", a: true, exp: "正しい。Code Interpreter（現在のAdvanced Data Analysis）はChatGPT上でPythonコードを実行できる機能で、データ分析・グラフ作成・ファイル変換などが可能になりました。" },
-            { q: "GPT-4oの「o」は「Open（オープン）」の略であり、オープンソースで公開されたモデルであることを意味する。", a: false, exp: "間違い。GPT-4oの「o」は「Omni（オムニ）」の略で、テキスト・画像・音声を一体処理するマルチモーダルモデルを意味します。" },
-            { q: "GPT-o1（推論モデル）は、速度を最優先した設計で、従来のGPT-4oよりも高速に回答することが最大の特徴である。", a: false, exp: "間違い。GPT-o1は「速度」ではなく「推論の正確さ」を優先したモデルです。Chain of Thought技術で複雑な問題をじっくり考えて解くため、回答速度はGPT-4oより遅いこともあります。" },
-            { q: "Operatorは、OpenAIが提供するWebブラウザ上の操作（クリック・入力・フォーム送信）をAIが自律的に実行できるエージェント機能である。", a: true, exp: "正しい。OperatorはOpenAIが提供するAIエージェント機能で、Webブラウザ上でのクリック・テキスト入力・フォーム送信などの操作を自律的に実行できます。ユーザーの代わりにWebタスクをまるごと実行できます。" },
-
-            { q: "ファウンデーションモデル（基盤モデル）とは、文章・画像・翻訳など多様なタスクに応用できる汎用的なAIの土台となるモデルであり、そのうち言語に特化したものを大規模言語モデル（LLM）と呼ぶ。", a: true, exp: "正しい。ファウンデーションモデルは様々なタスクに応用できる土台のような巨大モデルで、その中でもテキスト・言語領域に特化して発達したものが大規模言語モデル（LLM）です。" },
-
-            // 2-3
-            { q: "Claudeの設計思想「Constitutional AI（憲法AI）」は、Helpful（役に立つ）・Harmless（害を与えない）・Honest（正直）の3原則に基づいて回答する。", a: true, exp: "正しい。AnthropicのConstitutional AI（憲法AI）の設計原則は「Helpful（役に立つ）」「Harmless（害を与えない）」「Honest（正直）」の3Hです。この原則に基づいて回答を生成することで、安全で誠実なAIを実現しています。" },
-            { q: "ClaudeのArtifacts機能は、コード・文書などをサイドウィンドウで表示・編集できる機能で、チャット画面を保ちながら成果物を確認・修正できる。", a: true, exp: "正しい。Artifactsはコード・文書・デザインなどをサイドウィンドウで表示・編集できる機能です。チャット画面を汚さずに成果物をその場で確認・修正できます。" },
-            { q: "Claudeのモデルラインナップにおいて、Opus（オーパス）は最高性能・高度な推論機能を持つモデルで、Haiku（ハイク）は高速・低コストのモデルである。", a: true, exp: "正しい。Claudeのモデルラインナップは Haiku（高速・低コスト）、Sonnet（バランス型）、Opus（最高性能・高度な推論）の3種類で構成されています。この説明は正しいです。" },
-            { q: "Geminiはテキスト生成に特化したモデルであり、画像・音声・動画の処理は別途のツールが必要である。", a: false, exp: "間違い。GeminiはGoogleのネイティブマルチモーダルAIで、テキスト・画像・音声・動画・コードを一体処理できます。テキスト専用ではありません。" },
-            { q: "Microsoft CopilotのRecall（リコール）機能は、PC上の作業内容を記録・保存し、AIが後から全文検索できる機能で、オフラインで動作する。", a: true, exp: "正しい。RecallはPC上の作業内容（Webサイト・文書・メール等）を記録・保存し、AIが後から全文検索できる機能です。オフラインで動作するのが特徴で、プライバシーを重視した設計です。" },
-            { q: "Soraはテキストや画像から最長60秒の高品質な動画を生成できるOpenAIの動画生成AIであり、MidjourneyやDALL-E 3は画像生成に特化したAIである。", a: true, exp: "正しい。SoraはOpenAIの高性能な動画生成AIで、物理法則に則ったようなリアルで破綻の少ない動画を生成できます。MidjourneyやDALL-E 3はプロンプトから画像を生成する代表的なAIです。" }
-        ];
-
+            // 外部ファイル（chapter2-exam-data.js）から全問題データを取得
+            const allQuestions = window.examQuestionData ? window.examQuestionData.chapter2 : [];
+        
         let questions = [];
         let currentQuestionIndex = 0;
         let score = 0;
-        let userAnswers = [];
-        const EXAM_QUESTION_COUNT = 15; // 18問中から15問出題
+            let userAnswers = [];
 
-        // ロック状態チェック
-        function checkLock() {
-            const s1 = localStorage.getItem('chapter2_section2-1_completed') === 'true';
-            const s2 = localStorage.getItem('chapter2_section2-2_completed') === 'true';
-            const s3 = localStorage.getItem('chapter2_section2-3_completed') === 'true';
-
-            if (s1 && s2 && s3) {
-                document.getElementById('unlock-content').style.display = 'block';
-            } else {
-                document.getElementById('lock-message').style.display = 'block';
-                // 完了済みのものはボタンを緑色に
-                if (s1) { const b = document.getElementById('lock-2-1'); if (b) { b.style.background = '#10b981'; b.style.color = 'white'; b.textContent = '✅ 2-1 完了'; } }
-                if (s2) { const b = document.getElementById('lock-2-2'); if (b) { b.style.background = '#10b981'; b.style.color = 'white'; b.textContent = '✅ 2-2 完了'; } }
-                if (s3) { const b = document.getElementById('lock-2-3'); if (b) { b.style.background = '#10b981'; b.style.color = 'white'; b.textContent = '✅ 2-3 完了'; } }
-            }
-        }
+            // 出題プールから指定の問題数（ここでは15問）を出題
+            const EXAM_QUESTION_COUNT = Math.min(15, allQuestions.length);
 
         // シャッフル関数
         function shuffle(array) {
@@ -323,7 +268,6 @@
                 document.getElementById('best-score').textContent = bestScore;
             }
 
-            checkLock();
             document.getElementById('start-btn').addEventListener('click', startExam);
             document.getElementById('next-btn').addEventListener('click', nextQuestion);
         });

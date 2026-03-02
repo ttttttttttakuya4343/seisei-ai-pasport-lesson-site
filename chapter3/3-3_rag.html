@@ -194,34 +194,34 @@
                         <div class="highlight">
                             <p>AIに専門知識を持たせる代表的な2つのアプローチの違いを理解することは重要です。</p>
                 </div>
-                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <table class="lesson-table">
                     <thead>
                         <tr style="background-color: #f8f9fa;">
-                            <th style="padding: 10px; border: 1px solid #ddd;">比較項目</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">RAG（検索拡張生成）</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">ファインチューニング（追加学習）</th>
+                            <th>比較項目</th>
+                            <th>RAG（検索拡張生成）</th>
+                            <th>ファインチューニング（追加学習）</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">AIモデル自体</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">変化しない（そのまま利用）</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">変化する（パラメータが更新される）</td>
+                            <td>AIモデル自体</td>
+                            <td>変化しない（そのまま利用）</td>
+                            <td>変化する（パラメータが更新される）</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">情報の更新しやすさ</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">◎ 容易（DBを書き換えるだけ）</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">△ 困難（再学習が必要）</td>
+                            <td>情報の更新しやすさ</td>
+                            <td>◎ 容易（DBを書き換えるだけ）</td>
+                            <td>△ 困難（再学習が必要）</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">導入コスト</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">比較的低い（手軽）</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">高い（計算資源が必要）</td>
+                            <td>導入コスト</td>
+                            <td>比較的低い（手軽）</td>
+                            <td>高い（計算資源が必要）</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">主な用途</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">最新情報の検索、社内文書解析</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">特定の入力/出力スタイルの固定化、高度な専門タスク</td>
+                            <td>主な用途</td>
+                            <td>最新情報の検索、社内文書解析</td>
+                            <td>特定の入力/出力スタイルの固定化、高度な専門タスク</td>
                         </tr>
                     </tbody>
                 </table>
@@ -395,78 +395,11 @@
     <footer>
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
-    <script>
-                function selectAnswer(e, isCorrect, explanation) {
-                    const options = e.parentElement.children;
-                    const feedback = e.parentElement.nextElementSibling;
-                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
-                    if (isCorrect) {
-                        e.classList.add("correct");
-                        feedback.className = "quiz-feedback correct";
-                        feedback.innerHTML = "✅ 正解です!";
-                    } else {
-                        e.classList.add("incorrect");
-                        feedback.className = "quiz-feedback incorrect";
-                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
-                    }
-                    if (explanation) {
-                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
-                    }
-                    feedback.style.display = "block";
-                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
-                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
-                    if (typeof showSaboMessage === "function") {
-                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
-                    }
-                }
 
-        function completeSection(sectionId) {
-            const chapter = "chapter3";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            const isCompleted = localStorage.getItem(storageKey) === "true";
-
-            if (isCompleted) {
-                // 完了を取り消す
-                localStorage.removeItem(storageKey);
-                button.textContent = "✅ このセクションを完了する";
-                button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonReset", 3000);
-                }
-            } else {
-                // 完了にする
-                localStorage.setItem(storageKey, "true");
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonComplete", 4000);
-                }
-                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
-                setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") {
-                        window.location.href = "index.html";
-                    }
-                }, 3000);
-            }
-        }
-
-        // ページ読み込み時の状態復元
-        window.addEventListener("load", () => {
-            const sectionId = "3-3";
-            const chapter = "chapter3";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-
-            if (localStorage.getItem(storageKey) === "true") {
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-            }
-        });
-    </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
-    <script src="../shared/js/core/visual-effects.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 </body>
 

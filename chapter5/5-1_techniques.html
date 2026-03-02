@@ -57,30 +57,30 @@
                 <h3>プロンプトの基本構造</h3>
                 <p>効果的なプロンプトは、以下の<strong>5つの要素</strong>を組み合わせて構成されます。</p>
 
-                <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
-                    <tr style="background: #3b82f6; color: white;">
-                        <th style="padding: 1rem; border: 1px solid #ddd; width: 30%;">要素</th>
-                        <th style="padding: 1rem; border: 1px solid #ddd;">説明</th>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>1. 役割（ペルソナ）</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">AIに担当してほしい専門家の役割を指定</td>
+                <table class="lesson-table">
+                    <tr>
+                        <th>要素</th>
+                        <th>説明</th>
                     </tr>
                     <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>2. コンテキスト（背景情報）</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">対象となる文章や状況の説明</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>3. タスク（具体的な指示）</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">AIに実行してほしい具体的な作業</td>
+                        <td><strong>1. 役割（ペルソナ）</strong></td>
+                        <td>AIに担当してほしい専門家の役割を指定</td>
                     </tr>
                     <tr>
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>4. 制約条件</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">守ってほしいルールや制限</td>
+                        <td><strong>2. コンテキスト（背景情報）</strong></td>
+                        <td>対象となる文章や状況の説明</td>
                     </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 1rem; border: 1px solid #ddd;"><strong>5. 出力形式</strong></td>
-                        <td style="padding: 1rem; border: 1px solid #ddd;">回答のフォーマットや構造の指定</td>
+                    <tr>
+                        <td><strong>3. タスク（具体的な指示）</strong></td>
+                        <td>AIに実行してほしい具体的な作業</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. 制約条件</strong></td>
+                        <td>守ってほしいルールや制限</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. 出力形式</strong></td>
+                        <td>回答のフォーマットや構造の指定</td>
                     </tr>
                 </table>
 
@@ -313,36 +313,36 @@ Zero-Shot    Few-Shot    Chain of Thought
                 </div>
 
                 <h3>実践的な使い分け例</h3>
-                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
-                    <tr style="background: var(--primary-color); color: white;">
-                        <th style="padding: 0.5rem; border: 1px solid #ddd;">タスク</th>
-                        <th style="padding: 0.5rem; border: 1px solid #ddd;">推奨手法</th>
-                        <th style="padding: 0.5rem; border: 1px solid #ddd;">理由</th>
+                <table class="lesson-table">
+                    <tr>
+                        <th>タスク</th>
+                        <th>推奨手法</th>
+                        <th>理由</th>
                     </tr>
                     <tr>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">英語→日本語翻訳</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Zero-Shot</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">シンプルで十分</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">キャッチコピー作成</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Few-Shot</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">スタイル統一が重要</td>
+                        <td>英語→日本語翻訳</td>
+                        <td>Zero-Shot</td>
+                        <td>シンプルで十分</td>
                     </tr>
                     <tr>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">ビジネス戦略分析</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Chain of Thought</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">段階的思考が必要</td>
-                    </tr>
-                    <tr style="background: #f9f9f9;">
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">文章要約</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Zero-Shot</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">指示だけで十分</td>
+                        <td>キャッチコピー作成</td>
+                        <td>Few-Shot</td>
+                        <td>スタイル統一が重要</td>
                     </tr>
                     <tr>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">JSON形式での出力</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Few-Shot</td>
-                        <td style="padding: 0.5rem; border: 1px solid #ddd;">フォーマット例が必要</td>
+                        <td>ビジネス戦略分析</td>
+                        <td>Chain of Thought</td>
+                        <td>段階的思考が必要</td>
+                    </tr>
+                    <tr>
+                        <td>文章要約</td>
+                        <td>Zero-Shot</td>
+                        <td>指示だけで十分</td>
+                    </tr>
+                    <tr>
+                        <td>JSON形式での出力</td>
+                        <td>Few-Shot</td>
+                        <td>フォーマット例が必要</td>
                     </tr>
                 </table>
             </div>
@@ -515,56 +515,11 @@ Zero-Shot    Few-Shot    Chain of Thought
     <footer>
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
-    <script>
-        function selectAnswer(e, i, explanation) { const o = e.parentElement.children, t = e.parentElement.nextElementSibling; for (let e of o) e.classList.remove("correct", "incorrect"); i ? (e.classList.add("correct"), t.className = "quiz-feedback correct", t.textContent = explanation || "✅ 正解です!") : (e.classList.add("incorrect"), t.className = "quiz-feedback incorrect", t.textContent = explanation || "❌ 不正解です。もう一度考えてみましょう。"), t.style.display = "block", "function" == typeof selectRandomCharacter && isRandomMode && selectRandomCharacter(), i && "function" == typeof playCharacterEffect && void 0 !== currentCharacter && playCharacterEffect(currentCharacter, e), "function" == typeof showSaboMessage && setTimeout(() => { showSaboMessage(i ? "correct" : "incorrect", 5e3) }, 500) }
 
-        function completeSection(sectionId) {
-            const chapter = "chapter5";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            const isCompleted = localStorage.getItem(storageKey) === "true";
-
-            if (isCompleted) {
-                // 完了を取り消す
-                localStorage.removeItem(storageKey);
-                button.textContent = "✅ このセクションを完了する";
-                button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonReset", 3000);
-                }
-            } else {
-                // 完了にする
-                localStorage.setItem(storageKey, "true");
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonComplete", 4000);
-                }
-                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
-                setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") {
-                        window.location.href = "index.html";
-                    }
-                }, 3000);
-            }
-        }
-
-        // ページ読み込み時の状態復元
-        window.addEventListener("load", () => {
-            const sectionId = "5-1";
-            const chapter = "chapter5";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-
-            if (localStorage.getItem(storageKey) === "true") {
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-            }
-        });
-    </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
-    <script src="../shared/js/core/visual-effects.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 </body>
 

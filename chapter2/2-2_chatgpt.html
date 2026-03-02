@@ -41,80 +41,74 @@
             <!-- セクション1: LLMとファウンデーションモデル -->
             <div class="section">
                 <h2>📚 1. 大規模言語モデル（LLM）とファウンデーションモデル</h2>
-                <div class="highlight">
-                    <p><strong>ファウンデーションモデル（基盤モデル）</strong></p>
-                    <p>膨大な量のデータを使って事前に学習され、文章生成、画像生成、翻訳など<strong>多様なタスクに応用できる汎用的なAIの土台</strong>となるモデルです。</p>
-                </div>
-                
-                <div class="highlight">
-                    <p><strong>大規模言語モデル（LLM: Large Language Model）</strong></p>
-                    <p>ファウンデーションモデルの中でも、特に<strong>「言語」に特化して大量のテキストデータを学習</strong>したモデルです。ChatGPTの基盤技術です。</p>
-                </div>
-                </div>
-
-            <!-- セクション2: GPTの進化年表 -->
-            <div class="section">
-                <h2>📅 2. GPTシリーズの進化年表</h2>
-                <p>OpenAIが開発したGPTシリーズは、わずか6年で爆発的な進化を遂げました。</p>
-                <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem;">
-                    <tr style="background: #3b82f6; color: white;">
-                        <th style="padding: 0.8rem; border: 1px solid #ddd;">モデル</th>
-                        <th style="padding: 0.8rem; border: 1px solid #ddd;">時期</th>
-                        <th style="padding: 0.8rem; border: 1px solid #ddd;">主な特徴</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-1</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2018年6月</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">自然なテキスト生成。文脈記憶は基本的</td>
-                    </tr>
-                    <tr style="background: #f8fafc;">
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-2</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2019年</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">性能大幅向上。悪用リスクから当初リリース制限</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-3</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2020年</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>1750億パラメータ</strong>の超大規模モデル</td>
-                    </tr>
-                    <tr style="background: #f8fafc;">
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-3.5</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2022年</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">最初のChatGPTの基盤。RLHF（人間フィードバック）で調整</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-4</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2023年3月</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">多言語精度の飛躍的向上。ハルシネーション19〜29%削減</td>
-                    </tr>
-                    <tr style="background: #f8fafc;">
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>Code Interpreter</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2023年</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">ChatGPT上でPythonコードの実行・データ分析が可能に</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-4o</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2024年5月</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">
-                            「Omni」モデル。テキスト・画像・音声を<strong>ネイティブに同時処理</strong>。平均応答時間320ms</td>
-                    </tr>
-                    <tr style="background: #f8fafc;">
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;"><strong>GPT-o1 / o3</strong></td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">2024年〜</td>
-                        <td style="padding: 0.8rem; border: 1px solid #ddd;">「推論モデル」。数学・コーディングなど複雑な論理思考に特化</td>
-                    </tr>
-                </table>
-
-                <div class="highlight">
-                    <p><strong>ハルシネーション（Hallucination：もっともらしい嘘）とは？</strong></p>
-                    <p>AIが事実とは異なる誤った情報を、あたかも真実であるかのように生成してしまう現象です。AIは意味を完璧に理解しているわけではなく、<strong>「確率的に次に来やすい単語」を繋ぎ合わせているだけ</strong>であるため、時折このような「知ったかぶり」をしてしまいます。
+                <div class="term-explanation">
+                    <p>ChatGPTなどの基盤となっている技術は「<strong>大規模言語モデル（LLM）</strong>」と呼ばれます。LLMは、インターネット上の膨大なテキストデータを学習し、言語のパターンや知識を獲得した巨大なAIモデルです。
                     </p>
                 </div>
 
                 <div class="highlight">
-                    <p><strong>❗ 試験でのひっかけポイント</strong></p>
-                    <p>GPT-4o の「o」は「<strong>Omni（オムニ）</strong>」の略。「Open」でも「Original」でもない！<br>
-                        また、GPT-4はGPT-3.5に比べハルシネーション（嘘の情報）が<strong>19〜29%削減</strong>された。</p>
+                    <p><strong>ファウンデーションモデル（基盤モデル）</strong></p>
+                    <p>LLMのように、多様なタスクに応用できる強力なAIの土台となるモデルのことを指します。「ファウンデーション」は「基礎」や「土台」という意味です。LLMは言語特化のファウンデーションモデルの代表例です。</p>
+                </div>
+            </div>
+
+            <!-- セクション2: ChatGPTの歴史と進化 -->
+            <div class="section">
+                <h2>📅 2. ChatGPTの歴史と進化</h2>
+                <p>ChatGPTの開発元である「OpenAI社」は、非営利組織としてスタートしました。彼らが開発したAIモデル「GPT（Generative Pre-trained Transformer）」シリーズの進化の歴史を見てみましょう。
+                </p>
+                <table class="lesson-table">
+                    <tr>
+                        <th>発表年</th>
+                        <th>モデル名</th>
+                        <th>主な特徴</th>
+                    </tr>
+                    <tr>
+                        <td>2018年</td>
+                        <td><strong>GPT-1</strong></td>
+                        <td>最初のモデル。自然な文章の生成が可能になった。</td>
+                    </tr>
+                    <tr>
+                        <td>2019年</td>
+                        <td><strong>GPT-2</strong></td>
+                        <td>性能が大幅に向上。（フェイクニュースなどの）悪用リスクから、当初は完全公開が見送られた。</td>
+                    </tr>
+                    <tr>
+                        <td>2020年</td>
+                        <td><strong>GPT-3</strong></td>
+                        <td>超大規模モデル（<strong>1,750億パラメータ</strong>）へと進化し、人間レベルの文章を書けるようになった。</td>
+                    </tr>
+                    <tr>
+                        <td>2022年<br><span style="font-size: 0.8em; color: #666;">（1月）</span></td>
+                        <td><strong>InstructGPT</strong></td>
+                        <td>GPT-3の「攻撃的な暴言や嘘を吐く」問題点を解決すべく、<strong>RLHF（人間のフィードバックによる強化学習）</strong>を初めて本格採用したモデル。</td>
+                    </tr>
+                    <tr>
+                        <td>2022年<br><span style="font-size: 0.8em; color: #666;">（11月）</span></td>
+                        <td><strong>GPT-3.5</strong></td>
+                        <td>InstructGPTのRLHFの仕組みを引き継ぎ、対話向けに調整された爆発的ブームの火付け役。「<strong>ChatGPT</strong>」として一般公開。</td>
+                    </tr>
+                    <tr>
+                        <td>2023年</td>
+                        <td><strong>GPT-4</strong></td>
+                        <td>
+                            ハルシネーション（もっともらしい嘘）が<strong>19％〜29％減少</strong>。<br>
+                            「<strong>Code
+                                Interpreter（コード・インタープリター）</strong>」という機能により、ChatGPT上でPythonのコードを実行し、データ分析やファイル処理が可能になった。（現在は「Advanced
+                            Data Analysis」に名称変更されています）
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2024年</td>
+                        <td><strong>GPT-4o（オムニ）</strong></td>
+                        <td>「o」は「<strong>Omni（オムニ＝すべて、全方位）</strong>」の略。<br>テキスト・音声・画像を一体として同時に処理できる「<b>ネイティブ・マルチモーダル</b>」へと進化した。</td>
+                    </tr>
+                </table>
+
+                <div class="merit-demerit-box demerit">
+                    <div class="box-title">⚠️ ハルシネーション（Hallucination）とは？</div>
+                    <p>AIが事実とは異なる誤った情報を、あたかも真実であるかのように生成してしまう現象のことです。AIは「意味を理解して話している」わけではなく「確率的にもっともらしい単語を繋ぎ合わせているだけ」であるため、このような現象が起きます。
+                    </p>
                 </div>
             </div>
 
@@ -122,140 +116,158 @@
             <div class="section">
                 <h2>🧠 3. RLHF（人間のフィードバックによる強化学習）</h2>
 
-                <div class="highlight">
-                    <p><strong>RLHF（Reinforcement Learning from Human Feedback）</strong></p>
-                    <p>AIの回答に対して人間が「良い／悪い」と評価し、その評価を学習に活かすことで、より自然で安全な回答ができるようにチューニングする手法。ChatGPT（GPT-3.5）の開発で初めて大規模に使われた。</p>
-                    </div>
-                    </div>
+                <div class="definition-box">
+                    <div class="box-title">RLHF (Reinforcement Learning from Human Feedback)</div>
+                    <p>ChatGPT（GPT-3.5）が画期的だったのは、単に大量の文章を学習しただけでなく、<strong>「RLHF（人間のフィードバックによる強化学習）」</strong>という手法を取り入れた点でした。</p>
+                    <p>AIの回答に対して人間が「良い／悪い」と評価し、その評価を学習に活かすことで、<strong>より人間に心地よい、自然で安全な回答ができるようにチューニング</strong>する手法です。</p>
+                </div>
+                </div>
 
-            <!-- セクション4: GPT-4oの詳細 -->
+            <!-- セクション4: 最先端の技術・各種モデル -->
             <div class="section">
-                <h2>🌟 4. GPT-4o（オムニ）の革新</h2>
+                <h2>🚀 4. 最先端の機能・各種モデルの展開</h2>
 
+                <h3>🌐 o1・o3（推論モデル）</h3>
+                <p>2024年以降に登場した<strong>「推論モデル」</strong>と呼ばれる新系統です。「速く答える」よりも「じっくり考えてから答える」ことを優先したモデル群です。</p>
                 <div class="highlight">
-                    <p><strong>「ネイティブマルチモーダル」とは？</strong></p>
-                    <p>従来のモデルはテキスト・画像・音声をそれぞれ別々に処理して組み合わせていた。GPT-4oは<strong>最初から一体として処理</strong>できる「ネイティブマルチモーダル」。これにより、より深い理解と自然な応答が可能になった。
+                    <p><strong>Chain of Thought（思考の連鎖）技術</strong>を使い、数学の証明やアルゴリズム設計、複雑なコードのプログラミングなどに特化しています。「o1」はその初代で、「o3」はその進化版です。</p>
+                    <hr style="margin: 10px 0; border:none; border-top: 1px dotted #ccc;">
+                    <p>💡 <strong>o1とo3の最大の違い</strong><br>
+                        o3は初代のo1よりも<strong>「さらに長く、深く熟考させる」</strong>ように設計されています。これにより、複数ファイルにまたがる複雑なプログラミング設計など、より長時間で難解な課題においても、思考のブレを抑えて高い正答率を出すことができます。
                     </p>
                 </div>
 
-                <div class="highlight">
-                    <p><strong>GPT-4oの画像生成の特徴（自己回帰方式）</strong></p>
-                    <p>Stable Diffusionなどが使う「拡散モデル」とは異なり、ChatGPTの新しい画像生成は<strong>自己回帰方式</strong>（左上から右下へプリンターのように描く）。これにより：</p>
-                    <ul>
-                        <li>画像内の<strong>文字の再現精度が高い</strong>（「SALE」などの文字がつぶれない）</li>
-                        <li><strong>複雑なレイアウト</strong>を安定して描ける</li>
-                    </ul>
-                </div>
-            </div>
+                <h3>⚙️ GPT-4.1 と GPT-5</h3>
+                <table class="lesson-table">
+                    <tr>
+                        <th style="width:25%">モデル名</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr>
+                        <td><strong>GPT-4.1</strong><br>（2025年4月）</td>
+                        <td>プログラム開発の仕事などに役立つようパワーアップした改良版。非常に長い文章やコードを一度に扱うことができる。標準版、mini（軽くて速い）、nano（リアルタイム向け）の3サイズがある。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GPT-5</strong><br>（2025年）</td>
+                        <td>推論力とスピードが大幅に進化した最新モデル。博士レベルの難問にも対応。特に「GPT-5 Thinking」では従来より深い思考を取り入れ、誤情報が大幅に減っている。通常版、Thinking、Proの3種類がある。
+                        </td>
+                    </tr>
+                </table>
 
-            <!-- セクション5: 推論モデル・Operator・Codex -->
-            <div class="section">
-                <h2>🔬 5. 推論モデル（o1/o3）・Operator・Codex</h2>
-
-                <div class="highlight">
-                    <p><strong>推論モデル（o1・o3）</strong></p>
-                    <p>「速く答える」より「じっくり考えてから答える」ことを優先した新世代モデル。<strong>Chain of Thought（思考の連鎖）</strong>技術により、数学の証明・アルゴリズム設計・複雑なコードなどに強い。
+                <h3>🎬 Sora（ソラ）</h3>
+                <div class="info-box">
+                    <p>2024年に登場した<strong>動画生成AI</strong>です。<br>文章や画像を入力すると、自動で動画を生成（公表当時はフルHD＝1080p、最長20秒）することができ、映像制作や教育分野で注目を集めています。<br>
+                        <span style="font-size: 0.9em; color: #555;">💡
+                            <strong>補足：Soraの基盤モデル</strong><br>Soraのアーキテクチャには、画像生成で主流の「<strong>拡散モデル（Diffusion
+                                Model）</strong>」と、言語処理で強力な「<strong>Transformer</strong>」を組み合わせた「Diffusion
+                            Transformer（DiT）」という技術が使われています。</span>
                     </p>
-                    <ul>
-                        <li><strong>o1</strong>：複雑な論理・数学・コーディングに特化</li>
-                        <li><strong>o3</strong>：o1をさらに進化させたモデル（o3-mini / o3-pro など）</li>
-                    </ul>
                 </div>
 
+                <h3>🤖 Operator と Codex</h3>
                 <div class="highlight">
-                    <p><strong>Operator（オペレーター）</strong></p>
-                    <p>Webブラウザ上の操作（クリック・入力・フォーム送信）をAIが<strong>自律的に行う</strong>エージェント機能。一つ一つ指示しなくても、タスクをまるごと任せられる。</p>
+                    <p><strong>Operator（オペレーター）</strong><br>
+                        2025年に公開。WEB操作を代わりにやってくれるAIエージェントです。画面を解析しながらクリックや入力を自ら行い、ネットでの買い物や予約まで自動で実行します。</p>
+                    <hr style="margin: 10px 0; border:none; border-top: 1px dotted #ccc;">
+                    <p><strong>Codex（コーデックス）</strong><br>
+                        2025年5月に公開。プログラム開発を助けるAIです。プログラムのバグを直したり、新機能を加えたりする作業を代行し、結果をまとめてくれます。</p>
                 </div>
 
-                <div class="highlight">
-                    <p><strong>Codex（コーデックス）</strong></p>
-                    <p>ソフトウェア開発専用のAIエージェント。バグ修正・機能実装・テスト実行を<strong>自動で処理</strong>する。人間のエンジニアと並行して作業できる。</p>
+                <h3>🖼️ Image Generation（イメージ・ジェネレーション）</h3>
+                <div class="definition-box">
+                    <p>2025年3月に公開された画像生成の新しいAIです。具体的には、絵を一気に完成させるのではなく、左上から右下へと少しずつ描いていく<strong>「自己回帰方式」</strong>を用いています。<br>これにより、<strong>文字の入った画像</strong>や<strong>複雑なレイアウトのイラスト</strong>をきれいに作ることに優れています。
+                    </p>
                 </div>
             </div>
 
+            <!-- 確認問題 -->
             <!-- 確認問題 -->
             <div class="quiz">
                 <h3>✅ 確認問題（○×形式）</h3>
 
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> GPT-2は性能の大幅な向上に伴い、悪用リスクを懸念して当初は公開が制限されていた。</p>
+                    <p><strong>問題1:</strong> GPT-4oは、単一モデルでテキスト・画像・音声などの入出力を統合的に扱うことのできるオムニモーダルモデルである。</p>
                     <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：GPT-2（2019年）は文章生成能力が高く、フェイクニュースや偽情報への悪用が懸念されたため、OpenAIは当初モデルの完全公開を制限しました。段階的なリリース後、最終的に全公開されました。')">
-                            ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：GPT-2は実際に悪用リスクを懸念して当初公開が制限されていました。この説明は正しいです。')">×（誤り）</li>
+                        <li onclick="selectAnswer(this, true, '✅ 正解！ 解説：GPT-4o（オムニ）は、テキスト、画像、音声をまとめて扱うことのできる「オムニモーダルモデル」です。')">○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解！ 解説：GPT-4oは文章だけでなく、画像や音声も同時に扱えるモデルです。もう一度テキストを確認してみましょう。')">×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> ハルシネーション（Hallucination）とは、AIが正確な情報を提供できず、出力を拒否したり沈黙したりする現象のことを指す。</p>
+                    <p><strong>問題2:</strong> 自律型AIエージェントは、作業手順が明確で、その変更の頻度も低いタスクに向いている。</p>
                     <ul class="quiz-options">
+                        <li onclick="selectAnswer(this, false, '❌ 不正解！ 解説：自律型のAIエージェントは、最終目標だけ指示すれば自らタスクを分解して実行するため、状況が流動的で複雑なタスクに向いています。')">
+                            ○（正しい）
+                        </li>
                         <li
-                            onclick="selectAnswer(this, false, '❌ 解説：ハルシネーションとは、AIが誤った情報を事実のように自信満々に生成してしまう現象です。拒否・沈黙とは逆に、あたかも正しいかのように「嘘をつく」ことがハルシネーションです。')">
-                            ○（正しい）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：間違い。ハルシネーションとはAIが誤情報を自信満々に生成する現象です。「拒否・沈黙」ではなく「もっともらしい嘘をつく」のがハルシネーションの特徴です。')">
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：自律型のAIエージェントは、最終目標だけ指示すれば、自らタスクを分解して優先順位を決め、実行するタイプのものです。状況が流動的で複雑なタスクに向いています。なお、作業手順が明確で、その変更の頻度も低いタスクは、「ワークフロー型のAIエージェント」に適します。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> Code Interpreter（コードインタープリター）は、ChatGPT上でPythonコードを実行してデータ分析やファイル処理を行える機能である。</p>
+                    <p><strong>問題3:</strong> Soraは映像を生成する際、画像生成のImage Generationなどで使われる「自己回帰モデル」を基盤として構成されている。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Code Interpreter（現在のAdvanced Data Analysis）はChatGPT上でPythonコードを実行できる機能で、データ分析・グラフ作成・ファイル変換などが可能になりました。')">
+                            onclick="selectAnswer(this, false, '❌ 不正解！ 解説：Soraは「自己回帰モデル」ではなく、「拡散モデル（Diffusion Model）」の仕組みを用いています。正確には拡散モデルとTransformerを組み合わせた「Diffusion Transformer」というアーキテクチャが基盤です。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：Code InterpreterはChatGPT上でPythonコードを実行できる機能です。この説明は正しいです。')">×（誤り）</li>
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：Soraのアーキテクチャには「自己回帰モデル」ではなく、ノイズを除去して画像を生成する「拡散モデル（Diffusion Model）」の仕組みが使われています。')">
+                            ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>問題4:</strong> GPT-4oの「o」は「Open（オープン）」の略であり、オープンソースで公開されたモデルであることを意味する。</p>
+                    <p><strong>問題4:</strong> Operatorは、人間が書いたプログラムのバグを直したり、新機能を追加したりする作業を代行する「プログラム開発向け」のエージェントAIである。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, false, '❌ 解説：GPT-4oの「o」は「Omni（オムニ）」の略です。テキスト・画像・音声を一体として処理できるマルチモーダルモデルであることを示しています。「Open」でも「オープンソース」でもありません。')">
+                            onclick="selectAnswer(this, false, '❌ 不正解！ 解説：プログラム開発を助けるAIエージェントは「Codex」です。Operatorは、Webブラウザ上で買い物の予約やフォームへの入力などの「WEB操作」を代わりに行うAIエージェントです。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, true, '✅ 解説：間違い。GPT-4oの「o」は「Omni（オムニ）」の略で、テキスト・画像・音声を一体処理するマルチモーダルモデルを意味します。')">×（誤り）
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：プログラム開発を助けるAIは「Codex」です。Operatorは、画面を解析しながらクリックや入力を自ら行い、ネットでの買い物や予約など「Web上の操作」を代行するAIエージェントです。')">
+                            ×（誤り）</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> Soraは、文章や入力された画像をもとに、最大1080p（フルHD）の解像度で最長20秒の動画を生成することができる動画生成AIである。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：Soraの公表当時のスペックとして、最大1080p（フルHD）の解像度で最長20秒の高品質な動画を生成できることが大きな特徴となっています。')">
+                            ○（正しい）</li>
+                        <li onclick="selectAnswer(this, false, '❌ 不正解！ 解説：この説明は正しいです。Soraは最大1080pの解像度、最長20秒（公表当時）の動画を生成する能力を持っています。')">×（誤り）
                         </li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>問題5:</strong> GPT-o1（推論モデル）は、速度を最優先した設計で、従来のGPT-4oよりも高速に回答することが最大の特徴である。</p>
+                    <p><strong>問題6:</strong>
+                        ChatGPTの推論モデル（リーズニングモデル）において、次世代モデルである「GPT-o3」は、初代の「GPT-o1」と比べて「より長く、深く考える」ことで、複雑な課題への正答率や一貫性が向上している。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, false, '❌ 解説：GPT-o1は速度ではなく「推論（じっくり考える）」を優先したモデルです。Chain of Thought技術で複雑な数学・論理問題を解くために設計されており、GPT-4oより回答に時間がかかることもあります。')">
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：GPT-o3はGPT-o1をベースに「さらに長く、深く熟考させる」ように設計された進化版の推論モデルです。これにより、複数ファイルにまたがる複雑なコーディングなどの難問により強く、一貫した回答が出せるようになっています。')">
                             ○（正しい）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：間違い。GPT-o1は「速度」ではなく「推論の正確さ」を優先したモデルです。Chain of Thought技術で複雑な問題をじっくり考えて解くため、回答速度はGPT-4oより遅いこともあります。')">
+                        <li onclick="selectAnswer(this, false, '❌ 不正解！ 解説：GPT-o3はGPT-o1よりも長く、深く熟考するように設計されており、複雑なタスクで高い正答率を実現します。この説明は正しいです。')">
                             ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>問題6:</strong> Operatorは、OpenAIが提供するWebブラウザ上の操作（クリック・入力・フォーム送信）をAIが自律的に実行できるエージェント機能である。</p>
+                    <p><strong>問題7:</strong>
+                        GPT-3が抱えていた「攻撃的な内容や間違った情報を生成する問題」を解決するため、RLHF（人間のフィードバックによる強化学習）の仕組みを初めて本格的に採用して導入されたモデルは「InstructGPT」である。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：OperatorはOpenAIが提供するAIエージェント機能で、Webブラウザ上でのクリック・テキスト入力・フォーム送信などの操作を自律的に実行できます。ユーザーの代わりにWebタスクをまるごと実行できます。')">
+                            onclick="selectAnswer(this, true, '✅ 正解！ 解説：GPT-3の問題点を克服するため、RLHF（人間のフィードバックによる強化学習）を初めて本格的に採用してリリースされたモデルが「InstructGPT」です。この仕組みが後のGPT-3.5（ChatGPT）に引き継がれました。')">
                             ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：OperatorはOpenAIのWebブラウザ自律操作エージェント機能です。この説明は正しいです。')">×（誤り）</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> ファウンデーションモデル（基盤モデル）とは、文章・画像・翻訳など多様なタスクに応用できる汎用的なAIの土台となるモデルであり、そのうち言語に特化したものを大規模言語モデル（LLM）と呼ぶ。
-                    </p>
-                    <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：正解です。ファウンデーションモデルは様々なタスクに応用できる土台のような巨大モデルで、その中でもテキスト・言語領域に特化して発達したものが大規模言語モデル（LLM）です。')">
-                            ○（正しい）</li>
-                        <li onclick="selectAnswer(this, false, '❌ 解説：ファウンデーションモデル（基盤モデル）は汎用的なAIの土台であり、言語特化のものがLLMです。この説明は正しいです。')">×（誤り）</li>
+                            onclick="selectAnswer(this, false, '❌ 不正解！ 解説：この説明は正しいです。RLHFを初めて本格的に採用し、人間にとってより安全で適切な回答ができるように調整されたモデルが「InstructGPT」です。')">
+                            ×（誤り）</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
@@ -270,12 +282,15 @@
                         <li><strong>ハルシネーション：</strong> LLMが確率的にもっともらしい嘘をついてしまう現象</li>
                         <li><strong>GPT-2（2019年）：</strong> 悪用リスクから当初公開制限。段階的リリース</li>
                         <li><strong>GPT-3（2020年）：</strong> 1750億パラメータの超大規模モデル</li>
-                        <li><strong>GPT-3.5（2022年）：</strong> 初代ChatGPTの基盤。RLHFで調整</li>
+                        <li><strong>InstructGPT（2022年1月）：</strong> GPT-3の問題克服のため、RLHF（人間のフィードバックによる強化学習）を初採用</li>
+                        <li><strong>GPT-3.5（2022年11月）：</strong> 初代ChatGPTの基盤。InstructGPTのRLHFで調整</li>
                         <li><strong>GPT-4（2023年）：</strong> ハルシネーション19〜29%削減、多言語精度向上</li>
                         <li><strong>GPT-4o（2024年）：</strong> Omni＝テキスト・画像・音声をネイティブ同時処理</li>
-                        <li><strong>推論モデル（o1/o3）：</strong> Chain of Thoughtで数学・論理・コーディングに特化</li>
-                        <li><strong>Operator：</strong> Webブラウザの自律操作エージェント機能</li>
-                        <li><strong>Codex：</strong> ソフトウェア開発専用AIエージェント</li>
+                        <li><strong>推論モデル（o1/o3）：</strong> Chain of Thoughtで深く長く思考。数学・論理・コーディングの難問に特化</li>
+                        <li><strong>Sora（2024年）：</strong> Diffusion Transformerを基盤とし、最大1080p・最長20秒の高品質動画を生成</li>
+                        <li><strong>Operator：</strong> 画面を解析し、Webブラウザの操作（予約やフォーム入力）を代行するエージェント</li>
+                        <li><strong>Codex：</strong> プログラミングのバグ修正や機能追加など、ソフトウェア開発専用のAIエージェント</li>
+                        <li><strong>Image Generation：</strong> 自己回帰方式を用いて文字入り画像や複雑なレイアウトを描き出す画像生成モデル</li>
                     </ul>
                 </div>
             </div>
@@ -294,64 +309,11 @@
     <footer>
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
-    <script>
-                function selectAnswer(e, isCorrect, explanation) {
-                    const options = e.parentElement.children;
-                    const feedback = e.parentElement.nextElementSibling;
-                    for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
-                    if (isCorrect) {
-                        e.classList.add("correct");
-                        feedback.className = "quiz-feedback correct";
-                        feedback.innerHTML = "✅ 正解です!";
-                    } else {
-                        e.classList.add("incorrect");
-                        feedback.className = "quiz-feedback incorrect";
-                        feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
-                    }
-                    if (explanation) {
-                        feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
-                    }
-                    feedback.style.display = "block";
-                    if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
-                    if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
-                    if (typeof showSaboMessage === "function") {
-                        setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
-                    }
-                }
 
-        function completeSection(sectionId) {
-            const chapter = "chapter2";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            const isCompleted = localStorage.getItem(storageKey) === "true";
-            if (isCompleted) {
-                localStorage.removeItem(storageKey);
-                button.textContent = "✅ このセクションを完了する";
-                button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") { showSaboMessage("lessonReset", 3000); }
-            } else {
-                localStorage.setItem(storageKey, "true");
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-                if (typeof showSaboMessage === "function") { showSaboMessage("lessonComplete", 4000); }
-                setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") { window.location.href = "index.html"; }
-                }, 3000);
-            }
-        }
-
-        window.addEventListener("load", () => {
-            const storageKey = "chapter2_section2-2_completed";
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            if (localStorage.getItem(storageKey) === "true") {
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-            }
-        });
-    </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
-    <script src="../shared/js/core/visual-effects.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 </body>
 

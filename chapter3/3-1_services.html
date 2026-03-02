@@ -367,78 +367,11 @@
     <footer>
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
-    <script>
-                        function selectAnswer(e, isCorrect, explanation) {
-                            const options = e.parentElement.children;
-                            const feedback = e.parentElement.nextElementSibling;
-                            for (let opt of options) { opt.classList.remove("correct", "incorrect"); }
-                            if (isCorrect) {
-                                e.classList.add("correct");
-                                feedback.className = "quiz-feedback correct";
-                                feedback.innerHTML = "✅ 正解です!";
-                            } else {
-                                e.classList.add("incorrect");
-                                feedback.className = "quiz-feedback incorrect";
-                                feedback.innerHTML = "❌ 不正解です。もう一度考えてみましょう。";
-                            }
-                            if (explanation) {
-                                feedback.innerHTML += `<div class="quiz-explanation" style="margin-top: 10px; font-size: 0.95em; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);">${explanation}</div>`;
-                            }
-                            feedback.style.display = "block";
-                            if (typeof selectRandomCharacter === "function" && typeof isRandomMode !== "undefined" && isRandomMode) { selectRandomCharacter(); }
-                            if (isCorrect && typeof playCharacterEffect === "function" && typeof currentCharacter !== "undefined") { playCharacterEffect(currentCharacter, e); }
-                            if (typeof showSaboMessage === "function") {
-                                setTimeout(() => { showSaboMessage(isCorrect ? "correct" : "incorrect", 5000); }, 500);
-                            }
-                        }
 
-        function completeSection(sectionId) {
-            const chapter = "chapter3";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-            const isCompleted = localStorage.getItem(storageKey) === "true";
-
-            if (isCompleted) {
-                // 完了を取り消す
-                localStorage.removeItem(storageKey);
-                button.textContent = "✅ このセクションを完了する";
-                button.classList.remove("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonReset", 3000);
-                }
-            } else {
-                // 完了にする
-                localStorage.setItem(storageKey, "true");
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-                if (typeof showSaboMessage === "function") {
-                    showSaboMessage("lessonComplete", 4000);
-                }
-                // 3秒後にチャプタートップへ（取り消し可能な猶予期間）
-                setTimeout(() => {
-                    if (localStorage.getItem(storageKey) === "true") {
-                        window.location.href = "index.html";
-                    }
-                }, 3000);
-            }
-        }
-
-        // ページ読み込み時の状態復元
-        window.addEventListener("load", () => {
-            const sectionId = "3-1";
-            const chapter = "chapter3";
-            const storageKey = `${chapter}_section${sectionId}_completed`;
-            const button = document.querySelector('button[onclick*="completeSection"]');
-
-            if (localStorage.getItem(storageKey) === "true") {
-                button.textContent = "🔄 完了を取り消す";
-                button.classList.add("completed");
-            }
-        });
-    </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
-    <script src="../shared/js/core/visual-effects.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
+    <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 </body>
 

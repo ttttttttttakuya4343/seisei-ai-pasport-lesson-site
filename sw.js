@@ -1,13 +1,17 @@
 // Service Worker for PWA and Offline Support
-const CACHE_NAME = 'ai-passport-v2';
+const CACHE_NAME = 'ai-passport-v3';
 const urlsToCache = [
   '/',
   '/index.html',
   '/shared/css/styles.css',
+  '/shared/js/quiz-system.js',
   '/shared/js/page-navigation.js',
   '/shared/js/keyboard-shortcuts.js',
   '/shared/js/learning-tracker.js',
+  '/shared/js/home-page.js',
+  '/shared/js/pikmin-walk.js',
   '/shared/js/config/characters.js',
+  '/shared/js/config/character-messages-bundle.js',
   '/shared/js/character-system.js'
 ];
 

@@ -56,10 +56,18 @@ function initTableOfContents() {
 
     if (!tocContainer) return;
 
-    // h2要素を取得して目次を生成
-    const headings = document.querySelectorAll('.lesson-page h2');
+    // h2要素とh3要素を取得して目次を生成
+    // .quiz h3 (確認問題) などの不要なh3を除外するため、
+    // まず mainコンテンツ内のh2, h3をすべて取得し、特定の親要素内にあるものを除外する手もあるが、
+    // ここでは単純化し、.lesson-header より後にある .section 内の h2, h3 を対象とする。
+    const headings = document.querySelectorAll('.lesson-page .section h2, .lesson-page .section h3');
 
     if (headings.length === 0) return;
+
+    // ヘッダー用タイトル（目次）
+    const tocTitle = document.createElement('h3');
+    tocTitle.textContent = '📑 目次';
+    tocContainer.appendChild(tocTitle);
 
     const tocList = document.createElement('ul');
     tocList.className = 'toc-list';
@@ -77,15 +85,22 @@ function initTableOfContents() {
         link.textContent = heading.textContent;
         link.setAttribute('data-section', heading.id);
 
+        // 階層(h2かh3か)によってクラスを振り分ける
+        if (heading.tagName.toLowerCase() === 'h3') {
+            link.classList.add('toc-sub-item');
+        } else {
+            link.classList.add('toc-main-item');
+        }
+
         // クリックでスムーズスクロール
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.getElementById(heading.id);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // 少し上にオフセットをつけてスクロールする（固定ヘッダー対策）
+                const yOffset = -80;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
         });
 
@@ -101,31 +116,40 @@ function initTableOfContents() {
 
 // ===== 目次のスクロール連動 =====
 function initTocScrollSpy(headings) {
-    const tocLinks = document.querySelectorAll('.toc-list a');
+    const ArrayHeadings = Array.from(headings);
+    if (ArrayHeadings.length === 0) return;
 
-    if (tocLinks.length === 0) return;
+    // IntersectionObserver では「画面内に入ったか」しかわからないため、単純なスクロールイベントで実装し直す
+    window.addEventListener('scroll', () => {
+        let currentActive = null;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 全てのリンクからactiveクラスを削除
-                tocLinks.forEach(link => link.classList.remove('active'));
+        // 現在のスクロール位置（画面上部から少し下を判定基準にする）
+        const scrollPosition = window.scrollY + 100;
 
-                // 現在のセクションに対応するリンクにactiveクラスを追加
-                const activeLink = document.querySelector(`.toc-list a[data-section="${entry.target.id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
+        for (let i = 0; i < ArrayHeadings.length; i++) {
+            const heading = ArrayHeadings[i];
+            const offsetTop = heading.offsetTop;
+
+            if (scrollPosition >= offsetTop) {
+                currentActive = heading;
+            } else {
+                break; // 順番に並んでいる前提なので、条件を満たさなくなったら抜ける
             }
-        });
-    }, {
-        rootMargin: '-100px 0px -66%',
-        threshold: 0
+        }
+
+        if (currentActive) {
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            tocLinks.forEach(link => link.classList.remove('active'));
+
+            const activeLink = document.querySelector(`.toc-list a[data-section="${currentActive.id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
     });
 
-    headings.forEach(heading => {
-        observer.observe(heading);
-    });
+    // 初期ロード時にも一回実行
+    window.dispatchEvent(new Event('scroll'));
 }
 
 // ===== 現在のレッスンをハイライト =====
