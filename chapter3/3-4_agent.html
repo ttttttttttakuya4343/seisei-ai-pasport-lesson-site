@@ -39,306 +39,46 @@
             </div>
 
             <div class="section">
-                <h2>🤖 AIエージェントとは</h2>
+                <h2>🤖 次世代の相棒「AI エージェント」とは</h2>
                 <div class="highlight">
-                    <p><strong>AIエージェント（AI Agent）</strong></p>
-                    <p>ユーザーから与えられた目標（ゴール）に対して、自律的に状況を把握、計画を立案し、必要な外部ツールを駆使しながらタスクを実行するAIシステムのこと。</p>
+                    <p><strong>AIエージェント</strong></p>
+                    <p>これまでのチャットボットのように「ユーザーからの質問に答えるだけ」のAIではなく、与えられた目標（ゴール）に対して<strong>「自分で考えて行動できる」</strong>次世代のAIシステムのことです。</p>
                 </div>
 
-                <h3>従来のAIとの違い</h3>
-                <table class="lesson-table">
-                    <tr>
-                        <th></th>
-                        <th>従来のAI</th>
-                        <th>AIエージェント</th>
-                    </tr>
-                    <tr>
-                        <td><strong>動作</strong></td>
-                        <td>質問に答える</td>
-                        <td>目標達成のために行動</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ツール利用</strong></td>
-                        <td>なし</td>
-                        <td>検索、計算、APIなど</td>
-                    </tr>
-                    <tr>
-                        <td><strong>計画</strong></td>
-                        <td>なし</td>
-                        <td>自分で計画を立てる</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>🧠 ReAct（推論と行動）</h2>
-                <div class="highlight">
-                    <p><strong>ReAct（Reasoning and Acting）</strong></p>
-                    <p>言語モデルに「推論（考える）」と「行動（実行する）」を交互に行わせることで、複雑なタスクを解決に導くフレームワーク。</p>
-                </div>
-
-                <h3>ReActの動作例</h3>
-                <div class="code-block">
-                    <pre>【ユーザー】東京の明日の天気を教えて
-
-【AI - 思考】天気情報を調べる必要がある
-【AI - 行動】天気APIで東京の明日の天気を検索
-【AI - 観察】晴れ、最高気温25度
-
-【AI - 思考】情報が揃った。回答を生成しよう
-【AI - 行動】ユーザーに回答
-【AI - 回答】東京の明日の天気は晴れ、最高気温は25度です</pre>
-                </div>
-
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説</strong></p>
+                <h3>2つの主要なタイプ</h3>
+                <p>AIエージェントは、タスクの性質に合わせて大きく2つのタイプに分けられます。</p>
+                <div class="merit-demerit-box">
                     <ul>
-                        <li><strong>Thought（思考）：</strong> 次に何をすべきか考える</li>
-                        <li><strong>Action（行動）：</strong> ツールを使って実行</li>
-                        <li><strong>Observation（観察）：</strong> 実行結果を確認</li>
+                        <li><strong>⚙️ ワークフロー型：</strong><br>決まった作業手順が明確で、変更や例外の少ないタスク（例：毎日の受注処理や定型レポートの作成など）に向いています。</li>
+                        <li><strong>🧠 自律型：</strong><br>最終的な「目標」だけを指示すれば、AI自らがタスクを細かく分解して優先順位を決め、外部ツールを呼び出しながら実行します。予期せぬ状況の変化にも強いのが特徴です。</li>
                     </ul>
                 </div>
             </div>
 
             <div class="section">
-                <h2>🔧 AIエージェントの実装</h2>
-                <h3>主要な機能</h3>
-                <h4>1. Chains（チェーン）</h4>
-                <ul>
-                    <li>複数の処理を連結</li>
-                    <li>例：質問→検索→要約→回答</li>
-                </ul>
+                <h2>🔗 外部との連携と「MCP」</h2>
+                <p>AIエージェントは、単体で動くよりも<strong>外部のツールやアプリ（Web検索、社内データベース、各種ソフトウェアなど）と繋がる</strong>ことで真価を発揮します。</p>
 
-                <h4>2. Memory（メモリー）</h4>
-                <ul>
-                    <li>会話履歴を記憶</li>
-                    <li>文脈を維持した対話が可能</li>
-                </ul>
-
-                <h4>3. Tools（ツール）</h4>
-                <ul>
-                    <li>検索エンジン、計算機、API連携など</li>
-                    <li>外部ツールとの連携が可能</li>
-                </ul>
-
-                <h3>AIエージェントの活用例</h3>
-                <ul>
-                    <li>チャットボット開発</li>
-                    <li>RAGシステムの構築</li>
-                    <li>データ分析の自動化</li>
-                    <li>情報収集と要約</li>
-                </ul>
+                <div class="highlight" style="background: #e3f2fd; border-left: 5px solid #2196f3;">
+                    <p><strong>📖 用語解説：MCP（Model Context Protocol）</strong></p>
+                    <p>外部連携を行う上で特に今注目されているのが、Anthropic社が公開した<strong>「MCP」</strong>です。<br>
+                        これは誰でも自由に使えるオープンスタンダード（共通規格）であり、言わば<strong>『USB-CのAI版』</strong>のようなものです。<br>
+                        さまざまなシステムやツールを、同じルールでスムーズにLLM（ベースとなるAI）と繋ぐための強力な規格として機能します。</p>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>🚀 自律型AIエージェント</h2>
-                <div class="highlight">
-                    <p><strong>自律型AIエージェント（Autonomous AI Agent）</strong></p>
-                    <p>プロンプトによる都度の指示を待つのではなく、最終的な目標だけを与えられれば、AI自身がタスクを分解し、自己修正を行いながら最終ゴールまで自律的に行動し続ける高度なシステム。</p>
-                </div>
-
-                <h3>動作の流れ</h3>
-                <div class="code-block">
-                    <pre>1. 目標を受け取る
-   例：「競合他社の分析レポートを作成」
-
-2. タスクに分解
-   - 競合他社をリストアップ
-   - 各社の情報を調査
-   - データを収集・整理
-   - レポートを作成
-
-3. 自律的に実行
-   - 検索で情報を特定
-   - データ収集
-   - データを分析
-   - ドキュメント生成
-
-4. 完了まで継続
-   - 目標達成まで繰り返す</pre>
-                </div>
-
-                <h3>特徴</h3>
-                <ul>
-                    <li><strong>自律性：</strong> 人間の介入を最小限に動作</li>
-                    <li><strong>長期記憶：</strong> 情報を保存して活用</li>
-                    <li><strong>ツール利用：</strong> Web検索、ファイル操作など</li>
-                    <li><strong>反復改善：</strong> 失敗から学習して再試行</li>
-                </ul>
-
-                <h3>課題</h3>
-                <ul>
-                    <li>❌ <strong>コスト：</strong> 大量のAPI呼び出しで費用が高額</li>
-                    <li>❌ <strong>制御：</strong> 意図しない行動を取る可能性</li>
-                    <li>❌ <strong>完成度：</strong> 複雑なタスクは完遂できないことも</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>🎯 マルチエージェントシステム</h2>
-                <div class="highlight" style="background: #e3f2fd;">
-                    <p><strong>📖 用語解説：マルチエージェント</strong></p>
-                    <p>複数のAIエージェントが、それぞれ異なる役割（例：リサーチャー、プログラマー、レビュアーなど）を担い、お互いに通信・協調しながら1つの複雑な全体目標を達成するシステム。</p>
-                </div>
-
-                <h3>特徴</h3>
-                <ul>
-                    <li>複数のエージェントが協調動作</li>
-                    <li>役割分担による効率化</li>
-                    <li>会話を通じて問題解決</li>
-                </ul>
-            </div>
-
-            <div class="quiz">
-                <h3>✅ 理解度チェッククイズ</h3>
-                <div class="quiz-question">
-                    <p><strong>問題1:</strong> AIエージェントの特徴は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 質問に答えるだけ</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIエージェントの特徴は、目標を与えられると自律的に計画を立て、ツールを使い、タスクを実行することです。従来のAIは質問に答えるだけですが、エージェントは目標達成のために行動します。')">
-                            B. 目標達成のために自律的に行動</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 画像を生成する</li>
-                        <li onclick="selectAnswer(this, false, '')">D. データを保存する</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題2:</strong> ReActの「R」は何を意味する？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. Random（ランダム）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ReActの「R」はReasoning（推論）を意味します。ReActはReasoning and Actingの略で、推論（考える）と行動（実行する）を交互に繰り返すフレームワークです。')">
-                            B. Reasoning（推論）</li>
-                        <li onclick="selectAnswer(this, false, '')">C. Recursive（再帰）</li>
-                        <li onclick="selectAnswer(this, false, '')">D. Retrieval（検索）</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題3:</strong> LangChainの主要機能でないものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. Chains（チェーン）</li>
-                        <li onclick="selectAnswer(this, false, '')">B. Agents（エージェント）</li>
-                        <li onclick="selectAnswer(this, false, '')">C. Memory（メモリー）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Database（データベース）はLangChainの主要機能ではありません。LangChainの主要機能はChains（複数の処理を連結）、Agents（エージェント）、Memory（会話履歴を記憶）です。')">
-                            D. Database（データベース）</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題4:</strong> AutoGPTの課題は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 処理が速すぎる</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AutoGPTのような自律型AIエージェントの課題は、大量のAPI呼び出しで費用が高額になることです。目標達成まで繰り返し実行するため、コストが増大します。')">
-                            B. API呼び出しのコストが高い</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 日本語に対応していない</li>
-                        <li onclick="selectAnswer(this, false, '')">D. オープンソースでない</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題5:</strong> マルチエージェントとは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 1つのAIが複数のタスクを実行</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：マルチエージェントは複数のAIエージェントが役割分担して協力するシステムです。例えば調査担当、分析担当、報告書作成担当のAIが協力して仕事を進めます。')">
-                            B. 複数のAIが協力して問題解決</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 大規模言語モデルの一種</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 画像生成技術</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題6:</strong> ReActフレームワークの「ReAct」は何の略？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ Real Action Technologyは、ReActの正式名称ではありません。')">A. Real
-                            Action Technology</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ReActは「Reasoning and Acting」（推論と行動）の略です。AIが推論（Reasoning：考えること）と行動（Acting：実際に操作すること）を交互に繰り返すフレームワークで、段階的に問題を解決していきます。')">
-                            B. Reasoning and Acting（推論と行動）</li>
-                        <li
-                            onclick="selectAnswer(this, false, '❌ Reactive Computingは、リアクティブプログラミングに関連する概念であり、ReActとは異なります。')">
-                            C. Reactive Computing</li>
-                        <li onclick="selectAnswer(this, false, '❌ Recursive Analysisは再帰的分析を意味し、ReActの略語ではありません。')">D.
-                            Recursive Analysis and Testing</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> LangChainの主な用途は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 画像生成はStable DiffusionやDALL-Eなどの画像生成モデルの用途です。')">A.
-                            画像を生成する</li>
-                        <li onclick="selectAnswer(this, false, '❌ データベースの管理は専用のDBMSの役割であり、LangChainの主な用途ではありません。')">B.
-                            データベースを管理する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：LangChainは、LLM（大規模言語モデル）を活用したアプリケーションを効率的に開発するためのフレームワークです。プロンプト管理、外部ツール連携、メモリ管理、チェーン（処理の連鎖）など、AIアプリ開発に必要な機能を提供します。')">
-                            C. LLMを活用したAIアプリケーションを開発する</li>
-                        <li onclick="selectAnswer(this, false, '❌ ウェブサイトのデザインはHTMLやCSSなどのフロントエンド技術の領域です。')">D.
-                            ウェブサイトをデザインする</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題8:</strong> AutoGPTの最大の特徴は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ モデルの学習速度の向上は、ハードウェアやアルゴリズムの最適化に関する課題です。')">A.
-                            モデルの学習速度を向上させる</li>
-                        <li onclick="selectAnswer(this, false, '❌ プログラミング言語の変換はトランスパイラの機能であり、AutoGPTの特徴ではありません。')">B.
-                            プログラミング言語を自動変換する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AutoGPTの最大の特徴は、ユーザーが目標を設定するだけで、AIが自律的にタスクを分解し、計画を立て、実行し、必要に応じて修正しながら目標達成を目指す点です。人間の指示を最小限に抑えた自律型AIエージェントです。')">
-                            C. 目標を設定するだけで自律的にタスクを分解・実行する</li>
-                        <li onclick="selectAnswer(this, false, '❌ データの可視化は、BIツールやデータ分析ソフトウェアの機能です。')">D. データを自動的に可視化する
-                        </li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題9:</strong> AIエージェントが外部ツールと連携する際に使用する仕組みは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ CSSはウェブページのスタイルを定義する技術であり、AIエージェントとの連携には使用されません。')">A.
-                            CSS（スタイルシート）</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIエージェントは、API（Application Programming Interface）を通じて外部ツールやサービスと連携します。検索エンジン、データベース、Webブラウザ、コード実行環境などのツールをAPIで呼び出し、様々なタスクを実行します。')">
-                            B. API（Application Programming Interface）</li>
-                        <li onclick="selectAnswer(this, false, '❌ HTMLはウェブページの構造を定義するマークアップ言語であり、API連携とは異なります。')">C.
-                            HTML（マークアップ言語）</li>
-                        <li onclick="selectAnswer(this, false, '❌ FTPはファイル転送プロトコルであり、AIエージェントの外部ツール連携の主な手段ではありません。')">D.
-                            FTP（ファイル転送）</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題10:</strong> AIエージェントの特徴として正しく<strong>ないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい特徴です。AIエージェントは与えられた目標に対して自律的に計画を立てて行動します。')">A.
-                            自律的に計画を立てて行動できる</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい特徴です。AIエージェントは検索エンジンやデータベースなどの外部ツールを利用できます。')">
-                            B. 外部のツールやサービスを利用できる</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIエージェントもLLMをベースにしているため、完全に100%正確な判断を保証することはできません。ハルシネーションの可能性や、不適切な行動計画を立てるリスクがあり、人間の監視・確認が重要です。')">
-                            C. 100%正確な判断を常に保証できる</li>
-                        <li
-                            onclick="selectAnswer(this, false, '❌ これは正しい特徴です。AIエージェントは実行結果を観察し、必要に応じてアプローチを修正しながらタスクを進めます。')">
-                            D. 実行結果をフィードバックして改善できる</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
+            <!-- 確認問題セクション（外部JSから読み込み） -->
+            <div class="quiz" id="quiz-container">
+                <!-- クイズがここに生成されます -->
             </div>
 
             <div class="section">
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
-                        <li><strong>AIエージェント：</strong> 自律的に計画・実行するAI</li>
-                        <li><strong>ReAct：</strong> 推論と行動を繰り返すフレームワーク</li>
-                        <li><strong>LangChain：</strong> AIアプリ開発の人気フレームワーク</li>
-                        <li><strong>AutoGPT：</strong> 目標達成まで自律的に動作するエージェント</li>
-                        <li><strong>マルチエージェント：</strong> 複数のAIが協力するシステム</li>
+                        <li><strong>AIエージェント：</strong> 質問に答えるだけでなく、自分で考えて行動できる自律的なAI</li>
+                        <li><strong>主なタイプ：</strong> 定型作業が得意な「ワークフロー型」と、柔軟に対応する「自律型」がある</li>
+                        <li><strong>MCP：</strong> AIと外部ツールを簡単・共通のルールで繋ぐためのオープンな規格（AI版USB-Cのようなもの）</li>
                     </ul>
                 </div>
             </div>
@@ -351,7 +91,7 @@
 
             <div class="lesson-navigation">
                 <a href="3-3_rag.html" class="nav-button secondary">← 3-3: RAG</a>
-                <a href="index.html" class="nav-button">第3章トップに戻る</a>
+                <a href="3-exam.html" class="nav-button">第3章 模擬試験へ →</a>
             </div>
 
             <div style="text-align: center; margin: 2rem 0;">
@@ -369,6 +109,19 @@
     <script src="../shared/js/page-navigation.js"></script>
     <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
+    <script src="../shared/js/data/chapter3-exam-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.examQuestionData && window.examQuestionData.chapter3) {
+                // chapter3-exam-data.js からAIエージェントに関する問題（最後の2問）を抽出する
+                const allData = window.examQuestionData.chapter3;
+                const agentQuizzes = allData.slice(-2);
+
+                // 抽出した問題をクイズシステムに渡して○×形式で生成する
+                initQuiz(agentQuizzes);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -120,3 +120,37 @@ window.addEventListener("load", () => {
         button.classList.add("completed");
     }
 });
+
+// ===== 外部データからのクイズ動的生成 =====
+/**
+ * クイズデータ配列を受け取り、画面に描画する
+ * @param {Array} questionsData - {q: 問題文, a: 正解(boolean), exp: 解説} の配列
+ */
+function initQuiz(questionsData) {
+    const container = document.getElementById('quiz-container');
+    if (!container || !questionsData || !questionsData.length) return;
+
+    let html = '<h3>✅ 理解度チェッククイズ</h3>';
+
+    questionsData.forEach((item, index) => {
+        // booleanの正解値をテキストに変換（"true" or "false"）
+        const correctAnswerStr = item.a ? 'true' : 'false';
+
+        // シングルクォーテーションのエスケープ（解説文内にある場合）
+        const safeExp = item.exp ? item.exp.replace(/'/g, "\\'") : '';
+
+        html += `
+            <div class="quiz-question">
+                <p><strong>問題${index + 1}:</strong> ${item.q}</p>
+                <ul class="quiz-options">
+                    <li onclick="selectAnswer(this, ${item.a === true}, '${item.a === true ? '✅解説：' : '❌'}${safeExp}')">○（正しい）</li>
+                    <li onclick="selectAnswer(this, ${item.a === false}, '${item.a === false ? '✅解説：' : '❌'}${safeExp}')">×（誤り）</li>
+                </ul>
+                <div class="quiz-feedback" style="display: none;"></div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
