@@ -3,12 +3,12 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 const files = [
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-0_literacy_security.html', section: '4-0' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-1a_privacy.html', section: '4-1a' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-1b_ip_rights.html', section: '4-1b' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-1c_other_rights.html', section: '4-1c' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-2_principles.html', section: '4-2' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-3_new_law.html', section: '4-3' }
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-1_literacy_security.html', section: '4-1' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-2_privacy.html', section: '4-2' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-3_ip_rights.html', section: '4-3' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-4_other_rights.html', section: '4-4' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-5_principles.html', section: '4-5' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter4/4-6_new_law.html', section: '4-6' }
 ];
 
 let allData = [];
@@ -199,7 +199,10 @@ const htmlTemplate = `<!DOCTYPE html>
                     </div>
                 </div>
             \`;
-            document.getElementById('next-btn').style.display = 'none';
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.style.display = 'none';
+            // ボタンを確実の親の中央に配置するため
+            nextBtn.parentElement.style.textAlign = 'center';
             window.scrollTo(0, 0);
         }
 

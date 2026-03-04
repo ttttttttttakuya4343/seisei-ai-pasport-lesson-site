@@ -164,10 +164,89 @@ function highlightCurrentLesson() {
     });
 }
 
+// ===== レッスン完了処理 =====
+function completeLesson(storageKey, nextPage) {
+    const btn = event.target;
+
+    // 既に完了済みの場合 → 完了を解除
+    if (btn.dataset.completed === 'true') {
+        try {
+            localStorage.removeItem(storageKey);
+        } catch (e) {
+            console.warn('localStorage is not available:', e);
+        }
+        setButtonIncomplete(btn);
+        return;
+    }
+
+    // 未完了 → 完了にする
+    try {
+        localStorage.setItem(storageKey, 'true');
+    } catch (e) {
+        console.warn('localStorage is not available:', e);
+    }
+
+    // ボタンを完了状態にして次のページへ遷移
+    btn.textContent = '✅ 完了！次のページへ移動中...';
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.7';
+
+    setTimeout(() => {
+        window.location.href = nextPage;
+    }, 800);
+}
+
+// ボタンを完了済み表示にする
+function setButtonCompleted(btn) {
+    btn.dataset.completed = 'true';
+    btn.textContent = '✅ 学習完了済み（クリックで解除）';
+    btn.style.background = 'linear-gradient(135deg, #43a047, #66bb6a)';
+    btn.style.boxShadow = '0 4px 15px rgba(67, 160, 71, 0.3)';
+}
+
+// ボタンを未完了表示にする
+function setButtonIncomplete(btn) {
+    btn.dataset.completed = 'false';
+    // ボタンのテキストを元に戻す（onclikの第2引数から次ページ情報を取得）
+    const onclickAttr = btn.getAttribute('onclick');
+    if (onclickAttr && onclickAttr.includes('4-exam')) {
+        btn.textContent = '第4章の確認テストに進む →';
+    } else {
+        btn.textContent = '学習を完了して次へ →';
+    }
+    btn.style.background = '';
+    btn.style.boxShadow = '';
+}
+
+// ページ読み込み時にボタンの完了状態を復元
+function initCompletionButtons() {
+    const completeBtns = document.querySelectorAll('.complete-btn');
+
+    completeBtns.forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick');
+        if (!onclickAttr) return;
+
+        // onclick属性からstorageKeyを抽出
+        const match = onclickAttr.match(/completeLesson\('([^']+)'/);
+        if (!match) return;
+
+        const storageKey = match[1];
+
+        try {
+            if (localStorage.getItem(storageKey) === 'true') {
+                setButtonCompleted(btn);
+            }
+        } catch (e) {
+            console.warn('localStorage is not available:', e);
+        }
+    });
+}
+
 // ===== 初期化 =====
 document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initDropdownMenu();
     initTableOfContents();
     highlightCurrentLesson();
+    initCompletionButtons();
 });
