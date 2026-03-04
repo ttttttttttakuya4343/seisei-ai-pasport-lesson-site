@@ -6,28 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第4章: 模擬試験 | 生成AIパスポート講座</title>
     <link rel="stylesheet" href="../shared/css/styles.css">
-    <style>
-        .exam-header { text-align: center; margin-bottom: 2rem; }
-        .exam-question { background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); display: none; }
-        .exam-question.active { display: block; }
-        .exam-options { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-        .exam-option { padding: 1rem; text-align: left; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; }
-        .exam-option:hover:not(.answered) { background: #e9ecef; }
-        .exam-option.answered { cursor: not-allowed; }
-        .exam-option.correct { background: #d1fae5 !important; color: #065f46 !important; border-color: #10b981 !important; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
-        .exam-option.incorrect { background: #fee2e2 !important; color: #991b1b !important; border-color: #ef4444 !important; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
-        .exam-progress { margin: 2rem 0; font-size: 1.2rem; text-align: center; font-weight: bold; color: var(--primary-color); }
-        .exam-result { text-align: center; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); display: none; }
-        .score-circle { width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--secondary-color) var(--percentage), #e9ecef 0); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; font-weight: bold; position: relative; }
-        .score-circle::before { content: ""; position: absolute; width: 120px; height: 120px; background: white; border-radius: 50%; }
-        .score-text { position: relative; z-index: 1; color: var(--text-color); }
-        .explanation { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: left; border-left: 4px solid var(--secondary-color); }
-        .correct-ans { color: #2e7d32; font-weight: bold; }
-        .wrong-ans { color: #c62828; font-weight: bold; }
-        .result-list { margin-top: 2rem; text-align: left; }
-        .result-item { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
-        .start-screen { text-align: center; padding: 3rem 0; }
-    </style>
+
 </head>
 
 <body>
@@ -45,9 +24,9 @@
             <div class="lesson-header exam-header">
                 <div class="hero-badge" style="background-color: var(--secondary-color);">第4章 確認問題</div>
                 <h1>模擬試験</h1>
-                <p>第4章の全内容から20問が出題されます。記憶力をチェックしましょう！</p>
+                <p>第4章の全内容から15問がランダムに出題されます。記憶力をチェックしましょう！</p>
                 <div id="best-score-display" style="margin-top: 1rem; font-weight: bold; color: var(--secondary-dark); display: none;">
-                    🏆 最高スコア: <span id="best-score">0</span>/20
+                    🏆 最高スコア: <span id="best-score">0</span>/15
                 </div>
             </div>
 
@@ -55,11 +34,12 @@
                 <div id="unlock-content">
                     <p>準備はいいですか？法律や原則に関する重要な問題が出題されます！</p>
                     <button id="start-btn" class="nav-button" style="font-size: 1.2rem; padding: 1rem 2rem;">試験を開始する</button>
+                    <p id="loading-msg" style="display:none; color:var(--primary-color); margin-top:1rem;">問題データを読み込み中...</p>
                 </div>
             </div>
 
             <div id="exam-container" style="display: none;">
-                <div class="exam-progress">問題 <span id="current-q">1</span> / 20</div>
+                <div class="exam-progress">問題 <span id="current-q">1</span> / 15</div>
 
                 <div id="question-area">
                     <!-- 問題がJSで生成されます -->
@@ -73,7 +53,7 @@
             <div id="result-screen" class="exam-result">
                 <h2>試験結果</h2>
                 <div class="score-circle" id="score-circle" style="--percentage: 0%;">
-                    <span class="score-text" id="final-score">0/20</span>
+                    <span class="score-text" id="final-score">0/15</span>
                 </div>
                 <h3 id="result-message"></h3>
 
@@ -90,568 +70,6 @@
             </div>
         </div>
     </main>
-
-    <script>
-        const allQuestions = [
-    {
-        "q": "インターネットリテラシーには、テクノロジーの理解、情報リテラシー、セキュリティとプライバシー、デジタル市民権といったものが含まれる。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！インターネットリテラシーとは、インターネットに関わるテクノロジー・ルール・脅威を理解し、適切に使用できる知識や能力のことです。これには、テクノロジーの理解、情報リテラシー、セキュリティとプライバシー、デジタル市民権が含まれます。"
-    },
-    {
-        "q": "フィッシング詐欺とは、メール・Webサイトを通じ、詐欺師が正規の機関やサービス提供者を装って、ユーザーから個人情報や金融情報などを不正に収集しようとする手口の詐欺である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！フィッシング詐欺とは、メール・Webサイトを通じ、詐欺師が正規の機関やサービス提供者を装って、ユーザーから個人情報や金融情報などを不正に収集（フィッシング）しようとする手口の詐欺をいいます。"
-    },
-    {
-        "q": "QRコードは、攻撃者に悪用されるリスクのない安全なものである。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！QRコードはQuick Response codeの略で、スキャンすることで関連付けられたURLに自動的に誘導される便利なものです。しかし、その誘導元であるQRコードが、物理的に偽のQRコードに貼り直されるなど、その便利さが攻撃者に悪用されるリスクもあります。"
-    },
-    {
-        "q": "カフェや施設の名称が付いたフリーWi-Fiは、正規のネットワークであるため、通信を盗聴されるリスクはなく安全である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！カフェや施設の名称が付いたフリーWi-Fiであっても、攻撃者が正規のネットワークだと思わせる名前で設置している可能性もあり、通信を盗聴されるリスクはあります。単なるWi-Fiの名称だけでなく、正規のものであることを確かめてから接続する必要があります。"
-    },
-    {
-        "q": "インターネットでは、データのダウンロードの場面のみならず、データのアップロードの場面でもセキュリティに関わる脅威がある。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！インターネットでは、データのアップロード・ダウンロードのどちらの場面でも、脅威があります。アップロードの際の危険性としては、個人情報や機密情報といったデータの漏洩が挙げられます。また、ダウンロードの際の危険性としては、マルウェアへの感染が挙げられます。"
-    },
-    {
-        "q": "マルウェアとは、悪意のあるソフトウェアのことで、コンピュータや利用者に被害をもたらすことを目的としたソフトウェアの総称である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！マルウェア（Malware）とは、malicious software（悪意のあるソフトウェア）の略で、コンピュータや利用者に被害をもたらすことを目的としたソフトウェアの総称です。"
-    },
-    {
-        "q": "マルウェア対策として、アンチウイルスソフトウェアを導入し、最新の状態にしたうえであれば、ファイルをダウンロードして開いてもスキャンが実行されるため安全である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！マルウェア対策として、アンチウイルスソフトウェアを導入し、最新の状態にすることは重要ですが、不明なファイルについては、ダウンロードしない・ファイルを開かないことが大切です。"
-    },
-    {
-        "q": "ランサムウェアとは、感染したコンピュータから大量のスパムメールを送信するコンピュータウイルスである。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！ランサムウェアとは、コンピュータのデータを無断で暗号化し、使用者に対し、暗号化を解除するための身代金を要求するコンピュータウイルスです。"
-    },
-    {
-        "q": "フィッシング詐欺対策として、不審なリンクは開かないようにすることが重要である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！フィッシング詐欺対策として、まず、不審なリンクはクリックしないようにすることが重要です。また、リンクをクリックする際は、WebサイトのURLに注意し、それが本物であることを確認する必要があります。"
-    },
-    {
-        "q": "ソーシャルエンジニアリング攻撃におけるスピアフィッシングとは、特定の個人や組織を標的にしたフィッシング攻撃の一種で、ユーザーになりすますことで情報を盗む手法をいう。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！ソーシャルエンジニアリング攻撃におけるスピアフィッシングとは、特定の個人や組織を標的にしたフィッシング攻撃の一種です。事前に特定の個人や組織の情報をリサーチし、ユーザーになりすまして、メール等で悪意のあるリンクや添付ファイルを送付することで情報を窃取します。"
-    },
-    {
-        "q": "ソーシャルエンジニアリング攻撃におけるプレテキストとは、魅力的に見える情報や商品でユーザーの興味をひき、個人情報を得たりマルウェアをダウンロードさせたりする手法をいう。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！魅力的に見える情報や商品でユーザーの興味をひき、個人情報を得たりマルウェアをダウンロードさせたりする手法は、ベイト攻撃です。プレテキストとは、攻撃者が偽のシナリオを作り出し、ターゲットを騙すための根拠や前提を提供して、ユーザーのパスワードやその他の機密情報を聞き出すなどする手法をいいます。"
-    },
-    {
-        "q": "ソーシャルエンジニアリング攻撃におけるブラックメールとは、秘密情報や他者に知られたくない情報をつかんだと称する攻撃者が、その情報を公開しない代わりに金銭を要求する手法をいう。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！ソーシャルエンジニアリング攻撃におけるブラックメールとは、個人や組織に対して、何らかの秘密情報を公開する旨を伝えて脅迫し、金銭等を要求する手法をいいます。"
-    },
-    {
-        "q": "プライバシー設定をせずにインターネットやアプリケーションを利用していると、知らぬ間にプライベートな情報が閲覧・収集される可能性がある。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！プライバシー設定とは、他のユーザーや企業が自分の個人情報にどの程度アクセスできるのかを設定することです。プライバシー設定をせずにインターネットやアプリケーションを利用していると、知らぬ間にプライベートな情報が閲覧・収集される可能性があります。"
-    },
-    {
-        "q": "個人情報保護法の目的として、個人の権利利益を保護することが挙げられているが、個人情報の有用性に配慮することについては挙げられていない。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！個人情報保護法は、正式名称を個人情報の保護に関する法律といい、個人情報の有用性に配慮しつつ、個人の権利利益を保護することを目的としています。"
-    },
-    {
-        "q": "個人情報保護法において、「個人情報」とは、個人に関する一定の情報をいい、死者に関する情報も含まれる。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！個人情報とは、生存する個人に関する情報であって、①当該情報に含まれる氏名、生年月日その他の記述等により特定の個人を識別することができるもの、または、②個人識別符号が含まれるものをいいます。死者に関する情報は、個人情報には含まれません。"
-    },
-    {
-        "q": "取り扱う個人情報によって識別される特定の個人の数に関わらず、個人情報データベース等を事業の用に供している者は、個人情報取扱事業者に該当する。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！個人情報取扱事業者とは、個人情報データベース等を事業の用に供している者をいいます。取り扱う個人情報によって識別される特定の個人の数に関わりません。"
-    },
-    {
-        "q": "個人のメールアドレスは個人情報に該当するが、企業の財務情報は個人情報に該当しない。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！個人のメールアドレスは、他の情報と容易に照合でき、それにより特定の個人を識別することができるものとして、個人情報に含まれます。他方、企業の財務情報等、法人等の団体そのものに関する情報（団体情報）は、個人情報には該当しません。"
-    },
-    {
-        "q": "要配慮個人情報とは、本人に対する不当な差別、偏見その他の不利益が生じないように、その取扱いに特に配慮を要する一定の個人情報をいう。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！要配慮個人情報とは、本人に対する不当な差別、偏見その他の不利益が生じないように、その取扱いに特に配慮を要するものとして政令で定める記述等が含まれる個人情報をいいます。"
-    },
-    {
-        "q": "本人の人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実は、いずれも要配慮個人情報に含まれる。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！要配慮個人情報とは、本人に対する不当な差別や偏見等の不利益が生じないように、その取扱いに特に配慮を要する一定の個人情報をいいます。これには、本人の人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実が含まれます。"
-    },
-    {
-        "q": "機微情報とは、個人情報保護法で定められているもので、要配慮個人情報よりも狭い概念である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！機微（センシティブ）情報とは、金融分野における個人情報保護に関するガイドラインで定められている概念であり、個人情報保護法で定められている要配慮個人情報よりも広い概念です。"
-    },
-    {
-        "q": "匿名加工情報とは、個人情報の区分に応じて、法に定められた措置を講じて、特定の個人を識別できないように個人情報を加工し、当該個人情報を復元できないようにした情報である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！匿名加工情報とは、個人情報を「匿名」となるように「加工」したものです。具体的には、個人情報の区分に応じて、法に定められた措置を講じて、特定の個人を識別できないように個人情報を加工し、当該個人情報を復元できないようにしたものをいいます。"
-    },
-    {
-        "q": "企業や商品の識別マークについて、特許庁に出願し、設定登録をすることで発生する権利は、特許権である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！企業や商品の識別マークについて、特許庁に出願し、設定登録をすることで発生する権利は、商標権です。特許権とは、新しい発明、技術、製品、プロセスなどについて、特許庁に出願し、設定登録することにより発生する権利です。"
-    },
-    {
-        "q": "商標権とは、新しい発明、技術、製品、プロセスなどに対して、特許庁に出願し、設定登録をすることにより発生する権利である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！新しい発明、技術、製品、プロセスなどに対して、特許庁に出願し、設定登録をすることにより発生する権利は、特許権です。商標権とは、企業や商品の識別マークについて、特許庁に出願し、設定登録をすることで発生する権利です。"
-    },
-    {
-        "q": "著作権とは、著作物を創作した者に与えられる権利であり、著作者に自動的に付与され、設定登録等をしなくても発生する。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！著作権とは、著作物（著作者が、思想または感情を創作的に表現したものであって、文芸、学術、美術または音楽の範囲に属するもの）を創作した者（著作者）に与えられる権利です。著作者に自動的に付与され、設定登録等は必要ありません。"
-    },
-    {
-        "q": "肖像権は法律で明文化された権利ではないが、一般的には、日本国憲法第13条の幸福追求権に基づいて保護されると解されている。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！肖像権とは、自分の肖像を自由に管理し、他人に無断で使用させないための権利です。肖像権は、法律で明文化された権利ではありませんが、一般的には、日本国憲法第13条の幸福追求権に基づいて保護されると解されています（最高裁判例）。"
-    },
-    {
-        "q": "パブリシティ権は、肖像権を構成する要素の一つであり、特定の個人の名前、画像、声、その他の個人を特定する特徴について、他人がその個人の許可なく商業的に利用することを制限する権利である。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！パブリシティ権は、肖像権を構成する要素の一つであり、特定の個人の名前、画像、声、その他の個人を特定する特徴（肖像）について、他の人々がその個人の許可なく商業的に利用することを制限する権利です。"
-    },
-    {
-        "q": "生成AI技術の進歩により、さまざまな作業が効率化され、新たなアイデア・デザインの生成も容易になるため、知的財産権の侵害や肖像権・パブリシティ権の侵害は問題とならなくなる。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！生成AI技術の進歩により、さまざまな作業が効率化され、新たなアイデア・デザインの生成も容易になります。しかし、学習元のベースが既存のテキストや画像・動画等であることから、生成AIによって生成されたものについて、知的財産権の侵害や肖像権・パブリシティ権の侵害が問題となる可能性があります。"
-    },
-    {
-        "q": "不正競争防止法で保護される営業秘密といえるためには、秘密管理性・有用性・非公知性の3つの要件を満たす必要がある。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！不正競争防止法で保護される営業秘密といえるためには、①秘密管理性（秘密として管理されていること）、②有用性（事業活動に有用な技術上または営業上の情報であること）、③非公知性（公然と知られていないこと）の3つの要件を満たす必要があります。"
-    },
-    {
-        "q": "不正競争防止法で規制される周知な商品等表示主体の混同行為とは、他人の商品・営業表示として著名なものと同一または類似のものを、自己の商品・営業表示として使用する行為をいう。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 1,
-        "exp": "正解！不正競争防止法では、周知な商品等表示主体の混同行為が規制対象の行為の一つとされています。具体的には、他人の商品・営業表示として需要者の間で広く認識されているものと同一または類似の表示を使用するなどして、他人の商品・営業と誤認させる行為を指します。他人の商品・営業表示として著名なものと同一または類似のものを、自己の商品・営業表示として使用する行為は、不正競争防止法で規制される著名な商品等表示の冒用行為です。"
-    },
-    {
-        "q": "AI生成物は、AIが生成したものであるが、場合によって著作物に該当し、AI利用者に著作権が認められる可能性もある。",
-        "options": [
-            "〇",
-            "×"
-        ],
-        "a": 0,
-        "exp": "正解！文化庁の見解によると、著作権法上では、人がAIを道具として用いて画像等を生成したときは、場合によって、人による創作物として著作物が認められ、AI利用者に著作権が認められることがあるとされています。"
-    },
-    {
-        "q": "「人間中心のAI社会原則」における3つの基本理念に含まれないものはどれか？",
-        "options": [
-            "A. 人間の尊厳",
-            "B. 多様性と包摂",
-            "C. 持続可能性",
-            "D. 圧倒的な経済性の追求"
-        ],
-        "a": 3,
-        "exp": "解説：正解です。AI社会の基本理念は「人間の尊厳」「多様性と包摂」「持続可能性」の3つです。「圧倒的な経済性の追求」は基本理念に含まれていません。利益よりも人間中心の社会実現が優先されます。"
-    },
-    {
-        "q": "AIは国民の生命、身体、または財産に対する危害を及ぼさないことを求めている「AI社会原則（6つの原則）」はどれか？",
-        "options": [
-            "A. 公平性の原則",
-            "B. 透明性の原則",
-            "C. 安全性の原則",
-            "D. アカウンタビリティの原則"
-        ],
-        "a": 2,
-        "exp": "解説：正解です。「安全性（Safety）の原則」は、AIが生命、身体、財産へ危害を及ぼさないことを求めています。リスク評価や緊急停止機能（キルスイッチ）などの実装が重要になります。"
-    },
-    {
-        "q": "採用活動でAIを利用したところ、過去のデータに偏りがあったため、AIが特定の性別の評価を不当に下げて出力してしまった。これは6つの原則のうち、どの原則に違反する懸念があるか？",
-        "options": [
-            "A. セキュリティ確保の原則",
-            "B. 公平性の原則",
-            "C. プライバシー保護の原則",
-            "D. 安全性の原則"
-        ],
-        "a": 1,
-        "exp": "解説：正解です。「公平性（Fairness）の原則」は、AIの判断において、個人の背景（人種、性別、年齢等）による不当な差別が行われないことを求めています。学習データに含まれる「バイアス（偏見）」を取り除くことが重要です。"
-    },
-    {
-        "q": "AIが引き起こした損害等の問題について、「AIが勝手に行ったことだから関係ない」と言い逃れせず、事業者が社会に対して真摯に説明し責任関係を明確にすることを求める原則はどれか？",
-        "options": [
-            "A. 透明性の原則",
-            "B. アカウンタビリティの原則",
-            "C. プライバシー保護の原則",
-            "D. セキュリティ確保の原則"
-        ],
-        "a": 1,
-        "exp": "解説：正解です。「アカウンタビリティ（説明責任）の原則」は、AIシステムを提供する者・利用する者が、その結果に対して責任を持ち、社会やステークホルダーに対話・説明を行うことを求めています。"
-    },
-    {
-        "q": "AIが特定の判断で不公平な結果を出力してしまう「AIバイアス（偏見）」の最も代表的な原因はどれか？",
-        "options": [
-            "A. クラウドサーバーの物理的な処理能力不足",
-            "B. 人間社会の偏見を含んだ「学習データの偏り」",
-            "C. 開発に用いたAIのモデルがオープンソースであること",
-            "D. 利用環境のインターネット通信速度が速すぎること"
-        ],
-        "a": 1,
-        "exp": "解説：正解です。AIバイアスの最も一般的な原因は「学習データの偏り」です。AIは与えられたデータからルールを見つけるため、データ自体に人間社会の偏見が含まれていれば、そのまま偏った結果を出力してしまいます。データを用意する段階から多様性を確保することが重要です。"
-    },
-    {
-        "q": "共通の指針における「プライバシー保護」の考え方として適切なものは？",
-        "options": [
-            "A.\n                            AI技術の発展を最優先し、取得した個人情報は誰でも自由に利用できるようにすべきである。",
-            "B.\n                            個人情報漏洩のリスクをゼロにするため、いかなる場合も個人のデータを用いたAI開発を全面的に禁止する。",
-            "C. 個人の権利や自由を侵害しないよう個人情報を適切に保護・管理（匿名化等）しながら、AIの利便性も確保する。",
-            "D. プライバシー保護は重要だが、利便性が高いAIサービスであれば保護ルールを無視してよい。"
-        ],
-        "a": 2,
-        "exp": "解説：正解です。プライバシー保護の原則は、個人情報の適切な保護とAIによる便益のバランスを取ることを求めています。目的を特定して同意を得ることや、データを匿名化して利用するなどの適切な管理が必要です。"
-    },
-    {
-        "q": "AIを開発したり利用したりして利益を得る者は、AIが関係した事象について「AIが勝手にやった事だから分からない」と言い逃れせず社会と対話すべきである、とする原則はどれか？",
-        "options": [
-            "A. アカウンタビリティの原則",
-            "B. 公平性の原則",
-            "C. セキュリティ確保の原則",
-            "D. 透明性の原則"
-        ],
-        "a": 0,
-        "exp": "解説：正解です。「アカウンタビリティ（説明責任）の原則」は、開発者や事業者が責任を放棄せず、社会的責任および説明責任を果たすことを求めるものです。"
-    },
-    {
-        "q": "日本の「AI新法（人工知能関連技術の研究開発及び活用の推進に関する法律）」の目的に合致するものはどれか？",
-        "options": [
-            "A. 一定規模以上の企業におけるAIの利用を全面的に禁止すること。",
-            "B. 民間企業によるAI開発を禁止し、政府の専門機関に一元化すること。",
-            "C. リスク管理を図りつつ、安全なAIの活用を推進し、日本国内でのAI技術の研究開発を支援すること。",
-            "D. 海外で開発された生成AIの日本国内での利用を法的に罰すること。"
-        ],
-        "a": 2,
-        "exp": "解説：正解です。AI新法は、AIのリスクを管理して社会の健全な発展を図りつつ、日本国内でのAI技術の研究開発や適切な利活用を強力に推進（支援）することを目的としています。"
-    },
-    {
-        "q": "AI事業者ガイドラインにおける「AI利用者（利用事業者）」の責務として、最も適切なものはどれか？",
-        "options": [
-            "A.\n                            AIモデルを設計する際、学習データに著作権侵害がないかを監査し、モデルカードを作成する。",
-            "B.\n                            社外のユーザー向けにAIサービスを提供し、利用規約を整備して安定したサーバー運用を行う。",
-            "C.\n                            AIモデルそのものの脆弱性を修正し、プロンプトインジェクションに対する防御機構をプログラミングする。",
-            "D. 従業員向けに社内ガイドラインを策定し、AIの出力を鵜呑みにせず人間がファクトチェックを行うよう指導する。"
-        ],
-        "a": 3,
-        "exp": "解説：正解です。企業などの「利用事業者」は、社内で従業員が安全にAIを使えるよう利用ガイドラインを策定し、入力時の情報漏洩防止や、出力結果を人間が確認するルール（ヒューマン・イン・ザ・ループ）を徹底させる責務があります。"
-    },
-    {
-        "q": "「AIガバナンス」の説明として最も適切なものはどれか？",
-        "options": [
-            "A.\n                            社内で利用しているすべてのAIサービスの月額料金を集計し、費用を削減するための経費管理ルールのこと。",
-            "B. 組織がAIを安全かつ責任を持って利用するために、リスク管理や倫理的配慮、法令遵守等を体系的に管理・統治する仕組みのこと。",
-            "C. 日本政府が新設した、AIの違法利用を監視するための専門の警察組織の名称。",
-            "D. 従業員が生成AIを利用できる時間を1日1時間にシステム上で強制的に制限する機能のこと。"
-        ],
-        "a": 1,
-        "exp": "解説：正解です。AIガバナンスとは、リスク管理や倫理への配慮、法令遵守など、組織がAIを安全かつ責任を持って活用するための全体的な管理・統治体制のことを指します。"
-    }
-];
-
-        let questions = [];
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let userAnswers = [];
-        let EXAM_QUESTION_COUNT = 20;
-
-        function shuffle(array) {
-            let currentIndex = array.length, randomIndex;
-            while (currentIndex != 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const bestScore = localStorage.getItem('chapter4_exam_score');
-            if (bestScore) {
-                document.getElementById('best-score-display').style.display = 'block';
-                document.getElementById('best-score').textContent = bestScore;
-            }
-            document.getElementById('start-btn').addEventListener('click', startExam);
-            document.getElementById('next-btn').addEventListener('click', nextQuestion);
-        });
-
-        function startExam() {
-            document.getElementById('start-screen').style.display = 'none';
-            document.getElementById('exam-container').style.display = 'block';
-
-            questions = shuffle([...allQuestions]).slice(0, EXAM_QUESTION_COUNT);
-            currentQuestionIndex = 0;
-            score = 0;
-            userAnswers = [];
-
-            showQuestion();
-        }
-
-        function showQuestion() {
-            document.getElementById('current-q').textContent = currentQuestionIndex + 1;
-            const q = questions[currentQuestionIndex];
-
-            let optionsHtml = '';
-            q.options.forEach((opt, idx) => {
-                optionsHtml += `<div class="exam-option" onclick="selectExamAnswer(${idx}, this)">${opt}</div>`;
-            });
-
-            const area = document.getElementById('question-area');
-            area.innerHTML = `
-                <div class="exam-question active">
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>問題:</strong><br>${q.q}</p>
-                    <div class="exam-options">
-                        ${optionsHtml}
-                    </div>
-                </div>
-            `;
-            document.getElementById('next-btn').style.display = 'none';
-            window.scrollTo(0, 0);
-        }
-
-        window.selectExamAnswer = function (optIndex, element) {
-            if (document.querySelector('.exam-option.answered')) return;
-
-            const q = questions[currentQuestionIndex];
-            const isCorrect = optIndex === q.a;
-
-            // すべてのオプションに answered クラスを追加（再クリック防止）
-            const allOptions = document.querySelectorAll('.exam-option');
-            allOptions.forEach(opt => opt.classList.add('answered'));
-
-            // 選択したボタンに正解/不正解のスタイルを適用
-            if (isCorrect) {
-                element.classList.add('correct');
-                score++;
-            } else {
-                element.classList.add('incorrect');
-                // 不正解の場合、正解のボタンも緑色にする
-                allOptions[q.a].classList.add('correct');
-            }
-
-            // フィードバックと解説を表示
-            const feedbackHtml = `
-                <div class="exam-feedback ${isCorrect ? 'correct' : 'incorrect'}" style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; border-left: 4px solid ${isCorrect ? '#10b981' : '#ef4444'}; background: ${isCorrect ? '#d1fae5' : '#fee2e2'};">
-                    <p style="font-weight: bold; color: ${isCorrect ? '#065f46' : '#991b1b'}; margin-bottom: 0.5rem;">
-                        ${isCorrect ? '✅ 正解です！' : '❌ 不正解です'}
-                    </p>
-                    <p style="margin-bottom: 0.5rem;"><strong>正解:</strong> ${q.options[q.a]}</p>
-                    <p style="margin: 0;"><strong>解説:</strong> ${q.exp}</p>
-                </div>
-            `;
-
-            const questionArea = document.querySelector('.exam-question');
-            questionArea.innerHTML += feedbackHtml;
-
-            userAnswers.push({
-                q: q.q,
-                userText: q.options[optIndex].substring(0, 1),
-                correctText: q.options[q.a].substring(0, 1),
-                correctFullPath: q.options[q.a],
-                isCorrect: isCorrect,
-                exp: q.exp
-            });
-
-            document.getElementById('next-btn').style.display = 'block';
-        };
-
-        function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResult();
-            }
-        }
-
-        function showResult() {
-            document.getElementById('exam-container').style.display = 'none';
-            document.getElementById('result-screen').style.display = 'block';
-
-            const percentage = Math.round((score / questions.length) * 100);
-            document.getElementById('score-circle').style.setProperty('--percentage', `${percentage}%`);
-            document.getElementById('final-score').textContent = `${score}/${questions.length}`;
-
-            const msgEl = document.getElementById('result-message');
-            if (percentage === 100) {
-                msgEl.textContent = "完璧です！第4章の内容を完全にマスターしましたね！🎉✨";
-                msgEl.style.color = "var(--secondary-color)";
-                document.getElementById('next-chapter-btn').style.display = 'inline-block';
-            } else if (percentage >= 80) {
-                msgEl.textContent = "素晴らしい成績です！合格圏内です！👍";
-                document.getElementById('next-chapter-btn').style.display = 'inline-block';
-            } else if (percentage >= 60) {
-                msgEl.textContent = "よく頑張りました！間違えたところを復習しましょう。📝";
-            } else {
-                msgEl.textContent = "もう一度テキストを読み返して、再チャレンジしましょう！💪";
-            }
-
-            const bestScore = parseInt(localStorage.getItem('chapter4_exam_score') || '0');
-            if (score > bestScore) {
-                localStorage.setItem('chapter4_exam_score', score);
-            }
-
-            const listEl = document.getElementById('result-list');
-            let html = '<h3>回答の振り返り</h3>';
-            userAnswers.forEach((ans, i) => {
-                const mark = ans.isCorrect ? '<span class="correct-ans">○ 正解</span>' : '<span class="wrong-ans">× 不正解</span>';
-                
-                html += `
-                    <div class="result-item">
-                        <p><strong>問${i + 1}:</strong> ${ans.q}</p>
-                        <p style="margin: 0.5rem 0;">あなたの回答: ${ans.userText} | 判定: ${mark}</p>
-                        <div class="explanation">
-                            <strong>正解: ${ans.correctFullPath}</strong><br>
-                            ${ans.exp}
-                        </div>
-                    </div>
-                `;
-            });
-            listEl.innerHTML = html;
-
-            // 合格ならお宝獲得フラグセット＆演出表示
-            if (percentage >= 80) {
-                const wasCompleted = localStorage.getItem('chapter4_completed') === 'true';
-                localStorage.setItem('chapter4_completed', 'true');
-                localStorage.setItem('chapter4_section4-exam_completed', 'true');
-
-                if (!wasCompleted || localStorage.getItem('treasure_shown_4') !== 'true') {
-                    // 初回クリア時にお宝演出
-                    localStorage.setItem('treasure_shown_4', 'true');
-                    setTimeout(() => {
-                        showTreasureModal();
-                    }, 1000);
-                }
-            }
-            window.scrollTo(0, 0);
-        }
-    </script>
 
     <!-- お宝獲得動画モーダル -->
     <div class="treasure-modal-overlay" id="treasure-modal" style="display:none;">
@@ -678,47 +96,23 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- クイズデータの読み込み -->
+    <script src="../shared/js/data/chapter4-exam-data.js"></script>
+    <script src="../shared/js/exam-system.js"></script>
     <script>
-        function showTreasureModal() {
-            const modal = document.getElementById('treasure-modal');
-            const video = document.getElementById('treasure-video');
-            if (modal && video) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-
-                // モーダル表示時にミュートを解除し最初から再生
-                video.muted = false;
-                video.currentTime = 0;
-                video.play().catch((e) => {
-                    console.log("自動再生がブロックされました。ミュートで再生を試みます。", e);
-                    video.muted = true;
-                    video.play();
+                // chapter4-exam-data.js は chapter4Questions グローバル変数を定義
+                const allQuestions = (typeof chapter4Questions !== 'undefined') ? chapter4Questions : [];
+            
+                ExamSystem.init(allQuestions, {
+                    chapterNumber: 4,
+                    questionCount: 15,
+                    passingPercentage: 80,
+                    nextChapterLink: '../chapter5/index.html',
+                    storageKeyPrefix: 'chapter4',
+                    treasureShowKey: 'treasure_shown_4'
                 });
-            }
-        }
-
-        function closeTreasureModal() {
-            const modal = document.getElementById('treasure-modal');
-            const video = document.getElementById('treasure-video');
-            if (video) video.pause();
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        }
-
-        function toggleTreasureSound() {
-            const video = document.getElementById('treasure-video');
-            const btn = document.getElementById('sound-toggle-btn');
-            if (video.muted) {
-                video.muted = false;
-                btn.textContent = '🔊 音声を消す';
-            } else {
-                video.muted = true;
-                btn.textContent = '🔇 音声を出す';
-            }
-        }
     </script>
 </body>
+
 </html>

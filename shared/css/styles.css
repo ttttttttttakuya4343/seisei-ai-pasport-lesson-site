@@ -1631,6 +1631,56 @@ main {
     list-style-type: circle;
 }
 
+/* 情報・対策ボックス */
+.info-box {
+    background: #eef6ff;
+    border-left: 4px solid #3498db;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0 8px;
+    line-height: 1.8;
+}
+
+.info-box p {
+    margin-bottom: 0.5rem;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* 脅威トピックカード */
+.threat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.threat-card h3 {
+    margin-top: 0 !important;
+}
+
+.threat-card--red {
+    border-left: 4px solid #e74c3c;
+}
+
+.threat-card--orange {
+    border-left: 4px solid #e67e22;
+}
+
+.threat-card--yellow {
+    border-left: 4px solid #f39c12;
+}
+
+.threat-card--purple {
+    border-left: 4px solid #9b59b6;
+}
+
+.threat-card--blue {
+    border-left: 4px solid #3498db;
+}
 /* 青い背景ボックス内の箇条書き */
 .info-box ul,
 .definition-box ul,
@@ -4510,4 +4560,134 @@ footer p {
     .generative-model-history h2 {
         font-size: 1.15rem;
     }
+}
+/* ===== 共通: 模擬試験（章末テスト）セクション ===== */
+.exam-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.exam-question {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: none;
+}
+
+.exam-question.active {
+    display: block;
+}
+
+.exam-options {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.exam-option {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    background: var(--bg-gray-light);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.exam-option:hover {
+    background: var(--bg-gray);
+}
+
+.exam-option.selected {
+    color: white;
+    /* 選択時は文字を白に（背景色はJS側で動的に正誤色を設定） */
+}
+
+.exam-progress {
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.exam-result {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: none;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* CSS変数 --percentage と --secondary-color(またはblue系) を利用 */
+    background: conic-gradient(var(--primary-blue) var(--percentage), #e9ecef 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.score-circle::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+}
+
+.score-text {
+    position: relative;
+    z-index: 1;
+    color: var(--text-dark);
+}
+
+.explanation {
+    background: var(--bg-gray-light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: left;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.correct-ans {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.wrong-ans {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.result-list {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.result-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.start-screen {
+    text-align: center;
+    padding: 3rem 0;
 }
