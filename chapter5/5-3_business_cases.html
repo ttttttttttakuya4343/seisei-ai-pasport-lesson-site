@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-3: ビジネス活用事例 | 生成AIパスポート講座</title>
+    <title>5-3: LLMプロンプティングの実践 | 生成AIパスポート講座</title>
     <link rel="stylesheet" href="../shared/css/styles.css">
 </head>
 
@@ -15,6 +15,7 @@
             <h1 class="logo">🎓 生成AIパスポート講座</h1>
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
+                <a href="index.html">第5章トップ</a>
                 <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
                     🎭 学習パートナー選択
                 </button>
@@ -31,7 +32,10 @@
                     5-3
                 </div>
                 <div class="hero-badge">第5章 第3節</div>
-                <h1>ビジネス活用事例</h1>
+                <h1>LLMプロンプティングの実践</h1>
+                <p class="chapter-description" style="margin-top: 1rem; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6;">
+                    <strong>このセクションではテキスト生成AIにおける基礎的なプロンプティング技法を学習していきます。</strong>
+                </p>
                 <div class="lesson-meta">
                     <span>⏱️ 約25分</span>
                     <span>📝 クイズ10問</span>
@@ -39,626 +43,344 @@
             </div>
 
             <div class="section">
-                <h2>📧 メール作成</h2>
+                <h2>01 文章の校正、校正箇所の確認</h2>
                 <div class="highlight">
-                    <p><strong>ビジネスメールの自動生成</strong></p>
-                    <p>目的と内容を伝えるだけで、適切な形式のメールを生成</p>
+                    <p>テキスト生成AIは、文章の作成だけではなく、文章の構成や表現、文法の訂正など簡単な校正をすることができます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の内容でビジネスメールを作成してください：
-
-宛先: [取引先名/部署名]
-目的: [会議の日程調整/資料送付/お礼など]
-内容: [具体的な内容]
-トーン: [丁寧/フォーマル/カジュアル]
-
-件名も含めて作成してください。</pre>
+<pre>次の文章を校正してください。
+先月の会議で上がった議題について、内容の変更をしてみたい。今週中にメンバーで集まって再度会議をし、検討した方がいいかもね。</pre>
                 </div>
 
-                <h3>応用例1: 会議の日程調整</h3>
-                <div class="code-block">
-                    <pre>以下の内容でメールを作成してください：
-
-宛先: ABC株式会社 営業部 田中様
-目的: 次回の打ち合わせ日程の調整
-希望日時: 
-- 第1候補: 3月15日（水）14:00-16:00
-- 第2候補: 3月17日（金）10:00-12:00
-- 第3候補: 3月20日（月）15:00-17:00
-場所: オンライン（Zoom）
-議題: 新商品の提案について
-
-丁寧で礼儀正しいトーンで作成してください。</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">以下は、文章の校正例です。
+先月の会議で取り上げた議題について、内容を変更したいと思います。今週中にメンバーで再度集まり、議論することを検討した方が良いと思います。</p>
                 </div>
 
-                <h3>応用例2: お礼メール</h3>
+                <p>また実際に<strong>校正した箇所の確認</strong>もすることができます。</p>
+
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>本日の商談のお礼メールを作成してください：
+<pre>どこを修正したのか教えてください。</pre>
+                </div>
 
-宛先: XYZ社 山田様
-感謝の内容: 貴重なお時間をいただいたこと
-今後の予定: 提案資料を来週月曜までに送付
-次のアクション: 来月の正式契約に向けて準備
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">修正点は以下の通りです。
+「上がった議題について」という表現を、「取り上げた議題について」と書き換えました。前者はあまり一般的ではなく、後者の方がより自然な表現です。
+「してみたい」という表現を、「変更したいと思います」と書き換えました。前者は口語的な表現であり、文章には適していません。後者の方がより丁寧で正式な表現です。
+「し」という表現を「する」と修正しました。
+「検討した方がいいかもね」という表現を、「議論することを検討した方が良いと思います」と書き換えました。前者は口語的な表現であり、文章には適していません。また、「ね」を省き、より丁寧な表現にしました。</p>
+                </div>
 
-温かみのあるトーンで作成してください。</pre>
+                <hr style="margin: 2rem 0; border: none; border-top: 1px solid #ddd;">
+                <div class="info-box threat-card--orange">
+                    <h4 style="margin-top: 0; color: #d35400;">【プロンプト生成上のリスクや注意点】</h4>
+                    <ul>
+                        <li><strong>校正したい文章は、機密情報に該当する文章でないか？</strong><br>
+                            AIモデルは、機械学習の過程で大量の情報を元に文章を生成します。 つまり、あなたが入力した文章も、機械学習における学習要素の1つとして参照される可能性があります。
+                            これは、モデルが入力として受け取った情報を、出力として再提示するリスクがあるということです。</li>
+                        <li style="margin-top: 1rem;"><strong>個人情報を含む文章を構成しようとしていないか？</strong><br>
+                            例えば、OpenAIのGPTモデルは個人を特定できるデータを学習することは設計上禁じられており、特定の個人情報を記憶する能力はないとされています。
+                            しかし、そのようなセキュリティ上の設定を謳っているツールでも、その確認を行うことは簡単ではありません。 以上の理由から、個人が特定され得る情報をプロンプトの一部に使用することは控えましょう。</li>
+                        <li style="margin-top: 1rem;"><strong>校正後、出力された文章の確認作業は必ず行う。</strong><br>
+                            AIモデルは、ユーザーの意図しない、または不適切な内容を出力する可能性があります。 この問題は、AIが完全に人間の意図を理解するわけではないため起こります。
+                            また、AIは学習時に使われた訓練データの偏りを反映する可能性があります。 これにより、偏見などの特定の視点を過度に強調する内容が出力される可能性があります。 よって、校正後の文章は必ず人間の目で再確認しましょう。
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <div class="section">
-                <h2>📊 アンケート作成</h2>
+                <h2>02 文章の整理</h2>
                 <div class="highlight">
-                    <p><strong>目的に応じたアンケート設計</strong></p>
-                    <p>顧客満足度、社内調査など、様々なアンケートを自動生成</p>
+                    <p>音声文字起こしなどで作成された整理されていない文章に、手間のかかる<strong>句読点や段落の区切り</strong>などを挿入できます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下のテーマでアンケートを作成してください：
-
-テーマ: [顧客満足度調査/社員意識調査など]
-質問数: [10問程度]
-形式: [選択式/自由記述/混合]
-対象: [顧客/社員/学生など]
-
-各質問には選択肢も含めてください。</pre>
+<pre>以下の文章に句読点や改行を追加して、読みやすく整えてください。
+人工知能（AI）はコンピュータシステムやソフトウェアが人間の知的な能力を模倣する技術ですAIは大量のデータを処理しパターンを見つけたり問題を解決したりすることができますこれにより様々な業界や分野で革新的なアプリケーションやサービスが開発されていますAIの発展は機械学習やディープラーニングといった技術の進歩によって支えられています機械学習ではコンピュータシステムがデータを学習しパターンや規則を見つけることができますディープラーニングは多層のニューラルネットワークを用いて複雑なタスクを解決することができる強力な手法です</pre>
                 </div>
 
-                <h3>顧客満足度調査の例</h3>
-                <div class="code-block">
-                    <pre>カフェの顧客満足度調査アンケートを作成してください：
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">人工知能（AI）は、コンピュータシステムやソフトウェアが人間の知的な能力を模倣する技術です。
+AIは大量のデータを処理し、パターンを見つけたり問題を解決したりすることができます。これにより様々な業界や分野で革新的なアプリケーションやサービスが開発されています。
+AIの発展は機械学習やディープラーニングといった技術の進歩によって支えられています。機械学習ではコンピュータシステムがデータを学習しパターンや規則を見つけることができます。ディープラーニングは多層のニューラルネットワークを用いて複雑なタスクを解決することができる強力な手法です。</p>
+                </div>
 
-質問数: 10問
-形式: 
-- 選択式（5段階評価）: 7問
-- 自由記述: 3問
+                <p>このように句読点が差し込まれ、読みやすい形で出力されました。 同じようなシーンでのプロンプティングの例として、以下のような使い方もあります。</p>
 
-調査項目:
-- 商品の品質
-- 店内の雰囲気
-- スタッフの対応
-- 価格
-- 全体的な満足度
-- 改善点（自由記述）</pre>
+                <div class="responsive-table">
+                    <table class="lesson-table">
+                        <tr>
+                            <th style="width: 25%;">目的</th>
+                            <th>内容</th>
+                        </tr>
+                        <tr>
+                            <td>語彙の強化</td>
+                            <td>あいまいな単語や表現をより明確なものに変換できます。</td>
+                        </tr>
+                        <tr>
+                            <td>構造の改善</td>
+                            <td>複雑な文章や段落をより理解しやすい形に変換できます。</td>
+                        </tr>
+                        <tr>
+                            <td>文体の調整</td>
+                            <td>よりカジュアルな文章へ、またはその逆に変換できます。</td>
+                        </tr>
+                        <tr>
+                            <td>文法チェック</td>
+                            <td>文法の誤りを訂正するのに使用できます。</td>
+                        </tr>
+                        <tr>
+                            <td>情報の整合性のチェック</td>
+                            <td>文章全体での情報の一貫性を確認できます。</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
             <div class="section">
-                <h2>✨ キャッチコピー案</h2>
+                <h2>03 文章の要約</h2>
                 <div class="highlight">
-                    <p><strong>商品・サービスの魅力を伝える</strong></p>
-                    <p>ターゲットと特徴を伝えて、印象的なコピーを生成</p>
+                    <p>全てを読むには長すぎる文章を<strong>要約</strong>することができます。 常に正しいとは限りませんが、<strong>概要を把握したいとき</strong>には有用です。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の商品のキャッチコピーを5つ考えてください：
-
-商品/サービス: [商品名]
-ターゲット: [20代女性/ビジネスパーソンなど]
-特徴: [主な特徴を3つ]
-トーン: [情熱的/落ち着いた/楽しいなど]
-
-各20文字以内で作成してください。</pre>
+<pre>次の文章を要約してください。
+パワーポイントは、プレゼンテーションを作成するための専用ツールとして、ビジネスや教育の現場で広く使われています。主な機能は、スライドを作成することです。スライドは、1枚の画面にテキスト、画像、音声、動画などのコンテンツを配置したものです。スライドは通常、スライドショー形式で表示され、1つずつ表示されていくため、プレゼンテーションの流れを細かくコントロールすることができます。スライドを作成するための様々な機能があります。たとえば、テキストボックスや図形ツールを使って、テキストや図形を簡単に配置することができます。また、グラフやチャートを作成して、データを視覚的に表現することもできます。さらに、多彩なデザインテーマやスタイルが用意されています。これらのテーマやスタイルを使うことで、プレゼンテーションの外観を一気に変更することができます。また、スライドの背景色やフォントの種類やサイズなどをカスタマイズすることもできます。アニメーションやトランジションなどの機能もあります。これらの機能を使うことで、スライドの移動や変化をより動的に演出することができます。これにより、プレゼンテーションの印象をより強く残すことができます。スライドショーを再生するための機能もあります。スライドショーでは、スライドが自動的に再生され、プレゼンテーションの効果を最大限に発揮することができます。以上のように、パワーポイントは、ビジネスや教育の現場で非常に有用なツールです。使い方が簡単で直感的な操作が可能なため、初心者でもすぐに使いこなすことができます。プレゼンテーションを作成する際には、ぜひこのソフトウェアを活用して、魅力的なプレゼンテーションを作成しましょう。</pre>
                 </div>
 
-                <h3>実践例</h3>
-                <div class="code-block">
-                    <pre>以下の例を参考に、キャッチコピーを考えてください：
-
-例1:
-商品: オーガニックシャンプー
-コピー: 自然の恵みで、髪に潤いを
-
-例2:
-商品: スマートウォッチ
-コピー: 時を刻む、健康を守る
-
-本番:
-商品: オンライン英会話サービス
-ターゲット: 忙しいビジネスパーソン
-特徴: 早朝深夜対応、5分から受講可、ネイティブ講師
-コピー: ?</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">パワーポイントは、ビジネスや教育の現場でよく使われるプレゼンテーション作成ツールで、スライドを作成することができます。テキストや図形を簡単に配置する機能や、多彩なデザインテーマやスタイルを用意しています。また、アニメーションやトランジション機能を使うことで、スライドを動的に演出することもできます。初心者でも使いやすい有用なツールです。</p>
                 </div>
+
+                <p>要約したい文章が長すぎる場合、生成AIモデルの性能によって、エラーが返されることがあります。 その場合は、適切な文章量で区切り、複数回に渡り小分けにして入力することで解消できます。</p>
             </div>
 
             <div class="section">
-                <h2>📄 ビジネス書類作成</h2>
-
-                <h3>1. 企画書</h3>
-                <div class="code-block">
-                    <pre>以下の内容で新規事業の企画書を作成してください：
-
-プロジェクト名: [名前]
-目的: [目標]
-ターゲット: [対象顧客]
-予算: [金額]
-スケジュール: [期間]
-期待効果: [売上目標など]
-
-以下の構成で作成してください：
-1. 背景
-2. 目的
-3. 実施内容
-4. スケジュール
-5. 予算
-6. 期待効果</pre>
-                </div>
-
-                <h3>2. 報告書</h3>
-                <div class="code-block">
-                    <pre>プロジェクト進捗報告書を作成してください：
-
-プロジェクト名: [名前]
-報告期間: [期間]
-進捗状況: [％完了]
-主な成果: [成果物]
-課題: [問題点]
-次のステップ: [今後の予定]
-
-簡潔で分かりやすい形式で作成してください。</pre>
-                </div>
-
-                <h3>3. プレスリリース</h3>
-                <div class="code-block">
-                    <pre>新商品発表のプレスリリースを作成してください：
-
-企業名: [会社名]
-商品名: [製品名]
-発売日: [日付]
-特徴: [主な特徴3つ]
-価格: [価格帯]
-販売チャネル: [販売場所]
-
-報道機関向けの正式な文書形式で作成してください。</pre>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>📋 アジェンダ作成</h2>
+                <h2>04 箇条書きを文章に変換、文章を箇条書きに変換</h2>
                 <div class="highlight">
-                    <p><strong>会議の議題と進行を整理</strong></p>
-                    <p>効率的な会議のための構造化された議題作成</p>
+                    <p>箇条書きでまとめた説明文を文章化することができます。 修正が必要な場合もありますが、<strong>素案作成などの準備タスクを大幅に減らす</strong>ことができます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の会議のアジェンダを作成してください：
-
-会議名: [会議のタイトル]
-日時: [日時]
-場所: [場所/オンライン]
-参加者: [参加者リスト]
-目的: [会議の目的]
-所要時間: [合計時間]
-
-各議題に時間配分も含めてください。</pre>
+<pre>以下の箇条書きをわかりやすく文章に変えてください。
+・数値やテキストデータを表形式で管理することができる
+・セルにデータを入力し、計算式を使って数値を処理することができる
+・グラフやチャートを作成して、データを視覚化することができる
+・予算や請求書、在庫管理表などのビジネス文書を作成することができる
+・関数やマクロを使って、複雑な計算や作業を効率的に行うことができる
+・条件付き書式やフィルタリング、ソートなどの機能を使って、データの整理や分析が容易になる</pre>
                 </div>
 
-                <h3>実践例</h3>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">ここで示されているツールは、数値やテキストデータを簡単に表形式で管理できる特徴を持っています。具体的には、各セルにデータを入力し、それに計算式を適用することで、各種の数値計算を行うことが可能です。さらに、このツールはグラフやチャートの作成機能も持ち合わせており、データを視覚化することで、より深い理解を得るための支援を提供します。また、予算表や請求書、在庫管理表など、ビジネスに必要な様々な文書の作成にも対応しています。それだけでなく、関数やマクロを活用することで、複雑な計算や作業も効率的に行うことができます。これらの機能により、データ管理と分析が容易になり、業務効率の向上に寄与します。</p>
+                </div>
+
+                <p>もちろん、文章を箇条書きに直すこともできます。</p>
+
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>四半期事業報告会のアジェンダを作成してください：
+<pre>箇条書きに書き直してください。</pre>
+                </div>
 
-会議名: 2024年第1四半期 事業報告会
-日時: 4月10日（水）14:00-16:00
-参加者: 経営陣、各部門長
-議題:
-1. 売上報告
-2. 新規プロジェクト進捗
-3. 課題と対策
-4. 次四半期の目標
-5. 質疑応答
-
-各議題に適切な時間を割り当ててください。</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">上記の文章を箇条書きにすると以下のようになります:
+・数値やテキストデータを表形式で管理できる
+・各セルにデータを入力し、それに計算式を適用することで、各種の数値計算が可能
+・グラフやチャートの作成機能を提供し、データを視覚化できる
+・予算表や請求書、在庫管理表など、ビジネスに必要な様々な文書を作成できる
+・関数やマクロを活用し、複雑な計算や作業も効率的に行うことが可能</p>
                 </div>
             </div>
 
             <div class="section">
-                <h2>✅ タスク抽出</h2>
+                <h2>05 文章の対象を変更する</h2>
                 <div class="highlight">
-                    <p><strong>議事録からタスクを抽出</strong></p>
-                    <p>会議の内容から実行すべきタスクを明確化</p>
+                    <p>指定した年齢や身分、属性に向けた文章に変換することができます。 このときに「10歳の小学生」や「取引先の社長」などのように、<strong>明確に指定するとよりイメージに近い文章を出力</strong>することができます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の会議議事録からタスクを抽出してください：
-
-各タスクについて以下を明記：
-- タスク内容
-- 担当者
-- 期限
-- 優先度（高/中/低）
-
-[議事録内容]</pre>
+<pre>以下の文章を、10歳の小学生でも分かる簡単な文章にしてください。
+人工知能（AI）は、コンピュータシステムやソフトウェアが人間の知的な能力を模倣する技術です。AIは大量のデータを処理し、パターンを見つけたり問題を解決したりすることができます。これにより様々な業界や分野で革新的なアプリケーションやサービスが開発されています。
+AIの発展は機械学習やディープラーニングといった技術の進歩によって支えられています。機械学習では、コンピュータシステムがデータを学習し、パターンや規則を見つけることができます。ディープラーニングは多層のニューラルネットワークを用いて複雑なタスクを解決することができる強力な手法です。</pre>
                 </div>
 
-                <h3>実践例</h3>
-                <div class="code-block">
-                    <pre>以下の議事録からタスクリストを作成してください：
-
-議事録:
-「新商品のWebサイトについて、田中さんがデザイン案を
-来週までに作成することになりました。また、山田さんは
-商品写真の撮影を今月中に完了させる必要があります。
-佐藤さんは競合調査を2週間以内に実施し、価格設定の
-参考にします。」
-
-出力形式:
-| No | タスク | 担当者 | 期限 | 優先度 |</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">人工知能（AI）は、ロボットが人間みたいに考えることを教える技術だよ。AIはたくさんの情報を早く見つけたり、問題を解決したりすることができるから、新しいアプリやサービスを作るのに役立っているんだ。
+AIが成長するためには、「機械学習」と「ディープラーニング」っていう特別な技術が必要なんだ。機械学習は、ロボットが色々な情報を覚えて、その中からパターンやルールを見つけ出す技術のこと。ディープラーニングは、ロボットが脳みたいにたくさんの情報を使って、難しい問題を解く方法のことなんだよ。</p>
                 </div>
+
+                <p>これは読み手の対象を設定し、出力を操作する方法であり、特に難解な言葉で書かれた文章の読解に困っている時などに役立ちます。
+                    専門用語などが文中に多く出てくる場合でも、「中学1年生でもわかる表現で説明をしてください」のように、たった一文をつけ加えるだけで、噛み砕いた表現での出力や、単語の定義が一緒に表示されるので非常に便利です。</p>
             </div>
 
             <div class="section">
-                <h2>🌐 翻訳</h2>
+                <h2>06 話者の設定を変更する</h2>
                 <div class="highlight">
-                    <p><strong>ビジネスに適した翻訳</strong></p>
-                    <p>単なる直訳ではなく、文脈に応じた自然な翻訳</p>
+                    <p>前項は、「読み手を設定して、出力を操作する」方法でしたが、今度は「<strong>話し手の人物像を設定して、出力を操作する</strong>」方法です。 以下の例を見てみましょう。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の文章を[言語]に翻訳してください：
-
-文書種類: [ビジネスメール/プレゼン資料/契約書など]
-トーン: [フォーマル/カジュアル]
-
-翻訳時の注意点:
-- 文化的な違いに配慮
-- ビジネス文書として適切な表現
-- 専門用語は正確に
-
-[原文]</pre>
+<pre>環境とCSRをテーマに、300文字程度のレポートを書いてください。</pre>
                 </div>
 
-                <h3>応用例: 日英ビジネスメール翻訳</h3>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">企業の社会的責任（CSR）は、企業が利益だけでなく、社会や環境に対する責任を果たすべきであるという考えを反映しています。環境保護はCSRの一環として特に重要で、エネルギー効率、廃棄物削減、再生可能エネルギーの使用などの方策が採用されています。さらに進んだ企業は、環境への積極的な貢献を目指し、自然資源の保全や環境教育に関与するなど「環境プラス」のアプローチを採用しています。これらのCSR活動は、ブランドイメージの向上や投資家からの評価向上など、企業にとっても多くの利点をもたらします。</p>
+                </div>
+
+                <p>これは、役割や人物像を与えない場合の出力です。 一般的な内容が出力されました。 次に役割を与えた上で、同じ内容の出力を依頼します。</p>
+
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の日本語メールを英語に翻訳してください：
-
-翻訳のポイント:
-- ビジネスメールとして自然な英語表現
-- 丁寧さを保ちつつ簡潔に
-- 日本語特有の婉曲表現は直接的な英語表現に
-
-原文:
-「お世話になっております。先日お話しさせていただきました
-新商品のご提案について、改めてご検討いただけますと幸いです。
-何かご不明な点がございましたら、お気軽にお問い合わせください。」</pre>
+<pre>あなたはプロのデータサイエンティストです。
+環境とCSRをテーマに、300文字程度のレポートを書いてください。</pre>
                 </div>
+
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">企業の社会的責任（CSR）と環境はデータ科学の観点から見ても深い関連性があります。CSR活動の一環としての環境責任は、データを活用して測定、改善、報告することが可能です。具体的には、企業はエネルギー消費、廃棄物生成、二酸化炭素排出量などの環境指標を収集・分析し、これを元に環境負荷を低減する施策を立案します。また、CSR報告の一部としてこれらの数値を公開することで透明性を高め、ステークホルダーからの信頼を得ることができます。これらの活動は、データ科学の手法を活用することでより効果的に行うことが可能となります。</p>
+                </div>
+
+                <p>このように、設定した役割を踏まえた出力に切り替わりました。 専門的な立場からの意見が欲しい場合など、非常に役立つプロンプト技法です。</p>
             </div>
 
             <div class="section">
-                <h2>💬 ディベート</h2>
+                <h2>07 文章を会話のやり取りへ変換</h2>
                 <div class="highlight">
-                    <p><strong>多角的な視点で意見を生成</strong></p>
-                    <p>賛成・反対の両面から議論を展開</p>
+                    <p>一般的な文章を、会話のようなやり取りへ変換できます。 この際、<strong>登場人物を指定</strong>することで、より希望に沿った出力の形へ操作することができます。</p>
                 </div>
 
-                <h3>基本テンプレート</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下のテーマについて、賛成と反対の立場から意見を述べてください：
-
-テーマ: [議題]
-
-賛成の立場:
-- 主張（3点）
-- 根拠
-- 具体例
-
-反対の立場:
-- 主張（3点）
-- 根拠
-- 具体例
-
-中立的な結論も追加してください。</pre>
+<pre>以下の文章を博士と小学生の会話で表現してください。
+人工知能（AI）は、コンピュータシステムやソフトウェアが人間の知的な能力を模倣する技術だ。AIは、大量のデータを処理し、パターンを見つけたり、問題を解決したりすることができる。これにより、様々な業界や分野で革新的なアプリケーションやサービスが開発されている。AIの発展は、機械学習やディープラーニングといった技術の進歩によって支えられている。機械学習では、コンピュータシステムがデータを学習し、パターンや規則を見つけることができる。一方で、AIの進展には課題や懸念も存在する。倫理的な問題やプライバシーの保護、人間との関係性の変化などが議論されている。</pre>
                 </div>
 
-                <h3>実践例</h3>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">博士（D）: ねえ、君はロボットが自分で考えて動くことができると思う？
+小学生（K）: うーん、それは難しそう...
+D: それが人工知能、略してAIなんだよ。それは、コンピュータやソフトウェアが人間みたいに考えることを学ぶ技術だ。
+K: え、本当にそれができるの？
+D: うん、たくさんの情報を見て、パターンを見つけて、問題を解決できるんだ。だから、新しいものを作ったり、サービスを提供したりするのに役立てることができるんだ。
+K: どうやって学ぶの？
+D: いい質問だね！それは「機械学習」や「ディープラーニング」という方法で、コンピュータが情報を学んで、パターンを見つけるんだ。
+K: でも、ロボットが考えるのって、問題とかないの？
+D: うん、それは大事な問題だね。例えば、人の情報をどう保護するか、ロボットと人がどう接するか、など、たくさんの問題があるんだ。それについてはみんなで考えていく必要があるね。</p>
+                </div>
+
+                <p>この方法は、台本制作などのシーンで非常に役立ちます。</p>
+            </div>
+
+            <div class="section">
+                <h2>08 例え話で理解を深める</h2>
+                <div class="highlight">
+                    <p>自分の知らない分野について、<strong>例え話で理解を深める</strong>ことができます。</p>
+                </div>
+
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下のテーマでディベート資料を作成してください：
+<pre>Webエンジニアの仕事について、飲食店に例えて教えてください。</pre>
+                </div>
 
-テーマ: 「すべての企業が在宅勤務を導入すべきか」
-
-賛成の立場:
-- ワークライフバランスの改善
-- 通勤時間の削減
-- オフィスコストの削減
-
-反対の立場:
-- コミュニケーションの低下
-- 管理の難しさ
-- セキュリティリスク
-
-各立場について、データや事例を含めて説得力のある
-論理を展開してください。</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">Webエンジニアの仕事は、Webサイトやアプリケーションの開発や改善を行うことです。飲食店に例えると、Webエンジニアは店舗の看板やメニュー表を作成し、店内のレイアウトや機能の改善を行うような存在です。
+具体的には、WebエンジニアはWebサイトやアプリケーションのデザインや機能を考え、必要な技術やプログラムを使って開発や改善を行います。例えば、飲食店の場合、オンライン予約システムや注文システムの開発、メニュー表のデジタル化やオンライン配信のシステムの改善などが挙げられます。
+また、WebエンジニアはWebサイトやアプリケーションの安全性や使いやすさを確保するために、テストやデバッグを行い、問題を修正する役割も担います。飲食店の場合、店舗のセキュリティやPOSシステムのトラブルシューティングなどが挙げられます。
+Webエンジニアは常に最新の技術やトレンドに敏感であり、常に改善と進化を目指します。これは、飲食店でも同様で、新しいメニューやサービス、店内の装飾や雰囲気などを常に改善して、顧客の期待に応えることが求められます。</p>
                 </div>
             </div>
 
             <div class="section">
-                <h2>🎯 その他のビジネス活用</h2>
-
-                <h3>1. FAQの作成</h3>
-                <div class="code-block">
-                    <pre>製品/サービスに関するFAQを10問作成してください：
-
-製品/サービス: [名前]
-よくある質問のカテゴリ:
-- 使い方
-- 料金
-- トラブルシューティング
-- サポート
-
-各質問に明確な回答を付けてください。</pre>
+                <h2>09 数字の変換</h2>
+                <div class="highlight">
+                    <p>手動では手間のかかる数字の変換を行うことができます。</p>
                 </div>
 
-                <h3>2. SNS投稿文</h3>
+                <p><strong>プロンプト例</strong></p>
                 <div class="code-block">
-                    <pre>以下の内容でSNS投稿文を作成してください：
-
-プラットフォーム: [Twitter/Facebook/Instagramなど]
-内容: [告知/キャンペーン/日常投稿]
-文字数制限: [140文字/280文字など]
-ハッシュタグ: [3〜5個]
-トーン: [フレンドリー/プロフェッショナルなど]</pre>
+<pre>十一億二千三百四十五万六千七百八十九をアラビア数字に直してください。</pre>
                 </div>
 
-                <h3>3. 商品説明文</h3>
-                <div class="code-block">
-                    <pre>ECサイト用の商品説明文を作成してください：
-
-商品名: [商品名]
-カテゴリ: [カテゴリ]
-主な特徴: [特徴3〜5点]
-ターゲット: [想定顧客]
-文字数: [300〜500文字]
-
-以下を含めてください:
-- 魅力的な導入文
-- 特徴の説明
-- 利用シーン
-- サイズ/仕様
-- 購入を促す結び</pre>
-                </div>
-
-                <h3>4. 求人票</h3>
-                <div class="code-block">
-                    <pre>求人票を作成してください：
-
-職種: [職種名]
-業務内容: [具体的な業務]
-必須スキル: [必要なスキル]
-歓迎スキル: [あると良いスキル]
-勤務地: [場所]
-給与: [範囲]
-福利厚生: [福利厚生内容]
-
-魅力的で分かりやすい求人票を作成してください。</pre>
+                <p><strong>出力例</strong></p>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">1123456789</p>
                 </div>
             </div>
 
             <div class="quiz">
                 <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> ビジネスメール作成のプロンプトに含めるべき要素は？</p>
+                    <p><strong>問題1:</strong> テキスト生成AIは、単体で、アンケートの要点整理・簡易分析、多言語の翻訳、会議や打ち合わせのひな型づくりなどから、外部データの自動収集や実システムの運用まで、幅広いタスクを得意とする。
+                    </p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 天気の情報</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ビジネスメールを作成する際は、「誰に（宛先）」「何のために（目的）」「どのような雰囲気で（トーン）」送るかを指定することで、適切な文面のメールが生成されます。')">
-                            B. 宛先、目的、トーン</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 趣味の情報</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 食事の内容</li>
+                            onclick="selectAnswer(this, false, '解説：テキスト生成AIは、アンケートの要点整理・簡易分析、多言語の翻訳、会議や打ち合わせのひな型づくりなどを行うことができます。しかし、ユーザーの過去の行動の自動取得・将来予測や、配送スケジュールの自動管理といった「外部データの自動収集」や「実システムの運用」は、テキスト生成AI単体の範囲外です。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：テキスト生成AIは、アンケートの要点整理・簡易分析、多言語の翻訳、会議や打ち合わせのひな型づくりなどを行うことができます。しかし、ユーザーの過去の行動の自動取得・将来予測や、配送スケジュールの自動管理といった「外部データの自動収集」や「実システムの運用」は、テキスト生成AI単体の範囲外です。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> アンケート作成時に指定すべきことは？</p>
+                    <p><strong>問題2:</strong> ビジネスメールをAIで下書きするときは、機密や個人情報が紛れていないか、誤解を招く表現がないか等を、人間が直接確認する必要がある。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 天候</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：アンケートの作成を依頼する際は、質問の数や形式（選択式、自由記述など）を具体的に指定することで、目的に合ったアンケートが作れます。')">
-                            B. 質問数と形式</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 音楽のジャンル</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 服の色</li>
+                            onclick="selectAnswer(this, true, '解説：ビジネスメールをAIで下書きするときは、機密や個人情報が紛れていないか、言い回しの誤訳・誤解がないか、ビジネスらしい自然な文調かなどを、人間が直接確認する必要があります。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, false, '解説：ビジネスメールをAIで下書きするときは、機密や個人情報が紛れていないか、言い回しの誤訳・誤解がないか、ビジネスらしい自然な文調かなどを、人間が直接確認する必要があります。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> キャッチコピーを作る際に重要な情報は？</p>
+                    <p><strong>問題3:</strong> ビジネスメールを生成AIで作成する場合、AIを使用した旨をメール本文に必ず明記しなければならない。</p>
                     <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：効果的なキャッチコピーを生成するには、誰に向けた商品なのか（ターゲット）と、商品の売り（特徴）をAIに伝えることが不可欠です。')">
-                            A. ターゲットと商品の特徴</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 製造場所の住所</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 社長の名前</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 会社の設立年</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題4:</strong> 会議のアジェンダに含めるべき要素は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 参加者の趣味</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：会議のアジェンダ（進行表）には、話し合うべき議題と、それぞれの時間配分を含めることで、効率的な会議運営が可能になります。')">
-                            B. 議題と時間配分</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 昼食のメニュー</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 天気予報</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題5:</strong> タスク抽出で明記すべき情報は？</p>
-                    <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：議事録からタスクを抽出する際は、「何をやるか（内容）」「誰がやるか（担当者）」「いつまでにやるか（期限）」を明確にすることが重要です。')">
-                            A. タスク内容、担当者、期限</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 好きな色</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 趣味</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 出身地</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題6:</strong> ビジネス翻訳で重要なポイントは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 直訳すること</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ビジネス文書の翻訳では、単なる直訳ではなく、相手の文化やビジネス慣習に配慮した、自然で適切な表現にすることが求められます。')">
-                            B. 文化的違いに配慮し自然な表現にすること</li>
-                        <li onclick="selectAnswer(this, false, '')">C. できるだけ長くすること</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 専門用語を避けること</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> ディベート資料で必要な視点は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 賛成の立場のみ</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 反対の立場のみ</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ディベートや議論の資料を作成する際は、一方的な意見だけでなく、賛成・反対の両面から多角的に検討することが重要です。')">
-                            C. 賛成と反対の両方の立場</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 個人的な感想のみ</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題8:</strong> 企画書に含めるべき要素でないものは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 目的</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 予算</li>
-                        <li onclick="selectAnswer(this, false, '')">C. スケジュール</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：企画書には目的、予算、スケジュールなどが必須ですが、担当者の血液型のような個人的な情報は不要です。')">
-                            D. 担当者の血液型</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題9:</strong> SNS投稿文で指定すべき情報は？</p>
-                    <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：SNSへの投稿文を作成する際は、掲載するプラットフォーム（Twitter、Instagramなど）、文字数制限、投稿のトーン（雰囲気）を指定します。')">
-                            A. プラットフォーム、文字数制限、トーン</li>
-                        <li onclick="selectAnswer(this, false, '')">B. 年齢制限</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 靴のサイズ</li>
-                        <li onclick="selectAnswer(this, false, '')">D. ペットの種類</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題10:</strong> 商品説明文で最も重要なことは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 会社の歴史を長々と説明</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：商品説明文では、その商品の特徴やメリットだけでなく、利用者が実際に使っている場面（利用シーン）をイメージさせることが購入意欲を高めます。')">
-                            B. 商品の特徴と利用シーンを明確に伝える</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 競合他社の悪口</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 関係ない情報で埋める</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題11:</strong> ビジネス企画書をAIで作成する際、最初に指定すべき情報は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ デザインのフォントは文書の見た目の問題であり、企画書の内容を作成する最初のステップではありません。')">
-                            A. 使用するフォントの種類</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ビジネス企画書をAIで作成する際は、まず「誰に向けた企画か（ターゲット）」「何を提案するか（目的）」「どのような成果を期待するか（期待効果）」を明確に指定することで、的確な企画書が生成されます。')">
-                            B. ターゲット、目的、期待される成果</li>
-                        <li onclick="selectAnswer(this, false, '❌ ページ数は構成を考える段階で指定しますが、最初に指定すべき最も重要な情報ではありません。')">C.
-                            ページ数</li>
-                        <li onclick="selectAnswer(this, false, '❌ 提出期限は企画書の内容に直接影響しないため、最初に指定すべき情報ではありません。')">D. 提出期限
-                        </li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題12:</strong> SNS投稿文をAIに作成させる際のポイントは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ できるだけ長い文章はSNSの特性（短文・即読性）に合いません。')">A. できるだけ長い文章で書く
-                        </li>
-                        <li onclick="selectAnswer(this, false, '❌ 専門用語を多用すると、一般的なフォロワーに伝わりにくくなります。')">B. 専門用語を多用する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：SNS投稿文では、プラットフォームの特性（文字数制限、ハッシュタグ文化など）、ターゲット層、投稿の目的（認知獲得・フォロワー増加・商品PR）を指定することで、効果的な投稿文が生成されます。')">
-                            C. プラットフォーム、ターゲット層、投稿目的を指定する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 改行や絵文字なしの文章はSNSの読みやすさを損ない、エンゲージメントが低下します。')">D.
-                            改行や絵文字を一切使わない</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題13:</strong> カスタマーサポートでAIを活用するメリットは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 全ての対応をAIのみで行うことは、複雑な問い合わせや感情的な対応では不適切です。')">A.
-                            全ての顧客対応を人間不要にできる</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIをカスタマーサポートに活用すると、よくある質問への即時回答、24時間対応、対応品質の均一化が実現できます。ただし、複雑なケースや感情的な対応は人間が担当し、AIと人間の適切な役割分担が重要です。')">
-                            B. よくある質問への即時回答と24時間対応が可能になる</li>
-                        <li onclick="selectAnswer(this, false, '❌ 顧客データの自動収集はプライバシーの問題を引き起こす可能性があり、主なメリットではありません。')">C.
-                            顧客の個人情報を自動的に収集できる</li>
-                        <li onclick="selectAnswer(this, false, '❌ 対応スタッフの完全削減はサービス品質の低下につながるリスクがあります。')">D.
-                            対応スタッフを完全に削減できる</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題14:</strong> AIにデータ分析を依頼する際、効果的なプロンプトの要素は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 「データを分析して」は曖昧すぎて、AIがどのような分析を行うべきか判断できません。')">A.
-                            データを分析して</li>
-                        <li onclick="selectAnswer(this, false, '❌ 全てのデータを表示するだけでは分析にならず、AIの能力を活かせていません。')">B.
-                            全てのデータを表示して</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIにデータ分析を依頼する際は、「分析の目的（売上向上、コスト削減等）」「注目すべき指標（KPI）」「出力形式（グラフ、表、レポート）」「比較期間」を明確にすることで、実用的なインサイトが得られます。')">
-                            C. 分析の目的、注目指標、出力形式、比較期間を指定する</li>
-                        <li onclick="selectAnswer(this, false, '❌ AIに判断を丸投げするのではなく、分析の方向性を明確に示すことが重要です。')">D.
-                            AIに全て任せて自分で判断する必要はない</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題15:</strong> ビジネスにおけるAI活用の注意点として正しく<strong>ないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい注意点です。AI生成コンテンツは必ず人間が確認・修正するべきです。')">A.
-                            AI生成コンテンツは人間が最終確認すべき</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい注意点です。機密情報をAIに入力することは情報漏洩リスクがあります。')">B.
-                            機密情報のAI入力は避けるべき</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：AIの出力をそのまま公式文書として使用するのは危険です。ハルシネーション（事実と異なる情報の生成）やバイアスの可能性があるため、必ず人間によるファクトチェックと編集を行ってから公開・提出すべきです。')">
-                            C. AIの出力はそのまま公式文書として使用できる</li>
-                        <li onclick="selectAnswer(this, false, '❌ これは正しい注意点です。著作権に配慮し、AI生成コンテンツの権利関係を確認することが重要です。')">D.
-                            著作権に配慮した利用が必要</li>
+                        <li onclick="selectAnswer(this, false, '解説：ビジネスメールを生成AIで作成する場合、AIを使用した旨は、メール本文に必ずしも明記する必要はありません。')">〇</li>
+                        <li onclick="selectAnswer(this, true, '解説：ビジネスメールを生成AIで作成する場合、AIを使用した旨は、メール本文に必ずしも明記する必要はありません。')">×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
             </div>
-
             <div class="section">
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
-                        <li><strong>メール作成：</strong> 宛先・目的・トーンを明確に</li>
-                        <li><strong>アンケート：</strong> 質問数と形式を指定</li>
-                        <li><strong>キャッチコピー：</strong> ターゲットと特徴を伝える</li>
-                        <li><strong>ビジネス書類：</strong> 構成と必要要素を指定</li>
-                        <li><strong>アジェンダ：</strong> 議題と時間配分を整理</li>
-                        <li><strong>タスク抽出：</strong> 内容・担当・期限を明記</li>
-                        <li><strong>翻訳：</strong> 文脈と文化的違いに配慮</li>
-                        <li><strong>ディベート：</strong> 多角的な視点で議論</li>
-                        <li><strong>実践：</strong> テンプレートを自分の業務用にカスタマイズ</li>
+                        <li><strong>校正・校正箇所の確認：</strong> 文章の構成・表現・文法を訂正できるが、機密情報や個人情報を含む文章の入力には注意が必要</li>
+                        <li><strong>文章の整理：</strong> 句読点や段落の区切りを挿入し、読みやすく整えることができる。語彙の強化・構造の改善・文体の調整・文法チェックなどにも応用できる</li>
+                        <li><strong>文章の要約：</strong> 長い文章の概要を把握したいときに有用。ただし常に正確とは限らない</li>
+                        <li><strong>箇条書き⇔文章変換：</strong> 箇条書きを文章化したり、文章を箇条書きにしたりできる。素案作成などの準備タスクを大幅に削減できる</li>
+                        <li><strong>対象の変更（読み手）：</strong> 「10歳の小学生向け」など対象を明確に指定することで、イメージに近い文章を出力できる</li>
+                        <li><strong>話し手の設定：</strong> 役割を与えることで、その立場に合った専門的な出力に切り替えることができる</li>
+                        <li><strong>会話形式への変換：</strong> 登場人物を指定して文章を会話のやり取りに変換できる。台本制作などに役立つ</li>
+                        <li><strong>例え話・数字変換：</strong> 知らない分野を例え話で理解したり、漢数字をアラビア数字に変換したりできる</li>
                     </ul>
                 </div>
             </div>
 
             <div class="lesson-navigation">
                 <a href="5-2_practice.html" class="nav-button secondary">← 5-2: プロンプト制作の実践</a>
-                <a href="5-4_risks.html" class="nav-button">次: 5-4 リスクと留意事項 →</a>
-            </div>
-
-            <div style="text-align: center; margin: 2rem 0;">
-                <button onclick="completeSection('5-3')" class="complete-button">✅ このセクションを完了する</button>
+                <button class="nav-button complete-btn"
+                    onclick="completeLesson('chapter5_section5-3_completed', '5-4_risks.html')">学習を完了して次へ →</button>
             </div>
         </div>
     </main>
@@ -672,3 +394,6 @@
     <script src="../shared/js/page-navigation.js"></script>
     <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
+</body>
+
+</html>
