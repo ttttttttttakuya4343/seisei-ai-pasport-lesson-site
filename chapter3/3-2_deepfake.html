@@ -15,6 +15,7 @@
             <h1 class="logo">🎓 生成AIパスポート講座</h1>
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
+                <a href="index.html">第3章トップ</a>
                 <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
                     🎭 学習パートナー選択
                 </button>
@@ -122,13 +123,23 @@
                 <!-- クイズがここに生成されます -->
             </div>
 
-            <div class="lesson-navigation">
-                <a href="3-1_services.html" class="nav-button secondary">← 前: 3-1 生成AIのサービス</a>
-                <a href="3-3_rag.html" class="nav-button">次: 3-3 RAG →</a>
+            <div class="section">
+                <h2>📝 まとめ</h2>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>ディープフェイク:</strong> AIで人物の顔・声を合成・改ざんする技術</li>
+                        <li><strong>主なリスク:</strong> フェイクニュース、なりすまし、詐欺、名誉毀損</li>
+                        <li><strong>見分けるポイント:</strong> 不自然な顔の境界・まばたき・照明、出典を確認</li>
+                        <li><strong>対策:</strong> 複数の情報源で確認、公式発表を優先、拡散前に検証</li>
+                        <li><strong>法的対応:</strong> 無断生成・拡散は名誉毀損・著作権侵害等の法的責任を問われる可能性がある</li>
+                    </ul>
+                </div>
             </div>
 
-            <div style="text-align: center; margin: 2rem 0;">
-                <button onclick="completeSection('3-2')" class="complete-button">✅ このセクションを完了する</button>
+            <div class="lesson-navigation">
+                <a href="3-1_services.html" class="nav-button secondary">← 前: 3-1 生成AIのサービス</a>
+                <button class="nav-button complete-btn"
+                    onclick="completeLesson('chapter3_section3-2_completed', '3-3_rag.html')">学習を完了して次へ →</button>
             </div>
         </div>
     </main>

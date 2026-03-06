@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-1: プロンプトエンジニアリングの技術 | 生成AIパスポート講座</title>
+    <title>5-1: LM・LLMの仕組み | 生成AIパスポート講座</title>
     <link rel="stylesheet" href="../shared/css/styles.css">
 </head>
 
@@ -15,6 +15,7 @@
             <h1 class="logo">🎓 生成AIパスポート講座</h1>
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
+                <a href="index.html">第5章トップ</a>
                 <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
                     🎭 学習パートナー選択
                 </button>
@@ -30,459 +31,207 @@
                     <a href="index.html">第5章</a> &gt;
                     5-1
                 </div>
-                <div class="hero-badge">第5章 セクション 5-1</div>
-                <h1>プロンプトエンジニアリングの技術</h1>
+                <div class="hero-badge" style="background-color: var(--secondary-color);">第5章 セクション 5-1</div>
+                <h1>LM・LLMの仕組み</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約15分</span>
-                    <span>📝 クイズ5問</span>
+                    <span>📝 クイズ10問</span>
                 </div>
             </div>
 
-            <div class="section">
-                <h2>🎯 プロンプトエンジニアリングとは</h2>
-                <div class="highlight">
-                    <p><strong>プロンプトエンジニアリング（Prompt Engineering）</strong></p>
-                    <p>生成AIから望ましい出力を得るために、効果的な指示文（プロンプト）を設計・最適化する技術</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> AIに「うまく質問する」「適切に指示する」技術です</p>
+            <section class="section">
+                <h2>1 言語モデルのLM・LLMってなに？</h2>
+                <div class="concept-card">
+                    <p><strong>言語モデルは「ある言葉の次に来る言葉の確率」を予測するしくみです。 LMはその基本版で、LLMは大規模学習によってさらに表現力を広げた上位版です。</strong></p>
                 </div>
 
-                <h3>なぜプロンプトエンジニアリングが重要か</h3>
-                <ul>
-                    <li><strong>出力品質の向上：</strong> 同じAIでも、プロンプト次第で結果が大きく変わる</li>
-                    <li><strong>効率化：</strong> 適切なプロンプトで試行錯誤を減らせる</li>
-                    <li><strong>コスト削減：</strong> API使用料の節約（再実行回数を減らす）</li>
-                    <li><strong>再現性：</strong> 良いプロンプトをテンプレート化して再利用できる</li>
-                </ul>
-
-                <h3>プロンプトの基本構造</h3>
-                <p>効果的なプロンプトは、以下の<strong>5つの要素</strong>を組み合わせて構成されます。</p>
-
-                <table class="lesson-table">
-                    <tr>
-                        <th>要素</th>
-                        <th>説明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>1. 役割（ペルソナ）</strong></td>
-                        <td>AIに担当してほしい専門家の役割を指定</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. コンテキスト（背景情報）</strong></td>
-                        <td>対象となる文章や状況の説明</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. タスク（具体的な指示）</strong></td>
-                        <td>AIに実行してほしい具体的な作業</td>
-                    </tr>
-                    <tr>
-                        <td><strong>4. 制約条件</strong></td>
-                        <td>守ってほしいルールや制限</td>
-                    </tr>
-                    <tr>
-                        <td><strong>5. 出力形式</strong></td>
-                        <td>回答のフォーマットや構造の指定</td>
-                    </tr>
-                </table>
-
-                <div class="highlight" style="background: #e8f5e9;">
-                    <p><strong>💡 具体例：文章校正のプロンプト</strong></p>
-                    <div style="background: white; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-                        <p style="margin: 0.5rem 0;"><span style="background: #ffeb3b; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">役割</span> あなたはプロの編集者です。</p>
-                        <p style="margin: 0.5rem 0;"><span style="background: #03a9f4; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">コンテキスト</span> 以下の文章は初心者向けのブログ記事です。</p>
-                        <p style="margin: 0.5rem 0;"><span style="background: #4caf50; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">タスク</span> 誤字脱字を修正し、より読みやすくしてください。</p>
-                        <p style="margin: 0.5rem 0;"><span style="background: #ff9800; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">制約条件</span> 元の意味は変えないでください。</p>
-                        <p style="margin: 0.5rem 0;"><span style="background: #9c27b0; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">出力形式</span> 修正後の文章のみを出力してください。</p>
+                <h3 class="topic-heading">1 LMとLLMの違い</h3>
+                <div class="threat-card threat-card--blue">
+                    <h4 style="margin-top: 0; color: #2c3e50; font-size: 1.2em;">LMってなに？</h4>
+                    <p><strong>LM（Language
+                            Model／言語モデル）は、文章を「トークン」という小さな単位（単語や単語の一部）に分けて扱い、「ある言葉の次に来る言葉の確率」を予測して文章を組み立てるAIモデルです。</strong>
+                        大量の日本語や英語の文章を学習し、文脈の流れをつかんだうえで、もっとも自然な単語を選びます。</p>
+                    <p>たとえば「今日は天気がいいので、散歩に…」という文章であれば、LMは文脈から「行った」「出かけた」といった言葉を「次に来る可能性の高い言葉」と判断し、逆に、「時計」「りんご」といった文脈に合わない唐突な言葉は「次に来る可能性が低い言葉」と判断します。<br>
+                        <strong>このように、LMは、文章が自然言語としてどれだけ自然であるかを評価するAIモデルであるともいえます。</strong>
+                    </p>
+                    <div class="info-box"
+                        style="margin-top: 12px; padding: 12px; border-left: 4px solid #f59e0b; background-color: #fffbeb;">
+                        <p style="margin: 0; font-size: 0.95em; color: #555;"><strong>💡 補足：自然言語とは？</strong><br>
+                            日本語や英語をはじめとする、私たちが普段の生活の中で自然に用いている言葉（言語）のことです。</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>1️⃣ Zero-Shotプロンプティング</h2>
-                <div class="highlight">
-                    <p><strong>Zero-Shot（ゼロショット）</strong></p>
-                    <p>例を示さずに、指示だけでタスクを実行させる手法</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「こうやって」という見本を見せずに、言葉だけで説明する方法です</p>
+                <div class="threat-card threat-card--red">
+                    <h4 style="margin-top: 0; color: #2c3e50; font-size: 1.2em;">LLMってなに？</h4>
+                    <p><strong>LLM（Large Language
+                            Model／大規模言語モデル）は、通常の言語モデル（LM）と比べて桁違いのデータとパラメータ（数十億規模以上）で学習し、表現力を大幅に高めたAIモデルです。</strong>
+                        これにより、長い文脈や多様な話題にも対応でき、また、文章生成・要約・翻訳・質問応答・感情分析などの幅広いタスクを行うことができます。</p>
+                    <p>ただし、LLMができるのは、テキストからもっともらしい答えを確率的に選ぶことまでです。
+                        そのため、特定の質問に対する回答を生成したり、文章の要約を行ったり、テキストから著者の感情を推測したりすることまではできますが、<strong>人の「直感や感情」を本当に理解して、自律的に行動を決めることはできません。</strong>
+                    </p>
+                </div>
+                <h3 class="topic-heading">2 LLMの2段階の学習</h3>
+                <p><strong>プレトレーニングとファインチューニング</strong><br>
+                    LLMは、「プレトレーニング」と「ファインチューニング」という<strong>2段階のトレーニング</strong>を利用して、高い精度を実現しています。</p>
+                <div class="responsive-table">
+                    <table class="lesson-table">
+                        <caption>図表5-1 プレトレーニングとファインチューニングの違い</caption>
+                        <tr>
+                            <th style="width: 25%;">学習方法</th>
+                            <th>内容</th>
+                            </tr>
+                            <tr>
+                            <td><strong>プレトレーニング</strong></td>
+                            <td>
+                                <ul style="margin:0; padding-left: 1.5rem;">
+                                    <li>モデルに大量の文章を読ませて、言葉の型（文法・言い回し・つながり方）を身につけさせる事前学習。</li>
+                                    <li><strong>特定の分野・目的に特化した学習ではなく、自然言語の「一般的な知識」を習得する学習。</strong></li>
+                                    <li>一般に「<strong>教師なし学習</strong>」が用いられる。</li>
+                                </ul>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td><strong>ファインチューニング</strong></td>
+                            <td>
+                                <ul style="margin:0; padding-left: 1.5rem;">
+                                    <li>プレトレーニングされたモデルについて、業務マニュアルやQ&Aのような<strong>「特定の分野・目的に特化」した形で微調整する追加学習。</strong></li>
+                                </ul>
+                            </td>
+                            </tr>
+                            </table>
                 </div>
 
-                <h3>特徴</h3>
-                <ul>
-                    <li>✅ <strong>シンプル：</strong> プロンプトが短くて済む</li>
-                    <li>✅ <strong>汎用性：</strong> 様々なタスクに使える</li>
-                    <li>✅ <strong>迅速：</strong> すぐに結果が得られる</li>
-                    <li>❌ <strong>精度：</strong> 複雑なタスクでは精度が落ちる可能性</li>
-                </ul>
-
-                <h3>使用例</h3>
-                <div class="code-block">
-                    <pre><strong>プロンプト：</strong>
-以下の文章を3行で要約してください。
-
-[文章]
-生成AIは、大量のデータから学習し、新しいコンテンツを
-生成する人工知能技術です。テキスト、画像、音楽、
-動画など、様々な形式のコンテンツを作り出すことができます。
-ChatGPTやDALL-Eなどが代表的な例です。
-
-<strong>AIの出力：</strong>
-生成AIは大量のデータから学習する人工知能技術です。
-テキスト、画像、音楽、動画など様々なコンテンツを生成できます。
-ChatGPTやDALL-Eなどが代表例です。</pre>
-                </div>
-
-                <h3>適したタスク</h3>
-                <ul>
-                    <li>翻訳</li>
-                    <li>要約</li>
-                    <li>簡単な質問応答</li>
-                    <li>文章の校正</li>
-                    <li>カテゴリ分類</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>2️⃣ Few-Shotプロンプティング</h2>
-                <div class="highlight">
-                    <p><strong>Few-Shot（フューショット）</strong></p>
-                    <p>少数の例（通常1〜5個）を示してから、タスクを実行させる手法</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「こんな感じでやってね」と見本を見せる方法です</p>
-                </div>
-
-                <h3>特徴</h3>
-                <ul>
-                    <li>✅ <strong>精度向上：</strong> Zero-Shotより高品質な出力</li>
-                    <li>✅ <strong>パターン学習：</strong> AIが望ましい形式を理解</li>
-                    <li>✅ <strong>一貫性：</strong> 出力形式が安定</li>
-                    <li>❌ <strong>プロンプト長：</strong> プロンプトが長くなる</li>
-                    <li>❌ <strong>準備時間：</strong> 良い例を作る必要がある</li>
-                </ul>
-
-                <h3>使用例</h3>
-                <div class="code-block">
-                    <pre><strong>プロンプト：</strong>
-以下の例を参考に、商品のキャッチコピーを考えてください。
-
-例1:
-商品: オーガニックシャンプー
-コピー: 自然の恵みで、髪に潤いを
-
-例2:
-商品: スマートウォッチ
-コピー: 時を刻む、健康を守る
-
-例3:
-商品: ノイズキャンセリングイヤホン
-コピー: 静寂の中で、音楽と一つに
-
-本番:
-商品: オーガニックコーヒー豆
-コピー: ?
-
-<strong>AIの出力：</strong>
-コピー: 大地の香りで、朝に目覚めを</pre>
-                </div>
-
-                <h3>適したタスク</h3>
-                <ul>
-                    <li>特定のフォーマットでの出力</li>
-                    <li>クリエイティブな文章生成</li>
-                    <li>複雑な分類タスク</li>
-                    <li>スタイルを統一した文章作成</li>
-                </ul>
-
-                <h3>One-Shot vs Few-Shot</h3>
-                <div class="highlight" style="background: #e3f2fd;">
-                    <ul>
-                        <li><strong>One-Shot：</strong> 例を1つだけ示す（最もシンプル）</li>
-                        <li><strong>Few-Shot：</strong> 例を2〜5個示す（バランスが良い）</li>
-                        <li><strong>Many-Shot：</strong> 例を6個以上示す（精度は高いが長い）</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>3️⃣ Chain of Thought（思考の連鎖）</h2>
-                <div class="highlight">
-                    <p><strong>Chain of Thought（CoT / チェイン・オブ・ソート）</strong></p>
-                    <p>AIに段階的に考えさせる手法。思考プロセスを明示的に示すことで、複雑な推論タスクの精度を向上させる</p>
-                    <p class="note">💡 <strong>分かりやすく言うと：</strong> 「ステップ・バイ・ステップで考えて」と指示する方法です</p>
-                </div>
-
-                <h3>特徴</h3>
-                <ul>
-                    <li>✅ <strong>推論能力向上：</strong> 複雑な問題を正確に解決</li>
-                    <li>✅ <strong>透明性：</strong> 思考過程が見える</li>
-                    <li>✅ <strong>デバッグ可能：</strong> どこで間違えたか分かる</li>
-                    <li>❌ <strong>出力量：</strong> 長い説明が出力される</li>
-                    <li>❌ <strong>処理時間：</strong> 時間がかかる</li>
-                </ul>
-
-                <h3>基本的な使い方</h3>
-                <div class="code-block">
-                    <pre><strong>プロンプト：</strong>
-以下の問題を解いてください。ステップバイステップで考えてください。
-
-問題: 
-会社のチームは15人います。
-そのうち60%が女性です。
-女性は何人ですか？
-
-<strong>AIの出力：</strong>
-ステップ1: 全体の人数を確認
-チームは15人
-
-ステップ2: 女性の割合を確認
-60%が女性
-
-ステップ3: 女性の人数を計算
-15人 × 60% = 15 × 0.6 = 9人
-
-答え: 女性は9人です</pre>
-                </div>
-
-                <h3>高度な使い方（例を含む）</h3>
-                <div class="code-block">
-                    <pre><strong>プロンプト：</strong>
-以下の例を参考に、ステップバイステップで考えてください。
-
-例:
-質問: リンゴが3個、オレンジが5個あります。合計何個？
-思考過程:
-- リンゴ: 3個
-- オレンジ: 5個
-- 合計: 3 + 5 = 8個
-答え: 8個
-
-本番:
-質問: 店には本が120冊あります。そのうち30%を売りました。
-残りは何冊ですか？</pre>
-                </div>
-
-                <h3>適したタスク</h3>
-                <ul>
-                    <li>数学の問題</li>
-                    <li>論理パズル</li>
-                    <li>複雑な意思決定</li>
-                    <li>段階的な分析が必要なタスク</li>
-                </ul>
-
-                <h3>CoTのバリエーション</h3>
-                <div class="highlight" style="background: #e3f2fd;">
-                    <ul>
-                        <li><strong>Zero-shot CoT：</strong> 「ステップバイステップで考えてください」だけを追加</li>
-                        <li><strong>Few-shot CoT：</strong> 思考過程の例を示してから実行</li>
-                        <li><strong>Self-consistency CoT：</strong> 複数回実行して最も多い答えを採用</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🔀 技術の使い分け</h2>
-                <div class="code-block">
-                    <pre>タスクの複雑度
-
-低 ←───────────────────────→ 高
-
-Zero-Shot    Few-Shot    Chain of Thought
-  ↓             ↓              ↓
- 簡単        標準          複雑
- 速い        バランス       精密</pre>
-                </div>
-
-                <h3>選択フローチャート</h3>
-                <div class="highlight">
-                    <ol>
-                        <li><strong>タスクは単純か？</strong>
-                            <ul>
-                                <li>YES → Zero-Shotを試す</li>
-                                <li>NO → 次へ</li>
-                            </ul>
-                        </li>
-                        <li><strong>特定のフォーマットが必要か？</strong>
-                            <ul>
-                                <li>YES → Few-Shotを使う</li>
-                                <li>NO → 次へ</li>
-                            </ul>
-                        </li>
-                        <li><strong>複雑な推論が必要か？</strong>
-                            <ul>
-                                <li>YES → Chain of Thoughtを使う</li>
-                                <li>NO → Few-Shotを試す</li>
-                            </ul>
-                        </li>
+                <div class="info-box" style="margin: 16px 0; border-left: 5px solid #4CAF50;">
+                    <h4 style="margin-top: 0; color: #2e7d32;">ファインチューニングにおける学習手順</h4>
+                    <p>ファインチューニングは、プレトレーニングを終えたモデルに、特定の分野・目的に特化した知識を追加で学習させる手法で、具体的には次の手順で学習を行います。</p>
+                    <ol style="padding-left: 1.5rem;">
+                        <li><strong>特定の目的（マーケティング分析、法律文書の分析、医療分野の質問応答、カスタマーサポートの自動対応など）のために必要な学習データ</strong>でモデルを学習させる</li>
+                        <li><strong>学習のつまみ（後述のハイパーパラメータ）を調整</strong>する</li>
+                        <li><strong>モデルの精度を評価</strong>して仕上げる</li>
                     </ol>
                 </div>
 
-                <h3>実践的な使い分け例</h3>
-                <table class="lesson-table">
-                    <tr>
-                        <th>タスク</th>
-                        <th>推奨手法</th>
-                        <th>理由</th>
-                    </tr>
-                    <tr>
-                        <td>英語→日本語翻訳</td>
-                        <td>Zero-Shot</td>
-                        <td>シンプルで十分</td>
-                    </tr>
-                    <tr>
-                        <td>キャッチコピー作成</td>
-                        <td>Few-Shot</td>
-                        <td>スタイル統一が重要</td>
-                    </tr>
-                    <tr>
-                        <td>ビジネス戦略分析</td>
-                        <td>Chain of Thought</td>
-                        <td>段階的思考が必要</td>
-                    </tr>
-                    <tr>
-                        <td>文章要約</td>
-                        <td>Zero-Shot</td>
-                        <td>指示だけで十分</td>
-                    </tr>
-                    <tr>
-                        <td>JSON形式での出力</td>
-                        <td>Few-Shot</td>
-                        <td>フォーマット例が必要</td>
-                    </tr>
-                </table>
-            </div>
+                <div class="info-box" style="margin: 16px 0; border-left: 5px solid #2196F3;">
+                    <h4 style="margin-top: 0; color: #1565c0;">ハイパーパラメータってなに？</h4>
+                    <p>ハイパーパラメータは、AIモデルに学習させるにあたり、<strong>事前に人が設定・調整することで、学習の進み具合やAIモデルの複雑さをコントロールできる「つまみ」のようなものです。</strong><br>
+                        LLMには、次の<strong>Temperature</strong>と<strong>Top-p</strong>というパラメータが設定されており、LLMのバージョンによって異なる数値が設定されているため、出力結果に違いが生ずることがあります。
+                    </p>
+                </div>
 
+                <div class="responsive-table">
+                    <table class="lesson-table">
+                        <caption>図表5-2 TemperatureとTop-pの特徴</caption>
+                        <tr>
+                            <th style="width: 25%;">パラメータ</th>
+                            <th>内容</th>
+                            </tr>
+                            <tr>
+                            <td><strong>Temperature</strong></td>
+                            <td>
+                                <ul style="margin:0; padding-left: 1.5rem;">
+                                    <li>生成AIが<strong>文章を作る際の「自由度」を調整</strong>するためのパラメータ（つまみ）。</li>
+                                    <li><strong>値を「低く」すると、規則的で堅実な文章になりやすい。</strong><br>→<strong>マニュアルや報告書</strong>のように正確さが重要なものに適する。
+                                    </li>
+                                    <li><strong>値を「高く」すると、より自由な発想で文章を作るようになり、語彙や表現の幅が広がる。</strong><br>→<strong>詩や小説</strong>など創造的な文章に適する。
+                                    </li>
+                                </ul>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Top-p</strong></td>
+                                <td>
+                                    <ul style="margin:0; padding-left: 1.5rem;">
+                                        <li>生成AIが<strong>次にくる言葉を選ぶときの範囲の広さを調整</strong>するパラメータ（つまみ）。</li>
+                                        <li>確率の高い順に並べ、一定のラインまでを「<strong>候補リスト</strong>」として採用。<br>→「<strong>どこまで採用するか</strong>」の線引きがTop-p</li>
+                                        <li><strong>Top-pを「高め」にすると、選択肢となる言葉の範囲が広がる</strong>ため、<strong>表現は多様で柔らかく</strong>なりやすい。<br>→<strong>詩や小説</strong>など創造的な文章に適する。
+                                        </li>
+                                        <li><strong>Top-pを「低め」にすると、選択肢となる言葉の範囲がぐっと絞られ、堅実で予測しやすい表現</strong>になりやすい。<br>→<strong>論理的な文章（説明書・報告書など）</strong>に適する。
+                                        </li>
+                                    </ul>
+                                </td>
+                                </tr>
+                                </table>
+                                </div>
+
+                <div class="concept-card" style="text-align: center;">
+                    <h4 style="margin-top: 0;">図表5-3 TemperatureとTop-pの4象限</h4>
+                    <div class="zoomable-image-container">
+                        <img src="../shared/images/text/5章/TemperaturとTop-pの４象限.png" alt="TemperatureとTop-pの4象限"
+                            style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
+                    </div>
+                </div>
+                </section>
             <div class="quiz">
                 <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
-                    <p><strong>問題1:</strong> プロンプトエンジニアリングの主な目的は？</p>
+                    <p><strong>問題1:</strong> 言語モデル（LM）は、次に出現しうるトークンの確率を予測するモデルである。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. AIの処理速度を上げる</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：プロンプトエンジニアリングは、AIから意図した通りの出力を得るために、質問や指示（プロンプト）を最適化する技術です。')">
-                            B. 望ましい出力を得るための効果的な指示を設計する</li>
-                        <li onclick="selectAnswer(this, false, '')">C. AIのプログラミング言語を学ぶ</li>
-                        <li onclick="selectAnswer(this, false, '')">D. AIのモデルサイズを小さくする</li>
+                            onclick="selectAnswer(this, true, '解説：LM（言語モデル）は、文章を「トークン」という小さな単位（単語や単語の一部）に分けて扱い、「ある言葉の次に来る言葉の確率」を予測して文章を組み立てるAIモデルです。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, false, '解説：LM（言語モデル）は、文章を「トークン」という小さな単位（単語や単語の一部）に分けて扱い、「ある言葉の次に来る言葉の確率」を予測して文章を組み立てるAIモデルです。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題2:</strong> Zero-Shotプロンプティングの特徴は？</p>
+                    <p><strong>問題2:</strong> LLMは、LMよりも少ないデータと少ないパラメータで学習しながらも、高性能を実現した言語モデルである。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 必ず例を示す必要がある</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Zero-Shotプロンプティングは、例を提示せずに、タスクの説明や指示だけでAIに回答させる手法です。')">
-                            B. 例を示さずに指示だけで実行する</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 複雑な推論に最適</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 最も時間がかかる手法</li>
+                            onclick="selectAnswer(this, false, '解説：LLM（大規模言語モデル）は、通常の言語モデル（LM）と比べて桁違いに大きな学習データとパラメータ（数十億規模以上）で学習し、表現力を大幅に高めたAIモデルです。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：LLM（大規模言語モデル）は、通常の言語モデル（LM）と比べて桁違いに大きな学習データとパラメータ（数十億規模以上）で学習し、表現力を大幅に高めたAIモデルです。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題3:</strong> Few-Shotプロンプティングで通常示す例の数は？</p>
+                    <p><strong>問題3:</strong> LLMは、プレトレーニングとファインチューニングという2段階のトレーニングを利用して、高い精度を実現しているが、プレトレーニングでは、一般に教師あり学習が用いられる。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 0個</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Few-Shotプロンプティングでは、通常1〜5個程度の少数の例を示すことで、AIに期待する出力形式やパターンを学習させます。')">
-                            B. 1〜5個</li>
-                        <li onclick="selectAnswer(this, false, '')">C. 10〜20個</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 100個以上</li>
+                            onclick="selectAnswer(this, false, '解説：LLMは、プレトレーニングとファインチューニングという2段階のトレーニングを利用して、高い精度を実現しています。プレトレーニングでは一般に「教師なし学習」が用いられます。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：LLMは、プレトレーニングとファインチューニングという2段階のトレーニングを利用して、高い精度を実現しています。プレトレーニングでは一般に「教師なし学習」が用いられます。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題4:</strong> Chain of Thought（CoT）の最大の特徴は？</p>
+                    <p><strong>問題4:</strong> ファインチューニングとは、プレトレーニングされたモデルについて、特定の分野・目的に特化した形で微調整する追加学習をいう。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. 最も速く結果が得られる</li>
-                        <li onclick="selectAnswer(this, false, '')">B. プロンプトが最も短い</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Chain of Thought（思考の連鎖）は、AIに「ステップ・バイ・ステップで考えて」と指示することで、思考過程を段階的に出力させ、推論精度を高める手法です。')">
-                            C. 段階的に考えさせて推論能力を向上させる</li>
-                        <li onclick="selectAnswer(this, false, '')">D. 例を示さない</li>
+                            onclick="selectAnswer(this, true, '解説：ファインチューニングは、プレトレーニングされたモデルについて、業務マニュアルやQ&Aのような特定の分野・目的に特化した形で微調整する追加学習をいいます。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, false, '解説：ファインチューニングは、プレトレーニングされたモデルについて、業務マニュアルやQ&Aのような特定の分野・目的に特化した形で微調整する追加学習をいいます。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題5:</strong> キャッチコピー作成に最適な手法は？</p>
+                    <p><strong>問題5:</strong> LLMのTemperatureは、生成AIが文章を作る際の自由度を調整するパラメータで、値を高くすると、規則的で堅実な文章になりやすい。</p>
                     <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '')">A. Zero-Shot</li>
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：キャッチコピーのように、特定のスタイルやトーンを維持したいタスクには、具体例を示すFew-Shotプロンプティングが効果的です。')">
-                            B. Few-Shot</li>
-                        <li onclick="selectAnswer(this, false, '')">C. Chain of Thought</li>
-                        <li onclick="selectAnswer(this, false, '')">D. どれでも同じ</li>
+                            onclick="selectAnswer(this, false, '解説：LLMのパラメータであるTemperatureは、生成AIが文章を作る際の自由度を調整するためのものです。この値を「低く」すると、規則的で堅実な文章になりやすいといえます。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：LLMのパラメータであるTemperatureは、生成AIが文章を作る際の自由度を調整するためのものです。この値を「低く」すると、規則的で堅実な文章になりやすいといえます。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
                 <div class="quiz-question">
-                    <p><strong>問題6:</strong> LLMのTemperature（温度）パラメータを低く設定するとどうなるか？</p>
+                    <p><strong>問題6:</strong> LLMのtop-pは、生成AIが次にくる言葉を選ぶときの範囲の広さを調整するパラメータであり、値を高くすると、選択肢となる言葉の範囲が広がるため、表現は多様で柔らかくなりやすい。</p>
                     <ul class="quiz-options">
                         <li
-                            onclick="selectAnswer(this, true, '✅ 解説：Temperatureを低く設定する（例：0.1〜0.3）と、AIはより確信度の高い回答を選びやすくなり、出力が安定し予測可能になります。逆に高く設定すると、多様だが不安定な出力になります。')">
-                            A. 出力がより確定的で安定したものになる</li>
+                            onclick="selectAnswer(this, true, '解説：LLMのtop-pは、次にくる言葉を選ぶときの範囲の広さを調整するパラメータです。この値を「高く」すると、選択肢となる言葉の範囲が広がり、表現は多様で柔らかくなりやすいといえます。')">
+                            〇</li>
                         <li
-                            onclick="selectAnswer(this, false, '❌ Temperatureを高く設定した場合に出力がよりランダムで多様になります。低く設定した場合は逆の効果です。')">
-                            B. 出力がよりランダムで多様になる</li>
-                        <li onclick="selectAnswer(this, false, '❌ Temperatureは出力の多様性を制御するパラメータであり、処理速度には直接影響しません。')">C.
-                            処理速度が高速になる</li>
-                        <li onclick="selectAnswer(this, false, '❌ Temperatureは出力のスタイルではなく、確率分布の鋭さを制御するパラメータです。')">D.
-                            出力の言語が変わる</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題7:</strong> システムプロンプトの役割は？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ ユーザーの質問を自動翻訳する機能は、システムプロンプトの主な役割ではありません。')">A.
-                            ユーザーの質問を自動翻訳する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：システムプロンプトは、AIの振る舞い、役割、制約条件などを事前に設定する指示です。例えば「あなたは日本語教師です。」のようにAIのペルソナや応答スタイルを定義し、一貫した応答を実現します。')">
-                            B. AIの役割、制約条件、応答スタイルを事前に定義する</li>
-                        <li onclick="selectAnswer(this, false, '❌ AIの学習データを更新するのはファインチューニングの役割であり、システムプロンプトとは異なります。')">
-                            C. AIの学習データを更新する</li>
-                        <li onclick="selectAnswer(this, false, '❌ 出力を画像形式に変換するのは画像生成AIの機能であり、システムプロンプトの役割ではありません。')">D.
-                            出力を画像形式に変換する</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題8:</strong> プロンプトチェーニング（Prompt Chaining）とは？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ 複数のAIモデルを並列で実行するのは分散処理であり、プロンプトチェーニングとは異なります。')">A.
-                            複数のAIモデルを同時に実行する</li>
-                        <li onclick="selectAnswer(this, false, '❌ プロンプトを暗号化するのはセキュリティの処理であり、チェーニングとは関係ありません。')">B.
-                            プロンプトを暗号化する</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：プロンプトチェーニングは、1つ目のプロンプトの出力を2つ目のプロンプトの入力として使い、複数のプロンプトを連鎖的につなげることで、複雑なタスクを段階的に処理する手法です。')">
-                            C. 前のプロンプトの出力を次のプロンプトの入力として連鎖させる</li>
-                        <li onclick="selectAnswer(this, false, '❌ 同じプロンプトを繰り返し送信するのは単純なリトライであり、チェーニングとは異なります。')">D.
-                            同じプロンプトを繰り返し送信する</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題9:</strong> プロンプトに「ペルソナ」を設定する目的は？</p>
-                    <ul class="quiz-options">
-                        <li
-                            onclick="selectAnswer(this, false, '❌ AIの計算速度を上げるのはハードウェアやアルゴリズムの最適化であり、ペルソナ設定の目的ではありません。')">
-                            A. AIの計算速度を上げる</li>
-                        <li onclick="selectAnswer(this, false, '❌ AIの学習データ量を増やすのはデータ収集の問題であり、ペルソナ設定とは関係ありません。')">B.
-                            AIの学習データ量を増やす</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：ペルソナ設定は、「あなたは経験豊富な料理研究家です」のようにAIに特定の役割や専門性を持たせることで、その役割に適した専門的で一貫性のある回答を引き出す技法です。')">
-                            C. AIに特定の役割や専門性を持たせ、適切な応答を引き出す</li>
-                        <li onclick="selectAnswer(this, false, '❌ 出力の文字数を制限するのは、文字数制限の指示であり、ペルソナ設定とは異なります。')">D.
-                            出力の文字数を制限する</li>
-                    </ul>
-                    <div class="quiz-feedback" style="display: none;"></div>
-                </div>
-                <div class="quiz-question">
-                    <p><strong>問題10:</strong> 以下のうち、プロンプトエンジニアリングの手法として存在<strong>しないもの</strong>はどれか？</p>
-                    <ul class="quiz-options">
-                        <li onclick="selectAnswer(this, false, '❌ Zero-Shotは例を示さずに指示だけで実行する、実在するプロンプティング手法です。')">A.
-                            Zero-Shot</li>
-                        <li onclick="selectAnswer(this, false, '❌ Few-Shotは少数の例を示して出力パターンを学習させる、実在するプロンプティング手法です。')">B.
-                            Few-Shot</li>
-                        <li onclick="selectAnswer(this, false, '❌ Chain of Thoughtは段階的に思考させる、実在するプロンプティング手法です。')">C.
-                            Chain of Thought</li>
-                        <li
-                            onclick="selectAnswer(this, true, '✅ 解説：「Infinite Loop Prompting」という名前のプロンプティング手法は存在しません。主要なプロンプティング手法にはZero-Shot、Few-Shot、Chain of Thought、Self-Consistency、Tree of Thoughtなどがあります。')">
-                            D. Infinite Loop Prompting</li>
+                            onclick="selectAnswer(this, false, '解説：LLMのtop-pは、次にくる言葉を選ぶときの範囲の広さを調整するパラメータです。この値を「高く」すると、選択肢となる言葉の範囲が広がり、表現は多様で柔らかくなりやすいといえます。')">
+                            ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
                 </div>
@@ -492,22 +241,20 @@ Zero-Shot    Few-Shot    Chain of Thought
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
                     <ul>
-                        <li><strong>Zero-Shot：</strong> 例なしで指示。シンプルなタスクに最適</li>
-                        <li><strong>Few-Shot：</strong> 1〜5個の例を示す。フォーマット統一に有効</li>
-                        <li><strong>Chain of Thought：</strong> 段階的思考。複雑な推論に最適</li>
-                        <li><strong>使い分け：</strong> タスクの複雑さとフォーマット要件で判断</li>
-                        <li><strong>実践：</strong> まずZero-Shotを試し、必要に応じて他の手法へ</li>
+                        <li><strong>LM（言語モデル）:</strong> テキストの確率分布を学習したモデル</li>
+                        <li><strong>LLM（大規模言語モデル）:</strong> 大量データと大規模パラメータで学習したLM（GPT・Claude等）</li>
+                        <li><strong>事前学習:</strong> 大量のテキストデータで「次のトークン」を予測する学習</li>
+                        <li><strong>ファインチューニング（SFT）:</strong> 事前学習済みモデルを特定タスク向けに追加学習</li>
+                        <li><strong>RLHF:</strong> 人間のフィードバックを使って出力を人間の好みに合わせる強化学習</li>
+                        <li><strong>トークン:</strong> LLMが処理する最小単位（単語・文字・記号など）</li>
                     </ul>
                 </div>
             </div>
 
             <div class="lesson-navigation">
-                <a href="index.html" class="nav-button secondary">← 第5章トップ</a>
-                <a href="5-2_practice.html" class="nav-button">次: 5-2 プロンプト制作の実践 →</a>
-            </div>
-
-            <div style="text-align: center; margin: 2rem 0;">
-                <button onclick="completeSection('5-1')" class="complete-button">✅ このセクションを完了する</button>
+                <a href="index.html" class="nav-button secondary">← 第5章トップへ</a>
+                <button class="nav-button complete-btn"
+                    onclick="completeLesson('chapter5_section5-1_completed', '5-2_practice.html')">学習を完了して次へ →</button>
             </div>
         </div>
     </main>
@@ -516,11 +263,14 @@ Zero-Shot    Few-Shot    Chain of Thought
         <p>&copy; 2026 生成AIパスポート講座 🎓✨</p>
     </footer>
 
+    <!-- クイズデータとシステムの読み込み -->
+    <script src="../shared/js/data/chapter5-exam-data.js"></script>
     <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
     <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
-</body>
+    <script src="../shared/js/image-viewer.js"></script>
 
+</body>
 </html>
