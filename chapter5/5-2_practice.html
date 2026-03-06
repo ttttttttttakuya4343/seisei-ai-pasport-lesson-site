@@ -177,12 +177,27 @@
             <div class="section">
                 <h2>📝 まとめ</h2>
                 <div class="highlight">
+                    <p style="font-weight: bold; margin-bottom: 0.8rem;">🔑 この節で学んだこと</p>
                     <ul>
-                        <li><strong>プロンプト:</strong> 生成AIにやってほしい作業を文章で伝える「指示文」のこと</li>
-                        <li><strong>プロンプトのコツ:</strong> 条件・対象をできるだけ明確にした具体的な指示にする。内容・形式・分量・口調など欲しい条件を先に言い切るのが有効</li>
-                        <li><strong>プロンプトエンジニアリング:</strong> 「出力を確認→プロンプトを修正→再出力」を繰り返して回答の精度を上げていく改善プロセス</li>
-                        <li><strong>Zero-Shotプロンプティング:</strong> 具体例なしでいきなり質問・指示するプロンプティング。回答がはっきりしたタスクに向いている</li>
-                        <li><strong>Few-Shotプロンプティング:</strong> 2〜3個の具体例（お手本）を先に見せて、「答え方の型」を生成AIに理解させてから本題に取り組ませる方法</li>
+                        <li><strong>プロンプト:</strong> 英語の「prompt（促す）」が語源で、生成AIにやってほしい作業を文章で伝える「指示文」のこと。曖昧な指示だと意図と異なる出力になるため、条件・対象・内容・形式・分量・口調などを先に言い切るのがコツ</li>
+                        <li><strong>プロンプト構成の4要素:</strong>
+                            <ul style="margin-top: 0.3rem;">
+                                <li>📋 <strong>Instruction（命令）</strong>：AIに何をしてほしいかの指示</li>
+                                <li>🌐 <strong>Context（文脈）</strong>：背景情報（例：「あなたはプロのマーケターです」）</li>
+                                <li>📥 <strong>Input Data（入力データ）</strong>：処理すべき具体的なデータや情報</li>
+                                <li>📤 <strong>Output Indicator（出力指示）</strong>：出力形式の指定（例：「要約：」）</li>
+                            </ul>
+                        </li>
+                        <li><strong>プロンプトを使う際の注意事項（4点）:</strong>
+                            <ul style="margin-top: 0.3rem;">
+                                <li>🔄 最初から完璧なプロンプトは難しいため、「出力を確認→修正→再出力」を繰り返す（＝プロンプトエンジニアリング）</li>
+                                <li>🧠 使用しているモデルの能力と限界を理解しておく</li>
+                                <li>🎯 具体性・一貫性を求める場合、限定的な言葉を入力する</li>
+                                <li>⚠️ 出力における倫理性は担保されていない</li>
+                            </ul>
+                        </li>
+                        <li><strong>Zero-Shotプロンプティング:</strong> 具体例なしでいきなり質問・指示する方法。回答すべきことがはっきりした問いに向いているが、解釈の幅が広い依頼や複雑タスクではハルシネーションが出やすい</li>
+                        <li><strong>Few-Shotプロンプティング:</strong> 2〜3個の具体例（お手本）を先に見せて「答え方の型」を生成AIに理解させてから本題に取り組ませる方法</li>
                     </ul>
                 </div>
             </div>
