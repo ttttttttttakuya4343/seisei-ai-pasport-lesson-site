@@ -16,6 +16,7 @@
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
                 <a href="index.html">第5章トップ</a>
+                <a href="index.html">第5章トップ</a>
             </div>
         </div>
     </nav>
@@ -24,21 +25,21 @@
             <div class="lesson-header exam-header">
                 <div class="hero-badge" style="background-color: var(--secondary-color);">第5章 確認問題</div>
                 <h1>模擬試験</h1>
-                <p>第5章の全内容から20問が出題されます。記憶力をチェックしましょう！</p>
+                <p>第5章の全内容から15問が出題されます。記憶力をチェックしましょう！</p>
                 <div id="best-score-display" style="margin-top: 1rem; font-weight: bold; color: var(--secondary-dark); display: none;">
-                    🏆 最高スコア: <span id="best-score">0</span>/20
+                    🏆 最高スコア: <span id="best-score">0</span>/15
                 </div>
             </div>
 
             <div id="start-screen" class="start-screen">
                 <div id="unlock-content">
-                    <p>準備はいいですか？プロンプトエンジニアリングやリスクに関する重要な問題が出題されます！</p>
+                    <p>準備はいいですか？全問正解を目指して頑張りましょう！</p>
                     <button id="start-btn" class="nav-button" style="font-size: 1.2rem; padding: 1rem 2rem;">試験を開始する</button>
                 </div>
             </div>
 
             <div id="exam-container" style="display: none;">
-                <div class="exam-progress">問題 <span id="current-q">1</span> / 20</div>
+                <div class="exam-progress">問題 <span id="current-q">1</span> / 15</div>
 
                 <div id="question-area">
                     <!-- 問題がJSで生成されます -->
@@ -52,7 +53,7 @@
             <div id="result-screen" class="exam-result">
                 <h2>試験結果</h2>
                 <div class="score-circle" id="score-circle" style="--percentage: 0%;">
-                    <span class="score-text" id="final-score">0/20</span>
+                    <span class="score-text" id="final-score">0/15</span>
                 </div>
                 <h3 id="result-message"></h3>
 
@@ -77,7 +78,7 @@
                     <div class="treasure-modal-video">
                         <button id="sound-toggle-btn" class="sound-toggle-btn" onclick="toggleTreasureSound()">🔇 音声を出す</button>
                         <video id="treasure-video" playsinline autoplay muted loop>
-                            <source src="../shared/assets/chapter5_treasure.mp4" type="video/mp4">
+                            <source src="../video/実践の翼.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="treasure-modal-info">
@@ -103,7 +104,7 @@
         
             ExamSystem.init(allQuestions, {
                 chapterNumber: 5,
-                questionCount: 20,
+                questionCount: 15,
                 passingPercentage: 80,
                 nextChapterLink: '../index.html',
                 storageKeyPrefix: 'chapter5',
