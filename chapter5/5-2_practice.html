@@ -58,30 +58,32 @@
                 <h3 class="topic-heading">1 プロンプト構成の4要素</h3>
                 <p>LLMモデルにプロンプトを入力する際の形式には決まりがないため、どのような文章でも入力可能です。 例えば、質問だけでなく、命令や要望なども可能です。 しかし、入力の際に意識することで、<strong>出力の質が向上する要素</strong>はあります。 それがInstruction（命令）、Context（文脈）、Input Data（入力データ）、Output Indicator（出力指示）の4つの要素です。</p>
 
-                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                    <div class="highlight" style="margin: 0;">
-                        <h4>📋 Instruction（命令）</h4>
-                        <p>AIに何を行ってほしいかの指示を示します。</p>
-                        <p><em>例：「文章を要約して」</em></p>
+                <div style="background: #f0faf4; border: 2px solid #27ae60; border-radius: 12px; padding: 1.2rem; margin: 1.5rem 0;">
+                    <h4 style="margin: 0 0 0.8rem; color: #1a7a40;">✅ 出力の質を高める4要素</h4>
+                    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                        <div style="background: #ffffff; border: 1px solid #a8d5b5; border-radius: 8px; padding: 0.9rem;">
+                            <h5 style="margin: 0 0 0.4rem; color: #1a7a40;">📋 Instruction（命令）</h5>
+                            <p style="margin: 0 0 0.4rem; font-size: 0.9em;">AIに何を行ってほしいかの指示を示します。</p>
+                            <p style="margin: 0; font-size: 0.85em; color: #666;"><em>例：「文章を要約して」</em></p>
+                        </div>
+                        <div style="background: #ffffff; border: 1px solid #a8d5b5; border-radius: 8px; padding: 0.9rem;">
+                            <h5 style="margin: 0 0 0.4rem; color: #1a7a40;">🌐 Context（文脈）</h5>
+                            <p style="margin: 0 0 0.4rem; font-size: 0.9em;">プロンプトの背景情報を示します。</p>
+                            <p style="margin: 0; font-size: 0.85em; color: #666;"><em>例：「あなたはプロのマーケターです」</em></p>
+                        </div>
+                        <div style="background: #ffffff; border: 1px solid #a8d5b5; border-radius: 8px; padding: 0.9rem;">
+                            <h5 style="margin: 0 0 0.4rem; color: #1a7a40;">📥 Input Data（入力データ）</h5>
+                            <p style="margin: 0 0 0.4rem; font-size: 0.9em;">AIが処理すべき具体的なデータや情報を示します。</p>
+                            <p style="margin: 0; font-size: 0.85em; color: #666;"><em>例：要約を求める場合の元となる長い文章など</em></p>
+                        </div>
+                        <div style="background: #ffffff; border: 1px solid #a8d5b5; border-radius: 8px; padding: 0.9rem;">
+                            <h5 style="margin: 0 0 0.4rem; color: #1a7a40;">📤 Output Indicator（出力指示）</h5>
+                            <p style="margin: 0 0 0.4rem; font-size: 0.9em;">AIの出力がどのような形式であるべきかを示します。</p>
+                            <p style="margin: 0; font-size: 0.85em; color: #666;"><em>例：「要約：」のように出力を指示するための項目</em></p>
+                        </div>
                     </div>
-                    <div class="highlight" style="margin: 0;">
-                        <h4>🌐 Context（文脈）</h4>
-                        <p>プロンプトの背景情報を示します。</p>
-                        <p><em>例：「あなたはプロのマーケターです」</em></p>
-                    </div>
-                    <div class="highlight" style="margin: 0;">
-                        <h4>📥 Input Data（入力データ）</h4>
-                        <p>AIが処理すべき具体的なデータや情報を示します。</p>
-                        <p><em>例：要約を求める場合の元となる長い文章など</em></p>
-                    </div>
-                    <div class="highlight" style="margin: 0;">
-                        <h4>📤 Output Indicator（出力指示）</h4>
-                        <p>AIの出力がどのような形式であるべきかを示します。</p>
-                        <p><em>例：「要約：」のように出力を指示するための項目</em></p>
-                    </div>
+                    <p style="margin: 0.8rem 0 0; font-size: 0.9em; color: #555;">これらを組み合わせることで、具体的で明確な指示を与え、より理想的な出力を得ることができます。</p>
                 </div>
-
-                <p>これらの要素を組み合わせることで、生成AIに対して具体的で明確な指示を与え、より理想的な出力を得ることができます。</p>
 
                 <div class="threat-card threat-card--orange" style="margin-top: 1.5rem;">
                     <h4 style="margin-top: 0; color: #2c3e50;">⚠️ プロンプトを使う際の注意事項（4点）</h4>
