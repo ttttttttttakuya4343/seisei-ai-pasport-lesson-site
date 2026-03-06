@@ -35,7 +35,7 @@
                 <h1>プロンプトエンジニアリングの基礎</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約20分</span>
-                    <span>📝 クイズ5問</span>
+                    <span>📝 クイズ6問</span>
                 </div>
             </div>
 
@@ -168,6 +168,42 @@
                             〇</li>
                         <li
                             onclick="selectAnswer(this, false, '解説：Few-Shotプロンプティングとは、望ましい2～3個の具体例（お手本）を先に見せて、「答え方の型」を生成AIに理解させてから本題に取り組ませる方法です。')">
+                            ×</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題4:</strong> プロンプト構成の4要素のひとつである「Context（文脈）」とは、AIに何を行ってほしいかの命令・指示を示す要素のことである。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, false, '解説：Context（文脈）は、プロンプトの背景情報を示す要素です（例：「あなたはプロのマーケターです」）。AIへの命令・指示を示すのはInstruction（命令）です。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：Context（文脈）は、プロンプトの背景情報を示す要素です（例：「あなたはプロのマーケターです」）。AIへの命令・指示を示すのはInstruction（命令）です。')">
+                            ×</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題5:</strong> プロンプト構成の4要素のひとつである「Output Indicator（出力指示）」とは、AIの出力形式や構造を指定する要素のことである。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, true, '解説：Output Indicator（出力指示）は、AIの出力がどのような形式であるべきかを示す要素です（例：「要約：」のように出力を指示する項目）。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, false, '解説：Output Indicator（出力指示）は、AIの出力がどのような形式であるべきかを示す要素です（例：「要約：」のように出力を指示する項目）。')">
+                            ×</li>
+                    </ul>
+                    <div class="quiz-feedback" style="display: none;"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>問題6:</strong> 最初のプロンプトで理想的な出力が得られなかった場合、そのプロンプトは失敗なので別の方法を試すべきであり、同じプロンプトを修正して使い続けることは推奨されない。</p>
+                    <ul class="quiz-options">
+                        <li
+                            onclick="selectAnswer(this, false, '解説：最初から完璧なプロンプトは難しいため、「出力を確認→プロンプトを修正→再出力」というプロンプトエンジニアリングを繰り返して精度を上げていくことが推奨されています。')">
+                            〇</li>
+                        <li
+                            onclick="selectAnswer(this, true, '解説：最初から完璧なプロンプトは難しいため、「出力を確認→プロンプトを修正→再出力」というプロンプトエンジニアリングを繰り返して精度を上げていくことが推奨されています。')">
                             ×</li>
                     </ul>
                     <div class="quiz-feedback" style="display: none;"></div>
