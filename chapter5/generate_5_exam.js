@@ -6,7 +6,8 @@ const files = [
     { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-1_techniques.html', section: '5-1' },
     { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-2_practice.html', section: '5-2' },
     { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-3_business_cases.html', section: '5-3' },
-    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-4_risks.html', section: '5-4' }
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-4_risks.html', section: '5-4' },
+    { path: '/Users/yamamuratakuya/Documents/生成AIパスポート試験/seisei-ai-pasport-lesson-site/chapter5/5-5_weaknesses.html', section: '5-5' }
 ];
 
 let allData = [];

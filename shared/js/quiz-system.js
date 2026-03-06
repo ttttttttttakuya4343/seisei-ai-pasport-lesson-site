@@ -130,21 +130,39 @@ function initQuiz(questionsData) {
     const container = document.getElementById('quiz-container');
     if (!container || !questionsData || !questionsData.length) return;
 
-    let html = '<h3>✅ 理解度チェッククイズ</h3>';
+    let html = '';
 
     questionsData.forEach((item, index) => {
-        // booleanの正解値をテキストに変換（"true" or "false"）
-        const correctAnswerStr = item.a ? 'true' : 'false';
+        let qText = item.q !== undefined ? item.q : item.question;
+        let expText = item.exp !== undefined ? item.exp : item.explanation;
+        let options = item.options;
+        let correctIndex = item.a !== undefined ? item.a : item.correctOptionIndex;
 
         // シングルクォーテーションのエスケープ（解説文内にある場合）
-        const safeExp = item.exp ? item.exp.replace(/'/g, "\\'") : '';
+        const safeExp = expText ? expText.replace(/'/g, "\\'") : '';
 
         html += `
             <div class="quiz-question">
-                <p><strong>問題${index + 1}:</strong> ${item.q}</p>
-                <ul class="quiz-options">
-                    <li onclick="selectAnswer(this, ${item.a === true}, '${item.a === true ? '✅解説：' : '❌'}${safeExp}')">○（正しい）</li>
-                    <li onclick="selectAnswer(this, ${item.a === false}, '${item.a === false ? '✅解説：' : '❌'}${safeExp}')">×（誤り）</li>
+                <p><strong>問題${index + 1}:</strong> ${qText}</p>
+                <ul class="quiz-options">`;
+
+        if (options && options.length > 0) {
+            // 選択肢がデータに定義されている場合 (4択や指定の○×など)
+            options.forEach((opt, optIdx) => {
+                const isCorrect = (optIdx === correctIndex);
+                html += `
+                    <li onclick="selectAnswer(this, ${isCorrect}, '${isCorrect ? '✅解説：' : '❌'}${safeExp}')">${opt}</li>`;
+            });
+        } else {
+            // 従来の○×形式 (options未定義の場合のフォールバック)
+            let isTrueCorrect = (correctIndex === true);
+            let isFalseCorrect = (correctIndex === false);
+            html += `
+                    <li onclick="selectAnswer(this, ${isTrueCorrect}, '${isTrueCorrect ? '✅解説：' : '❌'}${safeExp}')">○（正しい）</li>
+                    <li onclick="selectAnswer(this, ${isFalseCorrect}, '${isFalseCorrect ? '✅解説：' : '❌'}${safeExp}')">×（誤り）</li>`;
+        }
+
+        html += `
                 </ul>
                 <div class="quiz-feedback" style="display: none;"></div>
             </div>

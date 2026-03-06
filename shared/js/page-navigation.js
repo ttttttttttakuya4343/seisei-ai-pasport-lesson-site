@@ -138,12 +138,28 @@ function initTocScrollSpy(headings) {
         }
 
         if (currentActive) {
+            const tocContainer = document.querySelector('.table-of-contents');
             const tocLinks = document.querySelectorAll('.toc-list a');
             tocLinks.forEach(link => link.classList.remove('active'));
 
             const activeLink = document.querySelector(`.toc-list a[data-section="${currentActive.id}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
+
+                // 目次の枠内でアクティブなリンクが見えるように自動でスクロールさせる機能
+                if (tocContainer) {
+                    const activeRect = activeLink.parentElement.getBoundingClientRect();
+                    const containerRect = tocContainer.getBoundingClientRect();
+
+                    // リンクがコンテナの下の方にはみ出しそう（または上に隠れそう）ならスクロール
+                    if (activeRect.top < containerRect.top + 30 || activeRect.bottom > containerRect.bottom - 30) {
+                        const targetScroll = activeLink.parentElement.offsetTop - (containerRect.height / 2) + (activeRect.height / 2);
+                        tocContainer.scrollTo({
+                            top: targetScroll,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
             }
         }
     });
@@ -211,6 +227,10 @@ function setButtonIncomplete(btn) {
     const onclickAttr = btn.getAttribute('onclick');
     if (onclickAttr && onclickAttr.includes('4-exam')) {
         btn.textContent = '第4章の確認テストに進む →';
+    } else if (onclickAttr && (onclickAttr.includes('5-exam') || onclickAttr.includes('1-exam') || onclickAttr.includes('3-exam'))) {
+        btn.textContent = '学習を完了して模擬試験へ →';
+    } else if (onclickAttr && onclickAttr.includes('2-4_exam')) {
+        btn.textContent = '学習を完了して確認問題へ →';
     } else {
         btn.textContent = '学習を完了して次へ →';
     }
