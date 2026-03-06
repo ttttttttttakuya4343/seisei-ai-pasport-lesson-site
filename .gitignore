@@ -1,1 +1,8 @@
 node_modules/
+
+# バックアップ・一時スクリプト
+*.bak
+test_*.js
+update_*.js
+analyze_manga_images.mjs
+
