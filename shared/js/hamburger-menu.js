@@ -51,9 +51,13 @@
     // .nav-links の内容をコピー
     drawer.innerHTML = navLinks.innerHTML;
 
-    // ── コピーした中に既存の「章を選択」リンク/ボタンがあれば削除 ──────
+    // ── コピーした中の不要な要素を削除 ─────────────────────────────────
+    // ① 「章を選択」テキストを含む要素（重複防止）
+    // ② chapterN/ へのリンク（アコーディオンで代替）
     drawer.querySelectorAll('a, button').forEach(function (el) {
-      if (el.textContent.trim().includes('章を選択')) {
+      var text = el.textContent.trim();
+      var href = el.getAttribute('href') || '';
+      if (text.includes('章を選択') || href.match(/chapter\d+/)) {
         el.remove();
       }
     });
