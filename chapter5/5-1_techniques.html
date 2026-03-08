@@ -16,7 +16,6 @@
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
                 <a href="index.html">第5章トップ</a>
-                <a href="index.html">第5章トップ</a>
                 <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
                     🎭 学習パートナー選択
                 </button>
@@ -28,20 +27,19 @@
         <div class="lesson-page with-toc">
             <div class="lesson-header">
                 <div class="breadcrumb">
-                    <a href="../index.html">ホーム</a>
-                <a href="index.html">第5章トップ</a> &gt;
+                    <a href="../index.html">ホーム</a> &gt;
                     <a href="index.html">第5章</a> &gt;
-                    5-1
+                    LM・LLMの仕組み
                 </div>
-                <div class="hero-badge" style="background-color: var(--secondary-color);">第5章 セクション 5-1</div>
+                <div class="hero-badge">第5章 第1節</div>
                 <h1>LM・LLMの仕組み</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約15分</span>
-                    <span>📝 クイズ10問</span>
+                    <span>📝 確認クイズ10問</span>
                 </div>
             </div>
 
-            <section class="section">
+            <div class="section">
                 <h2>1 言語モデルのLM・LLMってなに？</h2>
                 <div class="concept-card">
                     <p><strong>言語モデルは「ある言葉の次に来る言葉の確率」を予測するしくみです。 LMはその基本版で、LLMは大規模学習によってさらに表現力を広げた上位版です。</strong></p>
@@ -75,7 +73,7 @@
                 <h3 class="topic-heading">2 LLMの2段階の学習</h3>
                 <p><strong>プレトレーニングとファインチューニング</strong><br>
                     LLMは、「プレトレーニング」と「ファインチューニング」という<strong>2段階のトレーニング</strong>を利用して、高い精度を実現しています。</p>
-                <div class="responsive-table">
+                <div class="table-scroll-wrapper">
                     <table class="lesson-table">
                         <caption>図表5-1 プレトレーニングとファインチューニングの違い</caption>
                         <tr>
@@ -120,7 +118,7 @@
                     </p>
                 </div>
 
-                <div class="responsive-table">
+                <div class="table-scroll-wrapper">
                     <table class="lesson-table">
                         <caption>図表5-2 TemperatureとTop-pの特徴</caption>
                         <tr>
@@ -162,7 +160,7 @@
                             style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
                     </div>
                 </div>
-                </section>
+                </div>
             <div class="quiz">
                 <h3>✅ 理解度チェッククイズ</h3>
                 <div class="quiz-question">
@@ -256,7 +254,7 @@
 
             <div class="lesson-navigation">
                 <a href="index.html" class="nav-button secondary">← 第5章トップへ</a>
-                <button class="nav-button complete-btn"
+                <button class="nav-button complete-button"
                     onclick="completeLesson('chapter5_section5-1_completed', '5-2_practice.html')">学習を完了して次へ →</button>
             </div>
         </div>
@@ -275,5 +273,6 @@
     <script src="../shared/js/character-system.js"></script>
     <script src="../shared/js/image-viewer.js"></script>
 
+<script src="../shared/js/hamburger-menu.js"></script>
 </body>
 </html>

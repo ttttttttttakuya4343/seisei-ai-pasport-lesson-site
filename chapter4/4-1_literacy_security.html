@@ -16,7 +16,6 @@
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
                 <a href="index.html">第4章トップ</a>
-                <a href="index.html">第4章トップ</a>
                 <button class="character-selector-link" aria-label="学習パートナーを選択" id="character-selector-toggle">
                     🎭 学習パートナー選択
                 </button>
@@ -28,16 +27,15 @@
         <div class="lesson-page with-toc">
             <div class="lesson-header">
                 <div class="breadcrumb">
-                    <a href="../index.html">ホーム</a>
-                <a href="index.html">第4章トップ</a> &gt;
+                    <a href="../index.html">ホーム</a> &gt;
                     <a href="index.html">第4章</a> &gt;
-                    第4章 第1節
+                    ネットの安全と脅威
                 </div>
                 <div class="hero-badge">第4章 第1節</div>
                 <h1>ネットの安全と脅威を知ろう！</h1>
                 <div class="lesson-meta">
                     <span>⏱️ 約10分</span>
-                    <span>📝 確認問題11問</span>
+                    <span>📝 確認クイズ11問</span>
                 </div>
             </div>
 
@@ -51,6 +49,7 @@
                 </p>
 
                 <h3>インターネットリテラシーの構成要素（4つ）</h3>
+                <div class="table-scroll-wrapper">
                 <table class="lesson-table">
                     <tr>
                         <th style="width: 30%;">構成要素</th>
@@ -75,6 +74,7 @@
                         <td>ネットの向こうにも人がいることを念頭に、引用は出どころを書く、画像や音楽はルールを守る、差別的・攻撃的な言い方は避ける、事実と意見を分ける、といった配慮ある姿勢で関わる。</td>
                     </tr>
                 </table>
+                </div>
             </div>
 
             <div class="section" id="pitfalls">
@@ -113,6 +113,7 @@
                 <div class="threat-card threat-card--purple">
                     <h3>④ アップロード／ダウンロードの罠</h3>
                     <p>インターネットは、アップロード時の情報漏えいや、ダウンロード時のマルウェア（悪意のあるソフトウェア）感染も脅威です。代表的なマルウェアには、次のものがあります。</p>
+                    <div class="table-scroll-wrapper">
                     <table class="lesson-table">
                         <tr>
                             <th style="width: 25%;">マルウェアの種類</th>
@@ -135,6 +136,7 @@
                             <td>無害に見せかけて侵入し、裏で不正な動作を実行。</td>
                         </tr>
                     </table>
+                    </div>
                     <p>特に、「ランサムウェア」の被害は深刻で、身代金を支払っても復元の保証はなく、追加の金銭要求に発展する例もあります。</p>
                     <div class="info-box">
                         <p><strong>💡
@@ -146,6 +148,7 @@
                 <div class="threat-card threat-card--blue">
                     <h3>⑤ ソーシャルエンジニアリング（人を騙す攻撃）</h3>
                     <p>ソーシャルエンジニアリングとは、人の心理の隙を突いて情報を引き出す手法です。代表的なものとして、次のものがあります。</p>
+                    <div class="table-scroll-wrapper">
                     <table class="lesson-table">
                         <tr>
                             <th style="width: 25%;">手法</th>
@@ -168,6 +171,7 @@
                             <td>攻撃者が偽のシナリオを作り出し、ターゲットを騙すための根拠や前提を提供する手法。</td>
                         </tr>
                     </table>
+                    </div>
                     <div class="info-box">
                         <p><strong>💡
                                 対策：</strong>ソーシャルエンジニアリングから身を守るためには、疑わしいメッセージなどに対して、常に懐疑的な目を持っておくことが重要です。また、個人情報を共有する前に、その要求が正当なものか確認する必要があります。
@@ -198,7 +202,7 @@
 
             <div class="lesson-navigation">
                 <a href="index.html" class="nav-button secondary">← 第4章トップへ</a>
-                <button class="nav-button complete-btn"
+                <button class="nav-button complete-button"
                     onclick="completeLesson('chapter4_section4-1_completed', '4-2_privacy.html')">学習を完了して次へ →</button>
             </div>
         </div>
@@ -246,6 +250,7 @@
     <script src="../shared/js/config/character-messages-bundle.js"></script>
     <script src="../shared/js/character-system.js"></script>
 
+<script src="../shared/js/hamburger-menu.js"></script>
 </body>
 
 </html>
