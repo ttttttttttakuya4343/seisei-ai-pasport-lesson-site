@@ -51,6 +51,13 @@
     // .nav-links の内容をコピー
     drawer.innerHTML = navLinks.innerHTML;
 
+    // ── コピーした中に既存の「章を選択」リンク/ボタンがあれば削除 ──────
+    drawer.querySelectorAll('a, button').forEach(function (el) {
+      if (el.textContent.trim().includes('章を選択')) {
+        el.remove();
+      }
+    });
+
     // ── ③ 「章を選択」アコーディオンを挿入（ホームリンクの直後）──────────
     var accordion = document.createElement('div');
     accordion.className = 'drawer-accordion';
