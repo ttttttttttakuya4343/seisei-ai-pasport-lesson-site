@@ -16,7 +16,6 @@
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
                 <a href="index.html">第3章トップ</a>
-                <a href="index.html">第3章トップ</a>
             </div>
         </div>
     </nav>
@@ -39,7 +38,15 @@
             </div>
 
             <div id="exam-container" style="display: none;">
-                <div class="exam-progress">問題 <span id="current-q">1</span> / 15</div>
+                <div class="exam-progress-wrap">
+                    <div class="exam-progress-label">
+                        <span>問題 <span id="exam-progress-text">1 / 15</span></span>
+                        <span style="font-weight:700; color:var(--primary-blue)"><span id="current-q">1</span> / 15</span>
+                    </div>
+                    <div class="exam-progress-track">
+                        <div class="exam-progress-fill" id="exam-progress-bar" style="width:0%"></div>
+                    </div>
+                </div>
 
                 <div id="question-area">
                     <!-- 問題がJSで生成されます -->

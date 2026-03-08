@@ -116,6 +116,20 @@ const ExamSystem = {
      */
     showQuestion: function () {
         document.getElementById('current-q').textContent = this.currentQuestionIndex + 1;
+
+        // プログレスバーの更新
+        const total = this.questions.length;
+        const current = this.currentQuestionIndex + 1;
+        const progressPct = Math.round(((current - 1) / total) * 100);
+        const progressBar = document.getElementById('exam-progress-bar');
+        const progressText = document.getElementById('exam-progress-text');
+        if (progressBar) {
+            progressBar.style.width = progressPct + '%';
+        }
+        if (progressText) {
+            progressText.textContent = `${current} / ${total} 問`;
+        }
+
         const q = this.questions[this.currentQuestionIndex];
 
         const area = document.getElementById('question-area');
@@ -219,6 +233,14 @@ const ExamSystem = {
 
         // 次へボタン表示
         document.getElementById('next-btn').style.display = 'inline-block';
+
+        // フィードバック表示後に「次の問題へ」ボタンへ自動スクロール
+        setTimeout(() => {
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 200);
     },
 
     /**
