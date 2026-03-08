@@ -1055,6 +1055,11 @@ footer {
  display: flex !important;
  }
 
+ /* PCナビリンクをスマホでは非表示 */
+ .nav-links {
+ display: none !important;
+ }
+
  /* ドロワーメニュー */
  .mobile-nav {
  display: none;
