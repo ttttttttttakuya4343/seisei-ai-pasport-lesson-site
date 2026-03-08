@@ -1,5 +1,6 @@
 // Service Worker for PWA and Offline Support
-const CACHE_NAME = 'ai-passport-v3';
+// ⚠️ キャッシュを更新するときはこのバージョン番号を上げてください
+const CACHE_NAME = 'ai-passport-v4';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -21,6 +22,8 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
   );
+  // 既存のSWを待たずに即座に新バージョンを有効化
+  self.skipWaiting();
 });
 
 // Fetch event - Network first, fallback to cache
@@ -49,6 +52,9 @@ self.addEventListener('activate', event => {
           }
         })
       );
+    }).then(() => {
+      // 全てのクライアント（タブ）を即座に新しいSWで制御
+      return self.clients.claim();
     })
   );
 });
