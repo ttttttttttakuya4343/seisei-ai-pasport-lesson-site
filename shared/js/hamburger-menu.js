@@ -1,6 +1,7 @@
 /**
  * hamburger-menu.js
  * スマホ時のハンバーガーメニューを全ページに自動注入するスクリプト
+ * 方式: .nav-links の内容をコピーした独立ドロワーを body に追加
  */
 (function () {
   'use strict';
@@ -13,7 +14,7 @@
     const navLinks = navbar.querySelector('.nav-links');
     if (!container || !navLinks) return;
 
-    // ハンバーガーボタンを作成
+    // ── ① ハンバーガーボタンを navbar.container に追加 ──────────────────
     const btn = document.createElement('button');
     btn.className = 'hamburger-btn';
     btn.setAttribute('aria-label', 'メニューを開く');
@@ -22,18 +23,24 @@
     btn.innerHTML = '<span></span><span></span><span></span>';
     container.appendChild(btn);
 
-    // nav-links にモバイルメニュークラスを追加
-    navLinks.classList.add('mobile-nav');
+    // ── ② 独立したドロワーを body に追加（.nav-links は触らない） ────────
+    const drawer = document.createElement('nav');
+    drawer.className = 'mobile-nav';
+    drawer.setAttribute('aria-label', 'モバイルナビゲーション');
+    // .nav-links の中身を深コピーしてドロワーに入れる
+    drawer.innerHTML = navLinks.innerHTML;
+    document.body.appendChild(drawer);
 
-    // オーバーレイ（背景タップで閉じる）
+    // ── ③ オーバーレイ ─────────────────────────────────────────────────────
     const overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
     document.body.appendChild(overlay);
 
+    // ── ④ 開閉関数 ────────────────────────────────────────────────────────
     function openMenu() {
       btn.classList.add('is-open');
       btn.setAttribute('aria-expanded', 'true');
-      navLinks.classList.add('is-open');
+      drawer.classList.add('is-open');
       overlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
@@ -41,34 +48,35 @@
     function closeMenu() {
       btn.classList.remove('is-open');
       btn.setAttribute('aria-expanded', 'false');
-      navLinks.classList.remove('is-open');
+      drawer.classList.remove('is-open');
       overlay.classList.remove('is-open');
       document.body.style.overflow = '';
     }
 
+    // ── ⑤ イベント登録 ───────────────────────────────────────────────────
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      if (btn.classList.contains('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
     overlay.addEventListener('click', closeMenu);
 
-    // メニュー内のリンクをタップしたら遷移後に閉じる（遅延で確実にnavigationを先行させる）
-    navLinks.addEventListener('click', function (e) {
-      const target = e.target.closest('a');
-      if (target) {
-        // リンクはナビゲーション優先→少し遅らせて閉じる
+    // ドロワー内リンクをタップ → ナビゲーション優先で少し遅らせて閉じる
+    drawer.addEventListener('click', function (e) {
+      const linkTarget = e.target.closest('a');
+      if (linkTarget) {
         setTimeout(closeMenu, 100);
+        return;
       }
-      // character-selector-link ボタンはクリックを通過させるだけ（他のJSに委譲）
+      // character-selector-link ボタン: 閉じてから元のボタンのイベントを発火させる
       const btnTarget = e.target.closest('.character-selector-link');
       if (btnTarget) {
-        // メニューだけ閉じてボタン本来の動作に任せる
         closeMenu();
+        // 元の .nav-links 内の対応ボタンに対してクリックを転送
+        const originalBtn = navLinks.querySelector('.character-selector-link');
+        if (originalBtn) {
+          setTimeout(function () { originalBtn.click(); }, 150);
+        }
       }
     });
 
@@ -77,7 +85,7 @@
       if (e.key === 'Escape') closeMenu();
     });
 
-    // リサイズ時にモバイルメニューをリセット
+    // リサイズ時に PC 幅になったら閉じる
     window.addEventListener('resize', function () {
       if (window.innerWidth > 768) closeMenu();
     });
