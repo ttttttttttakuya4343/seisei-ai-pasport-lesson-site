@@ -5140,6 +5140,75 @@ footer p {
  display: block;
 }
 
+/* ===== ドロワーアコーディオン「章を選択」===== */
+.drawer-accordion {
+ width: 100%;
+}
+
+.drawer-accordion-btn {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0.9rem 1rem;
+ border-radius: 10px;
+ background: rgba(255,255,255,0.1);
+ border: 1px solid rgba(255,255,255,0.2);
+ color: white;
+ font-size: 1rem;
+ font-weight: 600;
+ cursor: pointer;
+ text-align: left;
+ transition: background 0.2s;
+}
+
+.drawer-accordion-btn:hover {
+ background: rgba(255,255,255,0.2);
+}
+
+.drawer-accordion-arrow {
+ font-size: 0.7rem;
+ transition: transform 0.3s ease;
+ flex-shrink: 0;
+ margin-left: 0.5rem;
+}
+
+.drawer-accordion-btn.is-open .drawer-accordion-arrow {
+ transform: rotate(180deg);
+}
+
+/* 章リスト（折りたたみ） */
+.drawer-accordion-list {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.35s ease;
+ margin-top: 0.25rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.25rem;
+}
+
+.drawer-accordion-list.is-open {
+ max-height: 400px; /* 十分な高さ */
+}
+
+.drawer-chapter-link {
+ display: block;
+ padding: 0.7rem 1rem 0.7rem 1.5rem;
+ border-radius: 8px;
+ background: rgba(255,255,255,0.07);
+ border: 1px solid rgba(255,255,255,0.1);
+ color: rgba(255,255,255,0.9) !important;
+ font-size: 0.9rem;
+ text-decoration: none;
+ transition: background 0.2s;
+}
+
+.drawer-chapter-link:hover {
+ background: rgba(255,255,255,0.18);
+ color: white !important;
+}
+
 /* ===== Topic Heading (メリハリのあるh3見出し) ===== */
 .topic-heading {
  font-size: 1.4rem;
