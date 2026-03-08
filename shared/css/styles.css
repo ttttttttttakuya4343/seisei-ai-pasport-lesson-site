@@ -4947,6 +4947,49 @@ footer p {
  text-align: center;
  padding: 3rem 0;
 }
+
+/* ===== 模擬試験 スマホ対応 ===== */
+@media (max-width: 768px) {
+  /* 選択肢を縦並びに */
+  .exam-options {
+    flex-direction: column;
+  }
+  .exam-option {
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+  }
+  /* 問題テキストのフォントサイズ調整 */
+  .exam-question p {
+    font-size: 1rem !important;
+  }
+  /* 進行表示 */
+  .exam-progress {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+  /* スコア円グラフ */
+  .score-circle {
+    width: 120px;
+    height: 120px;
+    font-size: 1.5rem;
+  }
+  .score-circle::before {
+    width: 96px;
+    height: 96px;
+  }
+  /* 結果画面ボタン群を縦積み */
+  .exam-result > div[style*="display: flex"] {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* お宝モーダルのスマホ最適化 */
+  .treasure-modal {
+    width: 95%;
+    max-width: 400px;
+    padding: 1rem;
+  }
+}
+
 /* ===== Image Viewer Modal ===== */
 .image-modal-overlay {
  position: fixed;
