@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガチャ演出テスト</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: url('shared/images/gacha-bg.png') center center / cover no-repeat fixed;
+            background-color: #1a1a2e; /* フォールバック */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .test-container {
+            background: radial-gradient(circle at center, #2c3e50 0%, #000000 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        button.test-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4caf50;
+            color: #fff;
+            transition: all 0.2s;
+        }
+        button.test-btn:hover { background: #388e3c; }
+        button.test-btn.rare5 { background: #fbc02d; color: #333; }
+        button.test-btn.rare5:hover { background: #f9a825; }
+
+        /* ========= 以下はフル試験ページ（full-exam.html）と同一のCSS ========= */
+        .gacha-fruit-type { font-size: 0.9rem; color: #aaa; margin-top: 0.3rem; }
+        .gacha-fruit-ability { font-size: 0.9rem; color: #ccc; margin-top: 0.3rem; }
+
+        .gacha-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 0;
+            position: relative;
+            user-select: none;
+            min-height: 250px;
+        }
+        
+        .spin-gacha-btn {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 1rem 2.5rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,152,0,0.5);
+            transition: all 0.2s;
+            z-index: 20;
+            animation: pulseBtn 2s infinite;
+        }
+        .spin-gacha-btn:active { transform: scale(0.95); }
+        .spin-gacha-btn:disabled {
+            background: #ccc;
+            animation: none;
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 4px 15px rgba(255,152,0,0.5); transform: scale(1); }
+            50% { box-shadow: 0 4px 25px rgba(255,152,0,0.8); transform: scale(1.05); }
+            100% { box-shadow: 0 4px 15px rgba(255,152,0,0.5); transform: scale(1); }
+        }
+
+        .gacha-capsule {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            opacity: 0;
+            transform: scale(0.5) translateY(-50px);
+            z-index: 10;
+        }
+        .capsule-top {
+            width: 100px;
+            height: 50px;
+            background: rgba(255, 69, 0, 0.85);
+            border-radius: 50px 50px 0 0;
+            border: 3px solid #cc3700;
+            border-bottom: none;
+            box-shadow: inset 0 8px 15px rgba(255,255,255,0.4);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: bottom center;
+        }
+        .capsule-bottom {
+            width: 100px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 0 0 50px 50px;
+            border: 3px solid #ccc;
+            border-top: 2px solid #aaa;
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: top center;
+        }
+
+        @keyframes dropCapsule {
+            0% { opacity: 0; transform: scale(0.5) translateY(-150px) rotate(0deg); }
+            40% { opacity: 1; transform: scale(1) translateY(80px) rotate(180deg); }
+            60% { transform: scale(1) translateY(30px) rotate(270deg); }
+            80% { transform: scale(1) translateY(80px) rotate(360deg); }
+            100% { opacity: 1; transform: scale(1.3) translateY(60px) rotate(380deg); }
+        }
+        .gacha-capsule.drop { animation: dropCapsule 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        
+        .gacha-capsule.open {
+            animation: none;
+            opacity: 1;
+            transform: scale(1.3) translateY(60px) rotate(380deg);
+        }
+        .gacha-capsule.open .capsule-top { transform: translateY(-60px) rotate(-20deg); opacity: 0; }
+        .gacha-capsule.open .capsule-bottom { transform: translateY(60px) rotate(20deg); opacity: 0; }
+
+        .light-flash {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,0,0.8) 30%, transparent 70%);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 15;
+            mix-blend-mode: screen;
+        }
+        @keyframes flashLight {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1) rotate(0deg); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5) rotate(90deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(2) rotate(180deg); }
+        }
+        /* 覇気（オーラ）エフェクトと震えアニメーション */
+        @keyframes shakeCapsule {
+            0% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(0, 0); opacity: 1; }
+            10% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(-2px, -2px); opacity: 1; }
+            20% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(2px, -2px); opacity: 1; }
+            30% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(-2px, 2px); opacity: 1; }
+            40% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(2px, 2px); opacity: 1; }
+            50% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(-2px, -2px); opacity: 1; }
+            60% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(2px, -2px); opacity: 1; }
+            70% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(-2px, 2px); opacity: 1; }
+            80% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(2px, 2px); opacity: 1; }
+            90% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(-2px, -2px); opacity: 1; }
+            100% { transform: scale(1.3) translateY(60px) rotate(380deg) translate(0, 0); opacity: 1; }
+        }
+
+        .gacha-capsule.charging {
+            animation: shakeCapsule 0.1s infinite;
+            opacity: 1;
+        }
+
+        /* オーラの疑似要素 */
+        .gacha-capsule::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,0,0,0.8) 0%, rgba(139,0,0,0.4) 40%, transparent 70%);
+            opacity: 0;
+            z-index: -1;
+            mix-blend-mode: screen;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes pulseAura {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.5; }
+        }
+
+        .gacha-capsule.charging::before {
+            opacity: 1;
+            animation: pulseAura 0.5s infinite alternate;
+        }
+
+        .light-flash {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,0,0.8) 30%, transparent 70%);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 15;
+            mix-blend-mode: screen;
+        }
+        @keyframes flashLight {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1) rotate(0deg); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5) rotate(90deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(2) rotate(180deg); }
+        }
+        .light-flash.active { animation: flashLight 1s ease-out forwards; }
+
+        .real-gacha-card {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 25;
+            display: none;
+            
+            /* カード本体のデザイン */
+            padding: 1rem 2rem;
+            border: 3px solid #ccc;
+            border-radius: 20px;
+            margin-top: 1rem;
+            background: #fafafa;
+            font-family: inherit;
+        }
+        .real-gacha-card.show {
+            display: inline-block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gacha-rarity { font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .gacha-fruit-icon {
+            font-size: 4rem;
+            margin: 0.5rem auto;
+            display: flex;
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .gacha-fruit-name { font-size: 1.6rem; font-weight: 900; margin-top: 0.5rem; }
+        .gacha-fruit-type { font-size: 0.9rem; color: #555; background: #eee; display: inline-block; padding: 2px 10px; border-radius: 20px; margin-top: 0.5rem; }
+        .gacha-fruit-ability { margin-top: 0.5rem; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <div class="test-container">
+        <h2>🛠️ ガチャ演出 テスト用コンソール</h2>
+        <p style="color: #ddd; margin-bottom: 2rem;">どのレア度の悪魔の実で演出をテストしますか？</p>
+
+        <div class="btn-row">
+            <button class="test-btn" onclick="startTest(1)">★1を引く</button>
+            <button class="test-btn" onclick="startTest(3)">★3を引く</button>
+            <button class="test-btn rare5" onclick="startTest(5)">★★★★★を引く！</button>
+        </div>
+
+        <div id="gacha-result" style="border-radius: 12px; padding: 1rem; min-height: 350px;">
+            <!-- ここにガチャ演出が展開されます -->
+        </div>
+    </div>
+
+    <script>
+
+        // --- 本体システムからモックアップデータを拝借 ---
+        const MockGachaSystem = {
+            devilFruits: [
+                { name: "スパスパの実", type: "超人系", ability: "全身刃物人間", rarity: 1, color: "#9E9E9E", emoji: "🔪", image: null },
+                { name: "ノロノロの実", type: "超人系", ability: "のろま光線を出す", rarity: 3, color: "#9c27b0", emoji: "🐌", image: "shared/images/devil-fruits/noronoro.png" },
+                { name: "ゴロゴロの実", type: "自然系", ability: "雷人間", rarity: 5, color: "#FFD700", emoji: "⚡", image: "shared/images/devil-fruits/gorogoro.png" }
+            ],
+
+            showDevilFruitResult: function (fruit) {
+                const container = document.getElementById('gacha-result');
+                
+                // 本格的なガチャマシーン＆カプセルのDOMを表示
+                container.innerHTML = `
+                    <div class="gacha-container" id="gacha-machine">
+                        <button id="spin-btn" class="spin-gacha-btn">🎰 ガチャを回す！</button>
+                        <div id="gacha-capsule" class="gacha-capsule">
+                            <div class="capsule-top"></div>
+                            <div class="capsule-bottom"></div>
+                        </div>
+                        <div class="light-flash" id="capsule-flash"></div>
+                        <div id="real-gacha-result" class="real-gacha-card"></div>
+                    </div>
+                `;
+
+                const spinBtn = document.getElementById('spin-btn');
+                const capsule = document.getElementById('gacha-capsule');
+                const flash = document.getElementById('capsule-flash');
+                const resultCard = document.getElementById('real-gacha-result');
+
+                // 事前に結果カードのDOMを生成
+                this.renderGachaResult(fruit, resultCard);
+
+                // アニメーション制御
+                spinBtn.addEventListener('click', () => {
+                    // ルフィの歌BGM再生
+                    // ボリュームは少し控えめに
+                    const bgm = new Audio("shared/bgm/one piece luffy's song.mp3");
+                    bgm.volume = 0.5;
+                    bgm.play().catch(e => console.warn("BGM play failed", e));
+                    
+                    spinBtn.disabled = true;
+                    spinBtn.style.display = 'none';
+
+                    // 落下アニメーション開始
+                    capsule.classList.remove('open', 'charging');
+                    flash.classList.remove('active');
+                    capsule.className = 'gacha-capsule drop';
+
+                    // 1.2秒後（バウンス終了）からオーラ・震えによるパワー溜め開始
+                    const chargingTimeout = setTimeout(() => {
+                        capsule.classList.add('charging');
+                    }, 1200);
+
+                    let opened = false;
+                    bgm.addEventListener('timeupdate', () => {
+                        if (!opened && (bgm.currentTime >= 3.0 || bgm.ended)) {
+                            opened = true;
+                            
+                            // パワー溜め状態を解除
+                            clearTimeout(chargingTimeout);
+                            capsule.classList.remove('charging');
+                            
+                            capsule.classList.add('open');
+                            flash.classList.add('active');
+
+                            setTimeout(() => {
+                                capsule.style.display = 'none'; 
+                                resultCard.className = 'real-gacha-card show';
+                            }, 400);
+                        }
+                    });
+                });
+            },
+
+            renderGachaResult: function (fruit, container) {
+                const stars = '★'.repeat(fruit.rarity) + '☆'.repeat(5 - fruit.rarity);
+                const rarityColors = { 5: '#FFD700', 4: '#FF6B6B', 3: '#9370DB', 2: '#4682B4', 1: '#808080' };
+
+                const iconHtml = fruit.image
+                    ? `<div class="gacha-fruit-icon" style="border: 3px solid ${fruit.color}"><img src="${fruit.image}" alt="${fruit.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%; display:block;"></div>`
+                    : `<div class="gacha-fruit-icon" style="background: radial-gradient(circle, ${fruit.color}40, ${fruit.color}10); border: 3px solid ${fruit.color}">${fruit.emoji}</div>`;
+
+                container.innerHTML = `
+                    <div style="border-color: ${rarityColors[fruit.rarity]}; height:100%;">
+                        <div class="gacha-rarity" style="color: ${rarityColors[fruit.rarity]}">${stars}</div>
+                        ${iconHtml}
+                        <div class="gacha-fruit-name">${fruit.name}</div>
+                        <div class="gacha-fruit-type">${fruit.type}</div>
+                        <div class="gacha-fruit-ability">能力：${fruit.ability}</div>
+                    </div>
+                `;
+                // カード自体の枠色設定
+                container.style.borderColor = rarityColors[fruit.rarity];
+            }
+        };
+
+        // ボタンから呼び出されるテスト起動関数
+        function startTest(rarity) {
+            let fruit;
+            if (rarity === 5) fruit = MockGachaSystem.devilFruits[2]; // ゴロゴロ
+            else if (rarity === 3) fruit = MockGachaSystem.devilFruits[1]; // ノロノロ
+            else fruit = MockGachaSystem.devilFruits[0]; // スパスパ
+
+            // カプセルの色をレア度に合わせて変える（おまけ演出）
+            MockGachaSystem.showDevilFruitResult(fruit);
+
+            // カプセル上の色を変える
+            const capsuleTop = document.querySelector('.capsule-top');
+            if(capsuleTop) {
+                if(rarity === 5) {
+                    capsuleTop.style.background = 'rgba(255, 215, 0, 0.9)'; // 金色
+                    capsuleTop.style.borderColor = '#b8860b';
+                } else if(rarity === 3) {
+                    capsuleTop.style.background = 'rgba(147, 112, 219, 0.9)'; // 紫色
+                    capsuleTop.style.borderColor = '#4b0082';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
