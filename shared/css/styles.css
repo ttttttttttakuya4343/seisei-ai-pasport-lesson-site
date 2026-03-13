@@ -5305,3 +5305,13 @@ main {
  margin: 2.5rem 0 1.5rem;
  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
+
+/* ===== ドロワーメニュー 強制非表示（フッター下への漏れ防止） ===== */
+/* .mobile-nav は JS が body 末尾に追加するが、
+   .is-open クラスがない限り一切表示しない。          */
+.mobile-nav:not(.is-open) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: fixed !important;
+}
