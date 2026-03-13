@@ -214,11 +214,33 @@ const FullExamSystem = {
         // 選択肢
         const optionsEl = document.getElementById('options-area');
         optionsEl.innerHTML = '';
+        // 複数選択問題かどうか
+        const isMulti = q.type === 'multi';
+
+        // 複数選択ヒント表示
+        let hint = document.getElementById('multi-hint');
+        if (!hint) {
+            hint = document.createElement('p');
+            hint.id = 'multi-hint';
+            hint.style.cssText = 'font-size:0.85rem;color:#e65100;font-weight:bold;margin:4px 0 8px;';
+            optionsEl.parentNode.insertBefore(hint, optionsEl);
+        }
+        if (isMulti) {
+            hint.textContent = '☑️ 複数選択可 — 該当するものをすべて選んでください';
+            hint.style.display = 'block';
+        } else {
+            hint.style.display = 'none';
+        }
+
         q.options.forEach((opt, i) => {
             const div = document.createElement('div');
             div.className = 'exam-option';
-            if (this.userAnswers[idx] === i) {
-                div.classList.add('selected');
+            if (isMulti) {
+                // multi: userAnswers[idx] は配列
+                const arr = Array.isArray(this.userAnswers[idx]) ? this.userAnswers[idx] : [];
+                if (arr.includes(i)) div.classList.add('selected');
+            } else {
+                if (this.userAnswers[idx] === i) div.classList.add('selected');
             }
             div.textContent = `(${i + 1})  ${opt}`;
             div.addEventListener('click', () => this.selectOption(i));
@@ -253,12 +275,31 @@ const FullExamSystem = {
      * 選択肢クリック（スクロールなしで選択状態だけ更新）
      */
     selectOption: function (optionIndex) {
-        this.userAnswers[this.currentIndex] = optionIndex;
+        const q = this.questions[this.currentIndex];
+        const idx = this.currentIndex;
 
-        // 選択状態の視覚更新のみ（scrollTo は呼ばない）
-        document.querySelectorAll('.exam-option').forEach((el, i) => {
-            el.classList.toggle('selected', i === optionIndex);
-        });
+        if (q.type === 'multi') {
+            // 複数選択: 配列でトグル管理
+            let arr = Array.isArray(this.userAnswers[idx]) ? [...this.userAnswers[idx]] : [];
+            const pos = arr.indexOf(optionIndex);
+            if (pos === -1) {
+                arr.push(optionIndex);
+            } else {
+                arr.splice(pos, 1);
+            }
+            this.userAnswers[idx] = arr.length > 0 ? arr : null;
+
+            // 視覚更新
+            document.querySelectorAll('.exam-option').forEach((el, i) => {
+                el.classList.toggle('selected', arr.includes(i));
+            });
+        } else {
+            // 単一選択
+            this.userAnswers[idx] = optionIndex;
+            document.querySelectorAll('.exam-option').forEach((el, i) => {
+                el.classList.toggle('selected', i === optionIndex);
+            });
+        }
 
         // プログレスバーとナビハイライト更新
         const answered = this.userAnswers.filter(a => a !== null).length;
@@ -444,14 +485,24 @@ const FullExamSystem = {
         let score = 0;
         const results = this.questions.map((q, i) => {
             const userAns = this.userAnswers[i];
-            const isCorrect = userAns === q.correctIndex;
+            let isCorrect;
+            if (q.type === 'multi') {
+                // 複数選択: 配列の完全一致
+                const sorted = Array.isArray(userAns) ? [...userAns].sort() : [];
+                const correct = [...q.correctIndices].sort();
+                isCorrect = JSON.stringify(sorted) === JSON.stringify(correct);
+            } else {
+                isCorrect = userAns === q.correctIndex;
+            }
             if (isCorrect) score++;
             return {
                 questionId: q.id,
                 question: q.question,
                 options: q.options,
+                type: q.type,
                 userAnswer: userAns,
-                correctIndex: q.correctIndex,
+                correctIndex: q.type === 'multi' ? null : q.correctIndex,
+                correctIndices: q.type === 'multi' ? q.correctIndices : null,
                 isCorrect,
                 explanation: q.explanation
             };
@@ -555,15 +606,24 @@ const FullExamSystem = {
             div.className = 'result-item';
             div.dataset.correct = r.isCorrect;
 
-            const userText = r.userAnswer !== null ? `(${r.userAnswer + 1}) ${r.options[r.userAnswer]}` : '未回答';
-            const correctText = `(${r.correctIndex + 1}) ${r.options[r.correctIndex]}`;
+            let userText, correctText;
+            if (r.type === 'multi') {
+                const userArr = Array.isArray(r.userAnswer) ? r.userAnswer : [];
+                userText = userArr.length > 0
+                    ? userArr.sort().map(idx => `(${idx + 1}) ${r.options[idx]}`).join('、')
+                    : '未回答';
+                correctText = r.correctIndices.sort().map(idx => `(${idx + 1}) ${r.options[idx]}`).join('、');
+            } else {
+                userText = r.userAnswer !== null ? `(${r.userAnswer + 1}) ${r.options[r.userAnswer]}` : '未回答';
+                correctText = `(${r.correctIndex + 1}) ${r.options[r.correctIndex]}`;
+            }
             const mark = r.isCorrect
                 ? '<span class="correct-mark">✅ 正解</span>'
                 : '<span class="wrong-mark">❌ 不正解</span>';
 
             div.innerHTML = `
                 <div class="result-item-header">
-                    <span><strong>問${i + 1}</strong> ${mark}</span>
+                    <span><strong>問${i + 1}</strong>${r.type === 'multi' ? ' <span style="font-size:0.75rem;color:#e65100;background:#fff3e0;border-radius:4px;padding:1px 6px;">複数選択</span>' : ''} ${mark}</span>
                 </div>
                 <p class="result-q">${r.question}</p>
                 <p class="result-answer">あなたの回答: <strong>${userText}</strong></p>
