@@ -5,8 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🏴‍☠️ 本試験形式 模擬試験 | 生成AIパスポート講座</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/css/styles.css">
     <style>
+        /* ===== ページ全体フォント設定 ===== */
+        body, button, input, select, textarea {
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         /* ===== 模擬試験専用スタイル ===== */
 
         /* タイマー */
@@ -143,6 +156,7 @@
         .exam-option.selected {
             border-color: #1976d2;
             background: #bbdefb;
+            color: #0d2b5e;
             font-weight: 700;
         }
 
@@ -238,47 +252,84 @@
         }
         .score-display {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             border-radius: 20px;
-            color: white;
+            color: #f0f0f0;
             margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .score-display h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
         }
         .score-big {
             font-size: 3rem;
             font-weight: 900;
+            color: #ffffff;
         }
         .score-pct {
-            font-size: 2rem;
-            color: #81c784;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #4ade80;
             margin-top: 0.5rem;
+            text-shadow: 0 0 20px rgba(74,222,128,0.4);
+        }
+        /* 合格・不合格バッジ */
+        #pass-status {
+            margin-top: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        /* 結果メッセージ */
+        #result-msg {
+            color: #e2e8f0 !important;
+            font-size: 1.1rem !important;
+            margin-top: 0.8rem !important;
+            line-height: 1.6;
+        }
+        /* 所要時間 */
+        .score-display .time-label {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 0.8rem;
         }
 
         /* スコアサークル */
         .score-circle {
-            width: 150px;
-            height: 150px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
-            background: conic-gradient(#81c784 var(--percentage, 0%), #333 0%);
+            background: conic-gradient(#4ade80 var(--percentage, 0%), rgba(255,255,255,0.15) 0%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 1rem auto;
             position: relative;
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
         }
         .score-circle::after {
             content: '';
-            width: 120px;
-            height: 120px;
+            width: 134px;
+            height: 134px;
             border-radius: 50%;
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             position: absolute;
+            border: 2px solid rgba(255,255,255,0.1);
         }
         .score-circle .score-text {
             position: relative;
             z-index: 1;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            line-height: 1.3;
+            text-align: center;
         }
 
         /* フィルター */
@@ -324,17 +375,19 @@
         }
         .correct-mark { color: #2e7d32; font-weight: 700; }
         .wrong-mark { color: #c62828; font-weight: 700; }
-        .result-q { color: #333; margin-bottom: 0.5rem; line-height: 1.6; }
-        .result-answer { color: #555; }
-        .result-correct { color: #2e7d32; font-weight: 600; }
+        .result-q { color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1.7; font-size: 1rem; }
+        .result-answer { color: #333; font-size: 0.95rem; }
+        .result-correct { color: #1b5e20; font-weight: 700; }
         .result-explanation {
             margin-top: 0.8rem;
-            padding: 0.8rem;
-            background: rgba(255,255,255,0.7);
+            padding: 1rem 1.1rem;
+            background: #fff;
             border-radius: 8px;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #222;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
 
         /* ===== ガチャカード ===== */
@@ -378,12 +431,19 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 3rem 0;
+            padding: 0;
             position: relative;
             user-select: none;
-            min-height: 250px;
-            background: url('shared/images/gacha-bg.jpeg') center center / cover no-repeat;
-            border-radius: 12px;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0;
+        }
+        /* ガチャ画面表示中はlesson-pageの白背景を消す */
+        body.gacha-active .lesson-page,
+        body.gacha-active main,
+        body.gacha-active .lesson-layout {
+            background: transparent !important;
         }
         
         .spin-gacha-btn {
@@ -735,11 +795,79 @@
             color: #ff5252;
         }
 
+        /* ===== スマホ共通（768px以下）: タイマーがnavbarに被らないよう ===== */
+        @media (max-width: 768px) {
+            /* タイマーバーをnavbar(約56px)の高さ分下げてハンバーガーボタンと重ならないように */
+            .timer-bar {
+                top: 56px;
+            }
+        }
+
         @media (max-width: 600px) {
-            .start-info { grid-template-columns: 1fr; }
+            /* ===== レイアウト ===== */
+            .start-info { grid-template-columns: 1fr; gap: 0.6rem; }
             .collection-grid { grid-template-columns: repeat(3, 1fr); }
             .review-grid { grid-template-columns: repeat(6, 1fr); }
+
+            /* ===== タイマーバー ===== */
+            .timer-bar {
+                padding: 0.55rem 0.8rem;
+                border-radius: 8px;
+                gap: 0.4rem;
+            }
+            .timer-display { font-size: 1.3rem; letter-spacing: 1px; }
+            #q-number { font-size: 0.85rem !important; }
+
+            /* ===== 問題番号ナビボタン ===== */
             .q-nav-btn { width: 28px; height: 28px; font-size: 0.65rem; }
+            .question-nav { gap: 3px; padding: 0.4rem; }
+
+            /* ===== 問題カード ===== */
+            .question-card { padding: 1.1rem 0.9rem; }
+            .question-text { font-size: 1rem; margin-bottom: 1rem; }
+            .exam-option { padding: 0.8rem 1rem; font-size: 0.95rem; }
+
+            /* ===== ナビボタン行：縦並びに ===== */
+            .nav-row {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .nav-row .exam-nav-btn {
+                flex: 1;
+                min-width: 100px;
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            .nav-row .review-btn {
+                order: 3;
+                width: 100%;
+                padding: 0.65rem;
+                font-size: 0.9rem;
+            }
+
+            /* ===== 結果画面 ===== */
+            .score-circle { width: 130px; height: 130px; }
+            .score-circle::after { width: 102px; height: 102px; }
+            .score-circle .score-text { font-size: 1.05rem; }
+            .score-pct { font-size: 1.9rem; }
+            .filter-bar { flex-wrap: wrap; gap: 0.4rem; }
+            .filter-btn { padding: 0.45rem 0.9rem; font-size: 0.85rem; }
+
+            /* ===== 開始画面ヒーロー ===== */
+            .start-hero h1 { font-size: 1.4rem; }
+            .start-hero { padding: 1.2rem 1rem; }
+            .start-btn-large { font-size: 1.1rem; padding: 1rem; }
+
+            /* ===== ガチャ画面 ===== */
+            #gacha-fullscreen > div:last-child {
+                padding: 1.2rem 1rem !important;
+            }
+            .spin-gacha-btn { font-size: 1.2rem; padding: 0.85rem 1.8rem; }
+
+            /* ===== コレクション ===== */
+            .collection-item { padding: 0.6rem 0.3rem; }
+            .collection-emoji, .locked-emoji { font-size: 1.4rem; }
+            .collection-name { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -778,18 +906,47 @@
                     <div class="info-card">
                         <div class="icon">🎯</div>
                         <div class="label">合格ライン</div>
-                        <div class="value">70%</div>
+                        <div class="value">75%</div>
                     </div>
                 </div>
 
-                <button id="start-btn" class="start-btn-large">🏴‍☠️ 海に出る（試験を開始する）</button>
+                <!-- ガチャ告知バナー -->
+                <div style="
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+                    border: 2px solid #ffb300;
+                    border-radius: 14px;
+                    padding: 1rem 1.4rem;
+                    margin-bottom: 1.5rem;
+                ">
+                    <span style="font-size: 2.5rem; flex-shrink: 0;">🍎</span>
+                    <div style="text-align: left;">
+                        <div style="font-weight: 900; font-size: 1rem; color: #e65100; margin-bottom: 0.2rem;">
+                            試験完了後に悪魔の実ガチャが解放！
+                        </div>
+                        <div style="font-size: 0.88rem; color: #795548; line-height: 1.6;">
+                            試験を最後まで受けると、ワンピースの悪魔の実ガチャに挑戦できます。<br>
+                            全12種コンプリートを目指せ！（何度受けてもOK🎲）
+                        </div>
+                    </div>
+                </div>
 
-                <!-- 履歴 -->
-                <div id="start-history" style="margin-top: 2rem;"></div>
+                <button id="start-btn" class="start-btn-large">試験を開始する</button>
+
+                <!-- 履歴（アコーディオン） -->
+                <div class="collapsible-header" id="start-history-header" onclick="toggleCollapsible(this)" style="margin-top: 2rem;">
+                    <span style="font-weight: 700;">📜 過去の試験履歴</span>
+                    <span>▼</span>
+                </div>
+                <div class="collapsible-content" id="start-history-content">
+                    <div id="start-history"></div>
+                </div>
 
                 <!-- コレクション -->
                 <div class="collapsible-header" onclick="toggleCollapsible(this)">
-                    <span style="font-weight: 700;">🍎 悪魔の実コレクション（<span id="collection-count">0 / 30</span>種）</span>
+                    <span style="font-weight: 700;">🍎 悪魔の実コレクション（<span id="collection-count">0 / 12</span>種）</span>
                     <span>▼</span>
                 </div>
                 <div class="collapsible-content">
@@ -801,12 +958,34 @@
             <div id="exam-screen" style="display: none;">
                 <!-- タイマーバー -->
                 <div class="timer-bar">
-                    <span id="q-number" style="font-weight:700;">問 1 / 60</span>
-                    <div style="display:flex; gap:0.5rem; align-items:center;">
-                        <button type="button" id="abort-btn" class="abort-btn">✕ 中断する</button>
-                        <button type="button" id="force-finish-btn" class="abort-btn" style="color:#ffe082; border-color:rgba(255,224,130,0.4); font-size:0.7rem;" title="テスト用：強制的に試験を終了して結果画面を表示">🔧 強制終了</button>
-                    </div>
+                    <span id="q-number" style="font-weight:700; font-size:1rem;">問 1 / 60</span>
                     <span>⏱️ <span id="timer-display" class="timer-display">60:00</span></span>
+                </div>
+                <!-- サブアクションバー -->
+                <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-bottom:0.8rem; padding: 0 0.2rem;">
+                    <button type="button" id="abort-btn" style="
+                        padding: 0.35rem 0.9rem;
+                        border: 1.5px solid #ef9a9a;
+                        border-radius: 8px;
+                        background: #fff5f5;
+                        color: #c62828;
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    " onmouseover="this.style.background='#ffebee'" onmouseout="this.style.background='#fff5f5'">✕ 中断する</button>
+                    <button type="button" id="force-finish-btn" style="
+                        padding: 0.35rem 0.9rem;
+                        border: 1.5px solid #ffe082;
+                        border-radius: 8px;
+                        background: #fffde7;
+                        color: #f57f17;
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    " title="テスト用：強制的に試験を終了して結果画面を表示"
+                    onmouseover="this.style.background='#fff9c4'" onmouseout="this.style.background='#fffde7'">🔧 強制終了</button>
                 </div>
 
                 <!-- 問題番号ナビ -->
@@ -858,7 +1037,7 @@
                     position: fixed;
                     inset: 0;
                     background: url('shared/images/gacha-bg.jpeg') center center / cover no-repeat;
-                    z-index: 200;
+                    z-index: 1100;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -873,6 +1052,27 @@
                         pointer-events: none;
                     "></div>
 
+                    <!-- 音声ON/OFFボタン（右上） -->
+                    <button id="gacha-sound-btn" onclick="FullExamSystem.toggleGachaSound(this)" style="
+                        position: absolute;
+                        top: 16px;
+                        right: 16px;
+                        z-index: 10;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 2px solid rgba(255,255,255,0.5);
+                        background: rgba(0,0,0,0.4);
+                        color: #fff;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        backdrop-filter: blur(4px);
+                        transition: background 0.2s;
+                    " title="音声ON/OFF">🔊</button>
+
                     <!-- コンテンツ -->
                     <div style="
                         position: relative;
@@ -881,6 +1081,9 @@
                         padding: 2rem 1.5rem;
                         max-width: 560px;
                         width: 100%;
+                        background: transparent;
+                        border: none;
+                        box-shadow: none;
                     ">
                         <!-- タイトル帯 -->
                         <div style="
@@ -911,10 +1114,10 @@
                         ">お前はどの悪魔の実の力を手に入れるか…！？</p>
 
                         <!-- ガチャ演出エリア -->
-                        <div id="gacha-result"></div>
+                        <div id="gacha-result" style="background: transparent; border: none; box-shadow: none;"></div>
 
                         <!-- 結果後の戻るボタン -->
-                        <div id="gacha-back-btn-container" style="display: none; margin-top: 2rem;">
+                        <div id="gacha-back-btn-container" style="display: none; margin-top: 0.6rem;">
                             <button id="back-from-gacha-btn" style="
                                 padding: 0.8rem 2rem;
                                 border: 2px solid rgba(255,255,255,0.6);
@@ -943,17 +1146,27 @@
                         <span class="score-text" id="result-score">0/60</span>
                     </div>
                     <div class="score-pct" id="result-percentage">0%</div>
-                    <div id="pass-status" style="margin-top: 0.5rem;"></div>
-                    <p id="result-msg" style="font-size: 1.2rem; margin-top: 1rem;"></p>
-                    <p style="color:#aaa; margin-top:0.5rem;">所要時間: <span id="result-time">-</span></p>
+                    <div id="pass-status" style="margin-top: 0.8rem; font-size: 1.3rem; font-weight: 700;"></div>
+                    <p id="result-msg" style="font-size: 1.1rem; margin-top: 0.8rem; color: #e2e8f0; line-height: 1.6;"></p>
+                    <p style="color:#94a3b8; margin-top:0.8rem; font-size: 0.95rem;">⏱ 所要時間: <strong style="color:#cbd5e1;"><span id="result-time">-</span></strong></p>
+                </div>
+
+                <!-- クイックアクションボタン（スコア直下） -->
+                <div style="display: flex; gap: 0.8rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                    <button onclick="location.reload()" class="exam-nav-btn primary" style="flex: 1; min-width: 140px; padding: 0.9rem 1rem; font-size: 1rem;">
+                        🔄 もう一度挑戦する
+                    </button>
+                    <a href="index.html" class="exam-nav-btn secondary" style="flex: 1; min-width: 140px; padding: 0.9rem 1rem; font-size: 1rem; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                        🏠 ホームへ戻る
+                    </a>
                 </div>
 
                 <!-- ガチャ結果への導線 -->
-                <div class="gacha-section" style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff8e1; border-radius: 12px; border: 2px dashed #ffb300;">
+                <div class="gacha-section" style="text-align: center; margin: 1rem 0 2rem; padding: 1.5rem; background: #fff8e1; border-radius: 12px; border: 2px dashed #ffb300;">
                     <h3 style="color: #f57f17; margin-bottom: 0.5rem;">🎲 悪魔の実ガチャ</h3>
-                    <p style="color:#666; font-size:0.95rem; margin-bottom: 1rem;">試験を頑張ったご褒美！新しい悪魔の実を引きに行こう！</p>
+                    <p style="color:#666; font-size:0.95rem; margin-bottom: 1rem;">試験を頑張ったご褒美！悪魔の実ガチャにチャレンジしよう！</p>
                     <button id="go-to-gacha-btn" class="exam-nav-btn primary" style="background: linear-gradient(135deg, #ffb300, #ff8f00); font-size: 1.2rem; padding: 1rem 2rem;">
-                        🎰 ガチャ会場へ向かう！
+                        ガチャ会場へ向かう！
                     </button>
                 </div>
 
@@ -967,26 +1180,150 @@
                 <!-- 回答詳細 -->
                 <div id="result-details"></div>
 
-                <!-- 履歴 -->
-                <div id="result-history" style="margin-top: 2rem;"></div>
+                <!-- 履歴（アコーディオン） -->
+                <div class="collapsible-header" onclick="toggleCollapsible(this)" style="margin-top: 2rem;">
+                    <span style="font-weight: 700;">📜 過去の試験履歴</span>
+                    <span>▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <div id="result-history"></div>
+                </div>
 
-                <!-- ボタン -->
-                <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                    <button onclick="location.reload()" class="nav-button">🔄 もう一度挑戦する</button>
-                    <a href="index.html" class="nav-button secondary">🏠 ホームへ戻る</a>
+                <!-- ページ末尾のスクロールアップボタン -->
+                <div style="margin-top: 2rem; text-align: center;">
+                    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="exam-nav-btn secondary" style="padding: 0.7rem 1.5rem;">
+                        ↑ 試験結果へ戻る
+                    </button>
                 </div>
             </div>
 
         </div>
     </main>
 
+    <!-- ===== カスタム確認モーダル ===== -->
+    <div id="confirm-modal" style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+    ">
+        <div style="
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 2rem 1.5rem;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            text-align: center;
+        ">
+            <div id="confirm-modal-icon" style="font-size: 2.5rem; margin-bottom: 0.8rem;"></div>
+            <h3 id="confirm-modal-title" style="margin: 0 0 0.6rem; font-size: 1.15rem; color: #1a1a1a;"></h3>
+            <p id="confirm-modal-message" style="margin: 0 0 1.5rem; font-size: 0.95rem; color: #555; line-height: 1.7; white-space: pre-line;"></p>
+            <div style="display: flex; gap: 0.8rem;">
+                <button id="confirm-modal-cancel" style="
+                    flex: 1;
+                    padding: 0.75rem;
+                    border: 2px solid #ddd;
+                    border-radius: 10px;
+                    background: white;
+                    color: #555;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                ">キャンセル</button>
+                <button id="confirm-modal-ok" style="
+                    flex: 1;
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 10px;
+                    background: linear-gradient(135deg, #c62828, #e53935);
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                ">確認</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         function toggleCollapsible(header) {
             const content = header.nextElementSibling;
             content.classList.toggle('open');
-            header.querySelector('span:last-child').textContent = content.classList.contains('open') ? '▲' : '▼';
+            header.lastElementChild.textContent = content.classList.contains('open') ? '▲' : '▼';
+        }
+
+        /**
+         * confirm() の代替カスタムモーダル
+         * @param {Object} opts - { icon, title, message, okText, okColor, onOk }
+         */
+        function showConfirmModal(opts) {
+            const modal = document.getElementById('confirm-modal');
+            document.getElementById('confirm-modal-icon').textContent = opts.icon || '⚠️';
+            document.getElementById('confirm-modal-title').textContent = opts.title || '確認';
+            document.getElementById('confirm-modal-message').textContent = opts.message || '';
+
+            const okBtn = document.getElementById('confirm-modal-ok');
+            okBtn.textContent = opts.okText || 'OK';
+            okBtn.style.background = opts.okColor || 'linear-gradient(135deg, #c62828, #e53935)';
+
+            modal.style.display = 'flex';
+
+            // 既存のリスナーをクリーンアップ
+            const newOk = okBtn.cloneNode(true);
+            okBtn.parentNode.replaceChild(newOk, okBtn);
+            const newCancel = document.getElementById('confirm-modal-cancel').cloneNode(true);
+            document.getElementById('confirm-modal-cancel').parentNode.replaceChild(newCancel, document.getElementById('confirm-modal-cancel'));
+
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            document.getElementById('confirm-modal-ok').addEventListener('click', () => {
+                closeModal();
+                if (opts.onOk) opts.onOk();
+            });
+            document.getElementById('confirm-modal-cancel').addEventListener('click', closeModal);
+
+            // オーバーレイ外クリックで閉じる
+            modal.addEventListener('click', function onOverlayClick(e) {
+                if (e.target === modal) {
+                    closeModal();
+                    modal.removeEventListener('click', onOverlayClick);
+                }
+            });
         }
     </script>
+
+    <!-- ===== 悪魔の実カード拡大モーダル ===== -->
+    <div id="fruit-card-modal" style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+    " onclick="this.style.display='none'">
+        <div id="fruit-card-modal-inner" style="
+            position: relative;
+            max-width: 320px;
+            width: 88%;
+            animation: fruitCardPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275) both;
+        " onclick="event.stopPropagation()">
+            <!-- 内容はJSで差し込む -->
+        </div>
+    </div>
+    <style>
+        @keyframes fruitCardPop {
+            0%   { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1);   opacity: 1; }
+        }
+    </style>
 
     <script src="shared/js/data/full-exam-data.js"></script>
     <script src="shared/js/full-exam-system.js"></script>

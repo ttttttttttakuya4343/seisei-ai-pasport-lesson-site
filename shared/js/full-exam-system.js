@@ -17,40 +17,28 @@ const FullExamSystem = {
     examSubmitted: false,
     gachaPlayed: false,
     gachaFruit: null,
+    gachaSoundMuted: false,
     overtakenBgm: null,
     luffyBgm: null,
 
-    // 悪魔の実データ
+    // 悪魔の実データ（new/ フォルダの画像のみ使用・レア度1〜5）
     devilFruits: [
-        // ★★★★★ 自然系（レア度5）
-        { name: "ゴロゴロの実", type: "自然系", ability: "雷人間", rarity: 5, emoji: "⚡", color: "#FFD700", image: "shared/images/devil-fruits/gorogoro.png" },
-        { name: "ピカピカの実", type: "自然系", ability: "光人間", rarity: 5, emoji: "✨", color: "#FFFACD", image: "shared/images/devil-fruits/pikapika.png" },
-        { name: "マグマグの実", type: "自然系", ability: "マグマ人間", rarity: 5, emoji: "🌋", color: "#FF4500", image: "shared/images/devil-fruits/magumagu.png" },
-        { name: "ヒエヒエの実", type: "自然系", ability: "氷結人間", rarity: 5, emoji: "❄️", color: "#87CEEB", image: "shared/images/devil-fruits/hiehie.png" },
-        // ★★★★ 超人系・動物系（レア度4）
-        { name: "ゴムゴムの実", type: "超人系", ability: "ゴム人間", rarity: 4, emoji: "🤜", color: "#FF6B6B", image: "shared/images/devil-fruits/gomugomu.png" },
-        { name: "メラメラの実", type: "超人系", ability: "炎を操る", rarity: 4, emoji: "🔥", color: "#FF4500", image: "shared/images/devil-fruits/meramera.png" },
-        { name: "オペオペの実", type: "超人系", ability: "空間操作", rarity: 4, emoji: "💉", color: "#4169E1", image: "shared/images/devil-fruits/opeope.png" },
-        { name: "ヒトヒトの実 幻獣種", type: "動物系", ability: "大仏", rarity: 4, emoji: "🗿", color: "#DAA520", image: "shared/images/devil-fruits/hitohito.png" },
-        { name: "グラグラの実", type: "超人系", ability: "振動人間", rarity: 4, emoji: "💥", color: "#8B4513", image: "shared/images/devil-fruits/guragura.png" },
-        // ★★★ 超人系・動物系（レア度3）
-        { name: "バラバラの実", type: "超人系", ability: "体がバラバラ", rarity: 3, emoji: "🎪", color: "#FF69B4", image: "shared/images/devil-fruits/barabara.png" },
-        { name: "ハナハナの実", type: "超人系", ability: "体を咲かせる", rarity: 3, emoji: "🌸", color: "#DDA0DD", image: "shared/images/devil-fruits/hanahana.png" },
-        { name: "ヨミヨミの実", type: "超人系", ability: "蘇る", rarity: 3, emoji: "💀", color: "#9370DB", image: "shared/images/devil-fruits/yomiyomi.png" },
-        { name: "ノロノロの実", type: "超人系", ability: "のろくする", rarity: 3, emoji: "🐢", color: "#FFA07A", image: "shared/images/devil-fruits/noronoro.png" },
-        { name: "トリトリの実", type: "動物系", ability: "鳥に変身", rarity: 3, emoji: "🦅", color: "#2E8B57", image: "shared/images/devil-fruits/toritori.png" },
-        { name: "ウシウシの実", type: "動物系", ability: "牛に変身", rarity: 3, emoji: "🐂", color: "#8B4513", image: "shared/images/devil-fruits/ushiushi.png" },
-        { name: "ニキュニキュの実", type: "超人系", ability: "肉球人間", rarity: 3, emoji: "🐾", color: "#FFB6C1", image: "shared/images/devil-fruits/nikyunikyu.png" },
-        // ★★ 超人系（レア度2）
-        { name: "スベスベの実", type: "超人系", ability: "滑らか肌", rarity: 2, emoji: "💎", color: "#E0E0E0", image: "shared/images/devil-fruits/subesube.png" },
-        { name: "ボムボムの実", type: "超人系", ability: "爆発人間", rarity: 2, emoji: "💣", color: "#333", image: null },
-        { name: "キロキロの実", type: "超人系", ability: "体重変化", rarity: 2, emoji: "⚖️", color: "#C0C0C0", image: null },
-        { name: "ドルドルの実", type: "超人系", ability: "蝋人間", rarity: 2, emoji: "🕯️", color: "#FFFFF0", image: null },
-        { name: "マネマネの実", type: "超人系", ability: "変身", rarity: 2, emoji: "🎭", color: "#DEB887", image: null },
-        // ★ 超人系（レア度1）
-        { name: "アワアワの実", type: "超人系", ability: "泡人間", rarity: 1, emoji: "🫧", color: "#ADD8E6" },
-        { name: "サビサビの実", type: "超人系", ability: "錆人間", rarity: 1, emoji: "🔩", color: "#B8860B" },
-        { name: "シャリシャリの実", type: "超人系", ability: "車輪人間", rarity: 1, emoji: "⚙️", color: "#A9A9A9" }
+        // ★★★★★ レア度5（ルフィ・エース・ロー）
+        { name: "ゴムゴムの実", type: "パラミシア系", ability: "モンキー・D・ルフィ", rarity: 5, emoji: "🤜", color: "#FF6B6B", image: "shared/images/devil-fruits/new/gomugomu.png" },
+        { name: "メラメラの実", type: "ロギア系", ability: "ポートガス・D・エース", rarity: 5, emoji: "🔥", color: "#FF4500", image: "shared/images/devil-fruits/new/meramera.png" },
+        { name: "オペオペの実", type: "パラミシア系", ability: "トラファルガー・ロー", rarity: 5, emoji: "💉", color: "#4169E1", image: "shared/images/devil-fruits/new/opeope.png" },
+        // ★★★★ レア度4（クロコダイル・白ひげ）
+        { name: "スナスナの実", type: "ロギア系", ability: "サー・クロコダイル", rarity: 4, emoji: "🏜️", color: "#C8A96E", image: "shared/images/devil-fruits/new/sunasuna.png" },
+        { name: "グラグラの実", type: "パラミシア系", ability: "エドワード・ニューゲート（白ひげ）", rarity: 4, emoji: "💥", color: "#8B4513", image: "shared/images/devil-fruits/new/guragura.png" },
+        // ★★★ レア度3（カイドウ・黄猿・ボア・ハンコック）
+        { name: "ウオウオの実 幻獣種", type: "ゾオン系", ability: "カイドウ", rarity: 3, emoji: "🐉", color: "#7B2D8B", image: "shared/images/devil-fruits/new/uouo.png" },
+        { name: "ヒトヒトの実 幻獣種", type: "ゾオン系", ability: "トニートニーチョッパー", rarity: 3, emoji: "🗿", color: "#DAA520", image: "shared/images/devil-fruits/new/hitohito.png" },
+        { name: "メロメロの実", type: "パラミシア系", ability: "ボア・ハンコック", rarity: 3, emoji: "💘", color: "#FF69B4", image: "shared/images/devil-fruits/new/meromero.png" },
+        // ★★ レア度2（スモーカー・ハグワール・D・サウロ）
+        { name: "モクモクの実", type: "ロギア系", ability: "スモーカー", rarity: 2, emoji: "💨", color: "#B0B0B0", image: "shared/images/devil-fruits/new/mokumoku.png" },
+        { name: "ネコネコの実", type: "ゾオン系", ability: "ロブ・ルッチ", rarity: 2, emoji: "🐆", color: "#DAA520", image: "shared/images/devil-fruits/new/nekoneko.png" },
+        // ★ レア度1（ロビン）
+        { name: "ハナハナの実", type: "パラミシア系", ability: "ニコ・ロビン", rarity: 1, emoji: "🌸", color: "#DDA0DD", image: "shared/images/devil-fruits/new/hanahana.png" },
     ],
 
     /**
@@ -65,12 +53,18 @@ const FullExamSystem = {
             document.getElementById('review-toggle-btn').addEventListener('click', () => this.toggleReview());
             document.getElementById('submit-exam-btn').addEventListener('click', () => this.submitExam());
             document.getElementById('back-to-review-btn').addEventListener('click', () => this.showReviewScreen());
-            document.getElementById('abort-btn').addEventListener('click', () => this.abortExam());
+            document.getElementById('abort-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.abortExam();
+            });
 
             // テスト用強制終了ボタン
             const forceFinishBtn = document.getElementById('force-finish-btn');
             if (forceFinishBtn) {
-                forceFinishBtn.addEventListener('click', () => this.forceFinishExam());
+                forceFinishBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.forceFinishExam();
+                });
             }
 
             // ガチャ専用画面からの戻るボタン
@@ -256,11 +250,22 @@ const FullExamSystem = {
     },
 
     /**
-     * 選択肢クリック
+     * 選択肢クリック（スクロールなしで選択状態だけ更新）
      */
     selectOption: function (optionIndex) {
         this.userAnswers[this.currentIndex] = optionIndex;
-        this.showQuestion(); // 再描画して選択状態を反映
+
+        // 選択状態の視覚更新のみ（scrollTo は呼ばない）
+        document.querySelectorAll('.exam-option').forEach((el, i) => {
+            el.classList.toggle('selected', i === optionIndex);
+        });
+
+        // プログレスバーとナビハイライト更新
+        const answered = this.userAnswers.filter(a => a !== null).length;
+        const pct = Math.round((answered / this.questions.length) * 100);
+        document.getElementById('progress-bar').style.width = pct + '%';
+        document.getElementById('progress-text').textContent = `${answered} / ${this.questions.length} 問回答済み`;
+        this.updateNavHighlight();
     },
 
     /**
@@ -276,9 +281,17 @@ const FullExamSystem = {
      */
     forceFinishExam: function () {
         if (!this.examStarted || this.examSubmitted) return;
-        if (!confirm('【テスト用】強制終了します。\n未回答の問題は不正解として採点されます。\nガチャ演出などを確認できます。')) {
-            return;
-        }
+        showConfirmModal({
+            icon: '🔧',
+            title: '強制終了（テスト用）',
+            message: '未回答の問題は不正解として採点されます。\nガチャ演出などを確認できます。',
+            okText: '強制終了する',
+            okColor: 'linear-gradient(135deg, #f57f17, #ff8f00)',
+            onOk: () => { this._doForceFinish(); }
+        });
+    },
+
+    _doForceFinish: function () {
         // 正規の submitExam と同じフローを呼び出す（確認ダイアログをスキップ）
         this.examSubmitted = true;
         clearInterval(this.timer);
@@ -323,19 +336,25 @@ const FullExamSystem = {
      * 試験中断
      */
     abortExam: function () {
-        if (!confirm('試験を中断しますか？\n回答内容は保存されません。')) {
-            return;
-        }
-        clearInterval(this.timer);
-        this.examStarted = false;
-        this.examSubmitted = false;
+        showConfirmModal({
+            icon: '✕',
+            title: '試験を中断しますか？',
+            message: '回答内容は保存されません。\nトップに戻ります。',
+            okText: '中断する',
+            okColor: 'linear-gradient(135deg, #c62828, #e53935)',
+            onOk: () => {
+                clearInterval(this.timer);
+                this.examStarted = false;
+                this.examSubmitted = false;
 
-        document.getElementById('exam-screen').style.display = 'none';
-        document.getElementById('review-screen').style.display = 'none';
-        document.getElementById('result-screen').style.display = 'none';
-        document.getElementById('start-screen').style.display = 'block';
+                document.getElementById('exam-screen').style.display = 'none';
+                document.getElementById('review-screen').style.display = 'none';
+                document.getElementById('result-screen').style.display = 'none';
+                document.getElementById('start-screen').style.display = 'block';
 
-        window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
+            }
+        });
     },
 
     /**
@@ -403,11 +422,21 @@ const FullExamSystem = {
 
         const unanswered = this.userAnswers.filter(a => a === null).length;
         if (unanswered > 0) {
-            if (!confirm(`まだ ${unanswered} 問が未回答です。このまま提出しますか？`)) {
-                return;
-            }
+            showConfirmModal({
+                icon: '📝',
+                title: `${unanswered} 問が未回答です`,
+                message: `まだ ${unanswered} 問に回答していません。\nこのまま提出しますか？`,
+                okText: '提出する',
+                okColor: 'linear-gradient(135deg, #c62828, #e53935)',
+                onOk: () => { this._doSubmit(); }
+            });
+            return;
         }
 
+        this._doSubmit();
+    },
+
+    _doSubmit: function () {
         this.examSubmitted = true;
         clearInterval(this.timer);
 
@@ -473,7 +502,7 @@ const FullExamSystem = {
         if (percentage >= 90) {
             msg.textContent = '🏴‍☠️ 素晴らしい！海賊王の器だ！';
             msg.style.color = '#FFD700';
-        } else if (percentage >= 70) {
+        } else if (percentage >= 75) {
             msg.textContent = '⚔️ 合格ライン突破！よく頑張った！';
             msg.style.color = '#2e7d32';
         } else if (percentage >= 50) {
@@ -486,10 +515,10 @@ const FullExamSystem = {
 
         // 合格ライン表示
         const passEl = document.getElementById('pass-status');
-        if (percentage >= 70) {
+        if (percentage >= 75) {
             passEl.innerHTML = '<span style="color:#2e7d32; font-size:1.5rem; font-weight:bold;">✅ 合格</span>';
         } else {
-            passEl.innerHTML = '<span style="color:#c62828; font-size:1.5rem; font-weight:bold;">❌ 不合格（70%以上で合格）</span>';
+            passEl.innerHTML = '<span style="color:#c62828; font-size:1.5rem; font-weight:bold;">❌ 不合格（75%以上で合格）</span>';
         }
 
         // ガチャへの導線コントロール
@@ -567,19 +596,20 @@ const FullExamSystem = {
 
     /**
      * 悪魔の実ガチャロール
+     * レア度: 1（ノーマル）〜 5（伝説）の5段階
      */
     rollDevilFruit: function (percentage) {
-        // レア度の基本重み
-        const baseWeights = { 5: 2, 4: 5, 3: 12, 2: 18, 1: 25 };
+        // レア度の基本重み（数字が大きいほど出やすい）
+        const baseWeights = { 5: 3, 4: 8, 3: 20, 2: 35, 1: 50 };
 
-        // 正解率ボーナス
+        // 正解率ボーナス：高得点ほど高レアが出やすく
         let multiplier = { 5: 1, 4: 1, 3: 1, 2: 1, 1: 1 };
-        if (percentage >= 100) {
-            multiplier = { 5: 5, 4: 3, 3: 1, 2: 0.5, 1: 0.3 };
-        } else if (percentage >= 80) {
-            multiplier = { 5: 2, 4: 2, 3: 1, 2: 1, 1: 1 };
-        } else if (percentage >= 60) {
-            multiplier = { 5: 1.5, 4: 1.5, 3: 1, 2: 1, 1: 1 };
+        if (percentage >= 90) {
+            multiplier = { 5: 8, 4: 4, 3: 2, 2: 1, 1: 0.5 };  // 90%以上：★5 大幅アップ
+        } else if (percentage >= 75) {
+            multiplier = { 5: 4, 4: 3, 3: 2, 2: 1, 1: 0.8 };  // 75%以上（合格）：高レアアップ
+        } else if (percentage >= 50) {
+            multiplier = { 5: 2, 4: 1.5, 3: 1, 2: 1, 1: 1 };  // 50%以上：わずかボーナス
         }
 
         // 重み計算
@@ -598,9 +628,29 @@ const FullExamSystem = {
         return weighted[weighted.length - 1].fruit;
     },
 
+    /**
+     * 音声ON/OFFトグル（ガチャ画面右上ボタン）
+     */
+    toggleGachaSound: function (btn) {
+        this.gachaSoundMuted = !this.gachaSoundMuted;
+        btn.textContent = this.gachaSoundMuted ? '🔇' : '🔊';
+        btn.style.opacity = this.gachaSoundMuted ? '0.5' : '1';
+
+        // 再生中のBGMにも即反映
+        if (this.overtakenBgm) this.overtakenBgm.muted = this.gachaSoundMuted;
+        if (this.luffyBgm) this.luffyBgm.muted = this.gachaSoundMuted;
+    },
+
     goToGachaScreen: function () {
         document.getElementById('result-screen').style.display = 'none';
         document.getElementById('gacha-screen').style.display = 'block';
+
+        // 音声ボタンを現在のミュート状態に同期
+        const soundBtn = document.getElementById('gacha-sound-btn');
+        if (soundBtn) {
+            soundBtn.textContent = this.gachaSoundMuted ? '🔇' : '🔊';
+            soundBtn.style.opacity = this.gachaSoundMuted ? '0.5' : '1';
+        }
 
         // Overtaken BGMのループ再生
         if (!this.overtakenBgm) {
@@ -619,12 +669,12 @@ const FullExamSystem = {
      */
     showDevilFruitResult: function (fruit) {
         const container = document.getElementById('gacha-result');
-        
+
         // 本格的なガチャマシーン＆カプセルのDOMを表示
         container.innerHTML = `
             <div class="gacha-container" id="gacha-machine">
                 <!-- ガチャを回すボタン -->
-                <button id="spin-btn" class="spin-gacha-btn">🎰 ガチャを回す！</button>
+                <button id="spin-btn" class="spin-gacha-btn">ガチャを回す！</button>
                 
                 <!-- カプセル -->
                 <div id="gacha-capsule" class="gacha-capsule">
@@ -667,7 +717,7 @@ const FullExamSystem = {
             this.luffyBgm.currentTime = 0;
             this.luffyBgm.volume = 0.5;
             this.luffyBgm.play().catch(e => console.warn("BGM play failed", e));
-            
+
             // ボタン無効化＆退場
             spinBtn.disabled = true;
             spinBtn.style.display = 'none';
@@ -688,13 +738,13 @@ const FullExamSystem = {
                 // 音声の再生位置が3.0秒を超えたか、終了したら発動
                 if (!opened && (this.luffyBgm.currentTime >= 3.0 || this.luffyBgm.ended)) {
                     opened = true;
-                    
+
                     // パワー溜め状態を解除
                     clearTimeout(chargingTimeout);
                     capsule.classList.remove('charging');
-                    
+
                     capsule.classList.add('open');
-                    
+
                     // 同時に閃光エフェクト開始
                     flash.classList.add('active');
 
@@ -702,7 +752,7 @@ const FullExamSystem = {
                     setTimeout(() => {
                         capsule.style.display = 'none'; // カプセルを消す
                         resultCard.classList.add('show'); // 悪魔の実カードをズームイン表示
-                        
+
                         // 結果確認後に「試験結果に戻る」ボタンを表示
                         if (backBtnContainer) backBtnContainer.style.display = 'block';
                     }, 400);
@@ -715,18 +765,47 @@ const FullExamSystem = {
     renderGachaResult: function (fruit, container) {
         const stars = '★'.repeat(fruit.rarity) + '☆'.repeat(5 - fruit.rarity);
         const rarityColors = { 5: '#FFD700', 4: '#FF6B6B', 3: '#9370DB', 2: '#4682B4', 1: '#808080' };
+        const rarityGlows = {
+            5: '0 0 40px rgba(255,215,0,0.9), 0 0 80px rgba(255,215,0,0.5)',
+            4: '0 0 40px rgba(255,107,107,0.9), 0 0 80px rgba(255,107,107,0.5)',
+            3: '0 0 40px rgba(147,112,219,0.9), 0 0 80px rgba(147,112,219,0.5)',
+            2: '0 0 30px rgba(70,130,180,0.7)',
+            1: '0 0 20px rgba(128,128,128,0.5)'
+        };
 
         const iconHtml = fruit.image
-            ? `<div class="gacha-fruit-icon" style="border: 3px solid ${fruit.color}"><img src="${fruit.image}" alt="${fruit.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>`
-            : `<div class="gacha-fruit-icon" style="background: radial-gradient(circle, ${fruit.color}40, ${fruit.color}10); border: 3px solid ${fruit.color}">${fruit.emoji}</div>`;
+            ? `<div style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: 1.2rem auto;
+                overflow: hidden;
+                border: 5px solid ${rarityColors[fruit.rarity]};
+                box-shadow: ${rarityGlows[fruit.rarity]};
+                background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.4) 100%);
+              "><img src="${fruit.image}" alt="${fruit.name}" style="width:100%;height:100%;object-fit:cover;"></div>`
+            : `<div style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: 1.2rem auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 5rem;
+                border: 5px solid ${rarityColors[fruit.rarity]};
+                box-shadow: ${rarityGlows[fruit.rarity]};
+                background: radial-gradient(circle, ${fruit.color}30, rgba(0,0,0,0.5));
+              ">${fruit.emoji}</div>`;
 
         container.innerHTML = `
-            <div class="gacha-card" style="border-color: ${rarityColors[fruit.rarity]}">
-                <div class="gacha-rarity" style="color: ${rarityColors[fruit.rarity]}">${stars}</div>
+            <div class="gacha-card" style="border-color: ${rarityColors[fruit.rarity]}; box-shadow: ${rarityGlows[fruit.rarity]}; min-width: 280px; padding: 1.5rem 2rem;">
+                <div class="gacha-rarity" style="color: ${rarityColors[fruit.rarity]}; font-size: 1.5rem; letter-spacing: 4px;">${stars}</div>
                 ${iconHtml}
-                <div class="gacha-fruit-name">${fruit.name}</div>
-                <div class="gacha-fruit-type">${fruit.type}</div>
-                <div class="gacha-fruit-ability">能力：${fruit.ability}</div>
+                <div class="gacha-fruit-name" style="font-size: 1.6rem; margin-top: 0.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">${fruit.name}</div>
+                <div class="gacha-fruit-type" style="font-size: 1rem; color: #ccc; margin-top: 0.3rem;">${fruit.type}</div>
+                <div class="gacha-fruit-ability" style="font-size: 0.85rem; color: #aaa; margin-top: 0.6rem; margin-bottom: 0.1rem;">この悪魔の実を食べたキャラ</div>
+                <div class="gacha-fruit-ability" style="font-size: 1.05rem; color: #ffd54f; font-weight: 700;">⚡ ${fruit.ability}</div>
             </div>
         `;
     },
@@ -769,7 +848,7 @@ const FullExamSystem = {
                 history.forEach(h => {
                     const d = new Date(h.date);
                     const dateStr = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-                    const passClass = h.percentage >= 70 ? 'pass' : 'fail';
+                    const passClass = h.percentage >= 75 ? 'pass' : 'fail';
                     html += `<tr class="${passClass}"><td>${h.attempt}</td><td>${dateStr}</td><td>${h.score}/60</td><td>${h.percentage}%</td><td>${h.timeSpent}</td><td>${h.devilFruit || '-'}</td></tr>`;
                 });
                 html += '</tbody></table>';
@@ -787,7 +866,7 @@ const FullExamSystem = {
                 history.forEach(h => {
                     const d = new Date(h.date);
                     const dateStr = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-                    const passClass = h.percentage >= 70 ? 'pass' : 'fail';
+                    const passClass = h.percentage >= 75 ? 'pass' : 'fail';
                     html += `<tr class="${passClass}"><td>${h.attempt}</td><td>${dateStr}</td><td>${h.score}/60</td><td>${h.percentage}%</td><td>${h.timeSpent}</td><td>${h.devilFruit || '-'}</td></tr>`;
                 });
                 html += '</tbody></table>';
@@ -825,6 +904,9 @@ const FullExamSystem = {
                     <div class="collection-stars">${stars}</div>
                     <div class="collection-count">×${owned}</div>
                 `;
+                // タップで拡大カード表示（所持済みのみ）
+                div.style.cursor = 'pointer';
+                div.addEventListener('click', () => this.showFruitCardModal(fruit, owned));
             } else {
                 div.innerHTML = `
                     <div class="collection-emoji locked-emoji">？</div>
@@ -834,6 +916,112 @@ const FullExamSystem = {
             }
             container.appendChild(div);
         });
+    },
+
+    /**
+     * 悪魔の実カード拡大モーダルを表示
+     */
+    showFruitCardModal: function (fruit, ownedCount) {
+        const modal = document.getElementById('fruit-card-modal');
+        const inner = document.getElementById('fruit-card-modal-inner');
+        if (!modal || !inner) return;
+
+        const stars = '★'.repeat(fruit.rarity) + '☆'.repeat(5 - fruit.rarity);
+        const rarityColors = { 5: '#FFD700', 4: '#FF6B6B', 3: '#9370DB', 2: '#4682B4', 1: '#808080' };
+        const rarityLabels = { 5: 'LEGENDARY', 4: 'EPIC', 3: 'RARE', 2: 'UNCOMMON', 1: 'COMMON' };
+        const rarityGlows = {
+            5: '0 0 40px rgba(255,215,0,0.8), 0 0 80px rgba(255,215,0,0.3)',
+            4: '0 0 40px rgba(255,107,107,0.8)',
+            3: '0 0 30px rgba(147,112,219,0.7)',
+            2: '0 0 20px rgba(70,130,180,0.5)',
+            1: '0 0 12px rgba(128,128,128,0.4)'
+        };
+        const color = rarityColors[fruit.rarity];
+        const glow  = rarityGlows[fruit.rarity];
+
+        const imgHtml = fruit.image
+            ? `<img src="${fruit.image}" alt="${fruit.name}" style="
+                width: 160px; height: 160px; object-fit: cover;
+                border-radius: 50%;
+                border: 5px solid ${color};
+                box-shadow: ${glow};
+                display: block; margin: 0 auto 1rem;
+              ">`
+            : `<div style="
+                width: 160px; height: 160px; border-radius: 50%;
+                background: radial-gradient(circle, ${fruit.color}40, rgba(0,0,0,0.6));
+                border: 5px solid ${color}; box-shadow: ${glow};
+                display: flex; align-items: center; justify-content: center;
+                font-size: 4rem; margin: 0 auto 1rem;
+              ">${fruit.emoji}</div>`;
+
+        inner.innerHTML = `
+            <div style="
+                background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
+                border: 3px solid ${color};
+                border-radius: 20px;
+                padding: 1.8rem 1.5rem 1.5rem;
+                text-align: center;
+                color: white;
+                box-shadow: ${glow};
+                position: relative;
+            ">
+                <!-- 閉じるボタン -->
+                <button onclick="document.getElementById('fruit-card-modal').style.display='none'" style="
+                    position: absolute; top: 12px; right: 14px;
+                    background: rgba(255,255,255,0.12); border: none;
+                    color: #fff; font-size: 1.2rem; width: 32px; height: 32px;
+                    border-radius: 50%; cursor: pointer; line-height: 1;
+                ">✕</button>
+
+                <!-- レアリティバッジ -->
+                <div style="
+                    display: inline-block;
+                    background: ${color}22;
+                    border: 1.5px solid ${color};
+                    border-radius: 20px;
+                    padding: 0.2rem 1rem;
+                    font-size: 0.75rem;
+                    font-weight: 900;
+                    color: ${color};
+                    letter-spacing: 2px;
+                    margin-bottom: 1rem;
+                ">${rarityLabels[fruit.rarity]}</div>
+
+                ${imgHtml}
+
+                <!-- 星 -->
+                <div style="font-size: 1.4rem; color: ${color}; letter-spacing: 4px; margin-bottom: 0.5rem;">${stars}</div>
+
+                <!-- 実名 -->
+                <div style="font-size: 1.5rem; font-weight: 900; margin-bottom: 0.3rem; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">${fruit.name}</div>
+
+                <!-- 系統 -->
+                <div style="font-size: 0.9rem; color: #aaa; margin-bottom: 0.3rem;">${fruit.type}</div>
+
+                <!-- 能力者 -->
+                <div style="font-size: 0.85rem; color: #aaa; margin-bottom: 0.15rem;">この悪魔の実を食べたキャラ</div>
+                <div style="font-size: 1rem; color: #ffd54f; font-weight: 700; margin-bottom: 1rem;">⚡ ${fruit.ability}</div>
+
+                <!-- 所持数 -->
+                <div style="
+                    display: inline-block;
+                    background: rgba(255,255,255,0.08);
+                    border-radius: 10px;
+                    padding: 0.4rem 1.2rem;
+                    font-size: 0.85rem;
+                    color: #ccc;
+                ">所持数: <strong style="color:#fff;">×${ownedCount}</strong></div>
+            </div>
+        `;
+
+        // アニメーションをリセットして再生
+        inner.style.animation = 'none';
+        requestAnimationFrame(() => {
+            inner.style.animation = '';
+        });
+
+        modal.style.display = 'flex';
     }
 };
 
