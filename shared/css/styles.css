@@ -4869,10 +4869,105 @@ main {
  text-align: left;
 }
 
+/* ===== 本試験 結果画面 ===== */
 .result-item {
- margin-bottom: 1rem;
- padding-bottom: 1rem;
+ background: #ffffff;
+ border: 1px solid var(--border-color);
+ border-radius: 12px;
+ padding: 1.5rem 1.75rem 1.75rem;
+ margin-bottom: 2rem;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 正解カード */
+.result-item[data-correct="true"] {
+ border-left: 4px solid var(--success-green);
+}
+
+/* 不正解カード */
+.result-item[data-correct="false"] {
+ border-left: 4px solid var(--error-red);
+}
+
+/* ヘッダー（問番号 + 正誤マーク） */
+.result-item-header {
+ font-size: 1.05rem;
+ font-weight: 700;
+ color: var(--text-dark);
+ margin-bottom: 0.75rem;
+ padding-bottom: 0.6rem;
  border-bottom: 1px solid var(--border-color);
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+}
+
+/* 問題文 */
+.result-q {
+ font-size: 1rem;
+ font-weight: 600;
+ color: var(--text-dark);
+ line-height: 1.75;
+ margin: 0.75rem 0 1rem;
+}
+
+/* あなたの回答 / 正解 */
+.result-answer,
+.result-correct {
+ font-size: 0.95rem;
+ line-height: 1.7;
+ margin: 0.4rem 0;
+ padding: 0.5rem 0.75rem;
+ border-radius: 6px;
+}
+
+.result-answer {
+ background: #fef9c3;
+ color: #78350f;
+}
+
+.result-correct {
+ background: #dcfce7;
+ color: #14532d;
+}
+
+/* 解説ブロック */
+.result-explanation {
+ margin-top: 1rem;
+ padding: 1rem 1.2rem;
+ background: var(--bg-gray-light);
+ border-left: 4px solid var(--primary-blue);
+ border-radius: 0 8px 8px 0;
+ font-size: 0.95rem;
+ line-height: 1.85;
+ color: var(--text-dark);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+ .result-item {
+  padding: 1rem 1rem 1.2rem;
+  margin-bottom: 1.25rem;
+ }
+
+ .result-item-header {
+  font-size: 0.95rem;
+ }
+
+ .result-q {
+  font-size: 0.9rem;
+ }
+
+ .result-answer,
+ .result-correct {
+  font-size: 0.88rem;
+ }
+
+ .result-explanation {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  padding: 0.75rem 0.9rem;
+ }
 }
 
 .start-screen {
