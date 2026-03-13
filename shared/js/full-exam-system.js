@@ -225,12 +225,7 @@ const FullExamSystem = {
             hint.style.cssText = 'font-size:0.85rem;color:#e65100;font-weight:bold;margin:4px 0 8px;';
             optionsEl.parentNode.insertBefore(hint, optionsEl);
         }
-        if (isMulti) {
-            hint.textContent = '☑️ 複数選択可 — 該当するものをすべて選んでください';
-            hint.style.display = 'block';
-        } else {
-            hint.style.display = 'none';
-        }
+        hint.style.display = 'none';
 
         q.options.forEach((opt, i) => {
             const div = document.createElement('div');
@@ -623,7 +618,7 @@ const FullExamSystem = {
 
             div.innerHTML = `
                 <div class="result-item-header">
-                    <span><strong>問${i + 1}</strong>${r.type === 'multi' ? ' <span style="font-size:0.75rem;color:#e65100;background:#fff3e0;border-radius:4px;padding:1px 6px;">複数選択</span>' : ''} ${mark}</span>
+                    <span><strong>問${i + 1}</strong> ${mark}</span>
                 </div>
                 <p class="result-q">${r.question}</p>
                 <p class="result-answer">あなたの回答: <strong>${userText}</strong></p>
