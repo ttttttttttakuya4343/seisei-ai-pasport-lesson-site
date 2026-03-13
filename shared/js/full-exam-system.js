@@ -682,11 +682,11 @@ const FullExamSystem = {
                 capsule.classList.add('charging');
             }, 1200);
 
-            // BGMの再生時間を監視し、曲の終盤（約5.0秒）のタイミングに合わせてカプセルを開く
+            // BGMの再生時間を監視し、ドンのタイミング（約3.0秒）に合わせる
             let opened = false;
             this.luffyBgm.addEventListener('timeupdate', () => {
-                // 音声の再生位置が5.0秒を超えたか、終了したら発動
-                if (!opened && (this.luffyBgm.currentTime >= 5.0 || this.luffyBgm.ended)) {
+                // 音声の再生位置が3.0秒を超えたか、終了したら発動
+                if (!opened && (this.luffyBgm.currentTime >= 3.0 || this.luffyBgm.ended)) {
                     opened = true;
                     
                     // パワー溜め状態を解除
