@@ -573,6 +573,34 @@ const FullExamSystem = {
             gachaSection.style.display = 'none';
         } else {
             gachaSection.style.display = 'block';
+
+            // --- レア率UP ヒントバッジを正答率に応じて表示 ---
+            const rarityHint = document.getElementById('gacha-rarity-hint');
+            if (rarityHint) {
+                let hintText, bg, border, textColor;
+                if (percentage >= 90) {
+                    hintText = '🌟 正答率90%以上！伝説級レアが出やすい！';
+                    bg = 'linear-gradient(90deg, #f57f17, #ffca28)';
+                    border = '#f57f17';
+                    textColor = '#fff';
+                } else if (percentage >= 75) {
+                    hintText = '✨ 正答率75%以上！レア排出率UP中！';
+                    bg = 'linear-gradient(90deg, #1565c0, #42a5f5)';
+                    border = '#1565c0';
+                    textColor = '#fff';
+                } else {
+                    hintText = '💪 正答率を上げるとレアが出やすくなるぞ！';
+                    bg = 'linear-gradient(90deg, #546e7a, #90a4ae)';
+                    border = '#546e7a';
+                    textColor = '#fff';
+                }
+                rarityHint.textContent = hintText;
+                rarityHint.style.background = bg;
+                rarityHint.style.border = '2px solid ' + border;
+                rarityHint.style.color = textColor;
+                rarityHint.style.display = 'inline-block';
+            }
+
             const goBtn = document.getElementById('go-to-gacha-btn');
             if (goBtn) {
                 goBtn.onclick = () => this.goToGachaScreen();
