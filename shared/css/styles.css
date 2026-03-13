@@ -5315,3 +5315,15 @@ main {
   pointer-events: none !important;
   position: fixed !important;
 }
+
+/* ===== navbar外の.nav-links漏れ防止 ===== */
+/* .nav-links は .navbar の内部のみで有効。
+   body直下など navbar の外に流れ込んだ場合は強制非表示。 */
+body > .nav-links,
+footer ~ .nav-links,
+footer + .nav-links,
+.nav-links ~ .nav-links {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
