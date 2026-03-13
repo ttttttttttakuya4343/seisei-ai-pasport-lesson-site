@@ -324,23 +324,123 @@ setInterval(loadLearningProgress, 30000); // 30秒ごと
 
 // お宝の獲得状況をリセット
 function resetTreasureProgress() {
-    if (!confirm('お宝の獲得状況をリセットしますか？\n（各章の模擬試験をもう一度クリアする必要があります）')) {
-        return;
-    }
+    showHomeConfirmModal({
+        icon: '🔄',
+        title: 'お宝獲得状況のリセット',
+        message: 'お宝の獲得状況をリセットしますか？\n（各章の模擬試験をもう一度クリアする必要があります）\n\n※ 悪魔の実コレクションや模擬試験の履歴はそのまま保持されます。',
+        okText: 'リセットする',
+        okColor: 'linear-gradient(135deg, #c62828, #e53935)',
+        onOk: () => {
+            // お宝取得情報のみ削除（セクション完了・悪魔の実・模擬試験履歴は保持）
+            for (let i = 1; i <= 5; i++) {
+                localStorage.removeItem(`chapter${i}_completed`);
+                localStorage.removeItem(`treasure_shown_${i}`);
+            }
 
-    // 章の完了状態をリセット
-    for (let i = 1; i <= 5; i++) {
-        localStorage.removeItem(`chapter${i}_completed`);
-        localStorage.removeItem(`treasure_shown_${i}`);
+            // UIを即座に更新
+            loadLearningProgress();
 
-        // セクション完了状態もリセット
-        for (let s = 1; s <= 10; s++) {
-            localStorage.removeItem(`chapter${i}_section${s}_completed`);
+            showHomeConfirmModal({
+                icon: '✅',
+                title: 'リセット完了',
+                message: 'お宝の獲得状況をリセットしました！\n（悪魔の実・模擬試験履歴は保持されています）',
+                okText: '閉じる',
+                okColor: 'linear-gradient(135deg, #2e7d32, #43a047)',
+                hideCancel: true,
+                onOk: () => {}
+            });
         }
+    });
+}
+
+/**
+ * ホームページ用カスタム確認モーダル
+ * @param {Object} opts - { icon, title, message, okText, okColor, hideCancel, onOk }
+ */
+function showHomeConfirmModal(opts) {
+    // 既存モーダルがあれば再利用、なければ動的生成
+    let modal = document.getElementById('home-confirm-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'home-confirm-modal';
+        modal.style.cssText = `
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+        `;
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                border-radius: 16px;
+                padding: 2rem 2rem 1.5rem;
+                max-width: 400px;
+                width: 90%;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+                text-align: center;
+            ">
+                <div id="hcm-icon" style="font-size: 2.5rem; margin-bottom: 0.8rem;"></div>
+                <h3 id="hcm-title" style="margin: 0 0 0.6rem; font-size: 1.15rem; color: #1a1a1a;"></h3>
+                <p id="hcm-message" style="margin: 0 0 1.5rem; font-size: 0.95rem; color: #555; line-height: 1.7; white-space: pre-line;"></p>
+                <div style="display: flex; gap: 0.8rem;" id="hcm-btn-row">
+                    <button id="hcm-cancel" style="
+                        flex: 1;
+                        padding: 0.75rem;
+                        border: 2px solid #ddd;
+                        border-radius: 10px;
+                        background: white;
+                        color: #555;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                    ">キャンセル</button>
+                    <button id="hcm-ok" style="
+                        flex: 1;
+                        padding: 0.75rem;
+                        border: none;
+                        border-radius: 10px;
+                        color: white;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                    ">OK</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
     }
 
-    // UIを即座に更新
-    loadLearningProgress();
+    document.getElementById('hcm-icon').textContent = opts.icon || '⚠️';
+    document.getElementById('hcm-title').textContent = opts.title || '確認';
+    document.getElementById('hcm-message').textContent = opts.message || '';
 
-    alert('お宝の獲得状況をリセットしました！');
+    const okBtn = document.getElementById('hcm-ok');
+    const cancelBtn = document.getElementById('hcm-cancel');
+    okBtn.textContent = opts.okText || 'OK';
+    okBtn.style.background = opts.okColor || 'linear-gradient(135deg, #c62828, #e53935)';
+    cancelBtn.style.display = opts.hideCancel ? 'none' : '';
+
+    modal.style.display = 'flex';
+
+    // イベントリスナーをリセット（クローンで置き換え）
+    const newOk = okBtn.cloneNode(true);
+    okBtn.parentNode.replaceChild(newOk, okBtn);
+    const newCancel = cancelBtn.cloneNode(true);
+    cancelBtn.parentNode.replaceChild(newCancel, cancelBtn);
+
+    newOk.textContent = opts.okText || 'OK';
+    newOk.style.background = opts.okColor || 'linear-gradient(135deg, #c62828, #e53935)';
+    newCancel.style.display = opts.hideCancel ? 'none' : '';
+
+    function closeModal() { modal.style.display = 'none'; }
+
+    newOk.addEventListener('click', () => { closeModal(); if (opts.onOk) opts.onOk(); });
+    newCancel.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function onOverlay(e) {
+        if (e.target === modal) { closeModal(); modal.removeEventListener('click', onOverlay); }
+    });
 }

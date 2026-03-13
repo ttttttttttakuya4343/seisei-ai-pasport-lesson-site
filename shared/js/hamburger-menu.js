@@ -47,9 +47,21 @@
     var drawer = document.createElement('nav');
     drawer.className = 'mobile-nav';
     drawer.setAttribute('aria-label', 'モバイルナビゲーション');
+    // 初期状態はCSSクラス（.mobile-nav）の定義に委ねる、インラインスタイルでの制御は廃止
+    
+    // ── ②-A 閉じるボタン（✕）を作成 ───────────────────────────────────
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'mobile-nav-close';
+    closeBtn.setAttribute('aria-label', 'メニューを閉じる');
+    closeBtn.setAttribute('type', 'button');
+    closeBtn.innerHTML = '✕';
+    // ※ ここでは appendChild しない（innerHTML 上書き後に prepend する）
 
     // .nav-links の内容をコピー
     drawer.innerHTML = navLinks.innerHTML;
+
+    // innerHTML 設定後にドロワー先頭へ挿入（上書きで消えるのを防ぐ）
+    drawer.prepend(closeBtn);
 
     // ── コピーした中の不要な要素を削除 ─────────────────────────────────
     // ① 「章を選択」テキストを含む要素（重複防止）
@@ -97,6 +109,20 @@
       drawer.appendChild(accordion);
     }
 
+    // ── ③-B 「本試験模擬テスト」リンクを追加 ────────────────────────────
+    var examLink = document.createElement('a');
+    examLink.href = root + 'full-exam.html';
+    examLink.textContent = '🏴‍☠️ 本試験模擬テスト';
+    examLink.style.cssText = [
+      'background: linear-gradient(135deg, rgba(198,40,40,0.4), rgba(229,57,53,0.4))',
+      'border: 1px solid rgba(229,57,53,0.6)',
+      'font-weight: 700',
+      'text-align: center',
+    ].join(';');
+    drawer.insertBefore(examLink, drawer.querySelector('.character-selector-link') || null);
+    // character-selector-link が見つからない場合は末尾に追加
+    if (!examLink.parentNode) drawer.appendChild(examLink);
+
     document.body.appendChild(drawer);
 
     // ── ④ オーバーレイ ──────────────────────────────────────────────────
@@ -106,6 +132,8 @@
 
     // ── ⑤ 開閉関数 ──────────────────────────────────────────────────────
     function openMenu() {
+      // メニューを開く処理
+
       btn.classList.add('is-open');
       btn.setAttribute('aria-expanded', 'true');
       drawer.classList.add('is-open');
@@ -138,6 +166,7 @@
     });
 
     overlay.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', closeMenu);
 
     // ドロワー内リンクをタップ → ナビゲーション優先で少し遅らせて閉じる
     drawer.addEventListener('click', function (e) {
