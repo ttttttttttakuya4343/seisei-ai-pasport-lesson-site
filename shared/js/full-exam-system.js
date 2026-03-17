@@ -718,7 +718,7 @@ const FullExamSystem = {
                 <p class="result-q">${r.question}</p>
                 <p class="result-answer">あなたの回答: <strong>${userText}</strong></p>
                 <p class="result-correct">正解: <strong>${correctText}</strong></p>
-                <div class="result-explanation">${r.explanation}</div>
+                <div class="result-explanation"><strong style="display:block; margin-bottom:0.4em; color:#1565c0; font-size:0.9rem; letter-spacing:0.03em;">📝 解説:</strong>${r.explanation}</div>
             `;
             container.appendChild(div);
         });
