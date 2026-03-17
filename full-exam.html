@@ -30,12 +30,18 @@
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
             padding: 0.8rem 1.2rem;
-            border-radius: 12px;
+            border-radius: 0 0 12px 12px;
             margin-bottom: 1rem;
-            position: sticky;
-            top: 70px; /* ナビバー(約64px)の下に配置 */
-            z-index: 100;
+            position: fixed;
+            top: 64px; /* ナビバー(約64px)の直下 */
+            left: 0;
+            right: 0;
+            z-index: 200;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        /* タイマーバー分のスペースを試験画面のトップに確保 */
+        #exam-screen {
+            padding-top: 60px;
         }
         .timer-display {
             font-size: 1.8rem;
