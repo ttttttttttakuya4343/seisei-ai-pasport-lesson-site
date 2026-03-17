@@ -33,7 +33,7 @@
             border-radius: 12px;
             margin-bottom: 1rem;
             position: sticky;
-            top: 0;
+            top: 70px; /* ナビバー(約64px)の下に配置 */
             z-index: 100;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
@@ -388,6 +388,7 @@
             color: #222;
             border: 1px solid rgba(0,0,0,0.08);
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            white-space: pre-line;
         }
 
         /* ===== ガチャカード ===== */
@@ -877,6 +878,18 @@
         <div class="container">
             <h1 class="logo">🎓 生成AIパスポート講座</h1>
             <div class="nav-links">
+                <button id="nav-top-btn" onclick="FullExamSystem.goToStartScreen()" style="
+                    background: rgba(255,255,255,0.15);
+                    color: white;
+                    border: 1px solid rgba(255,255,255,0.4);
+                    border-radius: 8px;
+                    padding: 0.4rem 1rem;
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: background 0.2s;
+                    font-family: inherit;
+                ">📝 試験選択に戻る</button>
                 <a href="index.html">ホーム</a>
             </div>
         </div>
@@ -949,7 +962,15 @@
                     </div>
                 </div>
 
-                <button id="start-btn" class="start-btn-large">試験を開始する</button>
+                <!-- 試験選択ボタン -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;">
+                    <button id="start-btn" class="start-btn-large" style="flex: 1; min-width: 200px; max-width: 300px;">
+                        📝 模擬試験 1 を開始
+                    </button>
+                    <button id="start-btn-2" class="start-btn-large" style="flex: 1; min-width: 200px; max-width: 300px; background: linear-gradient(135deg, #7c3aed, #4f46e5);">
+                        📝 模擬試験 2 を開始
+                    </button>
+                </div>
 
                 <!-- 履歴（アコーディオン） -->
                 <div class="collapsible-header" id="start-history-header" onclick="toggleCollapsible(this)" style="margin-top: 2rem;">
@@ -1286,7 +1307,7 @@
 
         /**
          * confirm() の代替カスタムモーダル
-         * @param {Object} opts - { icon, title, message, okText, okColor, onOk }
+         * @param {Object} opts - { icon, title, message, okText, okColor, onOk, cancelText, onCancel, showCancel }
          */
         function showConfirmModal(opts) {
             const modal = document.getElementById('confirm-modal');
@@ -1298,13 +1319,17 @@
             okBtn.textContent = opts.okText || 'OK';
             okBtn.style.background = opts.okColor || 'linear-gradient(135deg, #c62828, #e53935)';
 
+            const cancelBtn = document.getElementById('confirm-modal-cancel');
+            cancelBtn.textContent = opts.cancelText || 'キャンセル';
+            cancelBtn.style.display = (opts.showCancel === false) ? 'none' : 'block';
+
             modal.style.display = 'flex';
 
             // 既存のリスナーをクリーンアップ
             const newOk = okBtn.cloneNode(true);
             okBtn.parentNode.replaceChild(newOk, okBtn);
-            const newCancel = document.getElementById('confirm-modal-cancel').cloneNode(true);
-            document.getElementById('confirm-modal-cancel').parentNode.replaceChild(newCancel, document.getElementById('confirm-modal-cancel'));
+            const newCancel = cancelBtn.cloneNode(true);
+            cancelBtn.parentNode.replaceChild(newCancel, cancelBtn);
 
             function closeModal() {
                 modal.style.display = 'none';
@@ -1314,15 +1339,13 @@
                 closeModal();
                 if (opts.onOk) opts.onOk();
             });
-            document.getElementById('confirm-modal-cancel').addEventListener('click', closeModal);
-
-            // オーバーレイ外クリックで閉じる
-            modal.addEventListener('click', function onOverlayClick(e) {
-                if (e.target === modal) {
-                    closeModal();
-                    modal.removeEventListener('click', onOverlayClick);
-                }
+            document.getElementById('confirm-modal-cancel').addEventListener('click', () => {
+                closeModal();
+                if (opts.onCancel) opts.onCancel();
             });
+
+            // タイムアップ時は背景クリックで閉じないようにするなどの制御が必要な場合はここを調整
+            // 今回はシンプルにキャンセル（閉じる）を許容する
         }
     </script>
 
@@ -1354,6 +1377,7 @@
     </style>
 
     <script src="shared/js/data/full-exam-data.js"></script>
+    <script src="shared/js/data/full-exam-data-2.js"></script>
     <script src="shared/js/full-exam-system.js"></script>
     <script src="shared/js/hamburger-menu.js"></script>
 </body>

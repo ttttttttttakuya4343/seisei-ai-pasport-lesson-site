@@ -44,10 +44,17 @@ const FullExamSystem = {
     /**
      * 初期化
      */
+    // 現在選択中の試験セット番号（1 or 2）
+    currentExamSet: 1,
+
     init: function () {
         document.addEventListener('DOMContentLoaded', () => {
             // ボタンイベント
-            document.getElementById('start-btn').addEventListener('click', () => this.startExam());
+            document.getElementById('start-btn').addEventListener('click', () => this.startExam(1));
+            const startBtn2 = document.getElementById('start-btn-2');
+            if (startBtn2) {
+                startBtn2.addEventListener('click', () => this.startExam(2));
+            }
             document.getElementById('prev-btn').addEventListener('click', () => this.goToPrev());
             document.getElementById('next-btn').addEventListener('click', () => this.goToNext());
             document.getElementById('review-toggle-btn').addEventListener('click', () => this.toggleReview());
@@ -97,15 +104,20 @@ const FullExamSystem = {
     /**
      * 試験開始
      */
-    startExam: function () {
+    startExam: function (examSet) {
+        // 試験セット選択（1: 既存の模擬試験1、2: 模擬試験2）
+        this.currentExamSet = examSet || 1;
+        const sourceQuestions = (this.currentExamSet === 2) ? fullExamQuestions2 : fullExamQuestions;
         // 全問シャッフル
-        this.questions = this.shuffle([...fullExamQuestions]);
+        this.questions = this.shuffle([...sourceQuestions]);
         this.currentIndex = 0;
         this.userAnswers = new Array(60).fill(null);
         this.reviewFlags = new Array(60).fill(false);
         this.examStarted = true;
         this.examSubmitted = false;
-        this.timeRemaining = 60 * 60;
+        this.gachaPlayed = false;
+        this.gachaFruit = null;
+        this.timeRemaining = 60 * 60; // 60分 = 3600秒
 
         document.getElementById('start-screen').style.display = 'none';
         document.getElementById('exam-screen').style.display = 'block';
@@ -118,6 +130,48 @@ const FullExamSystem = {
     },
 
     /**
+     * トップ画面（開始画面）に戻る
+     */
+    goToStartScreen: function () {
+        // 試験中の場合は確認ダイアログを表示
+        if (this.examStarted && !this.examSubmitted) {
+            if (!confirm('試験を中断してトップ画面に戻りますか？\n（回答内容は保存されません）')) {
+                return;
+            }
+            clearInterval(this.timer);
+            this.examStarted = false;
+        }
+
+        // 全画面を非表示にしてstart-screenを表示
+        const screens = ['exam-screen', 'review-screen', 'result-screen', 'gacha-screen'];
+        screens.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+        // gacha-sectionも非表示に
+        const gachaSection = document.querySelector('.gacha-section');
+        if (gachaSection) gachaSection.style.display = 'none';
+
+        document.getElementById('start-screen').style.display = 'block';
+
+        // BGMを停止
+        if (this.luffyBgm) {
+            this.luffyBgm.pause();
+            this.luffyBgm.currentTime = 0;
+        }
+        if (this.overtakenBgm) {
+            this.overtakenBgm.pause();
+            this.overtakenBgm.currentTime = 0;
+        }
+
+        // 履歴・コレクション再描画
+        this.renderHistory();
+        this.renderCollection();
+
+        window.scrollTo(0, 0);
+    },
+
+    /**
      * タイマー開始
      */
     startTimer: function () {
@@ -127,7 +181,20 @@ const FullExamSystem = {
             this.updateTimerDisplay();
             if (this.timeRemaining <= 0) {
                 clearInterval(this.timer);
-                this.submitExam();
+                
+                // タイムアップ通知
+                showConfirmModal({
+                    icon: '⏰',
+                    title: '制限時間超過',
+                    message: '制限時間の60分が経過しました。\n採点に進みますか？それとも回答を続けますか？',
+                    okText: '採点する',
+                    cancelText: '回答を続ける',
+                    onOk: () => { this.submitExam(); },
+                    onCancel: () => {
+                        // タイマー停止のまま続行
+                        console.log('User chose to continue after time up.');
+                    }
+                });
             }
         }, 1000);
     },
@@ -897,13 +964,15 @@ const FullExamSystem = {
      * 履歴保存
      */
     saveHistory: function (data) {
-        const history = JSON.parse(localStorage.getItem('fullExam_history') || '[]');
+        const key = `fullExam_history_${this.currentExamSet}`;
+        const history = JSON.parse(localStorage.getItem(key) || '[]');
         history.push({
             attempt: history.length + 1,
             date: new Date().toISOString(),
+            examSet: this.currentExamSet,
             ...data
         });
-        localStorage.setItem('fullExam_history', JSON.stringify(history));
+        localStorage.setItem(key, JSON.stringify(history));
     },
 
     /**
@@ -919,24 +988,29 @@ const FullExamSystem = {
      * 履歴テーブル描画
      */
     renderHistory: function () {
-        const history = JSON.parse(localStorage.getItem('fullExam_history') || '[]');
+        // 両試験セットの履歴を結合して日付でソート
+        const h1 = JSON.parse(localStorage.getItem('fullExam_history_1') || '[]').map(h => ({ ...h, examSet: h.examSet || 1 }));
+        const h2 = JSON.parse(localStorage.getItem('fullExam_history_2') || '[]').map(h => ({ ...h, examSet: 2 }));
+        const history = [...h1, ...h2].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        const buildTable = (list) => {
+            if (list.length === 0) return '<p style="color:#888;">まだ受験履歴がありません。</p>';
+            let html = '<table class="history-table"><thead><tr><th>試験</th><th>回</th><th>日時</th><th>スコア</th><th>正解率</th><th>時間</th><th>悪魔の実</th></tr></thead><tbody>';
+            list.forEach(h => {
+                const d = new Date(h.date);
+                const dateStr = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+                const passClass = h.percentage >= 75 ? 'pass' : 'fail';
+                const setLabel = h.examSet === 2 ? '試験2' : '試験1';
+                html += `<tr class="${passClass}"><td>${setLabel}</td><td>${h.attempt}</td><td>${dateStr}</td><td>${h.score}/60</td><td>${h.percentage}%</td><td>${h.timeSpent}</td><td>${h.devilFruit || '-'}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            return html;
+        };
 
         // 開始画面の履歴
         const startHistory = document.getElementById('start-history');
         if (startHistory) {
-            if (history.length === 0) {
-                startHistory.innerHTML = '<p style="color:#888;">まだ受験履歴がありません。</p>';
-            } else {
-                let html = '<table class="history-table"><thead><tr><th>回</th><th>日時</th><th>スコア</th><th>正解率</th><th>時間</th><th>悪魔の実</th></tr></thead><tbody>';
-                history.forEach(h => {
-                    const d = new Date(h.date);
-                    const dateStr = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-                    const passClass = h.percentage >= 75 ? 'pass' : 'fail';
-                    html += `<tr class="${passClass}"><td>${h.attempt}</td><td>${dateStr}</td><td>${h.score}/60</td><td>${h.percentage}%</td><td>${h.timeSpent}</td><td>${h.devilFruit || '-'}</td></tr>`;
-                });
-                html += '</tbody></table>';
-                startHistory.innerHTML = html;
-            }
+            startHistory.innerHTML = buildTable(history);
         }
 
         // 結果画面の履歴
@@ -945,15 +1019,7 @@ const FullExamSystem = {
             if (history.length === 0) {
                 resultHistory.innerHTML = '';
             } else {
-                let html = '<h3>📊 過去の受験履歴</h3><table class="history-table"><thead><tr><th>回</th><th>日時</th><th>スコア</th><th>正解率</th><th>時間</th><th>悪魔の実</th></tr></thead><tbody>';
-                history.forEach(h => {
-                    const d = new Date(h.date);
-                    const dateStr = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-                    const passClass = h.percentage >= 75 ? 'pass' : 'fail';
-                    html += `<tr class="${passClass}"><td>${h.attempt}</td><td>${dateStr}</td><td>${h.score}/60</td><td>${h.percentage}%</td><td>${h.timeSpent}</td><td>${h.devilFruit || '-'}</td></tr>`;
-                });
-                html += '</tbody></table>';
-                resultHistory.innerHTML = html;
+                resultHistory.innerHTML = '<h3>📊 過去の受験履歴</h3>' + buildTable(history);
             }
         }
     },
