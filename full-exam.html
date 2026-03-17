@@ -33,7 +33,7 @@
             border-radius: 0 0 12px 12px;
             margin-bottom: 1rem;
             position: fixed;
-            top: 64px; /* ナビバー(約64px)の直下 */
+            top: 0; /* JS側でnavbarの高さを動的にセット */
             left: 0;
             right: 0;
             z-index: 200;
@@ -1386,6 +1386,27 @@
     <script src="shared/js/data/full-exam-data-2.js"></script>
     <script src="shared/js/full-exam-system.js"></script>
     <script src="shared/js/hamburger-menu.js"></script>
+
+    <script>
+        /**
+         * タイマーバーの top をナビバーの実際の高さに合わせて動的に設定する
+         * （スマホ・PC問わず、ナビバーの高さが変わっても対応できるようにする）
+         */
+        function adjustTimerBarTop() {
+            const navbar = document.querySelector('.navbar');
+            const timerBar = document.querySelector('.timer-bar');
+            if (!navbar || !timerBar) return;
+            const navH = navbar.getBoundingClientRect().height;
+            timerBar.style.top = navH + 'px';
+        }
+
+        // 初期設定（DOM読み込み後）
+        document.addEventListener('DOMContentLoaded', adjustTimerBarTop);
+        // フォント等の読み込み後に再調整
+        window.addEventListener('load', adjustTimerBarTop);
+        // リサイズ時にも再調整
+        window.addEventListener('resize', adjustTimerBarTop);
+    </script>
 </body>
 
 </html>
