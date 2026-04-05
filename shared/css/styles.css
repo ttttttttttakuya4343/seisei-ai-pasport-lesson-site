@@ -1165,6 +1165,19 @@ footer {
  padding: 0.75rem;
  }
 
+ /* ⑪-b レッスンカードfooterのスマホ調整 */
+ .lesson-footer {
+ flex-wrap: wrap;
+ gap: 0.4rem 0.8rem;
+ }
+
+ .lesson-footer .completion-badge {
+ width: 100%;
+ text-align: center;
+ margin-top: 0.3rem;
+ order: 10;
+ }
+
  /* ⑫ ナビボタンのスマホ調整 */
  .lesson-navigation {
  flex-direction: column;
