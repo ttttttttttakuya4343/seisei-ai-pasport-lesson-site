@@ -44,6 +44,9 @@
                     </div>
                     <p class="progress-text"><span id="completed-sections">0</span> / 5 セクション完了</p>
                 </div>
+                <div style="text-align:center;margin-top:0.8rem;">
+                    <button onclick="resetChapterProgress(5)" style="background:linear-gradient(135deg,#ff6b6b,#ee5a24);border:none;color:white;font-size:0.9rem;cursor:pointer;padding:0.6rem 1.5rem;border-radius:8px;font-weight:700;box-shadow:0 2px 8px rgba(238,90,36,0.3);transition:transform 0.2s;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">🔄 この章の進捗をリセット</button>
+                </div>
             </div>
             <section class="section">
                 <h2>📖 学習内容</h2>
@@ -213,6 +216,7 @@
             }
         });
     </script>
+    <script src="../shared/js/quiz-system.js"></script>
     <script src="../shared/js/config/characters.js"></script>
     <script src="../shared/js/page-navigation.js"></script>
     <script src="../shared/js/config/character-messages-bundle.js"></script>
