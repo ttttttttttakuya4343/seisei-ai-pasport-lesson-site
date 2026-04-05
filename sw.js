@@ -1,6 +1,6 @@
 // Service Worker for PWA and Offline Support
 // ⚠️ キャッシュを更新するときはこのバージョン番号を上げてください
-const CACHE_NAME = 'ai-passport-v5';
+const CACHE_NAME = 'ai-passport-v6';
 const urlsToCache = [
   '/',
   '/index.html',

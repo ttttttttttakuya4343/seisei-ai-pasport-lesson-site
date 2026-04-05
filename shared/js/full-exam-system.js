@@ -275,24 +275,23 @@ const FullExamSystem = {
         document.getElementById('progress-bar').style.width = pct + '%';
         document.getElementById('progress-text').textContent = `${answered} / ${this.questions.length} 問回答済み`;
 
-        // 問題文
-        document.getElementById('question-text').textContent = q.question;
+        // 問題文（改行やリスト記述の視認性向上のため、HTMLパースして表示）
+        let escapedQ = q.question.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        let qLines = escapedQ.split('\n');
+        let formattedHtml = qLines.map(line => {
+            // 「ア　」「1. 」などで始まる行を検出してぶら下がりインデントを適用
+            if (/^([アイウエ1-4][　\.．])/.test(line)) {
+                return `<div style="padding-left: 1.5em; text-indent: -1.5em; margin-bottom: 0.8em; line-height: 1.6;">${line}</div>`;
+            }
+            return line;
+        }).join('\n');
+        document.getElementById('question-text').innerHTML = formattedHtml;
 
         // 選択肢
         const optionsEl = document.getElementById('options-area');
         optionsEl.innerHTML = '';
         // 複数選択問題かどうか
         const isMulti = q.type === 'multi';
-
-        // 複数選択ヒント表示
-        let hint = document.getElementById('multi-hint');
-        if (!hint) {
-            hint = document.createElement('p');
-            hint.id = 'multi-hint';
-            hint.style.cssText = 'font-size:0.85rem;color:#e65100;font-weight:bold;margin:4px 0 8px;';
-            optionsEl.parentNode.insertBefore(hint, optionsEl);
-        }
-        hint.style.display = 'none';
 
         q.options.forEach((opt, i) => {
             const div = document.createElement('div');
